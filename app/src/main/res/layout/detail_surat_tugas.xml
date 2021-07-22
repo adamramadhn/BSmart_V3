@@ -239,6 +239,7 @@
                 android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="16sp"
                 android:padding="8dp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="@+id/tv_note"
                 app:layout_constraintStart_toStartOf="@+id/tv_note"
                 app:layout_constraintTop_toBottomOf="@id/tv_note" />
@@ -250,6 +251,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/button_blue"
                 android:fontFamily="@font/nunitosans_bold"
                 android:text="Batalkan Tanggapan"
@@ -276,7 +278,8 @@
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_es3" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_es3"
+                app:layout_constraintVertical_bias="0.527" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_setuju"
