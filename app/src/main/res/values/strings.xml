@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">B-Smart</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_map">Maps</string>
+    <string name="menu_favorite">Favorite</string>
+
+    <string name="title_activity_detail_home">DetailHomeActivity</string>
+    <string name="no_data">Empty data</string>
+    <string name="something_wrong">Oops.. something went wrong</string>
+    <string name="title_maps">Maps</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_st">Nomer ST</string>
+    <string name="no_id">ID /</string>
+    <string name="illustration_on_login_app">Illustration On Login App</string>
+    <string name="login_b_smart">Login B\'Smart</string>
+    <string name="illustration_on_boarding_app">Illustration On Boarding App</string>
+    <string name="on_boarding_b_smart">B\'SMART</string>
+    <string name="on_boarding_summaryapp">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
+    <string name="onboarding_mulai">Mulai</string>
+    <string name="daftar_akun_b_smart">Daftar akun B\'Smart</string>
+    <string name="es_1">Es.1</string>
+    <string name="es_2">Es.2</string>
+    <string name="es_3">Es.3</string>
+    <string name="es_4">Es.4</string>
+</resources>

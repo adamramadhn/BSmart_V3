@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="image_description">Image</string>
+    <string name="text_primary">Sample of title text</string>
+    <string name="text_subtitle">Sample of subtitle text</string>
+    <string name="es_4">Es.4</string>
+    <string name="es_3">Es.3</string>
+    <string name="es_2">Es.2</string>
+    <string name="es_1">Es.1</string>
+</resources>

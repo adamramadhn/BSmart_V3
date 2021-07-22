@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OnBoardingScreenActivity">
+
+    <ImageView
+        android:id="@+id/img_illustration_onboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="119dp"
+        android:contentDescription="@string/illustration_on_boarding_app"
+        android:src="@drawable/illustration_onboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_titleapp"
+        style="@style/headerText"
+        android:layout_marginTop="32dp"
+        android:text="@string/on_boarding_b_smart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_illustration_onboard" />
+
+    <TextView
+        android:id="@+id/txt_summary_app"
+        style="@style/contentGrey"
+        android:layout_width="334dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/on_boarding_summaryapp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_titleapp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="135dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_blue"
+        android:fontFamily="@font/nunitosans_bold"
+        android:text="@string/onboarding_mulai"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_summary_app" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
