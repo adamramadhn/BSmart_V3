@@ -14,8 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TourismApp">
 
-        <activity android:name="com.bpkp.bsmartapp.detail.webview.WebViewPDF"/>
-
         <activity
             android:name="com.bpkp.bsmartapp.login.LoginActivity"
             android:theme="@style/Theme.TourismApp.NoActionBar">

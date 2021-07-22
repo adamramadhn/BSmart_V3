@@ -2,7 +2,6 @@ package com.bpkp.bsmartapp.core.data.source.remote.network
 
 import com.bpkp.bsmartapp.core.data.source.remote.response.AuthLoginResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.ListSuratTugasResponse
-import com.bpkp.bsmartapp.core.data.source.remote.response.PDFResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -35,10 +34,6 @@ interface ApiService {
         @Field("username") username: String,
         @Field("idst") id_st: Int,
     ): Call<ListSuratTugasResponse>
-
-    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @GET("api/surattugas/pdf/link")
-    fun getPdf(@Query("idst") id_st: Int): Call<PDFResponse>
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")

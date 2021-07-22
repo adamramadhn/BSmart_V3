@@ -38,6 +38,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnSuratTugas.setOnClickListener(this)
         binding.btnTte.setOnClickListener(this)
 
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -51,6 +52,10 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 tvDescription.text = detailSuratTugas.perihal
                 tv_date_duration.text = "${detailSuratTugas.tgl1} s.d."
                 tv_date_duration2.text = detailSuratTugas.tgl2
+                etNote.setText(
+                    "Eselon 1: ${detailSuratTugas.review_note_es1}\nEselon 2: ${detailSuratTugas.review_note_es2}\n" +
+                            "Eselon 3: ${detailSuratTugas.review_note_es3}\nEselon 4: ${detailSuratTugas.review_note_es4}\n"
+                )
 
                 //perlu diedit dibawah ini (nunggu db)
                 tvUserUpdate.text = detailSuratTugas.user_id
@@ -58,7 +63,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 
                 when (userEselon) {
                     "ESELON IV-A", "ESELON IV-B" -> {
-                        etNote.setText(detailSuratTugas.review_note_es4)
                         if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
@@ -84,7 +88,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         }
                     }
                     "ESELON III-A", "ESELON III-B" -> {
-                        etNote.setText(detailSuratTugas.review_note_es3)
                         if (detailSuratTugas.apv_es4 == 0 || detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
@@ -110,50 +113,66 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         }
                     }
                     "ESELON II-A", "ESELON II-B" -> {
-                        etNote.setText(detailSuratTugas.review_note_es2)
                         if (detailSuratTugas.apv_es3 == 0 || detailSuratTugas.apv_es4 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
+                            btnTte.visibility = View.GONE
                         } else {
                             if (detailSuratTugas.apv_es2 != 2 && detailSuratTugas.approve_id_user_eselon_2 == USERID_DETAIL) {
                                 btnCancel.visibility = View.VISIBLE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
+                                if(detailSuratTugas.apv_es2 == 1){
+                                    btnTte.visibility = View.VISIBLE
+                                }else{
+                                    btnTte.visibility = View.GONE
+                                }
                             } else if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0) {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
+                                btnTte.visibility = View.GONE
                             } else if (detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0) {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
+                                btnTte.visibility = View.GONE
                             } else {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.VISIBLE
                                 btnSetuju.visibility = View.VISIBLE
+                                btnTte.visibility = View.GONE
                             }
                         }
                     }
                     "ESELON I-A", "ESELON I-B" -> {
-                        etNote.setText(detailSuratTugas.review_note_es4)
                         if (detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es4 == 0 || detailSuratTugas.apv_es3 == 0) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
+                            btnTte.visibility = View.GONE
                         } else {
                             if (detailSuratTugas.apv_es1 != 2 && detailSuratTugas.approve_id_user_eselon_1 == USERID_DETAIL) {
                                 btnCancel.visibility = View.VISIBLE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
+                                if(detailSuratTugas.apv_es2 == 1){
+                                    btnTte.visibility = View.VISIBLE
+                                }else{
+                                    btnTte.visibility = View.GONE
+                                }
+
                             } else if (detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0) {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
+                                btnTte.visibility = View.GONE
                             } else {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.VISIBLE
                                 btnSetuju.visibility = View.VISIBLE
+                                btnTte.visibility = View.GONE
                             }
                         }
                     }
@@ -161,6 +180,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         btnCancel.visibility = View.GONE
                         btnTolak.visibility = View.GONE
                         btnSetuju.visibility = View.GONE
+                        btnTte.visibility = View.GONE
                     }
                 }
 
@@ -357,7 +377,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_surat_tugas -> {
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.setDataAndType(
-                    Uri.parse("http://103.226.139.157:8080/api/surattugas/pdfreturn?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                    Uri.parse("http://103.226.139.157:8080/api/surattugas/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
                     "application/pdf"
                 )
                 intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
