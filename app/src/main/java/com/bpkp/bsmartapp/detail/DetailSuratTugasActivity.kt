@@ -355,11 +355,13 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_surat_tugas -> {
-//                val intent = Intent(this, WebViewPDF::class.java)
-//                intent.putExtra(IDST, idST)
-//                startActivity(intent)
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/gview?embedded=true&url=" + "http://103.226.139.157:8080/api/surattugas/pdf?idst=22&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"))
-                startActivity(browserIntent)
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.setDataAndType(
+                    Uri.parse("http://103.226.139.157:8080/api/surattugas/pdfreturn?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                    "application/pdf"
+                )
+                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                startActivity(Intent.createChooser(intent, "Open with..."))
             }
             R.id.btn_tte -> {
                 //menunggu...
