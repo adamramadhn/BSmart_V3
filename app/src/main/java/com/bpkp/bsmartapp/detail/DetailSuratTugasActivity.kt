@@ -52,9 +52,44 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 tvDescription.text = detailSuratTugas.perihal
                 tv_date_duration.text = "${detailSuratTugas.tgl1} s.d."
                 tv_date_duration2.text = detailSuratTugas.tgl2
+                var note1 = detailSuratTugas.review_note_es1
+                var note2 = detailSuratTugas.review_note_es2
+                var note3 = detailSuratTugas.review_note_es3
+                var note4 = detailSuratTugas.review_note_es4
+                note1 = when (note1) {
+                    null -> {
+                        ""
+                    }
+                    else -> {
+                        "Eselon 1: ${detailSuratTugas.review_note_es1}"
+                    }
+                }
+                note2 = when (note2) {
+                    null -> {
+                        ""
+                    }
+                    else -> {
+                        "Eselon 2: ${detailSuratTugas.review_note_es2}"
+                    }
+                }
+                note3 = when (note3) {
+                    null -> {
+                        ""
+                    }
+                    else -> {
+                        "Eselon 3: ${detailSuratTugas.review_note_es3}"
+                    }
+                }
+                note4 = when (note4) {
+                    null -> {
+                        ""
+                    }
+                    else -> {
+                        "Eselon 4: ${detailSuratTugas.review_note_es4}"
+                    }
+                }
                 etNote.setText(
-                    "Eselon 1: ${detailSuratTugas.review_note_es1}\nEselon 2: ${detailSuratTugas.review_note_es2}\n" +
-                            "Eselon 3: ${detailSuratTugas.review_note_es3}\nEselon 4: ${detailSuratTugas.review_note_es4}\n"
+                    "$note1" + "$note2" + "$note3" + "$note4"
                 )
 
                 //perlu diedit dibawah ini (nunggu db)
@@ -123,9 +158,9 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 btnCancel.visibility = View.VISIBLE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
-                                if(detailSuratTugas.apv_es2 == 1){
+                                if (detailSuratTugas.apv_es2 == 1) {
                                     btnTte.visibility = View.VISIBLE
-                                }else{
+                                } else {
                                     btnTte.visibility = View.GONE
                                 }
                             } else if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0) {
@@ -157,9 +192,9 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 btnCancel.visibility = View.VISIBLE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
-                                if(detailSuratTugas.apv_es2 == 1){
+                                if (detailSuratTugas.apv_es2 == 1) {
                                     btnTte.visibility = View.VISIBLE
-                                }else{
+                                } else {
                                     btnTte.visibility = View.GONE
                                 }
 
@@ -380,7 +415,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     Uri.parse("http://103.226.139.157:8080/api/surattugas/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
                     "application/pdf"
                 )
-                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
                 startActivity(Intent.createChooser(intent, "Open with..."))
             }
             R.id.btn_tte -> {
