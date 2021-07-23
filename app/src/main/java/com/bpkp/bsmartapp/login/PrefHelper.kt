@@ -7,14 +7,8 @@ class PrefHelper (context : Context) {
 
     //DECLARATION
     private val PREFS_NAME = "sharedpref12345"
-    private var sharedPref : SharedPreferences
-    val editor : SharedPreferences.Editor
-
-    //CONSTRUCTOR
-    init {
-        sharedPref = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        editor = sharedPref.edit()
-    }
+    private var sharedPref : SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+    private val editor : SharedPreferences.Editor = sharedPref.edit()
 
     //SETTER
     fun put(key: String, value: String){

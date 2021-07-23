@@ -3,7 +3,6 @@ package com.bpkp.bsmartapp.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -70,7 +69,6 @@ class HomeFragment : Fragment(), SuratTugasListener {
 
             if (binding.etSearchSt.text.toString().isEmpty()) {
                 homeViewModel.suratTugas(USERNAME_HOME)
-                Log.d("ZZZ", USERNAME_HOME)
                 homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
                     if (it != null) {
                         suratTugasAdapter.setData(it)
@@ -90,7 +88,6 @@ class HomeFragment : Fragment(), SuratTugasListener {
                     })
                 } else {
                     homeViewModel.suratTugas(USERNAME_HOME)
-                    Log.d("ZZZ", USERNAME_HOME)
                     homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
                         if (it != null) {
                             suratTugasAdapter.setData(it)
@@ -177,11 +174,7 @@ class HomeFragment : Fragment(), SuratTugasListener {
         _binding = null
     }
 
-    override fun onSuccess(message: String) {
-
-    }
-
-    override fun onFailure(message: String) {
+    override fun setMessage(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 

@@ -1,6 +1,5 @@
 package com.bpkp.bsmartapp.login
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,7 +17,7 @@ class LoginViewModel: ViewModel() {
 
     fun onLoginButtonClick(user_email: String, user_password: String) {
         authListener?.onStarted()
-        if (user_email.isNullOrEmpty() || user_password.isNullOrEmpty()) {
+        if (user_email.isEmpty() || user_password.isEmpty()) {
             authListener?.onFailure("Invalid email or password")
             return
         }
@@ -53,7 +52,7 @@ class LoginViewModel: ViewModel() {
 
             })
         } catch (e: Exception){
-            Log.d("Login",e.toString())
+//            Log.d("Login",e.toString())
         }
         return loginResponse
     }

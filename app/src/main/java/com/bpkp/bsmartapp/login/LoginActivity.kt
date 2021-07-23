@@ -2,7 +2,6 @@ package com.bpkp.bsmartapp.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -45,13 +44,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, AuthListener {
                 userPassword = loginBinding.etPassword.text?.trim().toString()
                 loginViewModel.onLoginButtonClick(userEmail, userPassword)
                 if (userEmail.isNotEmpty() && userPassword.isNotEmpty()) {
-
                     prefHelper.put(Constant.PREF_USERNAME, et_email.text.toString())
                     prefHelper.put(Constant.PREF_PASSWORD, et_password.text.toString())
                     prefHelper.put(Constant.PREF_IS_LOGIN, true)
-
-                    Toast.makeText(applicationContext, "Login Successfully", Toast.LENGTH_SHORT)
-                        .show()
                 }
             }
         }
@@ -71,8 +66,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, AuthListener {
                 prefHelper.getString(Constant.PREF_USERNAME).toString().trim(),
                 prefHelper.getString(Constant.PREF_PASSWORD).toString().trim()
             )
-            Log.d("ZZZ", prefHelper.getString(Constant.PREF_USERNAME).toString())
-            Log.d("ZZZ", prefHelper.getString(Constant.PREF_PASSWORD).toString())
         }
     }
 

@@ -101,11 +101,8 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 }
                 etNote.hint = "$note1$note2$note3$note4"
 
-
-                //perlu diedit dibawah ini (nunggu db)
                 tvUserUpdate.text = detailSuratTugas.created_by
-                Log.d("ZZZ", userEselon.toString())
-
+//                tvUserUpdate.text = detailSuratTugas.user_id
                 when (userEselon) {
                     "ESELON IV-A", "ESELON IV-B" -> {
                         if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0 || detailSuratTugas.apv_es3 == 1 || detailSuratTugas.apv_es3 == 0) {

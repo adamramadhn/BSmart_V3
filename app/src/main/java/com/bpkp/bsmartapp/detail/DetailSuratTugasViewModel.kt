@@ -1,6 +1,5 @@
 package com.bpkp.bsmartapp.detail
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -30,12 +29,10 @@ class DetailSuratTugasViewModel: ViewModel() {
                     ) {
                         if (response.isSuccessful) {
                             loginResponse.postValue(response.body())
-//                            Log.d("ZZZ", "Success boss")
                         }
                     }
 
                     override fun onFailure(call: Call<SuratTugasResponse>, t: Throwable) {
-                        Log.d("ZZZ", "onfailure $t")
                     }
                 })
         }
@@ -54,7 +51,6 @@ class DetailSuratTugasViewModel: ViewModel() {
                 ) {
                     if (response.isSuccessful) {
                         loginResponse2.postValue(response.body()?.places)
-                        Log.d("ZZZ", response.body().toString())
                     }
                 }
 

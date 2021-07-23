@@ -1,10 +1,8 @@
 package com.bpkp.bsmartapp.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.bpkp.bsmartapp.AuthListener
 import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
 import com.bpkp.bsmartapp.core.data.source.remote.response.ListSuratTugasResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
@@ -25,12 +23,10 @@ class HomeViewModel() : ViewModel() {
             ) {
                 if (response.isSuccessful) {
                     loginResponse.postValue(response.body()?.places)
-                    Log.d("ZZZ", "Success boss")
                 }
             }
 
             override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
-//                suratTugasListener?.onFailure("Data gagal diambil\nkarena: $t")
             }
         })
     }
@@ -43,7 +39,6 @@ class HomeViewModel() : ViewModel() {
         ApiService().getSearch(user_email,cari)
             .enqueue(object : Callback<ListSuratTugasResponse> {
                 override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
-                    t.message?.let { Log.d("Failure", it) }
                 }
 
                 override fun onResponse(
@@ -52,7 +47,7 @@ class HomeViewModel() : ViewModel() {
                 ) {
                     if (response.isSuccessful) {
                         if(response.body()?.places.isNullOrEmpty()){
-                            suratTugasListener?.onFailure("Tidak ditemukan")
+                            suratTugasListener?.setMessage("Tidak ditemukan")
                             cariResponse.postValue(null)
                         }else{
                             cariResponse.postValue(response.body()?.places)
@@ -76,12 +71,10 @@ class HomeViewModel() : ViewModel() {
             ) {
                 if (response.isSuccessful) {
                     loginResponse.postValue(response.body()?.places)
-                    Log.d("ZZZ", "Success boss")
                 }
             }
 
             override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
-//                suratTugasListener?.onFailure("Data gagal diambil\nkarena: $t")
             }
         })
     }
