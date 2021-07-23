@@ -55,6 +55,7 @@ data class SuratTugasResponse(
     val review_note_es4: String?,
 
     val url: String?,
+    val created_by: String?,
 
 
     ) : Parcelable

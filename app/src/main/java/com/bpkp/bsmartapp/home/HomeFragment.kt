@@ -1,5 +1,6 @@
 package com.bpkp.bsmartapp.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -111,6 +113,9 @@ class HomeFragment : Fragment(), SuratTugasListener {
                 }
                 etSearchSt.setOnKeyListener { _, keyCode, event ->
                     if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                        val imm: InputMethodManager =
+                            requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                        imm.hideSoftInputFromWindow(etSearchSt.windowToken, 0)
                         searchUser()
                         return@setOnKeyListener true
                     }
@@ -150,6 +155,14 @@ class HomeFragment : Fragment(), SuratTugasListener {
         prefHelper = PrefHelper(requireContext())
         if (prefHelper.getBoolean(Constant.PREF_FILTER)) {
             homeViewModel.suratTugasFilter(USERNAME_HOME)
+            homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
+                if (it != null) {
+                    suratTugasAdapter.setData(it)
+                    binding.progressBar.visibility = View.GONE
+                }
+            })
+        }else{
+            homeViewModel.suratTugas(USERNAME_HOME)
             homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
                 if (it != null) {
                     suratTugasAdapter.setData(it)

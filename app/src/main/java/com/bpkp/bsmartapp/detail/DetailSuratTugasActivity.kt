@@ -1,12 +1,15 @@
 package com.bpkp.bsmartapp.detail
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -37,7 +40,15 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnBack.setOnClickListener { finish() }
         binding.btnSuratTugas.setOnClickListener(this)
         binding.btnTte.setOnClickListener(this)
-
+        binding.etNote.setOnKeyListener { _, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                val imm: InputMethodManager =
+                    applicationContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etNote.windowToken, 0)
+                return@setOnKeyListener true
+            }
+            return@setOnKeyListener false
+        }
 
     }
 
@@ -61,7 +72,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         ""
                     }
                     else -> {
-                        "Eselon 1: ${detailSuratTugas.review_note_es1}"
+                        "Eselon 1: ${detailSuratTugas.review_note_es1}\n"
                     }
                 }
                 note2 = when (note2) {
@@ -69,7 +80,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         ""
                     }
                     else -> {
-                        "Eselon 2: ${detailSuratTugas.review_note_es2}"
+                        "Eselon 2: ${detailSuratTugas.review_note_es2}\n"
                     }
                 }
                 note3 = when (note3) {
@@ -77,7 +88,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         ""
                     }
                     else -> {
-                        "Eselon 3: ${detailSuratTugas.review_note_es3}"
+                        "Eselon 3: ${detailSuratTugas.review_note_es3}\n"
                     }
                 }
                 note4 = when (note4) {
@@ -85,20 +96,19 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         ""
                     }
                     else -> {
-                        "Eselon 4: ${detailSuratTugas.review_note_es4}"
+                        "Eselon 4: ${detailSuratTugas.review_note_es4}\n"
                     }
                 }
-                etNote.setText(
-                    "$note1" + "$note2" + "$note3" + "$note4"
-                )
+                etNote.hint = "$note1$note2$note3$note4"
+
 
                 //perlu diedit dibawah ini (nunggu db)
-                tvUserUpdate.text = detailSuratTugas.user_id
+                tvUserUpdate.text = detailSuratTugas.created_by
                 Log.d("ZZZ", userEselon.toString())
 
                 when (userEselon) {
                     "ESELON IV-A", "ESELON IV-B" -> {
-                        if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0) {
+                        if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0 || detailSuratTugas.apv_es3 == 1 || detailSuratTugas.apv_es3 == 0) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
@@ -123,7 +133,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         }
                     }
                     "ESELON III-A", "ESELON III-B" -> {
-                        if (detailSuratTugas.apv_es4 == 0 || detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0) {
+                        if (detailSuratTugas.apv_es4 == 0 || detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
@@ -310,6 +320,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         detailSuratTugasViewModel.setDetail(userName.toString(), idST)
                         detailSuratTugasViewModel.getDetail().observe(this, {
                             showDetailTourism(it?.get(0))
+                            binding.etNote.setText("")
                         })
                     }, 1000)
                     Toast.makeText(this, "Ya", Toast.LENGTH_SHORT).show()
@@ -343,6 +354,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         detailSuratTugasViewModel.setDetail(userName.toString(), idST)
                         detailSuratTugasViewModel.getDetail().observe(this, {
                             showDetailTourism(it?.get(0))
+                            binding.etNote.setText("")
                         })
                     }, 1000)
                     Toast.makeText(this, "Ya", Toast.LENGTH_SHORT).show()
@@ -374,6 +386,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         detailSuratTugasViewModel.setDetail(userName.toString(), idST)
                         detailSuratTugasViewModel.getDetail().observe(this, {
                             showDetailTourism(it?.get(0))
+                            binding.etNote.setText("")
                         })
                     }, 1000)
                     Toast.makeText(this, "Ya", Toast.LENGTH_SHORT).show()
