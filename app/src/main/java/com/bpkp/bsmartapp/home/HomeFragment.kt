@@ -150,22 +150,34 @@ class HomeFragment : Fragment(), SuratTugasListener {
     override fun onResume() {
         super.onResume()
         prefHelper = PrefHelper(requireContext())
-        if (prefHelper.getBoolean(Constant.PREF_FILTER)) {
-            homeViewModel.suratTugasFilter(USERNAME_HOME)
-            homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
-                if (it != null) {
-                    suratTugasAdapter.setData(it)
-                    binding.progressBar.visibility = View.GONE
-                }
-            })
-        }else{
-            homeViewModel.suratTugas(USERNAME_HOME)
-            homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
-                if (it != null) {
-                    suratTugasAdapter.setData(it)
-                    binding.progressBar.visibility = View.GONE
-                }
-            })
+//        if (prefHelper.getBoolean(Constant.PREF_FILTER)) {
+//            homeViewModel.suratTugasFilter(USERNAME_HOME)
+//            homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
+//                if (it != null) {
+//                    suratTugasAdapter.setData(it)
+//                    binding.progressBar.visibility = View.GONE
+//                }
+//            })
+//        }
+        when(prefHelper.getBoolean(Constant.PREF_FILTER)){
+            false -> {
+                homeViewModel.suratTugasFilter(USERNAME_HOME)
+                homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
+                    if (it != null) {
+                        suratTugasAdapter.setData(it)
+                        binding.progressBar.visibility = View.GONE
+                    }
+                })
+            }
+            true ->{
+                homeViewModel.suratTugas(USERNAME_HOME)
+                homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
+                    if (it != null) {
+                        suratTugasAdapter.setData(it)
+                        binding.progressBar.visibility = View.GONE
+                    }
+                })
+            }
         }
     }
 
