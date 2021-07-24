@@ -66,7 +66,6 @@ class HomeFragment : Fragment(), SuratTugasListener {
                 adapter = suratTugasAdapter
             }
 
-
             if (binding.etSearchSt.text.toString().isEmpty()) {
                 homeViewModel.suratTugas(USERNAME_HOME)
                 homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
@@ -77,8 +76,10 @@ class HomeFragment : Fragment(), SuratTugasListener {
                 })
             }
 
-            binding.cbFilter.setOnCheckedChangeListener { _, _ ->
-                if (binding.cbFilter.isChecked) {
+            prefHelper = PrefHelper(requireContext())
+            binding.cbFilter.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    prefHelper.put(Constant.PREF_FILTER, true)
                     homeViewModel.suratTugasFilter(USERNAME_HOME)
                     homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
                         if (it != null) {
@@ -87,6 +88,7 @@ class HomeFragment : Fragment(), SuratTugasListener {
                         }
                     })
                 } else {
+                    prefHelper.put(Constant.PREF_FILTER, false)
                     homeViewModel.suratTugas(USERNAME_HOME)
                     homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
                         if (it != null) {
@@ -95,13 +97,6 @@ class HomeFragment : Fragment(), SuratTugasListener {
                         }
                     })
                 }
-            }
-
-            prefHelper = PrefHelper(requireContext())
-            if (binding.cbFilter.isChecked) {
-                prefHelper.put(Constant.PREF_FILTER, true)
-            }else{
-                prefHelper.put(Constant.PREF_FILTER, false)
             }
 
             binding.apply {
@@ -151,45 +146,23 @@ class HomeFragment : Fragment(), SuratTugasListener {
         super.onResume()
         prefHelper = PrefHelper(requireContext())
         if (prefHelper.getBoolean(Constant.PREF_FILTER)) {
-            if(true) {
-                homeViewModel.suratTugasFilter(USERNAME_HOME)
-                homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
-                    if (it != null) {
-                        suratTugasAdapter.setData(it)
-                        binding.progressBar.visibility = View.GONE
-                    }
-                })
-            }
-            else{
-                homeViewModel.suratTugas(USERNAME_HOME)
-                homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
-                    if (it != null) {
-                        suratTugasAdapter.setData(it)
-                        binding.progressBar.visibility = View.GONE
-                    }
-                })
-            }
+            homeViewModel.suratTugasFilter(USERNAME_HOME)
+            homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
+                if (it != null) {
+                    suratTugasAdapter.setData(it)
+                    binding.progressBar.visibility = View.GONE
+                }
+            })
+        } else {
+            homeViewModel.suratTugas(USERNAME_HOME)
+            homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
+                if (it != null) {
+                    suratTugasAdapter.setData(it)
+                    binding.progressBar.visibility = View.GONE
+                }
+            })
+
         }
-//        when(prefHelper.getBoolean(Constant.PREF_FILTER)){
-//            false -> {
-//                homeViewModel.suratTugasFilter(USERNAME_HOME)
-//                homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
-//                    if (it != null) {
-//                        suratTugasAdapter.setData(it)
-//                        binding.progressBar.visibility = View.GONE
-//                    }
-//                })
-//            }
-//            true ->{
-//                homeViewModel.suratTugas(USERNAME_HOME)
-//                homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
-//                    if (it != null) {
-//                        suratTugasAdapter.setData(it)
-//                        binding.progressBar.visibility = View.GONE
-//                    }
-//                })
-//            }
-//        }
     }
 
     override fun onDestroyView() {
