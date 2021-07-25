@@ -1,4 +1,4 @@
-package com.bpkp.bsmartapp.home
+package com.bpkp.bsmartapp.rkd
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.dicoding.tourismapp.core.databinding.ItemListSuratTugasBinding
 import java.util.ArrayList
 
-class SuratTugasAdapter : RecyclerView.Adapter<SuratTugasAdapter.ListViewHolder>() {
+class RKDAdapter : RecyclerView.Adapter<RKDAdapter.ListViewHolder>() {
     private var listData = ArrayList<SuratTugasResponse>()
     var onItemClick: ((SuratTugasResponse) -> Unit)? = null
 
@@ -19,13 +19,11 @@ class SuratTugasAdapter : RecyclerView.Adapter<SuratTugasAdapter.ListViewHolder>
         notifyDataSetChanged()
     }
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RKDAdapter.ListViewHolder {
         val view =
             ItemListSuratTugasBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(view)
     }
-
 
     override fun getItemCount(): Int = listData.size
 
