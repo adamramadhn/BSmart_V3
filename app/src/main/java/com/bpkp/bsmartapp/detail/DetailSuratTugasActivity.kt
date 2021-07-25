@@ -16,7 +16,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.bpkp.bsmartapp.databinding.DetailSuratTugasBinding
+import com.bpkp.bsmartapp.rkd.RKDActivity
 import kotlinx.android.synthetic.main.detail_surat_tugas.*
+import kotlin.math.log
 
 class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
@@ -40,6 +42,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnBack.setOnClickListener { finish() }
         binding.btnSuratTugas.setOnClickListener(this)
         binding.btnTte.setOnClickListener(this)
+        binding.btnLihatRkd.setOnClickListener(this)
         binding.etNote.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                 val imm: InputMethodManager =
@@ -430,6 +433,10 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_tte -> {
                 //menunggu...
+            }
+            R.id.btn_lihat_rkd ->{
+                val intent = Intent(this, RKDActivity::class.java)
+                startActivity(intent)
             }
         }
     }

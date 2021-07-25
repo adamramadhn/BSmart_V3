@@ -28,6 +28,12 @@
         <activity
             android:parentActivityName=".MainActivity"
             android:name="com.bpkp.bsmartapp.detail.DetailSuratTugasActivity"
+            android:label="@string/title_activity_rkd"
+            android:theme="@style/Theme.TourismApp.NoActionBar" />
+
+        <activity
+            android:parentActivityName=".MainActivity"
+            android:name="com.bpkp.bsmartapp.rkd.RKDActivity"
             android:label="@string/title_activity_detail_home"
             android:theme="@style/Theme.TourismApp.NoActionBar" />
 
