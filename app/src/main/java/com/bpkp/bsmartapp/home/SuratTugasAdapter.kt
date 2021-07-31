@@ -133,4 +133,5 @@ class SuratTugasAdapter : RecyclerView.Adapter<SuratTugasAdapter.ListViewHolder>
             }
         }
     }
+
 }
