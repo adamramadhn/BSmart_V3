@@ -33,6 +33,7 @@ class RKDViewModel: ViewModel() {
         })
     }
 
+
     fun getSuratTugas(): LiveData<List<SuratTugasResponse>> {
         return loginResponse
     }
