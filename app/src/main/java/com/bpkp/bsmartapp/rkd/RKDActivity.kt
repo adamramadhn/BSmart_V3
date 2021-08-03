@@ -1,12 +1,11 @@
 package com.bpkp.bsmartapp.rkd
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bpkp.bsmartapp.databinding.ActivityRkdBinding
-import com.bpkp.bsmartapp.home.HomeFragment
 
 class RKDActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRkdBinding
@@ -24,21 +23,31 @@ class RKDActivity : AppCompatActivity() {
 
         rkdViewModel = RKDViewModel()
         rkdAdapter = RKDAdapter()
+        val username = intent.getStringExtra(USERNAME_RKD)
+        rkdAdapter.onItemClick = {
+            val intent = Intent(this,RKDDetail::class.java)
+            intent.putExtra(RKDDetail.EXTRA_DATA, it)
+            intent.putExtra(USERNAME_RKD,username)
+            startActivity(intent)
+        }
 
         with(binding.rvSt) {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = rkdAdapter
         }
-//        val username = intent.getStringExtra(USERNAME_RKD)
+
         if (binding.etSearchSt.text.toString().isEmpty()) {
-            rkdViewModel.suratTugas(HomeFragment.USERNAME_HOME)
-            rkdViewModel.getSuratTugas().observe(this, {
-                if (it != null) {
-                    rkdAdapter.setData(it)
-                    binding.progressBar.visibility = View.GONE
-                }
-            })
+            if (username != null) {
+                rkdViewModel.suratTugas(username)
+                rkdViewModel.getSuratTugas().observe(this, {
+                    if (it != null) {
+                        rkdAdapter.setData(it)
+                        binding.progressBar.visibility = View.GONE
+                    }
+                })
+            }
+
         }
     }
 }
