@@ -17,6 +17,7 @@ import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.bpkp.bsmartapp.databinding.DetailSuratTugasBinding
 import com.bpkp.bsmartapp.rkd.RKDActivity
+import com.bpkp.bsmartapp.rkd.RKDActivity.Companion.USERNAME_RKD
 import kotlinx.android.synthetic.main.detail_surat_tugas.*
 import kotlin.math.log
 
@@ -43,6 +44,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnSuratTugas.setOnClickListener(this)
         binding.btnTte.setOnClickListener(this)
         binding.btnLihatRkd.setOnClickListener(this)
+        val userName = intent.getStringExtra(USERNAME_DETAIL)
         binding.etNote.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                 val imm: InputMethodManager =
@@ -408,6 +410,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 mAlertDialog.show()
             }
         }
+        Log.d("ZZZ",intent.getStringExtra(USERNAME_DETAIL).toString())
     }
 
     override fun onResume() {
@@ -436,7 +439,9 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_lihat_rkd ->{
                 val intent = Intent(this, RKDActivity::class.java)
+//                intent.putExtra(USERNAME_RKD,userName)
                 startActivity(intent)
+
             }
         }
     }
