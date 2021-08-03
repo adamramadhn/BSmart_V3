@@ -32,6 +32,7 @@ class RKDDetail: AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         rkdDetailViewModel = RKDDetailViewModel()
+        binding.btnBack.setOnClickListener { finish() }
 
 
         val detailRkd = intent.getParcelableExtra<SuratTugasResponse>(EXTRA_DATA)
