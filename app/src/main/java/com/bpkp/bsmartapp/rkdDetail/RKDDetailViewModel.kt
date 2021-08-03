@@ -1,4 +1,4 @@
-package com.bpkp.bsmartapp.rkd
+package com.bpkp.bsmartapp.rkdDetail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

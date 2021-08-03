@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.databinding.ActivityRkdBinding
+import com.bpkp.bsmartapp.rkdDetail.RKDDetail
 
-class RKDActivity : AppCompatActivity() {
+class RKDActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityRkdBinding
     private lateinit var rkdViewModel: RKDViewModel
     private lateinit var rkdAdapter: RKDAdapter
@@ -20,34 +22,41 @@ class RKDActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRkdBinding.inflate(layoutInflater)
         setContentView(binding.root)
+//        binding.btnBack.setOnClickListener(this)
+//
+//        rkdViewModel = RKDViewModel()
+//        rkdAdapter = RKDAdapter()
+//        val username = intent.getStringExtra(USERNAME_RKD)
+//        rkdAdapter.onItemClick = {
+//            val intent = Intent(this, RKDDetail::class.java)
+//            intent.putExtra(RKDDetail.EXTRA_DATA, it)
+//            intent.putExtra(USERNAME_RKD,username)
+//            startActivity(intent)
+//        }
+//
+//        with(binding.rvSt) {
+//            layoutManager = LinearLayoutManager(context)
+//            setHasFixedSize(true)
+//            adapter = rkdAdapter
+//        }
+//
+//        if (binding.etSearchSt.text.toString().isEmpty()) {
+//            if (username != null) {
+//                rkdViewModel.suratTugas(username)
+//                rkdViewModel.getSuratTugas().observe(this, {
+//                    if (it != null) {
+//                        rkdAdapter.setData(it)
+//                        binding.progressBar.visibility = View.GONE
+//                    }
+//                })
+//            }
+//
+//        }
+    }
 
-        rkdViewModel = RKDViewModel()
-        rkdAdapter = RKDAdapter()
-        val username = intent.getStringExtra(USERNAME_RKD)
-        rkdAdapter.onItemClick = {
-            val intent = Intent(this,RKDDetail::class.java)
-            intent.putExtra(RKDDetail.EXTRA_DATA, it)
-            intent.putExtra(USERNAME_RKD,username)
-            startActivity(intent)
-        }
-
-        with(binding.rvSt) {
-            layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
-            adapter = rkdAdapter
-        }
-
-        if (binding.etSearchSt.text.toString().isEmpty()) {
-            if (username != null) {
-                rkdViewModel.suratTugas(username)
-                rkdViewModel.getSuratTugas().observe(this, {
-                    if (it != null) {
-                        rkdAdapter.setData(it)
-                        binding.progressBar.visibility = View.GONE
-                    }
-                })
-            }
-
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.btn_back ->{finish()}
         }
     }
 }

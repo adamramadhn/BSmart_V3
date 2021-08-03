@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_gravity="center"
+    android:layout_height="wrap_content">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -10,8 +12,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,7 +47,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView"
-                    android:layout_width="365dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
@@ -59,7 +61,9 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/item_st"
-                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:paddingHorizontal="20dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:paddingBottom="20dp">
 
@@ -92,7 +96,7 @@
                             app:layout_constraintTop_toTopOf="@+id/icon_calendar" />
 
                         <TextView
-                            android:id="@+id/tv_st_id"
+                            android:id="@+id/tv_sp_id"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="2dp"
@@ -105,17 +109,17 @@
                             app:layout_constraintTop_toBottomOf="@id/tv_date" />
 
                         <TextView
-                            android:id="@+id/tv_st_number"
+                            android:id="@+id/tv_sp_number"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="2dp"
+                            android:layout_marginStart="4dp"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/nunitosans_bold"
-                            android:text="NO ST"
+                            android:text="NO SP"
                             android:textColor="@color/blue_secondary"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@+id/tv_date"
-                            app:layout_constraintStart_toEndOf="@+id/tv_st_id"
+                            app:layout_constraintStart_toEndOf="@+id/tv_sp_id"
                             app:layout_constraintTop_toBottomOf="@+id/tv_date" />
 
                         <TextView
@@ -123,7 +127,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="16dp"
                             android:layout_marginEnd="16dp"
                             android:fontFamily="@font/nunitosans_regular"
                             android:text="Mengikuti Focus Group Discussion (FGD) Pemutakhiran SOP dan pedoman Pengawasan dalam rangka penataan Tata Kelola Pengawasan BPKP sesuai Surat Kepala Biro MKOT Nomor UND-429/SU01/3/2021 di"
@@ -132,7 +136,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_st_number" />
+                            app:layout_constraintTop_toBottomOf="@+id/tv_date_duration2" />
 
                         <TextView
                             android:id="@+id/tv_update"
@@ -164,76 +168,67 @@
 
 
                         <TextView
-                            android:id="@+id/tv_duration"
+                            android:id="@+id/tv_kepada"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
                             android:layout_marginEnd="16dp"
                             android:fontFamily="@font/nunitosans_bold"
-                            android:text="Durasi"
+                            android:text="Kepada"
                             android:textColor="@color/blue_secondary"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/tv_user_update"
-                            app:layout_constraintTop_toBottomOf="@id/tv_user_update" />
-
-                        <TextView
-                            android:id="@+id/tv_date_duration"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/nunitosans_regular"
-                            android:text="mulai -"
-                            android:textColor="@color/blue_secondary"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="@+id/tv_duration"
-                            app:layout_constraintTop_toBottomOf="@id/tv_duration" />
+                            app:layout_constraintTop_toBottomOf="@+id/tv_sp_number" />
 
                         <TextView
                             android:id="@+id/tv_date_duration2"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="2dp"
                             android:layout_marginTop="4dp"
                             android:fontFamily="@font/nunitosans_regular"
-                            android:text="selesai"
+                            android:text="Cantika Belia Ananda"
                             android:textColor="@color/blue_secondary"
                             android:textSize="12sp"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_duration"
-                            app:layout_constraintStart_toEndOf="@+id/tv_date_duration"
-                            app:layout_constraintTop_toBottomOf="@id/tv_duration" />
+                            app:layout_constraintEnd_toEndOf="@+id/tv_kepada"
+                            app:layout_constraintStart_toStartOf="@+id/tv_kepada"
+                            app:layout_constraintTop_toBottomOf="@id/tv_kepada" />
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/btn_lihat_rkd"
-                            android:layout_width="340dp"
+                            android:id="@+id/btn_surat_pengantar"
+                            android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="8dp"
                             android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
                             android:background="@drawable/button_blue"
                             android:fontFamily="@font/nunitosans_bold"
-                            android:text="Lihat RKD"
+                            android:text="Lihat Surat Pengantar"
                             android:textAllCaps="false"
                             android:textColor="@color/white"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_date_duration" />
+                            app:layout_constraintTop_toBottomOf="@+id/tv_user_update" />
 
                         <TextView
                             android:id="@+id/tv_note"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
                             android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
                             android:fontFamily="@font/nunitosans_bold"
                             android:text="Catatan"
                             android:textColor="@color/blue_secondary"
                             android:textSize="14sp"
-                            app:layout_constraintEnd_toEndOf="@+id/btn_lihat_rkd"
-                            app:layout_constraintStart_toStartOf="@+id/btn_lihat_rkd"
-                            app:layout_constraintTop_toBottomOf="@+id/btn_lihat_rkd" />
+                            app:layout_constraintEnd_toEndOf="@+id/btn_surat_pengantar"
+                            app:layout_constraintStart_toStartOf="@+id/btn_surat_pengantar"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_surat_pengantar" />
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_note"
-                            android:layout_width="326dp"
+                            android:layout_width="0dp"
                             android:layout_height="94dp"
                             android:layout_marginTop="20dp"
                             android:background="@drawable/border_edittext"

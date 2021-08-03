@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bpkp.bsmartapp.databinding.FragmentHomeBinding
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity
@@ -18,6 +20,10 @@ import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.USERNAME_DET
 import com.bpkp.bsmartapp.login.Constant
 import com.bpkp.bsmartapp.login.PrefHelper
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeFragment : Fragment(), SuratTugasListener {
     lateinit var prefHelper: PrefHelper
@@ -45,7 +51,10 @@ class HomeFragment : Fragment(), SuratTugasListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         suratTugasAdapter = SuratTugasAdapter()
-        homeViewModel = HomeViewModel()
+        homeViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        ).get(HomeViewModel::class.java)
         suratTugasAdapter.notifyDataSetChanged()
         binding.tvName.text = NAME_HOME
         binding.tvGrade.text = ESELON_HOME
@@ -67,13 +76,18 @@ class HomeFragment : Fragment(), SuratTugasListener {
             }
 
             if (binding.etSearchSt.text.toString().isEmpty()) {
-                homeViewModel.suratTugas(USERNAME_HOME)
-                homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
-                    if (it != null) {
-                        suratTugasAdapter.setData(it)
-                        binding.progressBar.visibility = View.GONE
+                lifecycleScope.launch {
+                    homeViewModel.suratTugas(USERNAME_HOME)
+                    withContext(Dispatchers.Main) {
+                        homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
+                            if (it != null) {
+                                suratTugasAdapter.setData(it)
+                                binding.progressBar.visibility = View.GONE
+                            }
+                        })
                     }
-                })
+                }
+
             }
 
             prefHelper = PrefHelper(requireContext())
@@ -89,15 +103,20 @@ class HomeFragment : Fragment(), SuratTugasListener {
                     })
                 } else {
                     prefHelper.put(Constant.PREF_FILTER, false)
-                    homeViewModel.suratTugas(USERNAME_HOME)
-                    homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
-                        if (it != null) {
-                            suratTugasAdapter.setData(it)
-                            binding.progressBar.visibility = View.GONE
+                    lifecycleScope.launch {
+                        homeViewModel.suratTugas(USERNAME_HOME)
+                        withContext(Dispatchers.Main) {
+                            homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
+                                if (it != null) {
+                                    suratTugasAdapter.setData(it)
+                                    binding.progressBar.visibility = View.GONE
+                                }
+                            })
                         }
-                    })
+                    }
                 }
             }
+
 
             binding.apply {
                 ivSearch.setOnClickListener {
@@ -154,14 +173,17 @@ class HomeFragment : Fragment(), SuratTugasListener {
                 }
             })
         } else {
-            homeViewModel.suratTugas(USERNAME_HOME)
-            homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
-                if (it != null) {
-                    suratTugasAdapter.setData(it)
-                    binding.progressBar.visibility = View.GONE
+            lifecycleScope.launch {
+                homeViewModel.suratTugas(USERNAME_HOME)
+                withContext(Dispatchers.Main) {
+                    homeViewModel.getSuratTugas().observe(viewLifecycleOwner, {
+                        if (it != null) {
+                            suratTugasAdapter.setData(it)
+                            binding.progressBar.visibility = View.GONE
+                        }
+                    })
                 }
-            })
-
+            }
         }
     }
 
