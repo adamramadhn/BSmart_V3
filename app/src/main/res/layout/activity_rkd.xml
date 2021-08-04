@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
+
     <androidx.core.widget.NestedScrollView
 
         android:layout_width="match_parent"
@@ -27,7 +28,7 @@
                     android:id="@+id/rv_st"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="140dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -39,9 +40,34 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="8dp"
+        android:visibility="visible"
+        android:paddingTop="20dp"
         android:background="@color/white"
         android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="start"
+            android:background="@color/white"
+            android:src="@drawable/ic_baseline_arrow_back"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="Kembali"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/ti_search_st"
+            app:layout_constraintStart_toStartOf="@+id/ti_search_st"
+            app:layout_constraintTop_toBottomOf="@+id/btn_back" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ti_search_st"
@@ -59,7 +85,7 @@
             app:hintTextColor="@color/blue_primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_search_st"

@@ -10,7 +10,6 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TourismApp">
@@ -43,10 +42,14 @@
             android:theme="@style/Theme.TourismApp.NoActionBar">
         </activity>
 
-        <activity android:name="com.bpkp.bsmartapp.rkd.RKDDetail"
+        <activity android:name="com.bpkp.bsmartapp.rkdDetail.RKDDetail"
             android:theme="@style/Theme.TourismApp.NoActionBar">
-
         </activity>
+
+        <activity android:name="com.bpkp.bsmartapp.SPDetail.SPDetail"
+            android:theme="@style/Theme.TourismApp.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>

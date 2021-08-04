@@ -1,64 +1,55 @@
-package com.bpkp.bsmartapp.detail
+package com.bpkp.bsmartapp.rkdDetail
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.view.KeyEvent
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bpkp.bsmartapp.R
-import com.bpkp.bsmartapp.SPDetail.SPDetail
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
-import com.bpkp.bsmartapp.databinding.DetailSuratTugasBinding
-import com.bpkp.bsmartapp.rkd.RKDActivity
-import com.bpkp.bsmartapp.rkd.RKDActivity.Companion.USERNAME_RKD
+import com.bpkp.bsmartapp.databinding.ActivityDetailRkdBinding
+import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity
 import kotlinx.android.synthetic.main.detail_surat_tugas.*
-import kotlin.math.log
 
-class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
-    companion object {
+class RKDDetail: AppCompatActivity(), View.OnClickListener {
+
+    private lateinit var binding: ActivityDetailRkdBinding
+    private lateinit var rkdDetailViewModel: RKDDetailViewModel
+    companion object{
         const val EXTRA_DATA = "extra_data"
-        const val USERNAME_DETAIL = "USERNAME_DETAIL"
-        const val ESELON_DETAIL = "ESELON_DETAIL"
-        var USERID_DETAIL = "USERID_DETAIL"
+        const val USERNAME_RKD = "USERNAME_RKD"
     }
-
-    private lateinit var binding: DetailSuratTugasBinding
-    private lateinit var detailSuratTugasViewModel: DetailSuratTugasViewModel
-
     private var userName: String? = ""
     private var userEselon: String? = ""
     private var idST: Int = 0
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        binding = DetailSuratTugasBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//        binding.btnBack.setOnClickListener { finish() }
-//        binding.btnSuratTugas.setOnClickListener(this)
-//        binding.btnTte.setOnClickListener(this)
-//        binding.btnLihatRkd.setOnClickListener(this)
-//        binding.btnLihatSp.setOnClickListener(this)
-//        binding.etNote.setOnKeyListener { _, keyCode, event ->
-//            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-//                val imm: InputMethodManager =
-//                    applicationContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//                imm.hideSoftInputFromWindow(binding.etNote.windowToken, 0)
-//                return@setOnKeyListener true
-//            }
-//            return@setOnKeyListener false
-//        }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityDetailRkdBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+//        binding.btnBack.setOnClickListener(this)
 //
-//    }
+//        rkdDetailViewModel = RKDDetailViewModel()
+//
+//
+//        val detailRkd = intent.getParcelableExtra<SuratTugasResponse>(EXTRA_DATA)
+//        userName = intent.getStringExtra(USERNAME_RKD)
+//        showDetailTourism(detailRkd)
 
-    @SuppressLint("SetTextI18n")
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.btn_back -> {
+                finish()
+            }
+        }
+    }
+
+//    @SuppressLint("SetTextI18n")
 //    private fun showDetailTourism(detailSuratTugas: SuratTugasResponse?) {
 //        detailSuratTugas?.let {
 //            with(binding) {
@@ -116,7 +107,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 //                            btnTolak.visibility = View.GONE
 //                            btnSetuju.visibility = View.GONE
 //                        } else {
-//                            if (detailSuratTugas.apv_es4 != 2 && detailSuratTugas.approve_id_user_eselon_4 == USERID_DETAIL) {
+//                            if (detailSuratTugas.apv_es4 != 2 && detailSuratTugas.approve_id_user_eselon_4 == DetailSuratTugasActivity.USERID_DETAIL) {
 //                                btnCancel.visibility = View.VISIBLE
 //                                btnTolak.visibility = View.GONE
 //                                btnSetuju.visibility = View.GONE
@@ -141,7 +132,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 //                            btnTolak.visibility = View.GONE
 //                            btnSetuju.visibility = View.GONE
 //                        } else {
-//                            if (detailSuratTugas.apv_es3 != 2 && detailSuratTugas.approve_id_user_eselon_3 == USERID_DETAIL) {
+//                            if (detailSuratTugas.apv_es3 != 2 && detailSuratTugas.approve_id_user_eselon_3 == DetailSuratTugasActivity.USERID_DETAIL) {
 //                                btnCancel.visibility = View.VISIBLE
 //                                btnTolak.visibility = View.GONE
 //                                btnSetuju.visibility = View.GONE
@@ -167,7 +158,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 //                            btnSetuju.visibility = View.GONE
 //                            btnTte.visibility = View.GONE
 //                        } else {
-//                            if (detailSuratTugas.apv_es2 != 2 && detailSuratTugas.approve_id_user_eselon_2 == USERID_DETAIL) {
+//                            if (detailSuratTugas.apv_es2 != 2 && detailSuratTugas.approve_id_user_eselon_2 == DetailSuratTugasActivity.USERID_DETAIL) {
 //                                btnCancel.visibility = View.VISIBLE
 //                                btnTolak.visibility = View.GONE
 //                                btnSetuju.visibility = View.GONE
@@ -201,7 +192,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 //                            btnSetuju.visibility = View.GONE
 //                            btnTte.visibility = View.GONE
 //                        } else {
-//                            if (detailSuratTugas.apv_es1 != 2 && detailSuratTugas.approve_id_user_eselon_1 == USERID_DETAIL) {
+//                            if (detailSuratTugas.apv_es1 != 2 && detailSuratTugas.approve_id_user_eselon_1 == DetailSuratTugasActivity.USERID_DETAIL) {
 //                                btnCancel.visibility = View.VISIBLE
 //                                btnTolak.visibility = View.GONE
 //                                btnSetuju.visibility = View.GONE
@@ -313,22 +304,22 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 //            }
 //
 //            binding.btnSetuju.setOnClickListener {
-//                val mAlertDialog = AlertDialog.Builder(this@DetailSuratTugasActivity)
+//                val mAlertDialog = AlertDialog.Builder(this)
 //                mAlertDialog.setTitle("Perhatian")
 //                mAlertDialog.setMessage("Apakah Anda yakin menyetujui surat tugas ini?")
 //                mAlertDialog.setIcon(R.drawable.ic_warning)
 //
 //                mAlertDialog.setPositiveButton("Ya") { _, _ ->
 //                    Handler(mainLooper).postDelayed({
-//                        detailSuratTugasViewModel.setDetail(userName.toString(), idST)
-//                        detailSuratTugasViewModel.getDetail().observe(this, {
+//                        rkdDetailViewModel.setDetail(userName.toString(), idST)
+//                        rkdDetailViewModel.getDetail().observe(this, {
 //                            showDetailTourism(it?.get(0))
 //                            binding.etNote.setText("")
 //                        })
 //                    }, 1000)
 //                    Toast.makeText(this, "Ya", Toast.LENGTH_SHORT).show()
 //                    try {
-//                        detailSuratTugasViewModel.suratTugas(
+//                        rkdDetailViewModel.suratTugas(
 //                            userName,
 //                            detailSuratTugas.id_st,
 //                            1,
@@ -348,21 +339,21 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 //            }
 //
 //            binding.btnTolak.setOnClickListener {
-//                val mAlertDialog = AlertDialog.Builder(this@DetailSuratTugasActivity)
+//                val mAlertDialog = AlertDialog.Builder(this)
 //                mAlertDialog.setTitle("Perhatian")
 //                mAlertDialog.setMessage("Apakah Anda yakin menolak surat tugas ini?")
 //                mAlertDialog.setIcon(R.drawable.ic_warning)
 //                mAlertDialog.setPositiveButton("Ya") { _, _ ->
 //                    Handler(mainLooper).postDelayed({
-//                        detailSuratTugasViewModel.setDetail(userName.toString(), idST)
-//                        detailSuratTugasViewModel.getDetail().observe(this, {
+//                        rkdDetailViewModel.setDetail(userName.toString(), idST)
+//                        rkdDetailViewModel.getDetail().observe(this, {
 //                            showDetailTourism(it?.get(0))
 //                            binding.etNote.setText("")
 //                        })
 //                    }, 1000)
 //                    Toast.makeText(this, "Ya", Toast.LENGTH_SHORT).show()
 //                    try {
-//                        detailSuratTugasViewModel.suratTugas(
+//                        rkdDetailViewModel.suratTugas(
 //                            userName,
 //                            detailSuratTugas.id_st,
 //                            0,
@@ -380,21 +371,21 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 //            }
 //
 //            binding.btnCancel.setOnClickListener {
-//                val mAlertDialog = AlertDialog.Builder(this@DetailSuratTugasActivity)
+//                val mAlertDialog = AlertDialog.Builder(this)
 //                mAlertDialog.setTitle("Perhatian")
 //                mAlertDialog.setMessage("Apakah Anda yakin membatalkan tanggapan surat tugas ini?")
 //                mAlertDialog.setIcon(R.drawable.ic_warning)
 //                mAlertDialog.setPositiveButton("Ya") { _, _ ->
 //                    Handler(mainLooper).postDelayed({
-//                        detailSuratTugasViewModel.setDetail(userName.toString(), idST)
-//                        detailSuratTugasViewModel.getDetail().observe(this, {
+//                        rkdDetailViewModel.setDetail(userName.toString(), idST)
+//                        rkdDetailViewModel.getDetail().observe(this, {
 //                            showDetailTourism(it?.get(0))
 //                            binding.etNote.setText("")
 //                        })
 //                    }, 1000)
 //                    Toast.makeText(this, "Ya", Toast.LENGTH_SHORT).show()
 //                    try {
-//                        detailSuratTugasViewModel.suratTugas(
+//                        rkdDetailViewModel.suratTugas(
 //                            userName,
 //                            detailSuratTugas.id_st,
 //                            2,
@@ -411,42 +402,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 //                mAlertDialog.show()
 //            }
 //        }
-//        Log.d("ZZZ",intent.getStringExtra(USERNAME_DETAIL).toString())
+//        Log.d("ZZZ",intent.getStringExtra(DetailSuratTugasActivity.USERNAME_DETAIL).toString())
 //    }
-
-//    override fun onResume() {
-//        super.onResume()
-//        val detailSuratTugas = intent.getParcelableExtra<SuratTugasResponse>(EXTRA_DATA)
-//        userName = intent.getStringExtra(USERNAME_DETAIL)
-//        userEselon = intent.getStringExtra(ESELON_DETAIL)
-//        detailSuratTugasViewModel = DetailSuratTugasViewModel()
-//        idST = detailSuratTugas!!.id_st
-//        showDetailTourism(detailSuratTugas)
-//    }
-
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.btn_surat_tugas -> {
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.setDataAndType(
-                    Uri.parse("http://103.226.139.157:8080/api/surattugas/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
-                    "application/pdf"
-                )
-                intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-                startActivity(Intent.createChooser(intent, "Open with..."))
-            }
-            R.id.btn_tte -> {
-                //menunggu...
-            }
-            R.id.btn_lihat_rkd ->{
-                val intent = Intent(this, RKDActivity::class.java)
-                intent.putExtra(USERNAME_RKD,userName)
-                startActivity(intent)
-            }
-            R.id.btn_lihat_sp ->{
-                val intent = Intent(this, SPDetail::class.java)
-                startActivity(intent)
-            }
-        }
-    }
 }
