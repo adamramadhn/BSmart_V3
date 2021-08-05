@@ -17,14 +17,14 @@ class RKDViewModel: ViewModel() {
     val loginResponse = MutableLiveData<List<SuratTugasResponse>>()
     val cariResponse = MutableLiveData<List<SuratTugasResponse>>()
 
-    fun suratTugas(user_email: String) {
-        ApiService().getList(user_email).enqueue(object : Callback<ListSuratTugasResponse> {
+    fun suratTugas(user_email: String,page:Int) {
+        ApiService().getList(user_email,page).enqueue(object : Callback<ListSuratTugasResponse> {
             override fun onResponse(
                 call: Call<ListSuratTugasResponse>,
                 response: Response<ListSuratTugasResponse>
             ) {
                 if (response.isSuccessful) {
-                    loginResponse.postValue(response.body()?.places)
+                    loginResponse.postValue(response.body()?.places?.data)
                 }
             }
 
@@ -48,11 +48,11 @@ class RKDViewModel: ViewModel() {
                     response: Response<ListSuratTugasResponse>
                 ) {
                     if (response.isSuccessful) {
-                        if(response.body()?.places.isNullOrEmpty()){
+                        if(response.body()?.places?.data.isNullOrEmpty()){
                             suratTugasListener?.setMessage("Tidak ditemukan")
                             cariResponse.postValue(null)
                         }else{
-                            cariResponse.postValue(response.body()?.places)
+                            cariResponse.postValue(response.body()?.places?.data)
                         }
                     }
                 }
@@ -65,19 +65,18 @@ class RKDViewModel: ViewModel() {
         return cariResponse
     }
 
-    fun suratTugasFilter(user_email: String) {
-        ApiService().getFilter(user_email).enqueue(object : Callback<ListSuratTugasResponse> {
-            override fun onResponse(
-                call: Call<ListSuratTugasResponse>,
-                response: Response<ListSuratTugasResponse>
-            ) {
-                if (response.isSuccessful) {
-                    loginResponse.postValue(response.body()?.places)
-                }
-            }
-
-            override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
-            }
-        })
-    }
+//    fun suratTugasFilter(user_email: String) {
+//        ApiService().getFilter(user_email).enqueue(object : Callback<ListSuratTugasResponse> {
+//            override fun onResponse(
+//                call: Call<ListSuratTugasResponse>,
+//                response: Response<ListSuratTugasResponse>
+//            ) {
+//                if (response.isSuccessful) {
+//                    loginResponse.postValue(response.body()?.places?.data)                }
+//            }
+//
+//            override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
+//            }
+//        })
+//    }
 }

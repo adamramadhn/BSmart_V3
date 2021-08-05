@@ -25,7 +25,14 @@ interface ApiService {
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("api/surattugas")
-    fun getList(@Field("username") username: String): Call<ListSuratTugasResponse>
+    fun getList(
+        @Field("username") username: String,
+        @Query("page") page: Int
+    ): Call<ListSuratTugasResponse>
+
+    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+    @GET
+    fun getListST(@Url url: String): Call<ListSuratTugasResponse>
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
@@ -39,7 +46,8 @@ interface ApiService {
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("api/filter")
     fun getFilter(
-        @Field("username") username: String
+        @Field("username") username: String,
+        @Query("page")page:Int
     ): Call<ListSuratTugasResponse>
 
     @FormUrlEncoded

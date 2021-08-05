@@ -7,8 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
 import com.bpkp.bsmartapp.core.data.source.remote.response.ListSuratTugasResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,23 +17,27 @@ class HomeViewModel() : ViewModel() {
     val loginResponse = MutableLiveData<List<SuratTugasResponse>>()
     val cariResponse = MutableLiveData<List<SuratTugasResponse>>()
 
-    fun suratTugas(user_email: String) {
-        viewModelScope.launch {
-            ApiService().getList(user_email).enqueue(object : Callback<ListSuratTugasResponse> {
-                override fun onResponse(
-                    call: Call<ListSuratTugasResponse>,
-                    response: Response<ListSuratTugasResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        loginResponse.postValue(response.body()?.places)
-                    }
-                }
 
-                override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
-                }
-            })
-        }
-    }
+
+//    fun suratTugas(user_email: String, page:Int) {
+//        viewModelScope.launch {
+//            ApiService().getList(user_email,page).enqueue(object : Callback<ListSuratTugasResponse> {
+//                override fun onResponse(
+//                    call: Call<ListSuratTugasResponse>,
+//                    response: Response<ListSuratTugasResponse>
+//                ) {
+//                    if (response.isSuccessful) {
+//                        loginResponse.postValue(response.body()?.places?.data)
+//                        suratTugasListener?.lemparData(getSuratTugas())
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
+//                    suratTugasListener?.setMessage("Something Wrong...")
+//                }
+//            })
+//        }
+//    }
 
     fun getSuratTugas(): LiveData<List<SuratTugasResponse>> {
         return loginResponse
@@ -52,11 +54,11 @@ class HomeViewModel() : ViewModel() {
                     response: Response<ListSuratTugasResponse>
                 ) {
                     if (response.isSuccessful) {
-                        if (response.body()?.places.isNullOrEmpty()) {
+                        if (response.body()?.places?.data.isNullOrEmpty()) {
                             suratTugasListener?.setMessage("Tidak ditemukan")
                             cariResponse.postValue(null)
                         } else {
-                            cariResponse.postValue(response.body()?.places)
+                            cariResponse.postValue(response.body()?.places?.data)
                         }
                     }
                 }
@@ -69,19 +71,19 @@ class HomeViewModel() : ViewModel() {
         return cariResponse
     }
 
-    fun suratTugasFilter(user_email: String) {
-        ApiService().getFilter(user_email).enqueue(object : Callback<ListSuratTugasResponse> {
-            override fun onResponse(
-                call: Call<ListSuratTugasResponse>,
-                response: Response<ListSuratTugasResponse>
-            ) {
-                if (response.isSuccessful) {
-                    loginResponse.postValue(response.body()?.places)
-                }
-            }
-
-            override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
-            }
-        })
-    }
+//    fun suratTugasFilter(user_email: String) {
+//        ApiService().getFilter(user_email).enqueue(object : Callback<ListSuratTugasResponse> {
+//            override fun onResponse(
+//                call: Call<ListSuratTugasResponse>,
+//                response: Response<ListSuratTugasResponse>
+//            ) {
+//                if (response.isSuccessful) {
+//                    loginResponse.postValue(response.body()?.places?.data)
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
+//            }
+//        })
+//    }
 }

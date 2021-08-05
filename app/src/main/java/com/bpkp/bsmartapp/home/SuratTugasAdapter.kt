@@ -12,12 +12,12 @@ class SuratTugasAdapter : RecyclerView.Adapter<SuratTugasAdapter.ListViewHolder>
     private var listData = ArrayList<SuratTugasResponse>()
     var onItemClick: ((SuratTugasResponse) -> Unit)? = null
 
-    fun setData(newListData: List<SuratTugasResponse>?) {
-        if (newListData == null) return
-        listData.clear()
-        listData.addAll(newListData)
-        notifyDataSetChanged()
-    }
+//    fun setData(newListData: List<SuratTugasResponse>?) {
+//        if (newListData == null) return
+//        listData.clear()
+//        listData.addAll(newListData)
+//        notifyDataSetChanged()
+//    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -32,6 +32,15 @@ class SuratTugasAdapter : RecyclerView.Adapter<SuratTugasAdapter.ListViewHolder>
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val data = listData[position]
         holder.bind(data)
+    }
+
+    fun addList(items: List<SuratTugasResponse>) {
+        listData.addAll(items)
+        notifyDataSetChanged()
+    }
+    fun clear(){
+        listData.clear()
+        notifyDataSetChanged()
     }
 
     inner class ListViewHolder(private val binding: ItemListSuratTugasBinding) :

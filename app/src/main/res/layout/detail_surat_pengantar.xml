@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_gravity="center"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -47,8 +47,10 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
                     android:nestedScrollingEnabled="true"
@@ -60,12 +62,10 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/item_st"
-                        android:layout_gravity="center"
-                        android:paddingHorizontal="20dp"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/item_sp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingBottom="20dp">
+                        android:paddingBottom="16dp">
 
                         <ImageView
                             android:id="@+id/icon_calendar"

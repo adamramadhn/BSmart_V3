@@ -10,5 +10,5 @@ data class AuthUserResponse(
     val tk3_id: String,
     val tk4_id: String,
     val eselon_id: String,
-    val eselon:String
+    val eselon:String,
 )

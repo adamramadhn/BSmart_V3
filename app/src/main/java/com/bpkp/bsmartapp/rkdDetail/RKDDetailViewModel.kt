@@ -49,7 +49,7 @@ class RKDDetailViewModel: ViewModel()  {
                     response: Response<ListSuratTugasResponse>
                 ) {
                     if (response.isSuccessful) {
-                        loginResponse2.postValue(response.body()?.places)
+                        loginResponse2.postValue(response.body()?.places?.data)
                     }
                 }
 
