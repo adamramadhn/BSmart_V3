@@ -5,5 +5,4 @@ import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 
 interface SuratTugasListener {
     fun setMessage(message: String)
-    fun lemparData(data: LiveData<List<SuratTugasResponse>>)
 }

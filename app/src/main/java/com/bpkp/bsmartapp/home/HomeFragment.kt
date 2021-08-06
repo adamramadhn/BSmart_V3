@@ -63,7 +63,9 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
             this,
             ViewModelProvider.NewInstanceFactory()
         ).get(HomeViewModel::class.java)
+
         suratTugasAdapter.notifyDataSetChanged()
+
         binding.tvName.text = NAME_HOME
         binding.tvGrade.text = ESELON_HOME
 
@@ -150,10 +152,8 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         prefHelper = PrefHelper(requireContext())
         if (prefHelper.getBoolean(Constant.PREF_FILTER)) {
             getFilter()
-            Toast.makeText(requireContext(), "FILTERRR", Toast.LENGTH_SHORT).show()
         } else {
             getListST()
-            Toast.makeText(requireContext(), "LISTTTT", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -164,12 +164,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
 
     override fun setMessage(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun lemparData(data: LiveData<List<SuratTugasResponse>>) {
-        data.observe(this, {
-            Toast.makeText(context, "WOWW", Toast.LENGTH_SHORT).show()
-        })
     }
 
     private fun getListST() {

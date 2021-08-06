@@ -76,7 +76,7 @@ interface ApiService {
                 .build()
 
             return Retrofit.Builder()
-                .baseUrl("http://103.226.139.157:8080/")
+                .baseUrl("http://aplikasistore.org/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

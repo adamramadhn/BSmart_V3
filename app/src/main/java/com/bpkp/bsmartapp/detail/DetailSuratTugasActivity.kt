@@ -429,7 +429,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_surat_tugas -> {
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.setDataAndType(
-                    Uri.parse("http://103.226.139.157:8080/api/surattugas/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                    Uri.parse("http://aplikasistore.org/api/surattugas/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
                     "application/pdf"
                 )
                 intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION

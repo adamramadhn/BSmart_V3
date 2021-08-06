@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.bpkp.bsmartapp.databinding.ActivityDetailRkdBinding
@@ -30,9 +31,9 @@ class RKDDetail: AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailRkdBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        binding.btnBack.setOnClickListener(this)
+        binding.btnBack.setOnClickListener(this)
 //
-//        rkdDetailViewModel = RKDDetailViewModel()
+//        rkdDetailViewModel = ViewModelProvider(this,ViewModelProvider.NewInstanceFactory()).get(RKDDetailViewModel::class.java)
 //
 //
 //        val detailRkd = intent.getParcelableExtra<SuratTugasResponse>(EXTRA_DATA)
