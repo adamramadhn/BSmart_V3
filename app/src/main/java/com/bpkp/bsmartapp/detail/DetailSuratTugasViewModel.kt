@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
+import com.bpkp.bsmartapp.core.data.source.remote.response.DetailST
 import com.bpkp.bsmartapp.core.data.source.remote.response.ListSuratTugasResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import retrofit2.Call
@@ -44,17 +45,17 @@ class DetailSuratTugasViewModel: ViewModel() {
 
     fun setDetail(user_email: String, idST: Int) {
         ApiService().getDetailST(user_email, idST)
-            .enqueue(object : Callback<ListSuratTugasResponse> {
+            .enqueue(object : Callback<DetailST> {
                 override fun onResponse(
-                    call: Call<ListSuratTugasResponse>,
-                    response: Response<ListSuratTugasResponse>
+                    call: Call<DetailST>,
+                    response: Response<DetailST>
                 ) {
                     if (response.isSuccessful) {
-                        loginResponse2.postValue(response.body()?.places?.data)
+                        loginResponse2.postValue(response.body()?.places2)
                     }
                 }
 
-                override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
+                override fun onFailure(call: Call<DetailST>, t: Throwable) {
 
                 }
 

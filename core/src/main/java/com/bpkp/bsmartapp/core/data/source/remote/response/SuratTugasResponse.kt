@@ -39,11 +39,6 @@ data class SuratTugasResponse(
     @field:SerializedName("approve_eselon_4")
     val apv_es4: Int?,
 
-//    val approved_es4_by: String?,
-//    val approved_es3_by: String?,
-//    val approved_es2_by: String?,
-//    val approved_es1_by: String?,
-
     val approve_id_user_eselon_1: String?,
     val approve_id_user_eselon_2: String?,
     val approve_id_user_eselon_3: String?,
@@ -56,6 +51,7 @@ data class SuratTugasResponse(
 
     val url: String?,
     val created_by: String?,
+    val tte: Int?,
 
 
     ) : Parcelable

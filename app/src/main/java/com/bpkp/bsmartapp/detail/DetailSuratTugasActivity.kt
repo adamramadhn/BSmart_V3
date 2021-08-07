@@ -108,10 +108,10 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 etNote.hint = "$note1$note2$note3$note4"
 
                 tvUserUpdate.text = detailSuratTugas.created_by
-                tvUserUpdate.text = detailSuratTugas.user_id
+//                tvUserUpdate.text = detailSuratTugas.user_id
                 when (userEselon) {
                     "ESELON IV-A", "ESELON IV-B" -> {
-                        if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0 || detailSuratTugas.apv_es3 == 1 || detailSuratTugas.apv_es3 == 0) {
+                        if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0 || detailSuratTugas.apv_es3 == 1 || detailSuratTugas.apv_es3 == 0 || detailSuratTugas.tte == 1) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
@@ -136,7 +136,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         }
                     }
                     "ESELON III-A", "ESELON III-B" -> {
-                        if (detailSuratTugas.apv_es4 == 0 || detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0) {
+                        if (detailSuratTugas.apv_es4 == 0 || detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0 || detailSuratTugas.tte == 1) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
@@ -161,7 +161,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         }
                     }
                     "ESELON II-A", "ESELON II-B" -> {
-                        if (detailSuratTugas.apv_es3 == 0 || detailSuratTugas.apv_es4 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0) {
+                        if (detailSuratTugas.apv_es3 == 0 || detailSuratTugas.apv_es4 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0 || detailSuratTugas.tte == 1) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
@@ -171,7 +171,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 btnCancel.visibility = View.VISIBLE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
-                                if (detailSuratTugas.apv_es2 == 1) {
+                                if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte != null || detailSuratTugas.tte != 2) {
                                     btnTte.visibility = View.VISIBLE
                                 } else {
                                     btnTte.visibility = View.GONE
@@ -195,7 +195,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         }
                     }
                     "ESELON I-A", "ESELON I-B" -> {
-                        if (detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es4 == 0 || detailSuratTugas.apv_es3 == 0) {
+                        if (detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es4 == 0 || detailSuratTugas.apv_es3 == 0 || detailSuratTugas.tte == 1) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
@@ -205,7 +205,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 btnCancel.visibility = View.VISIBLE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
-                                if (detailSuratTugas.apv_es2 == 1) {
+                                if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte != null || detailSuratTugas.tte != 2) {
                                     btnTte.visibility = View.VISIBLE
                                 } else {
                                     btnTte.visibility = View.GONE
@@ -411,7 +411,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 mAlertDialog.show()
             }
         }
-        Log.d("ZZZ",intent.getStringExtra(USERNAME_DETAIL).toString())
+        Log.d("ZZZ", intent.getStringExtra(USERNAME_DETAIL).toString())
     }
 
     override fun onResume() {
@@ -436,14 +436,15 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(Intent.createChooser(intent, "Open with..."))
             }
             R.id.btn_tte -> {
-                //menunggu...
+                Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
             }
-            R.id.btn_lihat_rkd ->{
-                val intent = Intent(this, RKDActivity::class.java)
-                intent.putExtra(USERNAME_RKD,userName)
-                startActivity(intent)
+            R.id.btn_lihat_rkd -> {
+                Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
+//                val intent = Intent(this, RKDActivity::class.java)
+//                intent.putExtra(USERNAME_RKD, userName)
+//                startActivity(intent)
             }
-            R.id.btn_lihat_sp ->{
+            R.id.btn_lihat_sp -> {
                 val intent = Intent(this, SPDetail::class.java)
                 startActivity(intent)
             }

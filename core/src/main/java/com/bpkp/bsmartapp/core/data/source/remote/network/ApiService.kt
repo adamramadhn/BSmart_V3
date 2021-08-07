@@ -1,6 +1,7 @@
 package com.bpkp.bsmartapp.core.data.source.remote.network
 
 import com.bpkp.bsmartapp.core.data.source.remote.response.AuthLoginResponse
+import com.bpkp.bsmartapp.core.data.source.remote.response.DetailST
 import com.bpkp.bsmartapp.core.data.source.remote.response.ListSuratTugasResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import okhttp3.OkHttpClient
@@ -40,7 +41,7 @@ interface ApiService {
     fun getDetailST(
         @Field("username") username: String,
         @Field("idst") id_st: Int,
-    ): Call<ListSuratTugasResponse>
+    ): Call<DetailST>
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")

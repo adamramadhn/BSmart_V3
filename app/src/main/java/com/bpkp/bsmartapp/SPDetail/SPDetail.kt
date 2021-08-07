@@ -18,15 +18,23 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
 
         binding.btnBack.setOnClickListener(this)
         binding.btnSuratPengantar.setOnClickListener(this)
+        binding.btnSetuju.setOnClickListener(this)
+        binding.btnTolak.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_surat_pengantar -> {
-                Toast.makeText(this, "Surat pengantar...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
             }
             R.id.btn_back -> {
                 finish()
+            }
+            R.id.btn_setuju ->{
+                Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
+            }
+            R.id.btn_tolak ->{
+                Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
             }
         }
     }
