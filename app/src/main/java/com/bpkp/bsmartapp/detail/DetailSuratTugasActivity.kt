@@ -17,10 +17,7 @@ import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.SPDetail.SPDetail
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.bpkp.bsmartapp.databinding.DetailSuratTugasBinding
-import com.bpkp.bsmartapp.rkd.RKDActivity
-import com.bpkp.bsmartapp.rkd.RKDActivity.Companion.USERNAME_RKD
 import kotlinx.android.synthetic.main.detail_surat_tugas.*
-import kotlin.math.log
 
 class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
@@ -124,10 +121,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
-                            } else if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0) {
-                                btnCancel.visibility = View.GONE
-                                btnTolak.visibility = View.GONE
-                                btnSetuju.visibility = View.GONE
                             } else {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.VISIBLE
@@ -146,10 +139,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
                             } else if (detailSuratTugas.apv_es3 == 1 || detailSuratTugas.apv_es3 == 0) {
-                                btnCancel.visibility = View.GONE
-                                btnTolak.visibility = View.GONE
-                                btnSetuju.visibility = View.GONE
-                            } else if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0) {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
@@ -181,11 +170,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
                                 btnTte.visibility = View.GONE
-                            } else if (detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0) {
-                                btnCancel.visibility = View.GONE
-                                btnTolak.visibility = View.GONE
-                                btnSetuju.visibility = View.GONE
-                                btnTte.visibility = View.GONE
                             } else {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.VISIBLE
@@ -210,12 +194,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 } else {
                                     btnTte.visibility = View.GONE
                                 }
-
-                            } else if (detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0) {
-                                btnCancel.visibility = View.GONE
-                                btnTolak.visibility = View.GONE
-                                btnSetuju.visibility = View.GONE
-                                btnTte.visibility = View.GONE
                             } else {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.VISIBLE
