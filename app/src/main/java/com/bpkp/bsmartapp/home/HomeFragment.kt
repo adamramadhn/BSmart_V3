@@ -61,8 +61,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
             ViewModelProvider.NewInstanceFactory()
         ).get(HomeViewModel::class.java)
 
-//        suratTugasAdapter.notifyDataSetChanged()
-
         binding.tvName.text = NAME_HOME
         binding.tvGrade.text = ESELON_HOME
 
