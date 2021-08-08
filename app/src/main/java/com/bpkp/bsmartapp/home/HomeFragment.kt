@@ -10,14 +10,12 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
 import com.bpkp.bsmartapp.core.data.source.remote.response.ListSuratTugasResponse
-import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.bpkp.bsmartapp.databinding.FragmentHomeBinding
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.ESELON_DETAIL
@@ -63,7 +61,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
             ViewModelProvider.NewInstanceFactory()
         ).get(HomeViewModel::class.java)
 
-        suratTugasAdapter.notifyDataSetChanged()
+//        suratTugasAdapter.notifyDataSetChanged()
 
         binding.tvName.text = NAME_HOME
         binding.tvGrade.text = ESELON_HOME
