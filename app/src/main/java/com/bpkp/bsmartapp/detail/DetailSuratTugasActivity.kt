@@ -304,7 +304,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             binding.etNote.setText("")
                         })
                     }, 1000)
-                    Toast.makeText(this, "Ya", Toast.LENGTH_SHORT).show()
                     try {
                         detailSuratTugasViewModel.suratTugas(
                             userName,
@@ -319,7 +318,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 
                 }
                 mAlertDialog.setNegativeButton("Tidak") { dialog, _ ->
-                    Toast.makeText(this, "Tidak", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 }
                 mAlertDialog.show()
@@ -338,7 +336,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             binding.etNote.setText("")
                         })
                     }, 1000)
-                    Toast.makeText(this, "Ya", Toast.LENGTH_SHORT).show()
                     try {
                         detailSuratTugasViewModel.suratTugas(
                             userName,
@@ -351,7 +348,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 }
                 mAlertDialog.setNegativeButton("Tidak") { dialog, _ ->
-                    Toast.makeText(this, "Tidak", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 }
                 mAlertDialog.show()
@@ -370,7 +366,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             binding.etNote.setText("")
                         })
                     }, 1000)
-                    Toast.makeText(this, "Ya", Toast.LENGTH_SHORT).show()
                     try {
                         detailSuratTugasViewModel.suratTugas(
                             userName,
@@ -383,7 +378,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 }
                 mAlertDialog.setNegativeButton("Tidak") { dialog, _ ->
-                    Toast.makeText(this, "Tidak", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 }
                 mAlertDialog.show()

@@ -3,7 +3,6 @@ package com.bpkp.bsmartapp.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -87,8 +86,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
 
                         val pastVisibleItem =
                             (layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
-                        val total = suratTugasAdapter.itemCount
-                        Log.d("ZZZ", "$visibleItemCount $pastVisibleItem $total")
                         if (!isLoading && page < totalPage) {
                             if (visibleItemCount + pastVisibleItem >= items) {
                                 page++
@@ -167,7 +164,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     private fun getListST() {
         isLoading = true
         binding.progressBar.visibility = View.VISIBLE
-        Log.d("ZZZ", page.toString())
         suratTugasAdapter.clear()
         ApiService().getList(USERNAME_HOME, page).enqueue(object :
             Callback<ListSuratTugasResponse> {
@@ -177,7 +173,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
             ) {
                 totalPage = response.body()?.places?.last_page!!
                 items = response.body()?.places?.to!!
-                Log.d("ZZZ", "Total Pages = $totalPage")
                 val listResponse = response.body()?.places?.data
 
                 if (listResponse != null) {
@@ -232,7 +227,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     }
 
     private fun getSearch(query: String) {
-        Log.d("ZZZ", query)
         ApiService().getSearch(USERNAME_HOME, query)
             .enqueue(object : Callback<ListSuratTugasResponse> {
                 override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
