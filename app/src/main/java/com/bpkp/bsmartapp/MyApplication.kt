@@ -1,6 +1,7 @@
 package com.bpkp.bsmartapp
 
 import android.app.Application
+import androidx.appcompat.app.AppCompatActivity
 import com.bpkp.bsmartapp.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -20,4 +21,5 @@ class MyApplication : Application() {
             )
         }
     }
+
 }

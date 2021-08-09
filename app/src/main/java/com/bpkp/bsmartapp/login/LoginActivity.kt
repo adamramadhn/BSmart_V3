@@ -80,6 +80,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, AuthListener {
             intent.putExtra(NIP_MAIN, it.nip)
             intent.putExtra(USERID_MAIN, it.id)
             intent.putExtra(USERNAME_MAIN, prefHelper.getString(Constant.PREF_USERNAME).toString())
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
 
         })

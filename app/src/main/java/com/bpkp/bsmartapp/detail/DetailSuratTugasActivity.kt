@@ -344,7 +344,8 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             binding.etNote.text.toString()
                         )
                     } catch (e: Exception) {
-                        Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Error: $e,", Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
                 mAlertDialog.setNegativeButton("Tidak") { dialog, _ ->
@@ -374,7 +375,8 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             ""
                         )
                     } catch (e: Exception) {
-                        Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Error: $e,", Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
                 mAlertDialog.setNegativeButton("Tidak") { dialog, _ ->
@@ -383,7 +385,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 mAlertDialog.show()
             }
         }
-        Log.d("ZZZ", intent.getStringExtra(USERNAME_DETAIL).toString())
     }
 
     override fun onResume() {
@@ -399,13 +400,21 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_surat_tugas -> {
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.setDataAndType(
-                    Uri.parse("http://aplikasistore.org/api/surattugas/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
-                    "application/pdf"
-                )
-                intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-                startActivity(Intent.createChooser(intent, "Open with..."))
+                try {
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.setDataAndType(
+                        Uri.parse("http://aplikasistore.org/api/surattugas/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                        "application/pdf"
+                    )
+                    intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    startActivity(Intent.createChooser(intent, "Open with..."))
+                }
+                catch (e:java.lang.Exception){
+                    Toast.makeText(this, "Error: $e,", Toast.LENGTH_LONG)
+                        .show()
+                }
+
+
             }
             R.id.btn_tte -> {
                 Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()

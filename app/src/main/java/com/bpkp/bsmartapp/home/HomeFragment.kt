@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,6 +26,7 @@ import com.bpkp.bsmartapp.login.PrefHelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
 class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefreshListener {
     lateinit var prefHelper: PrefHelper
@@ -61,9 +63,9 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
             ViewModelProvider.NewInstanceFactory()
         ).get(HomeViewModel::class.java)
 
+
         binding.tvName.text = NAME_HOME
         binding.tvGrade.text = ESELON_HOME
-
         if (activity != null) {
 
             suratTugasAdapter.onItemClick = { selectedData ->
@@ -169,20 +171,25 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
                 call: Call<ListSuratTugasResponse>,
                 response: Response<ListSuratTugasResponse>
             ) {
-                totalPage = response.body()?.places?.last_page!!
-                items = response.body()?.places?.to!!
-                val listResponse = response.body()?.places?.data
+                try {
+                    totalPage = response.body()?.places?.last_page!!
+                    items = response.body()?.places?.to!!
+                    val listResponse = response.body()?.places?.data
 
-                if (listResponse != null) {
-                    suratTugasAdapter.addList(listResponse)
-                }
-                binding.progressBar.visibility = View.VISIBLE
-                isLoading = false
+                    if (listResponse != null) {
+                        suratTugasAdapter.addList(listResponse)
+                    }
+                    binding.progressBar.visibility = View.VISIBLE
+                    isLoading = false
 //                binding.swipeRefresh.isRefreshing = false
-                if (page == totalPage) {
+                    if (page == totalPage) {
+                        binding.progressBar.visibility = View.GONE
+                    } else {
+                        binding.progressBar.visibility = View.INVISIBLE
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(requireContext(), "Error: $e", Toast.LENGTH_SHORT).show()
                     binding.progressBar.visibility = View.GONE
-                } else {
-                    binding.progressBar.visibility = View.INVISIBLE
                 }
             }
 
@@ -203,19 +210,24 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
                     call: Call<ListSuratTugasResponse>,
                     response: Response<ListSuratTugasResponse>
                 ) {
-                    totalPage = response.body()?.places?.last_page!!
-                    items = response.body()?.places?.to!!
-                    val filterResponse = response.body()?.places?.data
-                    if (filterResponse != null) {
-                        suratTugasAdapter.addList(filterResponse)
-                    }
-                    binding.progressBar.visibility = View.VISIBLE
-                    isLoading = false
+                    try {
+                        totalPage = response.body()?.places?.last_page!!
+                        items = response.body()?.places?.to!!
+                        val filterResponse = response.body()?.places?.data
+                        if (filterResponse != null) {
+                            suratTugasAdapter.addList(filterResponse)
+                        }
+                        binding.progressBar.visibility = View.VISIBLE
+                        isLoading = false
 //                binding.swipeRefresh.isRefreshing = false
-                    if (page == totalPage) {
+                        if (page == totalPage) {
+                            binding.progressBar.visibility = View.GONE
+                        } else {
+                            binding.progressBar.visibility = View.INVISIBLE
+                        }
+                    } catch (e: Exception) {
+                        Toast.makeText(requireContext(), "Error: $e", Toast.LENGTH_SHORT).show()
                         binding.progressBar.visibility = View.GONE
-                    } else {
-                        binding.progressBar.visibility = View.INVISIBLE
                     }
                 }
 
@@ -237,20 +249,26 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
                     call: Call<ListSuratTugasResponse>,
                     response: Response<ListSuratTugasResponse>
                 ) {
-                    if (response.isSuccessful) {
-                        val listResponse = response.body()?.places?.data
-                        if (listResponse != null) {
-                            suratTugasAdapter.clear()
-                            suratTugasAdapter.addList(listResponse)
-                            binding.progressBar.visibility = View.GONE
-                            binding.viewEmpty.root.visibility = View.GONE
-                            binding.rvSt.visibility = View.VISIBLE
-                        } else {
-                            suratTugasAdapter.clear()
-                            binding.progressBar.visibility = View.GONE
-                            binding.viewEmpty.root.visibility = View.VISIBLE
-                            binding.rvSt.visibility = View.GONE
+                    try {
+                        if (response.isSuccessful) {
+                            val listResponse = response.body()?.places?.data
+                            if (listResponse != null) {
+                                suratTugasAdapter.clear()
+                                suratTugasAdapter.addList(listResponse)
+                                binding.progressBar.visibility = View.GONE
+                                binding.viewEmpty.root.visibility = View.GONE
+                                binding.rvSt.visibility = View.VISIBLE
+                            } else {
+                                suratTugasAdapter.clear()
+                                binding.progressBar.visibility = View.GONE
+                                binding.viewEmpty.root.visibility = View.VISIBLE
+                                binding.rvSt.visibility = View.GONE
+                            }
                         }
+                    } catch (e: Exception) {
+                        Toast.makeText(requireContext(), "Error: $e,", Toast.LENGTH_LONG)
+                            .show()
+                        binding.progressBar.visibility = View.GONE
                     }
                 }
 
@@ -258,9 +276,16 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     }
 
     override fun onRefresh() {
-        suratTugasAdapter.clear()
-        page = 1
-        getListST()
+        try {
+            suratTugasAdapter.clear()
+            page = 1
+            getListST()
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "Error: $e,", Toast.LENGTH_LONG)
+                .show()
+            binding.progressBar.visibility = View.GONE
+        }
     }
+
 
 }
