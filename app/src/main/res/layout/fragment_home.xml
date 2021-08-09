@@ -20,6 +20,7 @@
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -41,7 +42,6 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@color/design_default_color_on_primary"
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/tv_name"
@@ -52,7 +52,7 @@
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/inter_extrabold"
             android:text="Hi, Cendekia"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="@color/blue_text"
             android:textSize="18sp"
             android:maxLines="1"
             app:layout_constraintEnd_toStartOf="@+id/photo_user"
@@ -95,13 +95,13 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/search"
             app:boxCornerRadiusBottomEnd="58dp"
             app:boxCornerRadiusBottomStart="58dp"
             app:boxCornerRadiusTopEnd="58dp"
             app:boxCornerRadiusTopStart="58dp"
             app:boxStrokeWidth="1dp"
-            app:hintTextColor="@color/blue_primary"
+            app:hintTextColor="@color/blue_secondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_grade">

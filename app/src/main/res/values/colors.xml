@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_500">#FF009688</color>
-    <color name="teal_700">#FF018786</color>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
     <color name="pink_200">#FEB95A</color>
-    <color name="pink_500">#FFE91E63</color>
-    <color name="pink_700">#FFC2185B</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_bottom">#FFFFFFFF</color>
+    <color name="blue_text">#1B1193</color>
 
     <color name="blue_primary">#1B1193</color>
     <color name="blue_secondary">#34407D</color>
     <color name="purple_secondary">#ADBBF9</color>
     <color name="grey">#B7B4C2</color>
+    <color name="search">#B7B4C2</color>
     <color name="green">#18B428</color>
     <color name="red">#CD1E1E</color>
     <color name="yellow">#FEB95A</color>
