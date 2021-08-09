@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +22,7 @@ import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.ESELON_DETAI
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.USERNAME_DETAIL
 import com.bpkp.bsmartapp.login.Constant
 import com.bpkp.bsmartapp.login.PrefHelper
+import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -63,7 +63,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
             ViewModelProvider.NewInstanceFactory()
         ).get(HomeViewModel::class.java)
 
-
         binding.tvName.text = NAME_HOME
         binding.tvGrade.text = ESELON_HOME
         if (activity != null) {
@@ -100,7 +99,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
                     }
                 })
             }
-//            binding.swipeRefresh.setOnRefreshListener(this)
+            binding.swipeRefresh.setOnRefreshListener(this)
 
             prefHelper = PrefHelper(requireContext())
             binding.cbFilter.setOnCheckedChangeListener { _, isChecked ->
@@ -181,7 +180,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
                     }
                     binding.progressBar.visibility = View.VISIBLE
                     isLoading = false
-//                binding.swipeRefresh.isRefreshing = false
                     if (page == totalPage) {
                         binding.progressBar.visibility = View.GONE
                     } else {
@@ -194,7 +192,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
             }
 
             override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
-                Toast.makeText(requireContext(), t.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "Error: $t", Toast.LENGTH_SHORT).show()
             }
 
         })
@@ -219,7 +217,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
                         }
                         binding.progressBar.visibility = View.VISIBLE
                         isLoading = false
-//                binding.swipeRefresh.isRefreshing = false
                         if (page == totalPage) {
                             binding.progressBar.visibility = View.GONE
                         } else {
@@ -232,6 +229,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
                 }
 
                 override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
+                    Toast.makeText(requireContext(), "Error: $t", Toast.LENGTH_SHORT).show()
                 }
             })
     }
@@ -277,10 +275,13 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
 
     override fun onRefresh() {
         try {
+            binding.progressBar.visibility = View.GONE
             suratTugasAdapter.clear()
             page = 1
             getListST()
+            swipeRefresh.isRefreshing = false
         } catch (e: Exception) {
+            swipeRefresh.isRefreshing = false
             Toast.makeText(requireContext(), "Error: $e,", Toast.LENGTH_LONG)
                 .show()
             binding.progressBar.visibility = View.GONE
