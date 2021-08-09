@@ -172,15 +172,16 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:visibility="gone"
         android:id="@+id/progress_bar"
         android:layout_width="320dp"
         android:layout_height="320dp"
         android:layout_centerHorizontal="true"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_illustration_login"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8"
         app:lottie_autoPlay="true"
         app:lottie_fileName="load.json"
         app:lottie_loop="true" />
