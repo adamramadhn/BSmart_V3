@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -121,12 +122,26 @@
                             app:layout_constraintStart_toEndOf="@+id/tv_sp_id"
                             app:layout_constraintTop_toBottomOf="@+id/tv_date" />
 
+
+                        <TextView
+                            android:id="@+id/tv_perihal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Perihal"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="@+id/yth"
+                            app:layout_constraintStart_toStartOf="@+id/yth"
+                            app:layout_constraintTop_toBottomOf="@+id/yth" />
+
                         <TextView
                             android:id="@+id/tv_description"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
+                            android:layout_marginTop="4dp"
                             android:layout_marginEnd="16dp"
                             android:fontFamily="@font/nunitosans_regular"
                             android:text="Mengikuti Focus Group Discussion (FGD) Pemutakhiran SOP dan pedoman Pengawasan dalam rangka penataan Tata Kelola Pengawasan BPKP sesuai Surat Kepala Biro MKOT Nomor UND-429/SU01/3/2021 di"
@@ -135,7 +150,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/yth" />
+                            app:layout_constraintTop_toBottomOf="@+id/tv_perihal" />
 
                         <TextView
                             android:id="@+id/tv_update"
@@ -174,7 +189,7 @@
                             android:text="Kepada"
                             android:textColor="@color/blue_secondary"
                             android:textSize="14sp"
-                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_sp_number"
                             app:layout_constraintStart_toStartOf="@+id/tv_sp_id"
                             app:layout_constraintTop_toBottomOf="@+id/tv_sp_number" />
 
