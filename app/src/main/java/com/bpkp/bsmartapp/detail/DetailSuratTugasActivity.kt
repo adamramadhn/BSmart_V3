@@ -15,6 +15,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.SPDetail.SPDetail
+import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.ESELONSP
+import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.IDST
+import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.USERNAMESP
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.bpkp.bsmartapp.databinding.DetailSuratTugasBinding
 import kotlinx.android.synthetic.main.detail_surat_tugas.*
@@ -427,6 +430,9 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_lihat_sp -> {
                 val intent = Intent(this, SPDetail::class.java)
+                intent.putExtra(USERNAMESP,userName)
+                intent.putExtra(ESELONSP,userEselon)
+                intent.putExtra(IDST,idST)
                 startActivity(intent)
             }
         }

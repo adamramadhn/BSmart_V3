@@ -4,6 +4,7 @@ import com.bpkp.bsmartapp.core.data.source.remote.response.AuthLoginResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.DetailST
 import com.bpkp.bsmartapp.core.data.source.remote.response.ListSuratTugasResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
+import com.bpkp.bsmartapp.core.data.source.remote.response.sp.SpResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -25,6 +26,22 @@ interface ApiService {
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+    @POST("api/approval")
+    fun approvalSP(
+        @Field("username") username: String,
+        @Field("id_sp") id_sp: Int?,
+        @Field("approval") approval: Int,
+        @Field("catatan") catatan: String,
+    ): Call<SpResponse>
+
+    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+    @GET("api/suratpengantar")
+    fun getSP(
+        @Query("id_sp") id_st: Int?,
+    ): Call<SpResponse>
+
+    @FormUrlEncoded
+    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("api/surattugas")
     fun getList(
         @Field("username") username: String,
@@ -42,6 +59,14 @@ interface ApiService {
         @Field("username") username: String,
         @Field("idst") id_st: Int,
     ): Call<DetailST>
+
+//    @FormUrlEncoded
+//    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+//    @POST("api/detail")
+//    fun getDetailSP(
+//        @Field("username") username: String,
+//        @Field("idst") id_st: Int,
+//    ): Call<DetailST>
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")

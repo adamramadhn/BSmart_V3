@@ -41,7 +41,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         var ESELON_HOME = "ESELON_HOME"
     }
 
-    private lateinit var homeViewModel: HomeViewModel
+//    private lateinit var homeViewModel: HomeViewModel
     private lateinit var suratTugasAdapter: SuratTugasAdapter
 
     private var _binding: FragmentHomeBinding? = null
@@ -58,10 +58,10 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         suratTugasAdapter = SuratTugasAdapter()
-        homeViewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.NewInstanceFactory()
-        ).get(HomeViewModel::class.java)
+//        homeViewModel = ViewModelProvider(
+//            this,
+//            ViewModelProvider.NewInstanceFactory()
+//        ).get(HomeViewModel::class.java)
 
         binding.tvName.text = NAME_HOME
         binding.tvGrade.text = ESELON_HOME
