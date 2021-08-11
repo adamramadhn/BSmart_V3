@@ -140,16 +140,13 @@
                             android:id="@+id/tv_description"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
                             android:layout_marginTop="4dp"
-                            android:layout_marginEnd="16dp"
                             android:fontFamily="@font/nunitosans_regular"
                             android:text="Mengikuti Focus Group Discussion (FGD) Pemutakhiran SOP dan pedoman Pengawasan dalam rangka penataan Tata Kelola Pengawasan BPKP sesuai Surat Kepala Biro MKOT Nomor UND-429/SU01/3/2021 di"
                             android:textColor="@color/blue_secondary"
                             android:textSize="12sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_perihal"
+                            app:layout_constraintStart_toStartOf="@+id/tv_perihal"
                             app:layout_constraintTop_toBottomOf="@+id/tv_perihal" />
 
                         <TextView
@@ -242,7 +239,7 @@
                             android:id="@+id/et_note"
                             android:layout_width="0dp"
                             android:layout_height="94dp"
-                            android:layout_marginTop="20dp"
+                            android:layout_marginTop="16dp"
                             android:background="@drawable/border_edittext"
                             android:fontFamily="@font/sourcesanspro_regular"
                             android:gravity="top|start"
