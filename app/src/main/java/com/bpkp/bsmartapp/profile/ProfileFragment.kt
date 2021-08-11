@@ -1,5 +1,6 @@
 package com.bpkp.bsmartapp.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,11 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.bpkp.bsmartapp.MainActivity
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
 import com.bpkp.bsmartapp.core.data.source.remote.response.DetailST
 import com.bpkp.bsmartapp.databinding.FragmentProfileBinding
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.USERNAME_HOME
+import com.bpkp.bsmartapp.login.Constant
+import com.bpkp.bsmartapp.login.LoginActivity
 import com.bpkp.bsmartapp.login.PrefHelper
 import kotlinx.android.synthetic.main.fragment_profile.*
 import retrofit2.Call
@@ -58,7 +62,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             mAlertDialog.setPositiveButton("Ya") { _, _ ->
                 Toast.makeText(requireContext(), "Logout Successfully", Toast.LENGTH_SHORT).show()
                 prefHelper.clear()
-                activity?.finish()
+                val intent = Intent(requireContext(), LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
             }
             mAlertDialog.setNegativeButton("Tidak") { dialog, _ ->
                 dialog.dismiss()

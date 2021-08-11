@@ -71,9 +71,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, AuthListener {
 
     override fun onSuccess(loginResponse: LiveData<AuthUserResponse>) {
         loginResponse.observe(this, {
-            Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
             progress_bar.visibility = View.GONE
-
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra(NAME_MAIN, it.nama)
             intent.putExtra(ESELON_MAIN, it.eselon)
