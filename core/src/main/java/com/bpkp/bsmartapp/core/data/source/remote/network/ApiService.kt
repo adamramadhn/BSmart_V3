@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
 interface ApiService {
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("api/approval")
+    @POST("api/approval/surattugas")
     fun approvalST(
         @Field("username") username: String,
         @Field("id_st") id_st: Int,
@@ -26,10 +26,10 @@ interface ApiService {
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("api/approval")
+    @POST("api/approval/suratpengantar")
     fun approvalSP(
         @Field("username") username: String,
-        @Field("id_sp") id_sp: Int?,
+        @Field("id_st") id_sp: Int?,
         @Field("approval") approval: Int,
         @Field("catatan") catatan: String,
     ): Call<SpResponse>
