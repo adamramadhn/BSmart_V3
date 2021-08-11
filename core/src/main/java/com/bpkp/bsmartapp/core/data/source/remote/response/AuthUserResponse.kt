@@ -11,4 +11,5 @@ data class AuthUserResponse(
     val tk4_id: String,
     val eselon_id: String,
     val eselon:String,
+    val NIK: String,
 )

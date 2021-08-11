@@ -12,6 +12,7 @@ import com.bpkp.bsmartapp.MainActivity.Companion.USERNAME_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.ESELON_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.NIP_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.NAME_MAIN
+import com.bpkp.bsmartapp.MainActivity.Companion.NIK
 import com.bpkp.bsmartapp.MainActivity.Companion.USERID_MAIN
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.response.AuthUserResponse
@@ -77,6 +78,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, AuthListener {
             intent.putExtra(ESELON_MAIN, it.eselon)
             intent.putExtra(NIP_MAIN, it.nip)
             intent.putExtra(USERID_MAIN, it.id)
+            intent.putExtra(NIK, it.NIK)
             intent.putExtra(USERNAME_MAIN, prefHelper.getString(Constant.PREF_USERNAME).toString())
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)

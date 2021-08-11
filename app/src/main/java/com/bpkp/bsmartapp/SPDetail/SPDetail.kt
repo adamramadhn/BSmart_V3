@@ -102,7 +102,7 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
                 var note3 = detailSuratPengantar.review_note_es3
                 var note4 = detailSuratPengantar.review_note_es4
                 note1 = when (note1) {
-                    "" -> {
+                    null -> {
                         ""
                     }
                     else -> {
@@ -110,7 +110,7 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
                     }
                 }
                 note2 = when (note2) {
-                    "" -> {
+                    null -> {
                         ""
                     }
                     else -> {
@@ -118,7 +118,7 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
                     }
                 }
                 note3 = when (note3) {
-                    "" -> {
+                    null -> {
                         ""
                     }
                     else -> {
@@ -126,7 +126,7 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
                     }
                 }
                 note4 = when (note4) {
-                    "" -> {
+                    null -> {
                         ""
                     }
                     else -> {
