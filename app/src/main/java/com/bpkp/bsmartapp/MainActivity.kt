@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            finish()
             super.onBackPressed()
             return
         } else {
