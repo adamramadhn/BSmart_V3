@@ -63,8 +63,8 @@ class DetailSuratTugasViewModel : ViewModel() {
             })
     }
 
-    fun getTte(userName: String, Nik: String, PassPhrase: String) {
-        ApiService().loginTte(userName, Nik, PassPhrase).enqueue(object : Callback<DetailST> {
+    fun getTte(id_st: Int, Nik: String, PassPhrase: String) {
+        ApiService().getTte(id_st, Nik, PassPhrase).enqueue(object : Callback<DetailST> {
             override fun onResponse(call: Call<DetailST>, response: Response<DetailST>) {
                 tteResponse.postValue(response.body()?.places2)
             }

@@ -37,8 +37,8 @@ interface ApiService {
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("api/tte")
-    fun loginTte(
-        @Field("username") username: String,
+    fun getTte(
+        @Field("id_st") id_st: Int,
         @Field("nik") nik: String,
         @Field("passphrase") passphrase: String,
     ): Call<DetailST>
@@ -46,8 +46,8 @@ interface ApiService {
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("api/nikpassphrase")
-    fun getTte(
-        @Field("id_st") id_sp: Int,
+    fun loginTte(
+        @Field("username") id_sp: String,
         @Field("nik") nik: String,
         @Field("passphrase") passphrase: String,
     ): Call<DetailST>

@@ -53,7 +53,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         tv_nip.text = NIP_USER
         prefHelper = PrefHelper(requireContext())
 
-        profileBinding.btnSubmit.setOnClickListener(this)
+//        profileBinding.btnSubmit.setOnClickListener(this)
 
         profileBinding.btnLogOut.setOnClickListener() {
             val mAlertDialog = AlertDialog.Builder(requireActivity())
@@ -76,35 +76,39 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btn_submit -> {
-                nik = profileBinding.inputNIK.text?.trim().toString()
-                passphrase = profileBinding.inputPASS.text?.trim().toString()
-                Log.d("ZZZ", "Username: $USERNAME_HOME\n$nik\nPass: $passphrase")
-                try {
-                    ApiService().loginTte(USERNAME_HOME, nik, passphrase).enqueue(object :
-                        Callback<DetailST> {
-                        override fun onResponse(
-                            call: Call<DetailST>,
-                            response: Response<DetailST>
-                        ) {
-                            Toast.makeText(requireContext(), "${response.body()?.message}", Toast.LENGTH_SHORT).show()
-                            profileBinding.inputNik.visibility = View.GONE
-                            profileBinding.inputPassphrase.visibility = View.GONE
-                            profileBinding.tvNik.visibility = View.GONE
-                            profileBinding.tvPassphrase.visibility = View.GONE
-                            profileBinding.textViewLoginTte.visibility = View.GONE
-                            profileBinding.btnSubmit.visibility = View.GONE
-                        }
-
-                        override fun onFailure(call: Call<DetailST>, t: Throwable) {
-                            Toast.makeText(requireContext(), "Error: $t", Toast.LENGTH_SHORT).show()
-                        }
-
-                    })
-                } catch (e: Exception) {
-                    Toast.makeText(requireContext(), "Error: $e", Toast.LENGTH_SHORT).show()
-                }
-            }
+//            R.id.btn_submit -> {
+//                nik = profileBinding.inputNIK.text?.trim().toString()
+//                passphrase = profileBinding.inputPASS.text?.trim().toString()
+//                Log.d("ZZZ", "Username: $USERNAME_HOME\nPass: $passphrase")
+//                try {
+//                    ApiService().loginTte(USERNAME_HOME, nik,passphrase).enqueue(object :
+//                        Callback<DetailST> {
+//                        override fun onResponse(
+//                            call: Call<DetailST>,
+//                            response: Response<DetailST>
+//                        ) {
+//                            Toast.makeText(
+//                                requireContext(),
+//                                "${response.body()?.message}",
+//                                Toast.LENGTH_SHORT
+//                            ).show()
+////                            profileBinding.inputNik.visibility = View.GONE
+//                            profileBinding.inputPassphrase.visibility = View.GONE
+////                            profileBinding.tvNik.visibility = View.GONE
+//                            profileBinding.tvPassphrase.visibility = View.GONE
+//                            profileBinding.textViewLoginTte.visibility = View.GONE
+//                            profileBinding.btnSubmit.visibility = View.GONE
+//                        }
+//
+//                        override fun onFailure(call: Call<DetailST>, t: Throwable) {
+//                            Toast.makeText(requireContext(), "Error: $t", Toast.LENGTH_SHORT).show()
+//                        }
+//
+//                    })
+//                } catch (e: Exception) {
+//                    Toast.makeText(requireContext(), "Error: $e", Toast.LENGTH_SHORT).show()
+//                }
+//            }
         }
     }
 }
