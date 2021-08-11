@@ -7,7 +7,6 @@
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/pink_200</item>
-        <item name="colorSecondaryVariant">@color/pink_500</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
@@ -49,11 +48,15 @@
     <style name="contentBlue">
         <item name="android:fontFamily">@font/sourcesanspro_regular</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/blue_text</item>
+        <item name="android:textColor">@color/blue_secondary</item>
     </style>
 
     <style name="contentBlue.secondary">
         <item name="android:textColor">@color/blue_secondary</item>
+    </style>
+
+    <style name="background_search">
+        <item name="android:background">@color/backgrond_search</item>
     </style>
 
     <style name="ToolbarTheme">

@@ -4,6 +4,7 @@
     <color name="pink_200">#FEB95A</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="backgrond_search">#FFFFFFFF</color>
     <color name="white_bottom">#FFFFFFFF</color>
     <color name="blue_text">#1B1193</color>
 

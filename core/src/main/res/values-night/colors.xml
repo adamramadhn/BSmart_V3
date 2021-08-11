@@ -2,12 +2,15 @@
 <resources>
     <color name="pink_200">#c68400</color>
     <color name="black">#B7B4C2</color>
-    <color name="white">#efebe9</color>
+    <color name="white">#1B1B1B</color>
+    <color name="white_bottom">#FF000000</color>
+    <color name="blue_text">#34407D</color>
 
-    <color name="blue_primary">#000051</color>
+    <color name="blue_primary">#34407D</color>
     <color name="blue_secondary">#efebe9</color>
     <color name="purple_secondary">#00227b</color>
     <color name="grey">#1b1b1b</color>
+    <color name="search">#B7B4C2</color>
     <color name="green">#33691e</color>
     <color name="red">#7f0000</color>
     <color name="yellow">#c68400</color>
