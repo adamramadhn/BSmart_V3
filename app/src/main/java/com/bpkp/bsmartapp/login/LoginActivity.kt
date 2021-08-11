@@ -23,8 +23,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class LoginActivity : AppCompatActivity(), View.OnClickListener, AuthListener {
 
     private lateinit var loginBinding: ActivityLoginBinding
-    var userEmail: String = ""
-    var userPassword: String = ""
+    private var userEmail: String = ""
+    private var userPassword: String = ""
     private val loginViewModel: LoginViewModel by viewModel()
     lateinit var prefHelper: PrefHelper
 

@@ -34,10 +34,28 @@ interface ApiService {
         @Field("catatan") catatan: String,
     ): Call<SpResponse>
 
+    @FormUrlEncoded
+    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+    @POST("api/tte")
+    fun loginTte(
+        @Field("username") username: String,
+        @Field("nik") nik: String,
+        @Field("passphrase") passphrase: String,
+    ): Call<DetailST>
+
+    @FormUrlEncoded
+    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+    @POST("api/nikpassphrase")
+    fun getTte(
+        @Field("id_st") id_sp: Int,
+        @Field("nik") nik: String,
+        @Field("passphrase") passphrase: String,
+    ): Call<DetailST>
+
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @GET("api/suratpengantar")
     fun getSP(
-        @Query("id_sp") id_st: Int?,
+        @Query("idst") id_st: Int?,
     ): Call<SpResponse>
 
     @FormUrlEncoded
@@ -48,9 +66,9 @@ interface ApiService {
         @Query("page") page: Int
     ): Call<ListSuratTugasResponse>
 
-    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @GET
-    fun getListST(@Url url: String): Call<ListSuratTugasResponse>
+//    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+//    @GET
+//    fun getListST(@Url url: String): Call<ListSuratTugasResponse>
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
@@ -59,14 +77,6 @@ interface ApiService {
         @Field("username") username: String,
         @Field("idst") id_st: Int,
     ): Call<DetailST>
-
-//    @FormUrlEncoded
-//    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-//    @POST("api/detail")
-//    fun getDetailSP(
-//        @Field("username") username: String,
-//        @Field("idst") id_st: Int,
-//    ): Call<DetailST>
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")

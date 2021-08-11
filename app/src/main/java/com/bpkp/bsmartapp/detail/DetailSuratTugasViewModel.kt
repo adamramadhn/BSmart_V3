@@ -1,5 +1,6 @@
 package com.bpkp.bsmartapp.detail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,11 +11,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailSuratTugasViewModel: ViewModel() {
+class DetailSuratTugasViewModel : ViewModel() {
 
     val loginResponse = MutableLiveData<SuratTugasResponse?>()
     val loginResponse2 = MutableLiveData<List<SuratTugasResponse>?>()
-    fun suratTugas(
+    val tteResponse = MutableLiveData<List<SuratTugasResponse>?>()
+    fun approvalST(
         user_email: String?,
         idST: Int,
         approval: Int,
@@ -59,5 +61,18 @@ class DetailSuratTugasViewModel: ViewModel() {
                 }
 
             })
+    }
+
+    fun getTte(userName: String, Nik: String, PassPhrase: String) {
+        ApiService().loginTte(userName, Nik, PassPhrase).enqueue(object : Callback<DetailST> {
+            override fun onResponse(call: Call<DetailST>, response: Response<DetailST>) {
+                tteResponse.postValue(response.body()?.places2)
+            }
+
+            override fun onFailure(call: Call<DetailST>, t: Throwable) {
+                Log.d("ZZZ", "Error: $t")
+            }
+
+        })
     }
 }

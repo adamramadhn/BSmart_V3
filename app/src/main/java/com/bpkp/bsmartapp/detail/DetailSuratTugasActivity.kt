@@ -6,7 +6,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -15,6 +14,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.SPDetail.SPDetail
+import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.CREATEDBY
 import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.ESELONSP
 import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.IDST
 import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.USERNAMESP
@@ -36,6 +36,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     private var userName: String? = ""
     private var userEselon: String? = ""
     private var idST: Int = 0
+    private var createdBy: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,8 +68,8 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 tvDate.text = detailSuratTugas.tgl_st
                 tvStNumber.text = detailSuratTugas.no_st
                 tvDescription.text = detailSuratTugas.perihal
-                tv_date_duration.text = "${detailSuratTugas.tgl1} s.d."
-                tv_date_duration2.text = detailSuratTugas.tgl2
+                tvDateDuration.text = "${detailSuratTugas.tgl1} s.d."
+                tvDateDuration2.text = detailSuratTugas.tgl2
                 var note1 = detailSuratTugas.review_note_es1
                 var note2 = detailSuratTugas.review_note_es2
                 var note3 = detailSuratTugas.review_note_es3
@@ -108,6 +109,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 etNote.hint = "$note1$note2$note3$note4"
 
                 tvUserUpdate.text = detailSuratTugas.created_by
+                createdBy = detailSuratTugas.created_by.toString()
 //                tvUserUpdate.text = detailSuratTugas.user_id
                 when (userEselon) {
                     "ESELON IV-A", "ESELON IV-B" -> {
@@ -308,7 +310,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         })
                     }, 1000)
                     try {
-                        detailSuratTugasViewModel.suratTugas(
+                        detailSuratTugasViewModel.approvalST(
                             userName,
                             detailSuratTugas.id_st,
                             1,
@@ -340,7 +342,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         })
                     }, 1000)
                     try {
-                        detailSuratTugasViewModel.suratTugas(
+                        detailSuratTugasViewModel.approvalST(
                             userName,
                             detailSuratTugas.id_st,
                             0,
@@ -371,7 +373,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         })
                     }, 1000)
                     try {
-                        detailSuratTugasViewModel.suratTugas(
+                        detailSuratTugasViewModel.approvalST(
                             userName,
                             detailSuratTugas.id_st,
                             2,
@@ -411,8 +413,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     )
                     intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
                     startActivity(Intent.createChooser(intent, "Open with..."))
-                }
-                catch (e:java.lang.Exception){
+                } catch (e: Exception) {
                     Toast.makeText(this, "Error: $e,", Toast.LENGTH_LONG)
                         .show()
                 }
@@ -420,20 +421,35 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.btn_tte -> {
-                Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
+                try {
+                    Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
+//                    detailSuratTugasViewModel.getTte(userName,)
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
+                }
             }
             R.id.btn_lihat_rkd -> {
                 Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
 //                val intent = Intent(this, RKDActivity::class.java)
 //                intent.putExtra(USERNAME_RKD, userName)
 //                startActivity(intent)
+                try {
+
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
+                }
             }
             R.id.btn_lihat_sp -> {
-                val intent = Intent(this, SPDetail::class.java)
-                intent.putExtra(USERNAMESP,userName)
-                intent.putExtra(ESELONSP,userEselon)
-                intent.putExtra(IDST,idST)
-                startActivity(intent)
+                try {
+                    val intent = Intent(this, SPDetail::class.java)
+                    intent.putExtra(USERNAMESP, userName)
+                    intent.putExtra(ESELONSP, userEselon)
+                    intent.putExtra(IDST, idST)
+                    intent.putExtra(CREATEDBY, createdBy)
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

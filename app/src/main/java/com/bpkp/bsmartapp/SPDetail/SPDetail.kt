@@ -29,11 +29,13 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
     private var userEselon: String? = ""
     private var idST: Int = 0
     private var idSP: Int = 0
+    private var dibuatOleh: String = ""
 
     companion object {
         const val USERNAMESP = "USERNAMESP"
         const val ESELONSP = "ESELONSP"
         const val IDST = "IDST"
+        const val CREATEDBY = "CREATEDBY"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,8 +44,9 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
         userName = intent.getStringExtra(USERNAMESP)
         userEselon = intent.getStringExtra(ESELONSP)
+        dibuatOleh = intent.getStringExtra(CREATEDBY).toString()
         idST = intent.getIntExtra(IDST, 0)
-
+        Log.d("ZZZ", "idST: $idST\nidSP: $idSP")
         SPViewModel = SPViewModel()
 
         binding.btnBack.setOnClickListener(this)
@@ -91,14 +94,15 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
                 tvDate.text = detailSuratPengantar.tgl_sp
                 tvSpNumber.text = detailSuratPengantar.no_sp.toString()
                 tvDescription.text = detailSuratPengantar.hal
-//                tv_date_duration.text = "${detailSuratPengantar.t} s.d."
-//                tv_date_duration2.text = detailSuratPengantar.tgl2
+                yth.text = detailSuratPengantar.yth
+                createdBy.text = dibuatOleh
+
                 var note1 = detailSuratPengantar.review_note_es1
                 var note2 = detailSuratPengantar.review_note_es2
                 var note3 = detailSuratPengantar.review_note_es3
                 var note4 = detailSuratPengantar.review_note_es4
                 note1 = when (note1) {
-                    null -> {
+                    "" -> {
                         ""
                     }
                     else -> {
@@ -106,7 +110,7 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
                     }
                 }
                 note2 = when (note2) {
-                    null -> {
+                    "" -> {
                         ""
                     }
                     else -> {
@@ -114,7 +118,7 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
                     }
                 }
                 note3 = when (note3) {
-                    null -> {
+                    "" -> {
                         ""
                     }
                     else -> {
@@ -122,7 +126,7 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
                     }
                 }
                 note4 = when (note4) {
-                    null -> {
+                    "" -> {
                         ""
                     }
                     else -> {
@@ -131,8 +135,6 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
                 }
                 etNote.hint = "$note1$note2$note3$note4"
 
-//                tvUserUpdate.text = detailSuratPengantar.created_by
-//                tvUserUpdate.text = detailSuratTugas.user_id
                 when (userEselon) {
                     "ESELON IV-A", "ESELON IV-B" -> {
                         if (detailSuratPengantar.apv_es2 == 1 || detailSuratPengantar.apv_es2 == 0 || detailSuratPengantar.apv_es1 == 1 || detailSuratPengantar.apv_es1 == 0 || detailSuratPengantar.apv_es3 == 1 || detailSuratPengantar.apv_es3 == 0) {
@@ -399,9 +401,9 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun getSp(idSP: Int) {
+    private fun getSp(idST: Int) {
 
-        ApiService().getSP(idSP).enqueue(object : Callback<SpResponse> {
+        ApiService().getSP(idST).enqueue(object : Callback<SpResponse> {
             override fun onResponse(call: Call<SpResponse>, response: Response<SpResponse>) {
                 try {
                     if (response.isSuccessful) {

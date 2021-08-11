@@ -192,7 +192,7 @@
                             app:layout_constraintTop_toBottomOf="@id/tv_duration" />
 
                         <TextView
-                            android:id="@+id/tv_date_duration2"
+                            android:id="@+id/yth"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="2dp"
