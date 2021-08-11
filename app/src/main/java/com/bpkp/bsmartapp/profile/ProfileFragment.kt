@@ -30,6 +30,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         var NAMA_USER = "NAMA_USER"
         var ESELON_USER = "ESELON_USER"
         var NIP_USER = "NIP_USER"
+        var NIK_USER = "NIK_USER"
     }
 
     private var nik = ""
