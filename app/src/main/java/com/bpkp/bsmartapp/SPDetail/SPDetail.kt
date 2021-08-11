@@ -11,7 +11,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
 import com.bpkp.bsmartapp.core.data.source.remote.response.sp.ListSpResponse
@@ -29,6 +28,7 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
     private var userName: String? = ""
     private var userEselon: String? = ""
     private var idST: Int = 0
+    private var idSP: Int = 0
 
     companion object {
         const val USERNAMESP = "USERNAMESP"
@@ -42,11 +42,8 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
         userName = intent.getStringExtra(USERNAMESP)
         userEselon = intent.getStringExtra(ESELONSP)
-        idST = intent.getIntExtra(IDST,0)
-//        SPViewModel = ViewModelProvider(
-//            this,
-//            ViewModelProvider.NewInstanceFactory()
-//        ).get(SPViewModel::class.java)
+        idST = intent.getIntExtra(IDST, 0)
+
         SPViewModel = SPViewModel()
 
         binding.btnBack.setOnClickListener(this)
@@ -89,6 +86,7 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
         detailSuratPengantar?.let {
             with(binding) {
                 tvSpId.text = "${detailSuratPengantar.id_sp} |"
+                idSP = detailSuratPengantar.id_sp
                 idST = detailSuratPengantar.st_id
                 tvDate.text = detailSuratPengantar.tgl_sp
                 tvSpNumber.text = detailSuratPengantar.no_sp.toString()
@@ -312,16 +310,16 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
 
                 mAlertDialog.setPositiveButton("Ya") { _, _ ->
                     Handler(mainLooper).postDelayed({
-//                        SPViewModel.setDetail(userName.toString(), idSP)
-//                        SPViewModel.getDetail().observe(this, {
-//                            showDetailTourism(it)
-//                            binding.etNote.setText("")
-//                        })
+                        SPViewModel.setSp(idSP)
+                        SPViewModel.getSp().observe(this, {
+                            showDetailTourism(it?.get(0))
+                            binding.etNote.setText("")
+                        })
                     }, 1000)
                     try {
                         SPViewModel.suratPengantar(
                             userName,
-                            detailSuratPengantar.id_sp,
+                            idST,
                             1,
                             binding.etNote.text.toString()
                         )
@@ -344,16 +342,16 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
                 mAlertDialog.setIcon(R.drawable.ic_warning)
                 mAlertDialog.setPositiveButton("Ya") { _, _ ->
                     Handler(mainLooper).postDelayed({
-//                        SPViewModel.setDetail(userName.toString(), idST)
-//                        SPViewModel.getDetail().observe(this, {
-//                            showDetailTourism(it?.get(0))
-//                            binding.etNote.setText("")
-//                        })
+                        SPViewModel.setSp(idSP)
+                        SPViewModel.getSp().observe(this, {
+                            showDetailTourism(it?.get(0))
+                            binding.etNote.setText("")
+                        })
                     }, 1000)
                     try {
                         SPViewModel.suratPengantar(
                             userName,
-                            detailSuratPengantar.id_sp,
+                            idST,
                             0,
                             binding.etNote.text.toString()
                         )
@@ -375,16 +373,16 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
                 mAlertDialog.setIcon(R.drawable.ic_warning)
                 mAlertDialog.setPositiveButton("Ya") { _, _ ->
                     Handler(mainLooper).postDelayed({
-//                        SPViewModel.setDetail(userName.toString(), idST)
-//                        SPViewModel.getDetail().observe(this, {
-//                            showDetailTourism(it?.get(0))
-//                            binding.etNote.setText("")
-//                        })
+                        SPViewModel.setSp(idSP)
+                        SPViewModel.getSp().observe(this, {
+                            showDetailTourism(it?.get(0))
+                            binding.etNote.setText("")
+                        })
                     }, 1000)
                     try {
                         SPViewModel.suratPengantar(
                             userName,
-                            detailSuratPengantar.id_sp,
+                            idST,
                             2,
                             ""
                         )
@@ -421,7 +419,7 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
             override fun onFailure(call: Call<SpResponse>, t: Throwable) {
                 Toast.makeText(this@SPDetail, "Error: $t,", Toast.LENGTH_LONG)
                     .show()
-                Log.d("ZZZ",t.toString())
+                Log.d("ZZZ", t.toString())
             }
 
         })
