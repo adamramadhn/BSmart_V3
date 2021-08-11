@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
+import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.sp.ListSpResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.sp.SpResponse
 import com.bpkp.bsmartapp.databinding.ActivityDetailSuratPengantarBinding
@@ -35,6 +36,7 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
         const val ESELONSP = "ESELONSP"
         const val IDST = "IDST"
         const val CREATEDBY = "CREATEDBY"
+        const val DATA_SP = "DATA_SP"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,10 +61,16 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
             }
             return@setOnKeyListener false
         }
-        getSp(idST)
+//        getSp(idST)
 
 //        binding.btnSetuju.setOnClickListener(this)
 //        binding.btnTolak.setOnClickListener(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val detailSp = intent.getParcelableExtra<ListSpResponse>(DATA_SP)
+        showDetailTourism(detailSp)
     }
 
 

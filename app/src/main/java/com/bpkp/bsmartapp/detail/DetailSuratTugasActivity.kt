@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -15,12 +16,18 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.SPDetail.SPDetail
 import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.CREATEDBY
+import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.DATA_SP
 import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.ESELONSP
 import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.IDST
 import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.USERNAMESP
+import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
+import com.bpkp.bsmartapp.core.data.source.remote.response.sp.SpResponse
 import com.bpkp.bsmartapp.databinding.ActivityDetailSuratTugasBinding
 import com.bpkp.bsmartapp.tte.TteActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
@@ -442,12 +449,35 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_lihat_sp -> {
                 try {
-                    val intent = Intent(this, SPDetail::class.java)
-                    intent.putExtra(USERNAMESP, userName)
-                    intent.putExtra(ESELONSP, userEselon)
-                    intent.putExtra(IDST, idST)
-                    intent.putExtra(CREATEDBY, createdBy)
-                    startActivity(intent)
+                    ApiService().getSP(idST).enqueue(object : Callback<SpResponse> {
+                        override fun onResponse(call: Call<SpResponse>, response: Response<SpResponse>) {
+                            try {
+                                if (response.isSuccessful) {
+                                    val listResponse = response.body()?.SuratPengantar?.get(0)
+                                    val intent = Intent(this@DetailSuratTugasActivity, SPDetail::class.java)
+                                    intent.putExtra(USERNAMESP, userName)
+                                    intent.putExtra(ESELONSP, userEselon)
+                                    intent.putExtra(IDST, idST)
+                                    intent.putExtra(CREATEDBY, createdBy)
+                                    intent.putExtra(DATA_SP, listResponse)
+                                    startActivity(intent)
+                                }
+                            } catch (e: java.lang.Exception) {
+                                Toast.makeText(this@DetailSuratTugasActivity, "Data tidak ditemukan!,", Toast.LENGTH_LONG)
+                                    .show()
+                                finish()
+//                    binding.progressBar.visibility = View.GONE
+                            }
+                        }
+
+                        override fun onFailure(call: Call<SpResponse>, t: Throwable) {
+                            Toast.makeText(this@DetailSuratTugasActivity, "Error: $t,", Toast.LENGTH_LONG)
+                                .show()
+                            Log.d("ZZZ", t.toString())
+                        }
+
+                    })
+
                 } catch (e: Exception) {
                     Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
                 }

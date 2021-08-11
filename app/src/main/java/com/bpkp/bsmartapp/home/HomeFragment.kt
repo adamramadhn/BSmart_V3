@@ -41,7 +41,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         var ESELON_HOME = "ESELON_HOME"
     }
 
-//    private lateinit var homeViewModel: HomeViewModel
+    //    private lateinit var homeViewModel: HomeViewModel
     private lateinit var suratTugasAdapter: SuratTugasAdapter
 
     private var _binding: FragmentHomeBinding? = null

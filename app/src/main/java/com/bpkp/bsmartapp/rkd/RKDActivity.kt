@@ -47,7 +47,7 @@ class RKDActivity : AppCompatActivity(), View.OnClickListener {
         rkdAdapter.onItemClick = {
             val intent = Intent(this, RKDDetail::class.java)
             intent.putExtra(RKDDetail.EXTRA_DATA, it)
-            intent.putExtra(USERNAME_RKD,username)
+            intent.putExtra(USERNAME_RKD, username)
             startActivity(intent)
         }
 
@@ -55,10 +55,11 @@ class RKDActivity : AppCompatActivity(), View.OnClickListener {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = rkdAdapter
-            addOnScrollListener(object : RecyclerView.OnScrollListener(){
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     val visibleItemCount = (layoutManager as LinearLayoutManager).childCount
-                    val pastVisibleItem = (layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
+                    val pastVisibleItem =
+                        (layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
 //                    val total = rkdAdapter.itemCount
                     if (!isLoading && page < totalPage) {
                         if (visibleItemCount + pastVisibleItem >= items) {
@@ -135,7 +136,7 @@ class RKDActivity : AppCompatActivity(), View.OnClickListener {
         TODO("Not yet implemented")
     }
 
-    private fun getRkd(){
+    private fun getRkd() {
 //        ApiService().getList()
     }
 

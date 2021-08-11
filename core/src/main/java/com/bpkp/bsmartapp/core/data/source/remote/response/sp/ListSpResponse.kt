@@ -1,7 +1,10 @@
 package com.bpkp.bsmartapp.core.data.source.remote.response.sp
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class ListSpResponse(
     @field:SerializedName("id")
     val id_sp: Int,
@@ -20,7 +23,7 @@ data class ListSpResponse(
     val alinea_4: String?,
     val tembusan: String?,
 
-    val ttd_pegawai_id:Int,
+    val ttd_pegawai_id: Int,
 
     @field:SerializedName("approve_eselon_1")
     val apv_es1: Int?,
@@ -44,4 +47,4 @@ data class ListSpResponse(
     val review_note_es3: String?,
     val review_note_es4: String?,
 
-)
+    ) : Parcelable
