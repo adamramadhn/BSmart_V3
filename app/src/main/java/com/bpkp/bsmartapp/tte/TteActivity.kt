@@ -3,6 +3,7 @@ package com.bpkp.bsmartapp.tte
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.databinding.ActivityTteBinding
 
 class TteActivity: AppCompatActivity(), View.OnClickListener {
@@ -11,11 +12,15 @@ class TteActivity: AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         tteBinding = ActivityTteBinding.inflate(layoutInflater)
         setContentView(tteBinding.root)
-
+        tteBinding.btnCancel.setOnClickListener(this)
 
     }
     override fun onClick(v: View?) {
-
+        when(v?.id){
+            R.id.btn_cancel ->{
+                finish()
+            }
+        }
     }
 
 }

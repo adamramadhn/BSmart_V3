@@ -58,6 +58,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         suratTugasAdapter = SuratTugasAdapter()
+        prefHelper = PrefHelper(requireContext())
 //        homeViewModel = ViewModelProvider(
 //            this,
 //            ViewModelProvider.NewInstanceFactory()
@@ -66,6 +67,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         binding.tvName.text = NAME_HOME
         binding.tvGrade.text = ESELON_HOME
         if (activity != null) {
+
 
             suratTugasAdapter.onItemClick = { selectedData ->
                 val intent = Intent(activity, DetailSuratTugasActivity::class.java)
@@ -101,18 +103,16 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
             }
             binding.swipeRefresh.setOnRefreshListener(this)
 
-            prefHelper = PrefHelper(requireContext())
-            binding.cbFilter.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-                    prefHelper.put(Constant.PREF_FILTER, true)
-                    getFilter()
-                } else {
-                    prefHelper.put(Constant.PREF_FILTER, false)
-                    getListST()
-                }
+        }
+        binding.cbFilter.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                prefHelper.put(Constant.PREF_FILTER, true)
+                getFilter()
+            } else {
+                prefHelper.put(Constant.PREF_FILTER, false)
+                getListST()
             }
         }
-
 
         binding.apply {
             ivSearch.setOnClickListener {
@@ -145,8 +145,10 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         super.onResume()
         prefHelper = PrefHelper(requireContext())
         if (prefHelper.getBoolean(Constant.PREF_FILTER)) {
+            binding.cbFilter.isChecked = true
             getFilter()
         } else {
+            binding.cbFilter.isChecked = false
             getListST()
         }
     }
@@ -275,11 +277,22 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
 
     override fun onRefresh() {
         try {
-            binding.progressBar.visibility = View.GONE
-            suratTugasAdapter.clear()
-            page = 1
-            getListST()
-            swipeRefresh.isRefreshing = false
+            if (!prefHelper.getBoolean(Constant.PREF_FILTER)) {
+                binding.cbFilter.isChecked = false
+                binding.progressBar.visibility = View.GONE
+                suratTugasAdapter.clear()
+                page = 1
+                getListST()
+                swipeRefresh.isRefreshing = false
+            } else {
+                binding.cbFilter.isChecked = true
+                binding.progressBar.visibility = View.GONE
+                suratTugasAdapter.clear()
+                page = 1
+                getFilter()
+                swipeRefresh.isRefreshing = false
+            }
+
         } catch (e: Exception) {
             swipeRefresh.isRefreshing = false
             Toast.makeText(requireContext(), "Error: $e,", Toast.LENGTH_LONG)

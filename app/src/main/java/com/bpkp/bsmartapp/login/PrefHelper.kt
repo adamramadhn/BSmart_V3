@@ -61,5 +61,4 @@ class PrefHelper(context: Context) {
         editor.clear().apply()
     }
 
-
 }
