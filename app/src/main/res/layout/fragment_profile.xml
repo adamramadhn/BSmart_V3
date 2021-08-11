@@ -12,7 +12,7 @@
            android:id="@+id/ivProfile"
            android:layout_width="180dp"
            android:layout_height="180dp"
-           android:layout_marginTop="8dp"
+           android:layout_marginTop="16dp"
            android:src="@drawable/illustration_onboard"
            app:civ_border_color="@color/blue_primary"
            app:civ_border_width="1dp"
@@ -135,7 +135,9 @@
            android:background="@color/yellow"
            android:fontFamily="@font/nunitosans_regular"
            android:gravity="center"
-           android:text="Masukkan NIK dan Passphrase agar dapat melakukan TTE"
+           android:text="Masukkan Passphrase agar dapat melakukan TTE"
+           android:paddingLeft="26dp"
+           android:paddingRight="26dp"
            android:textColor="@color/backgrond_search"
            android:textFontWeight="900"
            android:textSize="18sp"
@@ -144,61 +146,18 @@
            app:layout_constraintTop_toBottomOf="@+id/tv_eselon" />
 
        <TextView
-           android:id="@+id/tvNik"
+           android:id="@+id/tvPassphrase"
            android:layout_width="0dp"
            android:layout_height="wrap_content"
            android:layout_marginStart="24dp"
-           android:layout_marginTop="44dp"
+           android:layout_marginTop="32dp"
            android:fontFamily="@font/sourcesanspro_regular"
-           android:text="NIK"
+           android:text="Passphrase"
            android:textColor="@color/blue_secondary"
            android:textSize="16sp"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toBottomOf="@+id/textView_login_tte" />
 
-       <TextView
-           android:id="@+id/tvPassphrase"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:textColor="@color/blue_secondary"
-           android:textSize="16sp"
-           android:fontFamily="@font/sourcesanspro_regular"
-           android:layout_marginStart="24dp"
-           android:layout_marginTop="32dp"
-           android:text="Passphrase"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/tvNik" />
-
-
-       <com.google.android.material.textfield.TextInputLayout
-           android:id="@+id/inputNik"
-           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_gravity="center_horizontal"
-           android:layout_marginStart="8dp"
-           android:layout_marginTop="16dp"
-           android:layout_marginEnd="24dp"
-           android:textColorHint="@color/search"
-           app:boxCornerRadiusBottomEnd="58dp"
-           app:boxCornerRadiusBottomStart="58dp"
-           app:boxCornerRadiusTopEnd="58dp"
-           app:boxCornerRadiusTopStart="58dp"
-           app:boxStrokeWidth="1dp"
-           app:hintTextColor="@color/blue_secondary"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toEndOf="@+id/tvPassphrase"
-           app:layout_constraintTop_toBottomOf="@+id/textView_login_tte">
-
-           <com.google.android.material.textfield.TextInputEditText
-               android:id="@+id/inputNIK"
-               style="@style/inputText"
-               android:layout_height="wrap_content"
-               android:hint="NIK"
-               android:inputType="text"
-               android:textColor="@color/black" />
-
-       </com.google.android.material.textfield.TextInputLayout>
 
        <com.google.android.material.textfield.TextInputLayout
            android:id="@+id/inputPassphrase"
@@ -207,6 +166,7 @@
            android:layout_height="wrap_content"
            android:layout_gravity="center_horizontal"
            android:layout_marginStart="8dp"
+           android:layout_marginEnd="24dp"
            android:textColorHint="@color/search"
            app:boxCornerRadiusBottomEnd="58dp"
            app:boxCornerRadiusBottomStart="58dp"
@@ -215,7 +175,7 @@
            app:boxStrokeWidth="1dp"
            app:hintTextColor="@color/blue_secondary"
            app:layout_constraintBottom_toBottomOf="@+id/tvPassphrase"
-           app:layout_constraintEnd_toEndOf="@+id/inputNik"
+           app:layout_constraintEnd_toEndOf="@+id/textView_login_tte"
            app:layout_constraintStart_toEndOf="@+id/tvPassphrase"
            app:layout_constraintTop_toTopOf="@+id/tvPassphrase">
 
