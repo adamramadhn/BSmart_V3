@@ -15,15 +15,14 @@ import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
 import com.bpkp.bsmartapp.core.data.source.remote.response.sp.ListSpResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.sp.SpResponse
-import com.bpkp.bsmartapp.databinding.DetailSuratPengantarBinding
+import com.bpkp.bsmartapp.databinding.ActivityDetailSuratPengantarBinding
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity
-import kotlinx.android.synthetic.main.detail_surat_tugas.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class SPDetail : AppCompatActivity(), View.OnClickListener {
-    private lateinit var binding: DetailSuratPengantarBinding
+    private lateinit var binding: ActivityDetailSuratPengantarBinding
     private lateinit var SPViewModel: SPViewModel
     private var userName: String? = ""
     private var userEselon: String? = ""
@@ -40,7 +39,7 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DetailSuratPengantarBinding.inflate(layoutInflater)
+        binding = ActivityDetailSuratPengantarBinding.inflate(layoutInflater)
         setContentView(binding.root)
         userName = intent.getStringExtra(USERNAMESP)
         userEselon = intent.getStringExtra(ESELONSP)

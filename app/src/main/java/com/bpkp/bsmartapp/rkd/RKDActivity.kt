@@ -59,7 +59,7 @@ class RKDActivity : AppCompatActivity(), View.OnClickListener {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     val visibleItemCount = (layoutManager as LinearLayoutManager).childCount
                     val pastVisibleItem = (layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
-                    val total = rkdAdapter.itemCount
+//                    val total = rkdAdapter.itemCount
                     if (!isLoading && page < totalPage) {
                         if (visibleItemCount + pastVisibleItem >= items) {
                             page++

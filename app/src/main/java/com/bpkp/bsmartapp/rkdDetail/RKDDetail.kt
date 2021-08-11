@@ -13,7 +13,6 @@ import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.bpkp.bsmartapp.databinding.ActivityDetailRkdBinding
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity
-import kotlinx.android.synthetic.main.detail_surat_tugas.*
 
 class RKDDetail: AppCompatActivity(), View.OnClickListener {
 
