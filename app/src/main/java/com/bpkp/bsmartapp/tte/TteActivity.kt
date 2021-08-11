@@ -1,7 +1,6 @@
 package com.bpkp.bsmartapp.tte
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bpkp.bsmartapp.databinding.ActivityTteBinding

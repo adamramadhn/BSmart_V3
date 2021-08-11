@@ -19,9 +19,8 @@ import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.ESELONSP
 import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.IDST
 import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.USERNAMESP
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
-import com.bpkp.bsmartapp.databinding.DetailSuratTugasBinding
+import com.bpkp.bsmartapp.databinding.ActivityDetailSuratTugasBinding
 import com.bpkp.bsmartapp.tte.TteActivity
-import kotlinx.android.synthetic.main.detail_surat_tugas.*
 
 class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
@@ -31,7 +30,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         var USERID_DETAIL = "USERID_DETAIL"
     }
 
-    private lateinit var binding: DetailSuratTugasBinding
+    private lateinit var binding: ActivityDetailSuratTugasBinding
     private lateinit var detailSuratTugasViewModel: DetailSuratTugasViewModel
 
     private var userName: String? = ""
@@ -41,7 +40,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DetailSuratTugasBinding.inflate(layoutInflater)
+        binding = ActivityDetailSuratTugasBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnBack.setOnClickListener { finish() }
         binding.btnSuratTugas.setOnClickListener(this)
