@@ -20,6 +20,7 @@ import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.IDST
 import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.USERNAMESP
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.bpkp.bsmartapp.databinding.DetailSuratTugasBinding
+import com.bpkp.bsmartapp.tte.TteActivity
 import kotlinx.android.synthetic.main.detail_surat_tugas.*
 
 class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
@@ -159,7 +160,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
-                            btnTte.visibility = View.GONE
+//                            btnTte.visibility = View.GONE
                         } else {
                             if (detailSuratTugas.apv_es2 != 2 && detailSuratTugas.approve_id_user_eselon_2 == USERID_DETAIL) {
                                 btnCancel.visibility = View.VISIBLE
@@ -174,12 +175,12 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
-                                btnTte.visibility = View.GONE
+//                                btnTte.visibility = View.GONE
                             } else {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.VISIBLE
                                 btnSetuju.visibility = View.VISIBLE
-                                btnTte.visibility = View.GONE
+//                                btnTte.visibility = View.GONE
                             }
                         }
                     }
@@ -188,22 +189,22 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
-                            btnTte.visibility = View.GONE
+//                            btnTte.visibility = View.GONE
                         } else {
                             if (detailSuratTugas.apv_es1 != 2 && detailSuratTugas.approve_id_user_eselon_1 == USERID_DETAIL) {
                                 btnCancel.visibility = View.VISIBLE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
-                                if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte != null || detailSuratTugas.tte != 2) {
-                                    btnTte.visibility = View.VISIBLE
-                                } else {
-                                    btnTte.visibility = View.GONE
-                                }
+//                                if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte != null || detailSuratTugas.tte != 2) {
+//                                    btnTte.visibility = View.VISIBLE
+//                                } else {
+//                                    btnTte.visibility = View.GONE
+//                                }
                             } else {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.VISIBLE
                                 btnSetuju.visibility = View.VISIBLE
-                                btnTte.visibility = View.GONE
+//                                btnTte.visibility = View.GONE
                             }
                         }
                     }
@@ -211,7 +212,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         btnCancel.visibility = View.GONE
                         btnTolak.visibility = View.GONE
                         btnSetuju.visibility = View.GONE
-                        btnTte.visibility = View.GONE
+//                        btnTte.visibility = View.GONE
                     }
                 }
 
@@ -422,8 +423,9 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_tte -> {
                 try {
-                    Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
-//                    detailSuratTugasViewModel.getTte(userName,)
+                    val intent = Intent(this, TteActivity::class.java)
+
+                    startActivity(intent)
                 } catch (e: Exception) {
                     Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
                 }
