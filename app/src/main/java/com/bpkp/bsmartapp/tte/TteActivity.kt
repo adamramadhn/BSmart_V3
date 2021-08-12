@@ -45,18 +45,23 @@ class TteActivity: AppCompatActivity(), View.OnClickListener {
                 ApiService().getTte(idSt,nik,passphrase).enqueue(object : Callback<DetailST> {
                     override fun onResponse(call: Call<DetailST>, response: Response<DetailST>) {
                         response.body()
-                        try {
-                            val intent = Intent(Intent.ACTION_VIEW)
-                            intent.setDataAndType(
-                                Uri.parse("http://aplikasistore.org/api/surattugas/pdf?idst=${idSt}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
-                                "application/pdf"
-                            )
-                            intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-                            startActivity(Intent.createChooser(intent, "Open with..."))
-                        } catch (e: Exception) {
-                            Toast.makeText(this@TteActivity, "Error: $e,", Toast.LENGTH_LONG)
-                                .show()
+                        if(response.isSuccessful){
+                            try {
+                                val intent = Intent(Intent.ACTION_VIEW)
+                                intent.setDataAndType(
+                                    Uri.parse("http://aplikasistore.org/api/surattugas/pdf?idst=${idSt}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                                    "application/pdf"
+                                )
+                                intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+                                startActivity(Intent.createChooser(intent, "Open with..."))
+                            } catch (e: Exception) {
+                                Toast.makeText(this@TteActivity, "Error: $e,", Toast.LENGTH_LONG)
+                                    .show()
+                            } 
+                        }else{
+                            Toast.makeText(this@TteActivity, "Error ${response.code()}", Toast.LENGTH_SHORT).show()
                         }
+                        
                     }
                     override fun onFailure(call: Call<DetailST>, t: Throwable) {
                         Toast.makeText(this@TteActivity, "Error: $t", Toast.LENGTH_SHORT).show()

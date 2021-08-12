@@ -6,8 +6,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="backgrond_search">#FFFFFFFF</color>
     <color name="white_bottom">#FFFFFFFF</color>
+    <color name="shape_login">#FFFFFFFF</color>
     <color name="blue_text">#1B1193</color>
 
+    <color name="yellow_200">#1B1193</color>
     <color name="blue_primary">#1B1193</color>
     <color name="blue_secondary">#34407D</color>
     <color name="purple_secondary">#ADBBF9</color>

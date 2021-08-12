@@ -52,6 +52,9 @@ data class SuratTugasResponse(
     val url: String?,
     val created_by: String?,
     val tte: Int?,
+    val biaya: String?,
+
+    val jumlahpetugas: Int?,
 
 
     ) : Parcelable

@@ -50,7 +50,9 @@ class SuratTugasAdapter : RecyclerView.Adapter<SuratTugasAdapter.ListViewHolder>
             binding.apply {
 
                 tvStId.text = "${data.id_st} |"
-                tvDate.text = data.tgl_st
+                val x = data.tgl_st
+                val time = x?.dropLast(8)
+                tvDate.text = time
                 tvStNumber.text = data.no_st
                 tvDescription.text = data.perihal
 

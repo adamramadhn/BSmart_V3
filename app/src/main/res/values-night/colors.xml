@@ -5,14 +5,17 @@
     <color name="white">#efebe9</color>
     <color name="backgrond_search">#1B1B1B</color>
     <color name="white_bottom">#FF000000</color>
+    <color name="shape_login">#171721</color>
     <color name="blue_text">#34407D</color>
 
-    <color name="blue_primary">#2797CF</color>
+    <color name="yellow_200">#FFC244</color>
+    <color name="blue_primary">#114893</color>
     <color name="blue_secondary">#efebe9</color>
-    <color name="purple_secondary">#00227b</color>
+    <color name="purple_secondary">#9BA8E0</color>
     <color name="grey">#1b1b1b</color>
     <color name="search">#B7B4C2</color>
     <color name="green">#5CBE35</color>
     <color name="red">#EB0E0E </color>
     <color name="yellow">#FFC244</color>
+
 </resources>

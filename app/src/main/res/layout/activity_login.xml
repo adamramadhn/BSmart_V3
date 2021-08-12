@@ -122,7 +122,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
             android:text="Lupa password?"
-            android:textColor="@color/blue_text"
+            android:textColor="@color/yellow_200"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />
@@ -176,26 +176,29 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView"
             app:layout_constraintVertical_bias="0.0" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteY="0dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/progress_bar"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.8"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="load.json"
+                app:lottie_loop="true" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/progress_bar"
-            android:layout_width="320dp"
-            android:layout_height="320dp"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="load.json"
-            app:lottie_loop="true" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

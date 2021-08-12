@@ -16,6 +16,7 @@ class DetailSuratTugasViewModel : ViewModel() {
     val loginResponse = MutableLiveData<SuratTugasResponse?>()
     val loginResponse2 = MutableLiveData<List<SuratTugasResponse>?>()
     val tteResponse = MutableLiveData<List<SuratTugasResponse>?>()
+    val jumlahPetugas = MutableLiveData<Int?>()
     fun approvalST(
         user_email: String?,
         idST: Int,
@@ -40,6 +41,10 @@ class DetailSuratTugasViewModel : ViewModel() {
         }
     }
 
+    fun getJumlahPetugas(): LiveData<Int?>{
+        return jumlahPetugas
+    }
+
     fun getDetail(): LiveData<List<SuratTugasResponse>?> {
         return loginResponse2
     }
@@ -53,6 +58,7 @@ class DetailSuratTugasViewModel : ViewModel() {
                 ) {
                     if (response.isSuccessful) {
                         loginResponse2.postValue(response.body()?.places2)
+                        jumlahPetugas.postValue(response.body()?.places2?.indexOf(1))
                     }
                 }
 

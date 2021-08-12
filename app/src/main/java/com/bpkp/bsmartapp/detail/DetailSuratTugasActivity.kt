@@ -21,6 +21,7 @@ import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.ESELONSP
 import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.IDST
 import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.USERNAMESP
 import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
+import com.bpkp.bsmartapp.core.data.source.remote.response.DetailST
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.sp.SpResponse
 import com.bpkp.bsmartapp.databinding.ActivityDetailSuratTugasBinding
@@ -48,16 +49,20 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     private var nik: String? = ""
     private var idST: Int = 0
     private var createdBy: String = ""
+    private var jumlahPetugas: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailSuratTugasBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.btnBack.setOnClickListener { finish() }
-        binding.btnSuratTugas.setOnClickListener(this)
-        binding.btnTte.setOnClickListener(this)
-        binding.btnLihatRkd.setOnClickListener(this)
-        binding.btnLihatSp.setOnClickListener(this)
+        with(binding){
+            btnBack.setOnClickListener { finish() }
+            btnSuratTugas.setOnClickListener(this@DetailSuratTugasActivity)
+            btnTte.setOnClickListener(this@DetailSuratTugasActivity)
+            btnLihatRkd.setOnClickListener(this@DetailSuratTugasActivity)
+            btnSuratPengantar.setOnClickListener(this@DetailSuratTugasActivity)
+        }
+
         binding.etNote.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                 val imm: InputMethodManager =
@@ -76,11 +81,19 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             with(binding) {
                 tvStId.text = "${detailSuratTugas.id_st} |"
                 idST = detailSuratTugas.id_st
-                tvDate.text = detailSuratTugas.tgl_st
+                val v = detailSuratTugas.tgl_st
+                val timeV = v?.dropLast(8)
+                tvDate.text = timeV
                 tvStNumber.text = detailSuratTugas.no_st
                 tvDescription.text = detailSuratTugas.perihal
-                tvDateDuration.text = "${detailSuratTugas.tgl1} s.d."
-                tvDateDuration2.text = detailSuratTugas.tgl2
+                val  x = detailSuratTugas.tgl1
+                val time1 = x?.dropLast(8)
+                tvDateDuration.text = "$time1 s.d."
+                val y = detailSuratTugas.tgl2
+                val time2 = y?.dropLast(8)
+                tvDateDuration2.text = time2
+                tvBiayaSt.text = "Rp.${detailSuratTugas.biaya},-"
+                tvJumlahPetugas.text = detailSuratTugasViewModel.getJumlahPetugas().value.toString()
                 var note1 = detailSuratTugas.review_note_es1
                 var note2 = detailSuratTugas.review_note_es2
                 var note3 = detailSuratTugas.review_note_es3
@@ -128,6 +141,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
+//                            btnLihatSp.visibility = View.GONE
                         } else {
                             if (detailSuratTugas.apv_es4 != 2 && detailSuratTugas.approve_id_user_eselon_4 == USERID_DETAIL) {
                                 btnCancel.visibility = View.VISIBLE
@@ -149,6 +163,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
+//                            btnLihatSp.visibility = View.GONE
                         } else {
                             if (detailSuratTugas.apv_es3 != 2 && detailSuratTugas.approve_id_user_eselon_3 == USERID_DETAIL) {
                                 btnCancel.visibility = View.VISIBLE
@@ -171,6 +186,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
 //                            btnTte.visibility = View.GONE
+//                            btnLihatSp.visibility = View.GONE
                         } else {
                             if (detailSuratTugas.apv_es2 != 2 && detailSuratTugas.approve_id_user_eselon_2 == USERID_DETAIL) {
                                 btnCancel.visibility = View.VISIBLE
@@ -200,6 +216,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
 //                            btnTte.visibility = View.GONE
+//                            btnLihatSp.visibility = View.GONE
                         } else {
                             if (detailSuratTugas.apv_es1 != 2 && detailSuratTugas.approve_id_user_eselon_1 == USERID_DETAIL) {
                                 btnCancel.visibility = View.VISIBLE
@@ -223,6 +240,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         btnTolak.visibility = View.GONE
                         btnSetuju.visibility = View.GONE
 //                        btnTte.visibility = View.GONE
+//                        btnLihatSp.visibility = View.GONE
                     }
                 }
 
@@ -453,41 +471,44 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
                 }
             }
-            R.id.btn_lihat_sp -> {
-                try {
-                    ApiService().getSP(idST).enqueue(object : Callback<SpResponse> {
-                        override fun onResponse(call: Call<SpResponse>, response: Response<SpResponse>) {
-                            try {
-                                if (response.isSuccessful) {
-                                    val listResponse = response.body()?.SuratPengantar?.get(0)
-                                    val intent = Intent(this@DetailSuratTugasActivity, SPDetail::class.java)
-                                    intent.putExtra(USERNAMESP, userName)
-                                    intent.putExtra(ESELONSP, userEselon)
-                                    intent.putExtra(IDST, idST)
-                                    intent.putExtra(CREATEDBY, createdBy)
-                                    intent.putExtra(DATA_SP, listResponse)
-                                    startActivity(intent)
-                                }
-                            } catch (e: java.lang.Exception) {
-                                Toast.makeText(this@DetailSuratTugasActivity, "Data tidak ditemukan!,", Toast.LENGTH_LONG)
-                                    .show()
-                                finish()
-//                    binding.progressBar.visibility = View.GONE
-                            }
-                        }
-
-                        override fun onFailure(call: Call<SpResponse>, t: Throwable) {
-                            Toast.makeText(this@DetailSuratTugasActivity, "Error: $t,", Toast.LENGTH_LONG)
-                                .show()
-                            Log.d("ZZZ", t.toString())
-                        }
-
-                    })
-
-                } catch (e: Exception) {
-                    Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
-                }
+            R.id.btn_surat_pengantar ->{
+                Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
             }
+//            R.id.btn_lihat_sp -> {
+//                try {
+//                    ApiService().getSP(idST).enqueue(object : Callback<SpResponse> {
+//                        override fun onResponse(call: Call<SpResponse>, response: Response<SpResponse>) {
+//                            try {
+//                                if (response.isSuccessful) {
+//                                    val listResponse = response.body()?.SuratPengantar?.get(0)
+//                                    val intent = Intent(this@DetailSuratTugasActivity, SPDetail::class.java)
+//                                    intent.putExtra(USERNAMESP, userName)
+//                                    intent.putExtra(ESELONSP, userEselon)
+//                                    intent.putExtra(IDST, idST)
+//                                    intent.putExtra(CREATEDBY, createdBy)
+//                                    intent.putExtra(DATA_SP, listResponse)
+//                                    startActivity(intent)
+//                                }
+//                            } catch (e: java.lang.Exception) {
+//                                Toast.makeText(this@DetailSuratTugasActivity, "Data tidak ditemukan!,", Toast.LENGTH_LONG)
+//                                    .show()
+//                                finish()
+////                    binding.progressBar.visibility = View.GONE
+//                            }
+//                        }
+//
+//                        override fun onFailure(call: Call<SpResponse>, t: Throwable) {
+//                            Toast.makeText(this@DetailSuratTugasActivity, "Error: $t,", Toast.LENGTH_LONG)
+//                                .show()
+//                            Log.d("ZZZ", t.toString())
+//                        }
+//
+//                    })
+//
+//                } catch (e: Exception) {
+//                    Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
+//                }
+//            }
         }
     }
 }

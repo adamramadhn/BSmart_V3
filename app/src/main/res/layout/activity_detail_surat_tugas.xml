@@ -206,51 +206,104 @@
                            app:layout_constraintStart_toEndOf="@+id/tv_date_duration"
                            app:layout_constraintTop_toBottomOf="@id/tv_duration" />
 
+                       <TextView
+                           android:id="@+id/tv_biaya"
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_marginStart="16dp"
+                           android:layout_marginTop="16dp"
+                           android:layout_marginEnd="16dp"
+                           android:fontFamily="@font/nunitosans_bold"
+                           android:text="Biaya"
+                           android:textColor="@color/blue_secondary"
+                           android:textSize="14sp"
+                           app:layout_constraintEnd_toEndOf="parent"
+                           app:layout_constraintStart_toStartOf="parent"
+                           app:layout_constraintTop_toBottomOf="@+id/tv_jumlah_petugas" />
+
+                       <TextView
+                           android:id="@+id/tv_biaya_st"
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="4dp"
+                           android:fontFamily="@font/nunitosans_regular"
+                           android:text="Rp. 500.000"
+                           android:textColor="@color/blue_secondary"
+                           android:textSize="12sp"
+                           app:layout_constraintEnd_toEndOf="@+id/tv_biaya"
+                           app:layout_constraintStart_toStartOf="@+id/tv_biaya"
+                           app:layout_constraintTop_toBottomOf="@+id/tv_biaya" />
+
+                       <TextView
+                           android:id="@+id/tv_jml_petugas"
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="16dp"
+                           android:fontFamily="@font/nunitosans_bold"
+                           android:text="Jumlah Petugas"
+                           android:textColor="@color/blue_secondary"
+                           android:textSize="14sp"
+                           app:layout_constraintEnd_toEndOf="@+id/tv_biaya_st"
+                           app:layout_constraintStart_toStartOf="@+id/tv_biaya_st"
+                           app:layout_constraintTop_toBottomOf="@+id/tv_date_duration2" />
+
+                       <TextView
+                           android:id="@+id/tv_jumlah_petugas"
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:fontFamily="@font/nunitosans_regular"
+                           android:text="10"
+                           android:textColor="@color/blue_secondary"
+                           android:textSize="12sp"
+                           app:layout_constraintEnd_toEndOf="@+id/tv_jml_petugas"
+                           app:layout_constraintStart_toStartOf="@+id/tv_jml_petugas"
+                           app:layout_constraintTop_toBottomOf="@+id/tv_jml_petugas" />
+
                        <androidx.appcompat.widget.AppCompatButton
                            android:id="@+id/btn_surat_tugas"
                            android:layout_width="0dp"
                            android:layout_height="40dp"
                            android:layout_gravity="center_horizontal"
-                           android:layout_marginStart="8dp"
+                           android:layout_marginStart="16dp"
                            android:layout_marginTop="16dp"
-                           android:layout_marginEnd="8dp"
+                           android:layout_marginEnd="16dp"
                            android:background="@drawable/button_blue"
                            android:fontFamily="@font/nunitosans_bold"
                            android:text="Lihat Surat Tugas"
                            android:textAllCaps="false"
                            android:textColor="@color/white"
                            app:layout_constraintEnd_toEndOf="parent"
+                           app:layout_constraintHorizontal_bias="1.0"
                            app:layout_constraintStart_toStartOf="parent"
-                           app:layout_constraintTop_toBottomOf="@+id/tv_date_duration" />
+                           app:layout_constraintTop_toBottomOf="@+id/tv_biaya_st" />
+
+                       <androidx.appcompat.widget.AppCompatButton
+                           android:id="@+id/btn_surat_pengantar"
+                           android:layout_width="0dp"
+                           android:layout_height="40dp"
+                           android:layout_gravity="center_horizontal"
+                           android:layout_marginTop="16dp"
+                           android:background="@drawable/button_blue"
+                           android:fontFamily="@font/nunitosans_bold"
+                           android:text="Lihat Surat Pengantar"
+                           android:textAllCaps="false"
+                           android:textColor="@color/white"
+                           app:layout_constraintEnd_toEndOf="@+id/btn_surat_tugas"
+                           app:layout_constraintHorizontal_bias="1.0"
+                           app:layout_constraintStart_toStartOf="@+id/btn_surat_tugas"
+                           app:layout_constraintTop_toBottomOf="@+id/btn_surat_tugas" />
 
                        <androidx.appcompat.widget.AppCompatButton
                            android:id="@+id/btn_lihat_rkd"
                            android:layout_width="0dp"
                            android:layout_height="40dp"
                            android:layout_gravity="center_horizontal"
-                           android:layout_marginStart="8dp"
+                           android:layout_marginStart="16dp"
                            android:layout_marginTop="16dp"
-                           android:layout_marginEnd="8dp"
+                           android:layout_marginEnd="16dp"
                            android:background="@drawable/button_blue"
                            android:fontFamily="@font/nunitosans_bold"
                            android:text="Approval RKD"
-                           android:textAllCaps="false"
-                           android:textColor="@color/white"
-                           app:layout_constraintEnd_toEndOf="parent"
-                           app:layout_constraintStart_toStartOf="parent"
-                           app:layout_constraintTop_toBottomOf="@+id/btn_lihat_sp" />
-
-                       <androidx.appcompat.widget.AppCompatButton
-                           android:id="@+id/btn_lihat_sp"
-                           android:layout_width="0dp"
-                           android:layout_height="40dp"
-                           android:layout_gravity="center_horizontal"
-                           android:layout_marginStart="8dp"
-                           android:layout_marginTop="16dp"
-                           android:layout_marginEnd="8dp"
-                           android:background="@drawable/button_blue"
-                           android:fontFamily="@font/nunitosans_bold"
-                           android:text="Approval Surat Pengantar"
                            android:textAllCaps="false"
                            android:textColor="@color/white"
                            app:layout_constraintEnd_toEndOf="parent"
@@ -270,13 +323,13 @@
                            android:textSize="14sp"
                            app:layout_constraintEnd_toEndOf="parent"
                            app:layout_constraintStart_toStartOf="@+id/btn_lihat_rkd"
-                           app:layout_constraintTop_toBottomOf="@+id/btn_surat_tugas" />
+                           app:layout_constraintTop_toBottomOf="@+id/btn_surat_pengantar" />
 
                        <com.google.android.material.textfield.TextInputEditText
                            android:id="@+id/et_note"
                            android:layout_width="0dp"
                            android:layout_height="94dp"
-                           android:layout_marginTop="20dp"
+                           android:layout_marginTop="16dp"
                            android:background="@drawable/border_edittext"
                            android:fontFamily="@font/sourcesanspro_regular"
                            android:gravity="top|start"
@@ -285,6 +338,7 @@
                            android:textSize="16sp"
                            android:visibility="visible"
                            app:layout_constraintEnd_toEndOf="@+id/tv_note"
+                           app:layout_constraintHorizontal_bias="0.0"
                            app:layout_constraintStart_toStartOf="@+id/tv_note"
                            app:layout_constraintTop_toBottomOf="@id/tv_note" />
 
