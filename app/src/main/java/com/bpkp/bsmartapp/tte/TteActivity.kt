@@ -45,7 +45,7 @@ class TteActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_login_tte -> {
                 var x = ""
                 passphrase = tteBinding.etPasphrase.text?.trim().toString()
-                Log.d("ZZZ", "$idSt , $nik , $passphrase")
+                Log.d("ZZZ", "$idSt ,$nik, $passphrase")
                 ApiService().getTte(idSt, nik, passphrase).enqueue(object : Callback<DetailST> {
                     override fun onResponse(call: Call<DetailST>, response: Response<DetailST>) {
 
@@ -54,7 +54,7 @@ class TteActivity : AppCompatActivity(), View.OnClickListener {
                                 x = response.body()?.message.toString()
                                 val intent = Intent(Intent.ACTION_VIEW)
                                 intent.setDataAndType(
-                                    Uri.parse("http://10.10.20.154/api/surattugas/pdf?idst=${idSt}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                                    Uri.parse("http://aplikasistore.org/api/surattugas/pdf?idst=${idSt}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
                                     "application/pdf"
                                 )
                                 intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -74,7 +74,7 @@ class TteActivity : AppCompatActivity(), View.OnClickListener {
                         } else {
                             Toast.makeText(
                                 this@TteActivity,
-                                "Error Code:${response.code()}",
+                                "Maaf passphrase yang anda masukkan salah!",
                                 Toast.LENGTH_SHORT
                             ).show()
                             Log.d(

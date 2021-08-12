@@ -55,6 +55,10 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailSuratTugasBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        detailSuratTugasViewModel = DetailSuratTugasViewModel()
+        val detailSuratTugas = intent.getParcelableExtra<SuratTugasResponse>(EXTRA_DATA)
+        showDetailTourism(detailSuratTugas)
+        idST = detailSuratTugas!!.id_st
         with(binding){
             btnBack.setOnClickListener { finish() }
             btnSuratTugas.setOnClickListener(this@DetailSuratTugasActivity)
@@ -423,13 +427,17 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
-        val detailSuratTugas = intent.getParcelableExtra<SuratTugasResponse>(EXTRA_DATA)
+
         userName = intent.getStringExtra(USERNAME_DETAIL)
         userEselon = intent.getStringExtra(ESELON_DETAIL)
         nik = intent.getStringExtra(NIK_DETAIL)
-        detailSuratTugasViewModel = DetailSuratTugasViewModel()
-        idST = detailSuratTugas!!.id_st
-        showDetailTourism(detailSuratTugas)
+
+        detailSuratTugasViewModel.setDetail(userName.toString(), idST)
+        detailSuratTugasViewModel.getDetail().observe(this, {
+            showDetailTourism(it?.get(0))
+            binding.etNote.setText("")
+        })
+
     }
 
     override fun onClick(v: View?) {
@@ -438,7 +446,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 try {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.setDataAndType(
-                        Uri.parse("http://10.10.20.154/api/surattugas/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                        Uri.parse("http://aplikasistore.org/api/surattugas/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
                         "application/pdf"
                     )
                     intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION

@@ -81,4 +81,8 @@ class DetailSuratTugasViewModel : ViewModel() {
 
         })
     }
+
+    fun tte(): LiveData<List<SuratTugasResponse>?> {
+        return tteResponse
+    }
 }

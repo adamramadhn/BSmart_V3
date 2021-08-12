@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -27,7 +26,6 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
 
 class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefreshListener {
     lateinit var prefHelper: PrefHelper
@@ -35,6 +33,8 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     private var page = 1
     private var items = 0
     private var totalPage = 0
+
+    private var status = 0
 
     companion object {
         var USERNAME_HOME = "USERNAME_HOME"
@@ -61,10 +61,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         super.onViewCreated(view, savedInstanceState)
         suratTugasAdapter = SuratTugasAdapter()
         prefHelper = PrefHelper(requireContext())
-//        homeViewModel = ViewModelProvider(
-//            this,
-//            ViewModelProvider.NewInstanceFactory()
-//        ).get(HomeViewModel::class.java)
 
         binding.tvName.text = NAME_HOME
         binding.tvGrade.text = ESELON_HOME
@@ -77,6 +73,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
                 intent.putExtra(USERNAME_DETAIL, USERNAME_HOME)
                 intent.putExtra(ESELON_DETAIL, ESELON_HOME)
                 intent.putExtra(NIK_DETAIL, NIK_HOME)
+                status = 1
                 startActivity(intent)
             }
 
@@ -93,29 +90,29 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
                         if (!isLoading && page < totalPage) {
                             if (visibleItemCount + pastVisibleItem >= items) {
                                 page++
-                                if (!prefHelper.getBoolean(Constant.PREF_FILTER)) {
-                                    getListST()
-                                } else {
-                                    getFilter()
-                                }
                             }
                         }
                         super.onScrolled(recyclerView, dx, dy)
                     }
                 })
             }
-            binding.swipeRefresh.setOnRefreshListener(this)
+//            binding.swipeRefresh.setOnRefreshListener(this)
+            binding.cbFilter.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    prefHelper.put(Constant.PREF_FILTER, true)
+                    suratTugasAdapter.clear()
+                    getFilter()
+                    //home itu oncreate
+                } else {
+                    prefHelper.put(Constant.PREF_FILTER, false)
+                    suratTugasAdapter.clear()
+                    getListST()
+                }
+            }
+
 
         }
-        binding.cbFilter.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                prefHelper.put(Constant.PREF_FILTER, true)
-                getFilter()
-            } else {
-                prefHelper.put(Constant.PREF_FILTER, false)
-                getListST()
-            }
-        }
+
 
         binding.apply {
             ivSearch.setOnClickListener {
@@ -147,13 +144,11 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     override fun onResume() {
         super.onResume()
         prefHelper = PrefHelper(requireContext())
-        if (prefHelper.getBoolean(Constant.PREF_FILTER)) {
-            binding.cbFilter.isChecked = true
-            getFilter()
-        } else {
-            binding.cbFilter.isChecked = false
-            getListST()
-        }
+       
+        binding.cbFilter.isChecked = false
+        suratTugasAdapter.clear()
+        getListST()
+
     }
 
     override fun onDestroyView() {
@@ -168,7 +163,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     private fun getListST() {
         isLoading = true
         binding.progressBar.visibility = View.VISIBLE
-        suratTugasAdapter.clear()
         ApiService().getList(USERNAME_HOME, page).enqueue(object :
             Callback<ListSuratTugasResponse> {
             override fun onResponse(
@@ -206,7 +200,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     private fun getFilter() {
         isLoading = true
         binding.progressBar.visibility = View.VISIBLE
-        suratTugasAdapter.clear()
         ApiService().getFilter(USERNAME_HOME, page)
             .enqueue(object : Callback<ListSuratTugasResponse> {
                 override fun onResponse(
