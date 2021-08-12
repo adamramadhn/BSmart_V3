@@ -19,6 +19,7 @@ import com.bpkp.bsmartapp.core.data.source.remote.response.ListSuratTugasRespons
 import com.bpkp.bsmartapp.databinding.FragmentHomeBinding
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.ESELON_DETAIL
+import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.NIK_DETAIL
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.USERNAME_DETAIL
 import com.bpkp.bsmartapp.login.Constant
 import com.bpkp.bsmartapp.login.PrefHelper
@@ -39,6 +40,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         var USERNAME_HOME = "USERNAME_HOME"
         var NAME_HOME = "NAME_HOME"
         var ESELON_HOME = "ESELON_HOME"
+        var NIK_HOME = "NIK_HOME"
     }
 
     //    private lateinit var homeViewModel: HomeViewModel
@@ -74,6 +76,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
                 intent.putExtra(DetailSuratTugasActivity.EXTRA_DATA, selectedData)
                 intent.putExtra(USERNAME_DETAIL, USERNAME_HOME)
                 intent.putExtra(ESELON_DETAIL, ESELON_HOME)
+                intent.putExtra(NIK_DETAIL, NIK_HOME)
                 startActivity(intent)
             }
 

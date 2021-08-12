@@ -9,6 +9,7 @@ import com.bpkp.bsmartapp.databinding.ActivityMainBinding
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.USERID_DETAIL
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.ESELON_HOME
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.NAME_HOME
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.NIK_HOME
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.USERNAME_HOME
 import com.bpkp.bsmartapp.login.PrefHelper
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ESELON_USER
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         ESELON_USER = intent.getStringExtra(ESELON_MAIN).toString()
 
         NIK_USER = intent.getStringExtra(NIK).toString()
+        NIK_HOME = intent.getStringExtra(NIK).toString()
 
         val navController = findNavController(R.id.fragmentContainerView)
 

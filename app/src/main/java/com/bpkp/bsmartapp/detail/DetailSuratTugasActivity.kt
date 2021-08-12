@@ -25,6 +25,8 @@ import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.sp.SpResponse
 import com.bpkp.bsmartapp.databinding.ActivityDetailSuratTugasBinding
 import com.bpkp.bsmartapp.tte.TteActivity
+import com.bpkp.bsmartapp.tte.TteActivity.Companion.ID_ST
+import com.bpkp.bsmartapp.tte.TteActivity.Companion.NIK_TTE
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,6 +36,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         const val EXTRA_DATA = "extra_data"
         const val USERNAME_DETAIL = "USERNAME_DETAIL"
         const val ESELON_DETAIL = "ESELON_DETAIL"
+        const val NIK_DETAIL = "NIK_DETAIL"
         var USERID_DETAIL = "USERID_DETAIL"
     }
 
@@ -42,6 +45,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 
     private var userName: String? = ""
     private var userEselon: String? = ""
+    private var nik: String? = ""
     private var idST: Int = 0
     private var createdBy: String = ""
 
@@ -404,6 +408,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         val detailSuratTugas = intent.getParcelableExtra<SuratTugasResponse>(EXTRA_DATA)
         userName = intent.getStringExtra(USERNAME_DETAIL)
         userEselon = intent.getStringExtra(ESELON_DETAIL)
+        nik = intent.getStringExtra(NIK_DETAIL)
         detailSuratTugasViewModel = DetailSuratTugasViewModel()
         idST = detailSuratTugas!!.id_st
         showDetailTourism(detailSuratTugas)
@@ -430,7 +435,8 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_tte -> {
                 try {
                     val intent = Intent(this, TteActivity::class.java)
-
+                    intent.putExtra(ID_ST, idST)
+                    intent.putExtra(NIK_TTE, nik)
                     startActivity(intent)
                 } catch (e: Exception) {
                     Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
