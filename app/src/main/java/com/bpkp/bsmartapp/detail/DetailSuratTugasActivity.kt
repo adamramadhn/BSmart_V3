@@ -480,43 +480,19 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             R.id.btn_surat_pengantar ->{
-                Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
+                try {
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.setDataAndType(
+                        Uri.parse("http://aplikasistore.org/api/suratpengantar/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                        "application/pdf"
+                    )
+                    intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    startActivity(Intent.createChooser(intent, "Open with..."))
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Error: $e,", Toast.LENGTH_LONG)
+                        .show()
+                }
             }
-//            R.id.btn_lihat_sp -> {
-//                try {
-//                    ApiService().getSP(idST).enqueue(object : Callback<SpResponse> {
-//                        override fun onResponse(call: Call<SpResponse>, response: Response<SpResponse>) {
-//                            try {
-//                                if (response.isSuccessful) {
-//                                    val listResponse = response.body()?.SuratPengantar?.get(0)
-//                                    val intent = Intent(this@DetailSuratTugasActivity, SPDetail::class.java)
-//                                    intent.putExtra(USERNAMESP, userName)
-//                                    intent.putExtra(ESELONSP, userEselon)
-//                                    intent.putExtra(IDST, idST)
-//                                    intent.putExtra(CREATEDBY, createdBy)
-//                                    intent.putExtra(DATA_SP, listResponse)
-//                                    startActivity(intent)
-//                                }
-//                            } catch (e: java.lang.Exception) {
-//                                Toast.makeText(this@DetailSuratTugasActivity, "Data tidak ditemukan!,", Toast.LENGTH_LONG)
-//                                    .show()
-//                                finish()
-////                    binding.progressBar.visibility = View.GONE
-//                            }
-//                        }
-//
-//                        override fun onFailure(call: Call<SpResponse>, t: Throwable) {
-//                            Toast.makeText(this@DetailSuratTugasActivity, "Error: $t,", Toast.LENGTH_LONG)
-//                                .show()
-//                            Log.d("ZZZ", t.toString())
-//                        }
-//
-//                    })
-//
-//                } catch (e: Exception) {
-//                    Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
-//                }
-//            }
         }
     }
 }
