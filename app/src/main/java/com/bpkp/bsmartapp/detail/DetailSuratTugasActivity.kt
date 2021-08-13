@@ -14,23 +14,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bpkp.bsmartapp.R
-import com.bpkp.bsmartapp.SPDetail.SPDetail
-import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.CREATEDBY
-import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.DATA_SP
-import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.ESELONSP
-import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.IDST
-import com.bpkp.bsmartapp.SPDetail.SPDetail.Companion.USERNAMESP
-import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
-import com.bpkp.bsmartapp.core.data.source.remote.response.DetailST
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
-import com.bpkp.bsmartapp.core.data.source.remote.response.sp.SpResponse
 import com.bpkp.bsmartapp.databinding.ActivityDetailSuratTugasBinding
 import com.bpkp.bsmartapp.tte.TteActivity
 import com.bpkp.bsmartapp.tte.TteActivity.Companion.ID_ST
 import com.bpkp.bsmartapp.tte.TteActivity.Companion.NIK_TTE
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
@@ -49,7 +37,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     private var nik: String? = ""
     private var idST: Int = 0
     private var createdBy: String = ""
-    private var jumlahPetugas: Int = 0
+    private var jmlPtgs: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +53,18 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             btnTte.setOnClickListener(this@DetailSuratTugasActivity)
             btnLihatRkd.setOnClickListener(this@DetailSuratTugasActivity)
             btnSuratPengantar.setOnClickListener(this@DetailSuratTugasActivity)
+        }
+        try {
+            detailSuratTugasViewModel.setDetail(userName.toString(), idST)
+            detailSuratTugasViewModel.getDetail().observe(this, {
+                showDetailTourism(it?.get(0))
+                jmlPtgs = it?.get(1)?.jumlahpetugas!!
+                binding.etNote.setText("")
+            })
+        }
+        catch (e:Exception){
+            Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
+            Log.d("ZZZ","Error: $e")
         }
 
         binding.etNote.setOnKeyListener { _, keyCode, event ->
@@ -97,7 +97,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 val time2 = y?.dropLast(8)
                 tvDateDuration2.text = time2
                 tvBiayaSt.text = "Rp.${detailSuratTugas.biaya},-"
-                tvJumlahPetugas.text = detailSuratTugasViewModel.getJumlahPetugas().value.toString()
+                tvJumlahPetugas.text = jmlPtgs.toString()
                 var note1 = detailSuratTugas.review_note_es1
                 var note2 = detailSuratTugas.review_note_es2
                 var note3 = detailSuratTugas.review_note_es3
@@ -432,11 +432,16 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         userEselon = intent.getStringExtra(ESELON_DETAIL)
         nik = intent.getStringExtra(NIK_DETAIL)
 
-        detailSuratTugasViewModel.setDetail(userName.toString(), idST)
-        detailSuratTugasViewModel.getDetail().observe(this, {
-            showDetailTourism(it?.get(0))
-            binding.etNote.setText("")
-        })
+       try {
+           detailSuratTugasViewModel.setDetail(userName.toString(), idST)
+           detailSuratTugasViewModel.getDetail().observe(this, {
+               showDetailTourism(it?.get(0))
+               jmlPtgs = it?.get(1)?.jumlahpetugas!!
+               binding.etNote.setText("")
+           })
+       }catch (e:Exception){
+           Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
+       }
 
     }
 

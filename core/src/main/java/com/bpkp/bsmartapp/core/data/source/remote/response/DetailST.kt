@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class DetailST(
     @field:SerializedName("suratTugas")
-    val places2: List<SuratTugasResponse>,
+    val places2: ArrayList<SuratTugasResponse>,
 
     val message: String
 )

@@ -13,15 +13,11 @@ import retrofit2.Response
 
 class DetailSuratTugasViewModel : ViewModel() {
 
-    val loginResponse = MutableLiveData<SuratTugasResponse?>()
-    val loginResponse2 = MutableLiveData<List<SuratTugasResponse>?>()
+    val approvalResponse = MutableLiveData<SuratTugasResponse?>()
+    val detailResponse = MutableLiveData<List<SuratTugasResponse>?>()
     val tteResponse = MutableLiveData<List<SuratTugasResponse>?>()
-    val jumlahPetugas = MutableLiveData<Int?>()
     fun approvalST(
-        user_email: String?,
-        idST: Int,
-        approval: Int,
-        catatan: String?
+        user_email: String?, idST: Int, approval: Int, catatan: String?
     ) {
         if (user_email != null && catatan != null) {
             ApiService().approvalST(user_email, idST, approval, catatan)
@@ -31,7 +27,7 @@ class DetailSuratTugasViewModel : ViewModel() {
                         response: Response<SuratTugasResponse>
                     ) {
                         if (response.isSuccessful) {
-                            loginResponse.postValue(response.body())
+                            approvalResponse.postValue(response.body())
                         }
                     }
 
@@ -39,14 +35,6 @@ class DetailSuratTugasViewModel : ViewModel() {
                     }
                 })
         }
-    }
-
-    fun getJumlahPetugas(): LiveData<Int?>{
-        return jumlahPetugas
-    }
-
-    fun getDetail(): LiveData<List<SuratTugasResponse>?> {
-        return loginResponse2
     }
 
     fun setDetail(user_email: String, idST: Int) {
@@ -57,8 +45,7 @@ class DetailSuratTugasViewModel : ViewModel() {
                     response: Response<DetailST>
                 ) {
                     if (response.isSuccessful) {
-                        loginResponse2.postValue(response.body()?.places2)
-                        jumlahPetugas.postValue(response.body()?.places2?.indexOf(1))
+                        detailResponse.postValue(response.body()?.places2)
                     }
                 }
 
@@ -69,7 +56,11 @@ class DetailSuratTugasViewModel : ViewModel() {
             })
     }
 
-    fun getTte(id_st: Int, Nik: String, PassPhrase: String) {
+    fun getDetail(): LiveData<List<SuratTugasResponse>?> {
+        return detailResponse
+    }
+
+    fun setTte(id_st: Int, Nik: String, PassPhrase: String) {
         ApiService().getTte(id_st, Nik, PassPhrase).enqueue(object : Callback<DetailST> {
             override fun onResponse(call: Call<DetailST>, response: Response<DetailST>) {
                 tteResponse.postValue(response.body()?.places2)
@@ -82,7 +73,8 @@ class DetailSuratTugasViewModel : ViewModel() {
         })
     }
 
-    fun tte(): LiveData<List<SuratTugasResponse>?> {
+    fun getTte(): LiveData<List<SuratTugasResponse>?> {
         return tteResponse
     }
+
 }
