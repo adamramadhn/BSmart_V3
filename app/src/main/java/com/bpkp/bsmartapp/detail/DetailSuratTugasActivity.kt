@@ -107,7 +107,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     1 -> {
                         btnSuratPengantar.visibility = View.VISIBLE
                     }
-                    2 -> {
+                    2,3,4 -> {
                         btnSuratPengantar.visibility = View.GONE
                     }
                 }
