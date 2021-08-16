@@ -56,5 +56,7 @@ data class SuratTugasResponse(
 
     val jumlahpetugas: Int?,
 
+    val id_jenis_surat: Int?,
+
 
     ) : Parcelable

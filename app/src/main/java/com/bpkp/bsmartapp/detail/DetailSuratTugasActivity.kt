@@ -88,6 +88,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 val v = detailSuratTugas.tgl_st
                 val timeV = v?.dropLast(8)
                 tvDate.text = timeV
+                val jenisSurat = detailSuratTugas.id_jenis_surat
                 tvStNumber.text = detailSuratTugas.no_st
                 tvDescription.text = detailSuratTugas.perihal
                 val  x = detailSuratTugas.tgl1
@@ -102,6 +103,14 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 var note2 = detailSuratTugas.review_note_es2
                 var note3 = detailSuratTugas.review_note_es3
                 var note4 = detailSuratTugas.review_note_es4
+                when(jenisSurat){
+                    1 -> {
+                        btnSuratPengantar.visibility = View.VISIBLE
+                    }
+                    2 -> {
+                        btnSuratPengantar.visibility = View.GONE
+                    }
+                }
                 note1 = when (note1) {
                     null -> {
                         ""
