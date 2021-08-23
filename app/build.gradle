@@ -7,6 +7,14 @@ plugins {
 apply from: '../shared_dependencies.gradle'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\Cendekia Luthfieta N\\keystorebpkp\\bpkp.jks')
+            storePassword 'bsmart123'
+            keyAlias 'key0'
+            keyPassword 'bsmart123'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
@@ -19,12 +27,14 @@ android {
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -51,4 +61,6 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
+    implementation "androidx.security:security-crypto:1.1.0-alpha02"
+    implementation 'com.scottyab:secure-preferences-lib:0.1.7'
 }
