@@ -11,6 +11,11 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
+        android:id="@+id/pembebananFragment"
+        android:name="com.bpkp.bsmartapp.pembebanan.PembebananFragment"
+        android:label="fragment_pembebanan"
+        tools:layout="@layout/fragment_pembebanan" />
+    <fragment
         android:id="@+id/profileFragment"
         android:name="com.bpkp.bsmartapp.profile.ProfileFragment"
         android:label="fragment_profile"
