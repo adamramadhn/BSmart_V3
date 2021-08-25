@@ -23,7 +23,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ProfileFragment : Fragment(), View.OnClickListener {
+class ProfileFragment : Fragment()/*, View.OnClickListener*/ {
     lateinit var prefHelper: PrefHelper
 
     companion object {
@@ -33,8 +33,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         var NIK_USER = "NIK_USER"
     }
 
-    private var nik = ""
-    private var passphrase = ""
+//    private var nik = ""
+//    private var passphrase = ""
 
     private lateinit var profileBinding: FragmentProfileBinding
     override fun onCreateView(
@@ -74,8 +74,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    override fun onClick(v: View?) {
-        when (v?.id) {
+//    override fun onClick(v: View?) {
+//        when (v?.id) {
 //            R.id.btn_submit -> {
 //                nik = profileBinding.inputNIK.text?.trim().toString()
 //                passphrase = profileBinding.inputPASS.text?.trim().toString()
@@ -92,9 +92,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 //                                "${response.body()?.message}",
 //                                Toast.LENGTH_SHORT
 //                            ).show()
-////                            profileBinding.inputNik.visibility = View.GONE
+//                            profileBinding.inputNik.visibility = View.GONE
 //                            profileBinding.inputPassphrase.visibility = View.GONE
-////                            profileBinding.tvNik.visibility = View.GONE
+//                            profileBinding.tvNik.visibility = View.GONE
 //                            profileBinding.tvPassphrase.visibility = View.GONE
 //                            profileBinding.textViewLoginTte.visibility = View.GONE
 //                            profileBinding.btnSubmit.visibility = View.GONE
@@ -109,6 +109,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 //                    Toast.makeText(requireContext(), "Error: $e", Toast.LENGTH_SHORT).show()
 //                }
 //            }
-        }
-    }
+//        }
+//    }
 }
