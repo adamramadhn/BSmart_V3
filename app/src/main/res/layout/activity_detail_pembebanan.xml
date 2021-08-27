@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -60,7 +61,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/item_st"
+                        android:id="@+id/item_pembebanan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:paddingBottom="20dp">
@@ -94,56 +95,54 @@
                             app:layout_constraintTop_toTopOf="@+id/icon_calendar" />
 
                         <TextView
-                            android:id="@+id/tv_st_id"
+                            android:id="@+id/tv_no_pembebanan"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="2dp"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/nunitosans_bold"
-                            android:text="@string/no_id"
+                            android:text="ST-811/JF/03/2019-001"
                             android:textColor="@color/blue_secondary"
                             android:textSize="14sp"
                             app:layout_constraintStart_toStartOf="@+id/icon_calendar"
                             app:layout_constraintTop_toBottomOf="@id/tv_date" />
 
                         <TextView
-                            android:id="@+id/tv_st_number"
+                            android:id="@+id/tv_untuk"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="2dp"
+                            android:layout_height="19dp"
                             android:layout_marginTop="8dp"
+                            android:layout_marginEnd="16dp"
                             android:fontFamily="@font/nunitosans_bold"
-                            android:text="NO ST"
+                            android:text="Untuk"
                             android:textColor="@color/blue_secondary"
                             android:textSize="14sp"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_date"
-                            app:layout_constraintStart_toEndOf="@+id/tv_st_id"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/tv_no_pembebanan"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_no_pembebanan" />
 
                         <TextView
                             android:id="@+id/tv_description"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
                             android:layout_marginStart="16dp"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="4dp"
                             android:layout_marginEnd="16dp"
                             android:fontFamily="@font/nunitosans_regular"
                             android:text="Mengikuti Focus Group Discussion (FGD) Pemutakhiran SOP dan pedoman Pengawasan dalam rangka penataan Tata Kelola Pengawasan BPKP sesuai Surat Kepala Biro MKOT Nomor UND-429/SU01/3/2021 di"
                             android:textColor="@color/blue_secondary"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_st_number" />
+                            app:layout_constraintTop_toBottomOf="@+id/tv_untuk" />
 
                         <TextView
-                            android:id="@+id/tv_update"
+                            android:id="@+id/tv_makdipa"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
                             android:layout_marginEnd="16dp"
                             android:fontFamily="@font/nunitosans_bold"
-                            android:text="Dibuat Oleh"
+                            android:text="Mak DIPA"
                             android:textColor="@color/blue_secondary"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -151,59 +150,72 @@
                             app:layout_constraintTop_toBottomOf="@id/tv_description" />
 
                         <TextView
-                            android:id="@+id/tv_user_update"
+                            android:id="@+id/tv_mak_dipa"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:fontFamily="@font/nunitosans_regular"
-                            android:text="Adam Ramadhan"
+                            android:text="089.06.3673.001.001.053.636702.B.524111 Belanja perjalanan biasa"
                             android:textColor="@color/blue_secondary"
                             android:textSize="12sp"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_update"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_makdipa"
                             app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="@+id/tv_update"
-                            app:layout_constraintTop_toBottomOf="@id/tv_update" />
+                            app:layout_constraintStart_toStartOf="@+id/tv_makdipa"
+                            app:layout_constraintTop_toBottomOf="@id/tv_makdipa" />
 
 
                         <TextView
-                            android:id="@+id/tv_duration"
+                            android:id="@+id/tv_nilai_user"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
                             android:layout_marginEnd="16dp"
                             android:fontFamily="@font/nunitosans_bold"
-                            android:text="Durasi"
+                            android:text="Nilai"
                             android:textColor="@color/blue_secondary"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="@+id/tv_user_update"
-                            app:layout_constraintTop_toBottomOf="@id/tv_user_update" />
+                            app:layout_constraintStart_toStartOf="@+id/tv_mak_dipa"
+                            app:layout_constraintTop_toBottomOf="@id/tv_mak_dipa" />
 
                         <TextView
-                            android:id="@+id/tv_date_duration"
+                            android:id="@+id/tv_nilai"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:fontFamily="@font/nunitosans_regular"
-                            android:text="mulai -"
+                            android:text="22,829,000"
                             android:textColor="@color/blue_secondary"
                             android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="@+id/tv_duration"
-                            app:layout_constraintTop_toBottomOf="@id/tv_duration" />
+                            app:layout_constraintEnd_toEndOf="@+id/tv_nilai_user"
+                            app:layout_constraintStart_toStartOf="@+id/tv_nilai_user"
+                            app:layout_constraintTop_toBottomOf="@id/tv_nilai_user" />
 
                         <TextView
-                            android:id="@+id/yth"
+                            android:id="@+id/tv_jml_petugas"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Jumlah Petugas"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_nilai"
+                            app:layout_constraintStart_toStartOf="@+id/tv_nilai"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_nilai" />
+
+                        <TextView
+                            android:id="@+id/tv_jumlah_petugas"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:fontFamily="@font/nunitosans_regular"
-                            android:text="selesai"
+                            android:text="30"
                             android:textColor="@color/blue_secondary"
                             android:textSize="12sp"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_duration"
-                            app:layout_constraintStart_toEndOf="@+id/tv_date_duration"
-                            app:layout_constraintTop_toBottomOf="@id/tv_duration" />
+                            app:layout_constraintEnd_toEndOf="@+id/tv_jml_petugas"
+                            app:layout_constraintStart_toStartOf="@+id/tv_jml_petugas"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_jml_petugas" />
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btn_lihat_rkd"
@@ -217,8 +229,25 @@
                             android:textAllCaps="false"
                             android:textColor="@color/white"
                             app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.435"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_date_duration" />
+                            app:layout_constraintTop_toBottomOf="@+id/tv_jumlah_petugas" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_realisasi"
+                            android:layout_width="340dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/button_blue"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Lihat Dokumen Realisasi"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.41"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_lihat_rkd" />
 
                         <TextView
                             android:id="@+id/tv_note"
@@ -230,8 +259,9 @@
                             android:textColor="@color/blue_secondary"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@+id/btn_lihat_rkd"
+                            app:layout_constraintHorizontal_bias="1.0"
                             app:layout_constraintStart_toStartOf="@+id/btn_lihat_rkd"
-                            app:layout_constraintTop_toBottomOf="@+id/btn_lihat_rkd" />
+                            app:layout_constraintTop_toBottomOf="@+id/btn_realisasi" />
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_note"
@@ -489,7 +519,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/nunitosans_regular"
-                            android:text="Es.4"
+                            android:text="Apr.4"
                             android:textColor="@color/blue_secondary"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="@+id/circle_grey_es4"
@@ -502,7 +532,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/nunitosans_regular"
-                            android:text="Es.3"
+                            android:text="Apr.3"
                             android:textColor="@color/blue_secondary"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="@+id/circle_grey_es3"
@@ -515,7 +545,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/nunitosans_regular"
-                            android:text="Es.2"
+                            android:text="Apr.2"
                             android:textColor="@color/blue_secondary"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="@+id/circle_grey_es2"
@@ -528,7 +558,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/nunitosans_regular"
-                            android:text="Es.1"
+                            android:text="Apr.1"
                             android:textColor="@color/blue_secondary"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="@+id/circle_grey_es1"

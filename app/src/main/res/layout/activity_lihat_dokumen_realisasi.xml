@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="28dp"
+                    android:background="@color/material_on_background_disabled"
+                    android:src="@drawable/ic_baseline_arrow_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.018"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:text="Kembali"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/cardView"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_back" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="20dp"
+                    android:nestedScrollingEnabled="true"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/item_pembebanan"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="20dp">
+
+                        <TextView
+                            android:id="@+id/tv_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="24dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:maxLines="1"
+                            android:text="Cendekia"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="18sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_grade"
+                            style="@style/contentBlue.secondary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="Eselon 2"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="@+id/tv_name"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+                        <TextView
+                            android:id="@+id/tv_no_pembebanan"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="ST-811/JF/03/2019-001"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_grade"
+                            tools:layout_editor_absoluteX="16dp" />
+
+                        <TextView
+                            android:id="@+id/tv_rincian_biaya"
+                            android:layout_width="wrap_content"
+                            android:layout_height="19dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Rincian Biaya"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toStartOf="@+id/tv_no_pembebanan"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_no_pembebanan" />
+
+                        <TextView
+                            android:id="@+id/tv_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="16dp"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="Mengikuti Focus Group Discussion (FGD) Pemutakhiran SOP dan pedoman Pengawasan dalam rangka penataan Tata Kelola Pengawasan BPKP sesuai Surat Kepala Biro MKOT Nomor UND-429/SU01/3/2021 di"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_rincian_biaya" />
+
+                        <TextView
+                            android:id="@+id/tv_duration"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Durasi"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/tv_description"
+                            app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+                        <TextView
+                            android:id="@+id/tv_date_duration"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="mulai -"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="@+id/tv_duration"
+                            app:layout_constraintTop_toBottomOf="@id/tv_duration" />
+
+                        <TextView
+                            android:id="@+id/tv_date_duration2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="selesai"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_duration"
+                            app:layout_constraintStart_toEndOf="@+id/tv_date_duration"
+                            app:layout_constraintTop_toBottomOf="@id/tv_duration" />
+
+                        <TextView
+                            android:id="@+id/tv_txt_kuantitas"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Kuantitas"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_date_duration2"
+                            app:layout_constraintStart_toStartOf="@+id/tv_date_duration"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_date_duration2" />
+
+                        <TextView
+                            android:id="@+id/tv_kuantitas"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="3"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_txt_kuantitas"
+                            app:layout_constraintStart_toStartOf="@+id/tv_txt_kuantitas"
+                            app:layout_constraintTop_toBottomOf="@id/tv_txt_kuantitas" />
+
+                        <TextView
+                            android:id="@+id/tv_txt_satuan"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Satuan"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_kuantitas"
+                            app:layout_constraintStart_toStartOf="@+id/tv_kuantitas"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_kuantitas" />
+
+                        <TextView
+                            android:id="@+id/tv_satuan"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="OH"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_txt_satuan"
+                            app:layout_constraintStart_toStartOf="@+id/tv_txt_satuan"
+                            app:layout_constraintTop_toBottomOf="@id/tv_txt_satuan" />
+
+                        <TextView
+                            android:id="@+id/tv_txt_harga_satuan"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Harga Satuan"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_satuan"
+                            app:layout_constraintStart_toStartOf="@+id/tv_satuan"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_satuan" />
+
+                        <TextView
+                            android:id="@+id/tv_harga_satuan"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="430.000"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_txt_harga_satuan"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/tv_txt_harga_satuan"
+                            app:layout_constraintTop_toBottomOf="@id/tv_txt_harga_satuan" />
+
+
+                        <TextView
+                            android:id="@+id/tv_txt_jml_pengajuan"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Jumlah Pengajuan"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/tv_harga_satuan"
+                            app:layout_constraintTop_toBottomOf="@id/tv_harga_satuan" />
+
+                        <TextView
+                            android:id="@+id/tv_jumlah_pengajuan"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="22,829,000"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_txt_jml_pengajuan"
+                            app:layout_constraintStart_toStartOf="@+id/tv_txt_jml_pengajuan"
+                            app:layout_constraintTop_toBottomOf="@id/tv_txt_jml_pengajuan" />
+
+                        <TextView
+                            android:id="@+id/tv_txt_pajak"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Pajak"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_jumlah_pengajuan"
+                            app:layout_constraintStart_toStartOf="@+id/tv_jumlah_pengajuan"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_jumlah_pengajuan" />
+
+                        <TextView
+                            android:id="@+id/tv_pajak"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="0"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_txt_pajak"
+                            app:layout_constraintStart_toStartOf="@+id/tv_txt_pajak"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_txt_pajak" />
+
+                        <TextView
+                            android:id="@+id/tv_txt_netto"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Netto"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_pajak"
+                            app:layout_constraintStart_toStartOf="@+id/tv_pajak"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_pajak" />
+
+                        <TextView
+                            android:id="@+id/tv_netto"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="1.290.000"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_txt_netto"
+                            app:layout_constraintStart_toStartOf="@+id/tv_txt_netto"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_txt_netto" />
+
+                        <TextView
+                            android:id="@+id/tv_txt_nilai_realisasi"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Nilai Realisasi"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_netto"
+                            app:layout_constraintStart_toStartOf="@+id/tv_netto"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_netto" />
+
+                        <TextView
+                            android:id="@+id/tv_nilai_realisasi"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="22,829,000"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_txt_nilai_realisasi"
+                            app:layout_constraintStart_toStartOf="@+id/tv_txt_nilai_realisasi"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_txt_nilai_realisasi" />
+
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_upload_bukti"
+                            android:layout_width="340dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/button_blue"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Upload Bukti"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.589"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_nilai_realisasi" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
