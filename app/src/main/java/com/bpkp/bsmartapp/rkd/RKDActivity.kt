@@ -15,7 +15,7 @@ import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
 import com.bpkp.bsmartapp.databinding.ActivityRkdBinding
 import com.bpkp.bsmartapp.login.Constant
 import com.bpkp.bsmartapp.login.PrefHelper
-import com.bpkp.bsmartapp.rkdDetail.RKDDetail
+import com.bpkp.bsmartapp.pembebanan.RKDDetail
 
 class RKDActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityRkdBinding

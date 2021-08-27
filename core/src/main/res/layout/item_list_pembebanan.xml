@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_st"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/icon_calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/icon_calendar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_st_id"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:text="Mon, Jun 9 2021"
+                android:textColor="@color/blue_secondary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/icon_calendar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/icon_calendar"
+                app:layout_constraintTop_toTopOf="@+id/icon_calendar" />
+
+            <TextView
+                android:id="@+id/tv_st_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/nunitosans_bold"
+                android:text="ID /"
+                android:textColor="@color/blue_secondary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/icon_calendar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_st_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/nunitosans_bold"
+                android:text="Nomor Pembebanan"
+                android:textColor="@color/blue_secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_date"
+                app:layout_constraintStart_toEndOf="@+id/tv_st_id"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:text="Mengikuti Focus Group Discussion (FGD) Pemutakhiran SOP dan pedoman Pengawasan dalam rangka penataan Tata Kelola Pengawasan BPKP sesuai Surat Kepala Biro MKOT Nomor UND-429/SU01/3/2021 di"
+                android:textColor="@color/blue_secondary"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_st_id"
+                app:layout_constraintTop_toBottomOf="@+id/icon_calendar" />
+
+            <TextView
+                android:id="@+id/tv_mak_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:text="089.06.3673.001.001.053.636702.B.524111"
+                android:textColor="@color/blue_secondary"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_st_id"
+                app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+            <TextView
+                android:id="@+id/tv_nilai"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/nunitosans_bold"
+                android:text="Rp. 22,829,000"
+                android:textColor="@color/blue_secondary"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_st_id"
+                app:layout_constraintTop_toBottomOf="@+id/tv_mak_ket" />
+
+            <TextView
+                android:id="@+id/tv_mak_ket"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:text="Belanja perjalanan biasa"
+                android:textColor="@color/blue_secondary"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_st_id"
+                app:layout_constraintTop_toBottomOf="@+id/tv_mak_number" />
+
+            <ImageView
+                android:id="@+id/line_blue"
+                android:layout_width="331dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/line_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_nilai" />
+
+
+            <ImageView
+                android:id="@+id/line_grey"
+                android:layout_width="279dp"
+                android:layout_height="4dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/line_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_blue"
+                app:layout_constraintVertical_bias="0.32999998" />
+
+            <ImageView
+                android:id="@+id/line_yellow_es3"
+                android:layout_width="93dp"
+                android:layout_height="4dp"
+                android:background="@drawable/line_yellow"
+                app:layout_constraintBottom_toBottomOf="@+id/line_grey"
+                app:layout_constraintStart_toStartOf="@id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_es2" />
+
+            <ImageView
+                android:id="@+id/line_yellow_es2"
+                android:layout_width="93dp"
+                android:layout_height="4dp"
+                android:background="@drawable/line_yellow"
+                app:layout_constraintBottom_toBottomOf="@+id/line_grey"
+                app:layout_constraintEnd_toEndOf="@+id/circle_grey_es2"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_es3"
+                app:layout_constraintTop_toTopOf="@+id/line_grey"
+                app:layout_constraintVertical_bias="0.01999998" />
+
+            <ImageView
+                android:id="@+id/line_yellow_es1"
+                android:layout_width="93dp"
+                android:layout_height="4dp"
+                android:background="@drawable/line_yellow"
+                app:layout_constraintBottom_toBottomOf="@+id/line_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_es2"
+                app:layout_constraintTop_toTopOf="@+id/line_grey" />
+
+            <ImageView
+                android:id="@+id/circle_grey_es4"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_grey"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_es3" />
+
+            <ImageView
+                android:id="@+id/circle_yellow_es4"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_yellow"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_es3" />
+
+            <ImageView
+                android:id="@+id/circle_red_es4"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_red"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_es3" />
+
+            <ImageView
+                android:id="@+id/circle_grey_es3"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_grey"
+                app:layout_constraintBottom_toBottomOf="@+id/line_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.244"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_es4"
+                app:layout_constraintTop_toTopOf="@+id/line_grey" />
+
+            <ImageView
+                android:id="@+id/circle_yellow_es3"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_yellow"
+                app:layout_constraintBottom_toBottomOf="@+id/line_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.244"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_es4"
+                app:layout_constraintTop_toTopOf="@+id/line_grey" />
+
+            <ImageView
+                android:id="@+id/circle_red_es3"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_red"
+                app:layout_constraintBottom_toBottomOf="@+id/line_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.244"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_es4"
+                app:layout_constraintTop_toTopOf="@+id/line_grey" />
+
+            <ImageView
+                android:id="@+id/circle_grey_es2"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_grey"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es1"
+                app:layout_constraintEnd_toEndOf="@id/circle_grey_es1"
+                app:layout_constraintHorizontal_bias="0.481"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_es3"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_es1" />
+
+            <ImageView
+                android:id="@+id/circle_yellow_es2"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_green"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es1"
+                app:layout_constraintEnd_toEndOf="@id/circle_grey_es1"
+                app:layout_constraintHorizontal_bias="0.481"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_es3"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_es1" />
+
+            <ImageView
+                android:id="@+id/circle_red_es2"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_red"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es1"
+                app:layout_constraintEnd_toEndOf="@id/circle_grey_es1"
+                app:layout_constraintHorizontal_bias="0.481"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_es3"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_es1" />
+
+            <ImageView
+                android:id="@+id/circle_grey_es1"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_grey"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es1"
+                app:layout_constraintEnd_toEndOf="@id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_es1" />
+
+            <ImageView
+                android:id="@+id/circle_yellow_es1"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_green"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es1"
+                app:layout_constraintEnd_toEndOf="@id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_es1" />
+
+            <ImageView
+                android:id="@+id/circle_red_es1"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_red"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es1"
+                app:layout_constraintEnd_toEndOf="@id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_es1" />
+
+            <TextView
+                android:id="@+id/txt_es1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:text="Apr.1"
+                android:textColor="@color/blue_secondary"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/circle_grey_es4"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_es4"
+                app:layout_constraintTop_toBottomOf="@+id/circle_grey_es4" />
+
+            <TextView
+                android:id="@+id/txt_es2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:text="Apr.2"
+                android:textColor="@color/blue_secondary"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/circle_grey_es3"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_es3"
+                app:layout_constraintTop_toBottomOf="@+id/circle_grey_es4" />
+
+            <TextView
+                android:id="@+id/txt_es3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:text="Apr.3"
+                android:textColor="@color/blue_secondary"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/circle_grey_es2"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_es2"
+                app:layout_constraintTop_toBottomOf="@+id/circle_grey_es4" />
+
+            <TextView
+                android:id="@+id/txt_es4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:text="Apr.4"
+                android:textColor="@color/blue_secondary"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/circle_grey_es1"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_es1"
+                app:layout_constraintTop_toBottomOf="@+id/circle_grey_es4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

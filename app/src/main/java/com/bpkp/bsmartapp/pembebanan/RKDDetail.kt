@@ -1,4 +1,4 @@
-package com.bpkp.bsmartapp.rkdDetail
+package com.bpkp.bsmartapp.pembebanan
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,12 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
-import com.bpkp.bsmartapp.databinding.ActivityDetailRkdBinding
+import com.bpkp.bsmartapp.databinding.ActivityDetailPembebananBinding
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity
 
 class RKDDetail: AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var binding: ActivityDetailRkdBinding
+    private lateinit var binding: ActivityDetailPembebananBinding
     private lateinit var rkdDetailViewModel: RKDDetailViewModel
     companion object{
         const val EXTRA_DATA = "extra_data"
@@ -28,7 +28,7 @@ class RKDDetail: AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailRkdBinding.inflate(layoutInflater)
+        binding = ActivityDetailPembebananBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnBack.setOnClickListener(this)
 //

@@ -1,357 +1,462 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/inter_extrabold"
-        android:maxLines="1"
-        android:text="Monitoring Pembebanan"
-        android:textColor="@color/blue_secondary"
-        android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="360dp"
-        android:layout_height="111dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/shape_blue"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+        app:layout_constraintTop_toBottomOf="@+id/cb_filter"
+        app:layout_constraintVertical_bias="0.0">
 
-    <TextView
-        android:id="@+id/tv_data_status"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
-        android:fontFamily="@font/nunitosans_bold"
-        android:text="Data Status"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="30dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/ic_baseline_income_on_24"
-        app:layout_constraintStart_toStartOf="@+id/tv_data_status"
-        app:layout_constraintTop_toBottomOf="@+id/tv_data_status" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_income"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:fontFamily="@font/nunitosans_bold"
-        android:text="1500"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_text_income"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunitosans_regular"
-        android:text="Income"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_income"
-        app:layout_constraintTop_toBottomOf="@+id/tv_income" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_pembebanan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="392dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:listitem="@layout/item_list_pembebanan" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="30dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/ic_baseline_draft_24"
-        app:layout_constraintStart_toEndOf="@+id/tv_text_income"
-        app:layout_constraintTop_toTopOf="@+id/tv_income" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/background_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_draft"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:fontFamily="@font/nunitosans_bold"
-        android:text="500"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="360dp"
+            android:layout_height="111dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shape_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_text_draft"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunitosans_regular"
-        android:text="Draft"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_draft"
-        app:layout_constraintTop_toBottomOf="@+id/tv_draft" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="30dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/ic_baseline_access_time_24"
-        app:layout_constraintStart_toEndOf="@+id/tv_text_draft"
-        app:layout_constraintTop_toTopOf="@+id/tv_draft" />
-
-    <TextView
-        android:id="@+id/tv_waiting"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:fontFamily="@font/nunitosans_bold"
-        android:text="500"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="@+id/imageView8" />
-
-    <TextView
-        android:id="@+id/tv_text_waiting"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunitosans_regular"
-        android:text="Waiting"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_waiting"
-        app:layout_constraintTop_toBottomOf="@+id/tv_waiting" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="30dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/ic_baseline_approved_24"
-        app:layout_constraintStart_toEndOf="@+id/tv_text_waiting"
-        app:layout_constraintTop_toTopOf="@+id/tv_waiting" />
-
-    <TextView
-        android:id="@+id/tv_approved"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:fontFamily="@font/nunitosans_bold"
-        android:text="500"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toTopOf="@+id/imageView9" />
-
-    <TextView
-        android:id="@+id/tv_text_approved"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/nunitosans_regular"
-        android:text="Waiting"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/tv_approved"
-        app:layout_constraintTop_toBottomOf="@+id/tv_approved" />
+        <TextView
+            android:id="@+id/tv_data_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Data Status"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="160dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/shape_blue"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="30dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/ic_baseline_income_on_24"
+            app:layout_constraintStart_toStartOf="@+id/tv_data_status"
+            app:layout_constraintTop_toBottomOf="@+id/tv_data_status" />
 
-    <TextView
-        android:id="@+id/tv_realisasi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/nunitosans_bold"
-        android:text="Realisasi"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        <TextView
+            android:id="@+id/tv_income"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="1500"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="35dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ic_baseline_realisasi_24"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/tv_realisasi" />
+        <TextView
+            android:id="@+id/tv_text_income"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="Income"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_income"
+            app:layout_constraintTop_toBottomOf="@+id/tv_income" />
 
-    <TextView
-        android:id="@+id/tv_spm"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/nunitosans_bold"
-        android:text="500"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
-        app:layout_constraintTop_toTopOf="@+id/imageView10" />
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="30dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/ic_baseline_draft_24"
+            app:layout_constraintStart_toEndOf="@+id/tv_text_income"
+            app:layout_constraintTop_toTopOf="@+id/tv_income" />
 
-    <TextView
-        android:id="@+id/tv_text_spm"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunitosans_regular"
-        android:text="SPM"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_spm"
-        app:layout_constraintTop_toBottomOf="@+id/tv_spm" />
+        <TextView
+            android:id="@+id/tv_draft"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="500"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="@+id/imageView7" />
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="35dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ic_baseline_realisasi_24"
-        app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintStart_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+        <TextView
+            android:id="@+id/tv_text_draft"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="Draft"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_draft"
+            app:layout_constraintTop_toBottomOf="@+id/tv_draft" />
 
-    <TextView
-        android:id="@+id/tv_sp2d"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/nunitosans_bold"
-        android:text="400"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView11"
-        app:layout_constraintTop_toTopOf="@+id/imageView11" />
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="30dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/ic_baseline_access_time_24"
+            app:layout_constraintStart_toEndOf="@+id/tv_text_draft"
+            app:layout_constraintTop_toTopOf="@+id/tv_draft" />
 
-    <TextView
-        android:id="@+id/tv_text_sp2d"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunitosans_regular"
-        android:text="SP2D"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_sp2d"
-        app:layout_constraintTop_toBottomOf="@+id/tv_sp2d" />
+        <TextView
+            android:id="@+id/tv_waiting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="500"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView8"
+            app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="160dp"
-        android:layout_height="140dp"
-        android:background="@drawable/shape_blue"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        <TextView
+            android:id="@+id/tv_text_waiting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="Waiting"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_waiting"
+            app:layout_constraintTop_toBottomOf="@+id/tv_waiting" />
 
-    <TextView
-        android:id="@+id/tv_outstanding"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/nunitosans_bold"
-        android:text="Outstanding"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="30dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/ic_baseline_approved_24"
+            app:layout_constraintStart_toEndOf="@+id/tv_text_waiting"
+            app:layout_constraintTop_toTopOf="@+id/tv_waiting" />
 
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="35dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ic_baseline_outstanding_24"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/tv_outstanding" />
+        <TextView
+            android:id="@+id/tv_approved"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="500"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
-    <TextView
-        android:id="@+id/tv_kkp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/nunitosans_bold"
-        android:text="500"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView12"
-        app:layout_constraintTop_toTopOf="@+id/imageView12" />
+        <TextView
+            android:id="@+id/tv_text_approved"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="Waiting"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintStart_toStartOf="@+id/tv_approved"
+            app:layout_constraintTop_toBottomOf="@+id/tv_approved" />
 
-    <TextView
-        android:id="@+id/tv_text_kkp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunitosans_regular"
-        android:text="KKP"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_kkp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_kkp" />
 
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="35dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ic_baseline_outstanding_24"
-        app:layout_constraintEnd_toEndOf="@+id/imageView12"
-        app:layout_constraintStart_toStartOf="@+id/imageView12"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="160dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/shape_blue"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-    <TextView
-        android:id="@+id/tv_non_kkp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/nunitosans_bold"
-        android:text="500"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView13"
-        app:layout_constraintTop_toTopOf="@+id/imageView13" />
+        <TextView
+            android:id="@+id/tv_realisasi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Realisasi"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
-    <TextView
-        android:id="@+id/tv_text_nonkkp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunitosans_regular"
-        android:text="Non KKP"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_non_kkp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_non_kkp" />
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_baseline_realisasi_24"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/tv_realisasi" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_spm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="500"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView10"
+            app:layout_constraintTop_toTopOf="@+id/imageView10" />
+
+        <TextView
+            android:id="@+id/tv_text_spm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="SPM"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_spm"
+            app:layout_constraintTop_toBottomOf="@+id/tv_spm" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_baseline_realisasi_24"
+            app:layout_constraintEnd_toEndOf="@+id/imageView10"
+            app:layout_constraintStart_toStartOf="@+id/imageView10"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+        <TextView
+            android:id="@+id/tv_sp2d"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="400"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView11"
+            app:layout_constraintTop_toTopOf="@+id/imageView11" />
+
+        <TextView
+            android:id="@+id/tv_text_sp2d"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="SP2D"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_sp2d"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sp2d" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="160dp"
+            android:layout_height="140dp"
+            android:background="@drawable/shape_blue"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+        <TextView
+            android:id="@+id/tv_outstanding"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Outstanding"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_baseline_outstanding_24"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/tv_outstanding" />
+
+        <TextView
+            android:id="@+id/tv_kkp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="500"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView12"
+            app:layout_constraintTop_toTopOf="@+id/imageView12" />
+
+        <TextView
+            android:id="@+id/tv_text_kkp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="KKP"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_kkp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_kkp" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_baseline_outstanding_24"
+            app:layout_constraintEnd_toEndOf="@+id/imageView12"
+            app:layout_constraintStart_toStartOf="@+id/imageView12"
+            app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+        <TextView
+            android:id="@+id/tv_non_kkp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="500"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView13"
+            app:layout_constraintTop_toTopOf="@+id/imageView13" />
+
+        <TextView
+            android:id="@+id/tv_text_nonkkp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="Non KKP"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_non_kkp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_non_kkp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti_search_pembebanan"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:textColorHint="@color/search"
+            app:boxCornerRadiusBottomEnd="58dp"
+            app:boxCornerRadiusBottomStart="58dp"
+            app:boxCornerRadiusTopEnd="58dp"
+            app:boxCornerRadiusTopStart="58dp"
+            app:boxStrokeWidth="1dp"
+            app:hintTextColor="@color/blue_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_search_st"
+                style="@style/inputText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autofillHints="search"
+                android:hint="Temukan Surat Tugas"
+                android:inputType="text"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Switch
+            android:id="@+id/cb_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="Filter Approval"
+            android:textColor="@color/blue_secondary"
+            app:layout_constraintEnd_toEndOf="@+id/ti_search_pembebanan"
+            app:layout_constraintTop_toBottomOf="@+id/ti_search_pembebanan"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ti_search_pembebanan"
+            app:layout_constraintEnd_toEndOf="@+id/ti_search_pembebanan"
+            app:layout_constraintTop_toTopOf="@+id/ti_search_pembebanan"
+            app:srcCompat="@drawable/icon_search" />
+
+        <include
+            android:id="@+id/view_empty"
+            layout="@layout/view_empty"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_filter" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/progress_bar"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="load.json"
+        app:lottie_loop="true" />
+</FrameLayout>
