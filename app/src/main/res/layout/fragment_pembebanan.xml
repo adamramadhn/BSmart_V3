@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/tv_name"
@@ -14,50 +14,25 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/inter_extrabold"
         android:maxLines="1"
-        android:text="Hi, Cendekia"
+        android:text="Monitoring Pembebanan"
         android:textColor="@color/blue_secondary"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/photo_user"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_grade"
-            style="@style/contentBlue.secondary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:fontFamily="@font/nunitosans_regular"
-            android:text="Eselon 2"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tv_name"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/photo_user"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="20dp"
-        android:src="@drawable/illustration_onboard"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_grade"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="360dp"
         android:layout_height="111dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/shape_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_grade" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
     <TextView
         android:id="@+id/tv_data_status"
@@ -207,10 +182,9 @@
         android:id="@+id/imageView3"
         android:layout_width="160dp"
         android:layout_height="140dp"
-        android:layout_marginStart="36dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/shape_yellow"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/shape_blue"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <TextView
@@ -296,13 +270,9 @@
         android:id="@+id/imageView4"
         android:layout_width="160dp"
         android:layout_height="140dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="44dp"
-        android:background="@drawable/shape_grey"
+        android:background="@drawable/shape_blue"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <TextView
