@@ -154,166 +154,218 @@
                 android:background="@drawable/line_grey"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.307"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/line_blue"
-                app:layout_constraintVertical_bias="0.32999998" />
+                app:layout_constraintVertical_bias="0.333" />
 
             <ImageView
-                android:id="@+id/line_yellow_es3"
-                android:layout_width="93dp"
+                android:id="@+id/line_yellow_apr1"
+                android:layout_width="70dp"
                 android:layout_height="4dp"
                 android:background="@drawable/line_yellow"
                 app:layout_constraintBottom_toBottomOf="@+id/line_grey"
                 app:layout_constraintStart_toStartOf="@id/line_grey"
-                app:layout_constraintTop_toTopOf="@+id/line_yellow_es2" />
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr2" />
 
             <ImageView
-                android:id="@+id/line_yellow_es2"
-                android:layout_width="93dp"
+                android:id="@+id/line_yellow_apr2"
+                android:layout_width="70dp"
                 android:layout_height="4dp"
                 android:background="@drawable/line_yellow"
                 app:layout_constraintBottom_toBottomOf="@+id/line_grey"
-                app:layout_constraintEnd_toEndOf="@+id/circle_grey_es2"
-                app:layout_constraintStart_toStartOf="@+id/circle_grey_es3"
+                app:layout_constraintEnd_toEndOf="@+id/circle_grey_apr3"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_apr2"
                 app:layout_constraintTop_toTopOf="@+id/line_grey"
                 app:layout_constraintVertical_bias="0.01999998" />
 
             <ImageView
-                android:id="@+id/line_yellow_es1"
-                android:layout_width="93dp"
+                android:id="@+id/line_yellow_apr3"
+                android:layout_width="70dp"
                 android:layout_height="4dp"
                 android:background="@drawable/line_yellow"
                 app:layout_constraintBottom_toBottomOf="@+id/line_grey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/circle_grey_es2"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_apr3"
                 app:layout_constraintTop_toTopOf="@+id/line_grey" />
 
             <ImageView
-                android:id="@+id/circle_grey_es4"
+                android:id="@+id/line_yellow_apr4"
+                android:layout_width="65dp"
+                android:layout_height="4dp"
+                android:background="@drawable/line_yellow"
+                app:layout_constraintBottom_toBottomOf="@+id/line_grey"
+                app:layout_constraintEnd_toEndOf="@+id/line_grey"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_apr4"
+                app:layout_constraintTop_toTopOf="@+id/line_grey" />
+
+
+            <ImageView
+                android:id="@+id/circle_grey_apr1"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@drawable/circle_grey"
-                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es3"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_apr1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/line_grey"
-                app:layout_constraintTop_toTopOf="@+id/line_yellow_es3" />
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr1" />
 
             <ImageView
-                android:id="@+id/circle_yellow_es4"
+                android:id="@+id/circle_yellow_apr1"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@drawable/circle_yellow"
-                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es3"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_apr1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/line_grey"
-                app:layout_constraintTop_toTopOf="@+id/line_yellow_es3" />
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr1" />
 
             <ImageView
-                android:id="@+id/circle_red_es4"
+                android:id="@+id/circle_red_apr1"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@drawable/circle_red"
-                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es3"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_apr1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/line_grey"
-                app:layout_constraintTop_toTopOf="@+id/line_yellow_es3" />
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr1" />
 
             <ImageView
-                android:id="@+id/circle_grey_es3"
+                android:id="@+id/circle_grey_apr2"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@drawable/circle_grey"
                 app:layout_constraintBottom_toBottomOf="@+id/line_grey"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.244"
-                app:layout_constraintStart_toEndOf="@+id/circle_grey_es4"
-                app:layout_constraintTop_toTopOf="@+id/line_grey" />
+                app:layout_constraintHorizontal_bias="0.161"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_apr1"
+                app:layout_constraintTop_toTopOf="@+id/line_grey"
+                app:layout_constraintVertical_bias="0.583" />
 
             <ImageView
-                android:id="@+id/circle_yellow_es3"
+                android:id="@+id/circle_yellow_apr2"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@drawable/circle_yellow"
                 app:layout_constraintBottom_toBottomOf="@+id/line_grey"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.244"
-                app:layout_constraintStart_toEndOf="@+id/circle_grey_es4"
-                app:layout_constraintTop_toTopOf="@+id/line_grey" />
+                app:layout_constraintHorizontal_bias="0.161"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_apr1"
+                app:layout_constraintTop_toTopOf="@+id/line_grey"
+                app:layout_constraintVertical_bias="0.583" />
 
             <ImageView
-                android:id="@+id/circle_red_es3"
+                android:id="@+id/circle_red_apr2"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@drawable/circle_red"
                 app:layout_constraintBottom_toBottomOf="@+id/line_grey"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.244"
-                app:layout_constraintStart_toEndOf="@+id/circle_grey_es4"
-                app:layout_constraintTop_toTopOf="@+id/line_grey" />
+                app:layout_constraintHorizontal_bias="0.161"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_apr1"
+                app:layout_constraintTop_toTopOf="@+id/line_grey"
+                app:layout_constraintVertical_bias="0.583" />
 
             <ImageView
-                android:id="@+id/circle_grey_es2"
+                android:id="@+id/circle_grey_apr3"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@drawable/circle_grey"
-                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es1"
-                app:layout_constraintEnd_toEndOf="@id/circle_grey_es1"
-                app:layout_constraintHorizontal_bias="0.481"
-                app:layout_constraintStart_toEndOf="@+id/circle_grey_es3"
-                app:layout_constraintTop_toTopOf="@+id/line_yellow_es1" />
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_apr3"
+                app:layout_constraintEnd_toEndOf="@id/circle_grey_apr4"
+                app:layout_constraintHorizontal_bias="0.407"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_apr2"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr3"
+                app:layout_constraintVertical_bias="0.583" />
 
             <ImageView
-                android:id="@+id/circle_yellow_es2"
+                android:id="@+id/circle_yellow_apr3"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@drawable/circle_green"
-                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es1"
-                app:layout_constraintEnd_toEndOf="@id/circle_grey_es1"
-                app:layout_constraintHorizontal_bias="0.481"
-                app:layout_constraintStart_toEndOf="@+id/circle_grey_es3"
-                app:layout_constraintTop_toTopOf="@+id/line_yellow_es1" />
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_apr3"
+                app:layout_constraintEnd_toEndOf="@id/circle_grey_apr4"
+                app:layout_constraintHorizontal_bias="0.407"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_apr2"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr3"
+                app:layout_constraintVertical_bias="0.583" />
 
             <ImageView
-                android:id="@+id/circle_red_es2"
+                android:id="@+id/circle_red_apr3"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@drawable/circle_red"
-                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es1"
-                app:layout_constraintEnd_toEndOf="@id/circle_grey_es1"
-                app:layout_constraintHorizontal_bias="0.481"
-                app:layout_constraintStart_toEndOf="@+id/circle_grey_es3"
-                app:layout_constraintTop_toTopOf="@+id/line_yellow_es1" />
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_apr3"
+                app:layout_constraintEnd_toEndOf="@id/circle_grey_apr4"
+                app:layout_constraintHorizontal_bias="0.407"
+                app:layout_constraintStart_toEndOf="@+id/circle_grey_apr2"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr3"
+                app:layout_constraintVertical_bias="0.583" />
 
             <ImageView
-                android:id="@+id/circle_grey_es1"
+                android:id="@+id/circle_grey_apr4"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="68dp"
+                android:background="@drawable/circle_grey"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_apr3"
+                app:layout_constraintEnd_toEndOf="@id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr3" />
+
+            <ImageView
+                android:id="@+id/circle_yellow_apr4"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="68dp"
+                android:background="@drawable/circle_green"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_apr3"
+                app:layout_constraintEnd_toEndOf="@id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr3" />
+
+            <ImageView
+                android:id="@+id/circle_red_apr4"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="68dp"
+                android:background="@drawable/circle_red"
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_apr3"
+                app:layout_constraintEnd_toEndOf="@id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr3" />
+
+            <ImageView
+                android:id="@+id/circle_grey_apr5"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@drawable/circle_grey"
-                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es1"
-                app:layout_constraintEnd_toEndOf="@id/line_grey"
-                app:layout_constraintTop_toTopOf="@+id/line_yellow_es1" />
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_apr3"
+                app:layout_constraintEnd_toEndOf="@+id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr3"
+                app:layout_constraintVertical_bias="0.583" />
 
             <ImageView
-                android:id="@+id/circle_yellow_es1"
+                android:id="@+id/circle_yellow_apr5"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@drawable/circle_green"
-                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es1"
-                app:layout_constraintEnd_toEndOf="@id/line_grey"
-                app:layout_constraintTop_toTopOf="@+id/line_yellow_es1" />
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_apr3"
+                app:layout_constraintEnd_toEndOf="@+id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr3"
+                app:layout_constraintVertical_bias="0.583" />
 
             <ImageView
-                android:id="@+id/circle_red_es1"
+                android:id="@+id/circle_red_apr5"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@drawable/circle_red"
-                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_es1"
-                app:layout_constraintEnd_toEndOf="@id/line_grey"
-                app:layout_constraintTop_toTopOf="@+id/line_yellow_es1" />
+                app:layout_constraintBottom_toBottomOf="@+id/line_yellow_apr3"
+                app:layout_constraintEnd_toEndOf="@+id/line_grey"
+                app:layout_constraintTop_toTopOf="@+id/line_yellow_apr3"
+                app:layout_constraintVertical_bias="0.583" />
 
             <TextView
                 android:id="@+id/txt_es1"
@@ -326,9 +378,9 @@
                 android:textColor="@color/blue_secondary"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/circle_grey_es4"
-                app:layout_constraintStart_toStartOf="@+id/circle_grey_es4"
-                app:layout_constraintTop_toBottomOf="@+id/circle_grey_es4" />
+                app:layout_constraintEnd_toEndOf="@+id/circle_grey_apr1"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_apr1"
+                app:layout_constraintTop_toBottomOf="@+id/circle_grey_apr1" />
 
             <TextView
                 android:id="@+id/txt_es2"
@@ -341,9 +393,9 @@
                 android:textColor="@color/blue_secondary"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/circle_grey_es3"
-                app:layout_constraintStart_toStartOf="@+id/circle_grey_es3"
-                app:layout_constraintTop_toBottomOf="@+id/circle_grey_es4" />
+                app:layout_constraintEnd_toEndOf="@+id/circle_grey_apr2"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_apr2"
+                app:layout_constraintTop_toBottomOf="@+id/circle_grey_apr1" />
 
             <TextView
                 android:id="@+id/txt_es3"
@@ -356,9 +408,9 @@
                 android:textColor="@color/blue_secondary"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/circle_grey_es2"
-                app:layout_constraintStart_toStartOf="@+id/circle_grey_es2"
-                app:layout_constraintTop_toBottomOf="@+id/circle_grey_es4" />
+                app:layout_constraintEnd_toEndOf="@+id/circle_grey_apr3"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_apr3"
+                app:layout_constraintTop_toBottomOf="@+id/circle_grey_apr1" />
 
             <TextView
                 android:id="@+id/txt_es4"
@@ -371,9 +423,24 @@
                 android:textColor="@color/blue_secondary"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/circle_grey_es1"
-                app:layout_constraintStart_toStartOf="@+id/circle_grey_es1"
-                app:layout_constraintTop_toBottomOf="@+id/circle_grey_es4" />
+                app:layout_constraintEnd_toEndOf="@+id/circle_grey_apr4"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_apr4"
+                app:layout_constraintTop_toBottomOf="@+id/circle_grey_apr1" />
+
+            <TextView
+                android:id="@+id/txt_es5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:text="Apr.5"
+                android:textColor="@color/blue_secondary"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/circle_grey_apr5"
+                app:layout_constraintStart_toStartOf="@+id/circle_grey_apr5"
+                app:layout_constraintTop_toBottomOf="@+id/circle_grey_apr1" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
