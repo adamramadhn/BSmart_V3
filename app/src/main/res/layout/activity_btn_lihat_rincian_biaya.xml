@@ -355,13 +355,25 @@
                             app:layout_constraintStart_toStartOf="@+id/tv_txt_nilai_realisasi"
                             app:layout_constraintTop_toBottomOf="@+id/tv_txt_nilai_realisasi" />
 
+                        <TextView
+                            android:id="@+id/tv_txt_uang_harian"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Uang Harian"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_nilai_realisasi"
+                            app:layout_constraintStart_toStartOf="@+id/tv_nilai_realisasi"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_nilai_realisasi" />
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btn_upload_bukti"
                             android:layout_width="340dp"
                             android:layout_height="40dp"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="16dp"
+                            android:layout_marginTop="8dp"
                             android:background="@drawable/button_blue"
                             android:fontFamily="@font/nunitosans_bold"
                             android:text="Upload Bukti"
@@ -370,8 +382,138 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.589"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_nilai_realisasi" />
+                            app:layout_constraintTop_toBottomOf="@+id/tv_txt_uang_harian" />
 
+                        <TextView
+                            android:id="@+id/tv_txt_transport"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Transport"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_upload_bukti" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_upload_bukti2"
+                            android:layout_width="340dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/button_blue"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Upload Bukti"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.589"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_txt_transport" />
+
+
+                        <TextView
+                            android:id="@+id/tv_txt_etc1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:visibility="visible"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Dan Lain - lain"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_upload_bukti2" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_upload_bukti3"
+                            android:layout_width="340dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:visibility="visible"
+                            android:background="@drawable/button_blue"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Upload Bukti"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.589"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_txt_etc1" />
+
+                        <TextView
+                            android:id="@+id/tv_txt_etc2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:visibility="visible"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Dan Lain - lain"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_upload_bukti3" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_upload_bukti4"
+                            android:layout_width="340dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:visibility="visible"
+                            android:background="@drawable/button_blue"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Upload Bukti"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.589"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_txt_etc2" />
+
+                        <TextView
+                            android:id="@+id/tv_txt_etc3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:visibility="visible"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Dan Lain - lain"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_upload_bukti4" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_upload_bukti5"
+                            android:layout_width="340dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:visibility="visible"
+                            android:background="@drawable/button_blue"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Upload Bukti"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.589"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_txt_etc3" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
