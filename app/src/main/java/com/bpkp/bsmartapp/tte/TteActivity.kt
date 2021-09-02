@@ -44,9 +44,10 @@ class TteActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_login_tte -> {
                 var x = ""
+                var y = "3175020706740008"
                 passphrase = tteBinding.etPasphrase.text?.trim().toString()
-                Log.d("ZZZ", "$idSt ,$nik, $passphrase")
-                ApiService().getTte(idSt, nik, passphrase).enqueue(object : Callback<DetailST> {
+                Log.d("ZZZ", "$idSt ,$y, $passphrase")
+                ApiService().getTte(idSt, y, passphrase).enqueue(object : Callback<DetailST> {
                     override fun onResponse(call: Call<DetailST>, response: Response<DetailST>) {
 
                         if (response.isSuccessful) {
@@ -54,10 +55,11 @@ class TteActivity : AppCompatActivity(), View.OnClickListener {
                                 x = response.body()?.message.toString()
                                 val intent = Intent(Intent.ACTION_VIEW)
                                 intent.setDataAndType(
-                                    Uri.parse("http://aplikasistore.org/api/surattugas/pdf?idst=${idSt}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                                    Uri.parse("https://mobsmart.bpkp.go.id/api/surattugas/pdf?idst=${idSt}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
                                     "application/pdf"
                                 )
-                                intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+//                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                 startActivity(Intent.createChooser(intent, "Open with..."))
                             } catch (e: Exception) {
                                 Toast.makeText(

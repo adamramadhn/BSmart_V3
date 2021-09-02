@@ -47,6 +47,8 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         val detailSuratTugas = intent.getParcelableExtra<SuratTugasResponse>(EXTRA_DATA)
         showDetailTourism(detailSuratTugas)
         idST = detailSuratTugas!!.id_st
+        userEselon = intent.getStringExtra(ESELON_DETAIL)
+        userName = intent.getStringExtra(USERNAME_DETAIL)
         with(binding){
             btnBack.setOnClickListener { finish() }
             btnSuratTugas.setOnClickListener(this@DetailSuratTugasActivity)
@@ -198,7 +200,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
-//                            btnTte.visibility = View.GONE
+                            btnTte.visibility = View.GONE
 //                            btnLihatSp.visibility = View.GONE
                         } else {
                             if (detailSuratTugas.apv_es2 != 2 && detailSuratTugas.approve_id_user_eselon_2 == USERID_DETAIL) {
@@ -228,18 +230,18 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
-//                            btnTte.visibility = View.GONE
+                            btnTte.visibility = View.GONE
 //                            btnLihatSp.visibility = View.GONE
                         } else {
                             if (detailSuratTugas.apv_es1 != 2 && detailSuratTugas.approve_id_user_eselon_1 == USERID_DETAIL) {
                                 btnCancel.visibility = View.VISIBLE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
-//                                if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte != null || detailSuratTugas.tte != 2) {
-//                                    btnTte.visibility = View.VISIBLE
-//                                } else {
-//                                    btnTte.visibility = View.GONE
-//                                }
+                                if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte != null || detailSuratTugas.tte != 2) {
+                                    btnTte.visibility = View.VISIBLE
+                                } else {
+                                    btnTte.visibility = View.GONE
+                                }
                             } else {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.VISIBLE
@@ -252,7 +254,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                         btnCancel.visibility = View.GONE
                         btnTolak.visibility = View.GONE
                         btnSetuju.visibility = View.GONE
-//                        btnTte.visibility = View.GONE
+                        btnTte.visibility = View.GONE
 //                        btnLihatSp.visibility = View.GONE
                     }
                 }
@@ -437,9 +439,9 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     override fun onResume() {
         super.onResume()
 
-        userName = intent.getStringExtra(USERNAME_DETAIL)
-        userEselon = intent.getStringExtra(ESELON_DETAIL)
-        nik = intent.getStringExtra(NIK_DETAIL)
+//        userName = intent.getStringExtra(USERNAME_DETAIL)
+//        userEselon = intent.getStringExtra(ESELON_DETAIL)
+//        nik = intent.getStringExtra(NIK_DETAIL)
 
        try {
            detailSuratTugasViewModel.setDetail(userName.toString(), idST)
@@ -460,7 +462,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 try {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.setDataAndType(
-                        Uri.parse("http://aplikasistore.org/api/surattugas/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                        Uri.parse("https://mobsmart.bpkp.go.id/api/surattugas/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
                         "application/pdf"
                     )
                     intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION

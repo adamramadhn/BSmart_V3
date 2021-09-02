@@ -112,7 +112,7 @@ interface ApiService {
                 .build()
 
             return Retrofit.Builder()
-                .baseUrl("http://aplikasistore.org/")
+                .baseUrl("https://mobsmart.bpkp.go.id/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

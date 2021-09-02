@@ -145,7 +145,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     override fun onResume() {
         super.onResume()
         prefHelper = PrefHelper(requireContext())
-       
+        page = 1
         binding.cbFilter.isChecked = false
         suratTugasAdapter.clear()
         getListST()
