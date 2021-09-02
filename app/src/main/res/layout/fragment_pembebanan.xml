@@ -56,338 +56,357 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cb_filter" />
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="360dp"
-            android:layout_height="111dp"
-            android:layout_marginStart="16dp"
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/shape_blue"
+            app:cardBackgroundColor="@color/blue_primary"
+            app:cardCornerRadius="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_data_status"
-            android:layout_width="0dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_data_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="Data Status"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="30dp"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/ic_baseline_income_on_24"
+                    app:layout_constraintStart_toStartOf="@+id/tv_data_status"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_data_status" />
+
+                <TextView
+                    android:id="@+id/tv_income"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="1500"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView6"
+                    app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+                <TextView
+                    android:id="@+id/tv_text_income"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:text="Income"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_income"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_income" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="30dp"
+                    android:layout_height="33dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/ic_baseline_draft_24"
+                    app:layout_constraintStart_toEndOf="@+id/tv_text_income"
+                    app:layout_constraintTop_toTopOf="@+id/tv_income" />
+
+                <TextView
+                    android:id="@+id/tv_draft"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="500"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView7"
+                    app:layout_constraintTop_toTopOf="@+id/imageView7" />
+
+                <TextView
+                    android:id="@+id/tv_text_draft"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:text="Draft"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_draft"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_draft" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="30dp"
+                    android:layout_height="33dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/ic_baseline_access_time_24"
+                    app:layout_constraintStart_toEndOf="@+id/tv_text_draft"
+                    app:layout_constraintTop_toTopOf="@+id/tv_draft" />
+
+                <TextView
+                    android:id="@+id/tv_waiting"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="500"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView8"
+                    app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+                <TextView
+                    android:id="@+id/tv_text_waiting"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:text="Waiting"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_waiting"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_waiting" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="30dp"
+                    android:layout_height="33dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/ic_baseline_approved_24"
+                    app:layout_constraintStart_toEndOf="@+id/tv_text_waiting"
+                    app:layout_constraintTop_toTopOf="@+id/tv_waiting" />
+
+                <TextView
+                    android:id="@+id/tv_approved"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="500"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView9"
+                    app:layout_constraintTop_toTopOf="@+id/imageView9" />
+
+                <TextView
+                    android:id="@+id/tv_text_approved"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:text="Waiting"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_approved"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_approved" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="18dp"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Data Status"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView5"
-            app:layout_constraintTop_toTopOf="@+id/imageView5" />
-
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="30dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/ic_baseline_income_on_24"
-            app:layout_constraintStart_toStartOf="@+id/tv_data_status"
-            app:layout_constraintTop_toBottomOf="@+id/tv_data_status" />
-
-        <TextView
-            android:id="@+id/tv_income"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="1500"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toTopOf="@+id/imageView6" />
-
-        <TextView
-            android:id="@+id/tv_text_income"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunitosans_regular"
-            android:text="Income"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_income"
-            app:layout_constraintTop_toBottomOf="@+id/tv_income" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="30dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/ic_baseline_draft_24"
-            app:layout_constraintStart_toEndOf="@+id/tv_text_income"
-            app:layout_constraintTop_toTopOf="@+id/tv_income" />
-
-        <TextView
-            android:id="@+id/tv_draft"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="500"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView7"
-            app:layout_constraintTop_toTopOf="@+id/imageView7" />
-
-        <TextView
-            android:id="@+id/tv_text_draft"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunitosans_regular"
-            android:text="Draft"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_draft"
-            app:layout_constraintTop_toBottomOf="@+id/tv_draft" />
-
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="30dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/ic_baseline_access_time_24"
-            app:layout_constraintStart_toEndOf="@+id/tv_text_draft"
-            app:layout_constraintTop_toTopOf="@+id/tv_draft" />
-
-        <TextView
-            android:id="@+id/tv_waiting"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="500"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView8"
-            app:layout_constraintTop_toTopOf="@+id/imageView8" />
-
-        <TextView
-            android:id="@+id/tv_text_waiting"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunitosans_regular"
-            android:text="Waiting"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_waiting"
-            app:layout_constraintTop_toBottomOf="@+id/tv_waiting" />
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="30dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/ic_baseline_approved_24"
-            app:layout_constraintStart_toEndOf="@+id/tv_text_waiting"
-            app:layout_constraintTop_toTopOf="@+id/tv_waiting" />
-
-        <TextView
-            android:id="@+id/tv_approved"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="500"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView9"
-            app:layout_constraintTop_toTopOf="@+id/imageView9" />
-
-        <TextView
-            android:id="@+id/tv_text_approved"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/nunitosans_regular"
-            android:text="Waiting"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/imageView5"
-            app:layout_constraintStart_toStartOf="@+id/tv_approved"
-            app:layout_constraintTop_toBottomOf="@+id/tv_approved" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="160dp"
-            android:layout_height="140dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/shape_blue"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-            app:layout_constraintStart_toStartOf="@+id/imageView5"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:cardBackgroundColor="@color/blue_primary"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintStart_toStartOf="@+id/card1"
+            app:layout_constraintTop_toBottomOf="@+id/card1">
 
-        <TextView
-            android:id="@+id/tv_outstanding"
-            android:layout_width="0dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_outstanding"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="Outstanding"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="35dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/ic_baseline_outstanding_24"
+                    app:layout_constraintStart_toStartOf="@+id/tv_outstanding"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_outstanding" />
+
+                <TextView
+                    android:id="@+id/tv_kkp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="500"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView12"
+                    app:layout_constraintTop_toTopOf="@+id/imageView12" />
+
+                <TextView
+                    android:id="@+id/tv_text_kkp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:text="KKP"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_kkp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_kkp" />
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="35dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/ic_baseline_outstanding_24"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView12"
+                    app:layout_constraintStart_toStartOf="@+id/imageView12"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+                <TextView
+                    android:id="@+id/tv_non_kkp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="500"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView13"
+                    app:layout_constraintTop_toTopOf="@+id/imageView13" />
+
+                <TextView
+                    android:id="@+id/tv_text_nonkkp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:text="Non KKP"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_non_kkp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_non_kkp" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Outstanding"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView4"
-            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+            app:cardBackgroundColor="@color/blue_primary"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/card1"
+            app:layout_constraintTop_toBottomOf="@+id/card1">
 
-        <ImageView
-            android:id="@+id/imageView12"
-            android:layout_width="35dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/ic_baseline_outstanding_24"
-            app:layout_constraintStart_toStartOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/tv_outstanding" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tv_kkp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="500"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView12"
-            app:layout_constraintTop_toTopOf="@+id/imageView12" />
+                <TextView
+                    android:id="@+id/tv_realisasi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="Realisasi"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_text_kkp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunitosans_regular"
-            android:text="KKP"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_kkp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_kkp" />
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="35dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/ic_baseline_realisasi_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_realisasi" />
 
-        <ImageView
-            android:id="@+id/imageView13"
-            android:layout_width="35dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/ic_baseline_outstanding_24"
-            app:layout_constraintEnd_toEndOf="@+id/imageView12"
-            app:layout_constraintStart_toStartOf="@+id/imageView12"
-            app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+                <TextView
+                    android:id="@+id/tv_spm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="500"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView10"
+                    app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
-        <TextView
-            android:id="@+id/tv_non_kkp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="500"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView13"
-            app:layout_constraintTop_toTopOf="@+id/imageView13" />
+                <TextView
+                    android:id="@+id/tv_text_spm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:text="SPM"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_spm"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_spm" />
 
-        <TextView
-            android:id="@+id/tv_text_nonkkp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunitosans_regular"
-            android:text="Non KKP"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_non_kkp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_non_kkp" />
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="35dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/ic_baseline_realisasi_24"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView10"
+                    app:layout_constraintStart_toStartOf="@+id/imageView10"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="160dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/shape_blue"
-            app:layout_constraintEnd_toEndOf="@+id/imageView5"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+                <TextView
+                    android:id="@+id/tv_sp2d"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="400"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView11"
+                    app:layout_constraintTop_toTopOf="@+id/imageView11" />
 
-        <TextView
-            android:id="@+id/tv_realisasi"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Realisasi"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/imageView3" />
+                <TextView
+                    android:id="@+id/tv_text_sp2d"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:text="SP2D"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_sp2d"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_sp2d" />
 
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="35dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/ic_baseline_realisasi_24"
-            app:layout_constraintStart_toStartOf="@+id/imageView3"
-            app:layout_constraintTop_toBottomOf="@+id/tv_realisasi" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/tv_spm"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="500"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView10"
-            app:layout_constraintTop_toTopOf="@+id/imageView10" />
-
-        <TextView
-            android:id="@+id/tv_text_spm"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunitosans_regular"
-            android:text="SPM"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_spm"
-            app:layout_constraintTop_toBottomOf="@+id/tv_spm" />
-
-        <ImageView
-            android:id="@+id/imageView11"
-            android:layout_width="35dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/ic_baseline_realisasi_24"
-            app:layout_constraintEnd_toEndOf="@+id/imageView10"
-            app:layout_constraintStart_toStartOf="@+id/imageView10"
-            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
-
-        <TextView
-            android:id="@+id/tv_sp2d"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="400"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView11"
-            app:layout_constraintTop_toTopOf="@+id/imageView11" />
-
-        <TextView
-            android:id="@+id/tv_text_sp2d"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunitosans_regular"
-            android:text="SP2D"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_sp2d"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sp2d" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ti_search_pembebanan"
@@ -395,7 +414,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:textColorHint="@color/search"
             app:boxCornerRadiusBottomEnd="58dp"
@@ -406,7 +425,7 @@
             app:hintTextColor="@color/blue_secondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3">
+            app:layout_constraintTop_toBottomOf="@+id/card2">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_search_st"
