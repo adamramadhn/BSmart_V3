@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -158,24 +159,59 @@
                             android:textColor="@color/blue_secondary"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="@+id/tv_makdipa"
-                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintHorizontal_bias="1.0"
                             app:layout_constraintStart_toStartOf="@+id/tv_makdipa"
                             app:layout_constraintTop_toBottomOf="@id/tv_makdipa" />
 
+                        <TextView
+                            android:id="@+id/tv_text_status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/nunitosans_bold"
+                            android:text="Status"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_mak_dipa"
+                            app:layout_constraintStart_toStartOf="@+id/tv_mak_dipa"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_mak_dipa" />
+
+                        <TextView
+                            android:id="@+id/tv_status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="Verif Pembebanan - "
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="@+id/tv_text_status"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_text_status" />
+
+                        <TextView
+                            android:id="@+id/tv_tanggal_status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="12 Agustus 2021"
+                            android:textColor="@color/blue_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_status"
+                            app:layout_constraintStart_toEndOf="@+id/tv_status"
+                            app:layout_constraintTop_toTopOf="@+id/tv_status" />
 
                         <TextView
                             android:id="@+id/tv_nilai_user"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginEnd="16dp"
+                            android:layout_marginTop="12dp"
                             android:fontFamily="@font/nunitosans_bold"
                             android:text="Nilai"
                             android:textColor="@color/blue_secondary"
                             android:textSize="14sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="@+id/tv_mak_dipa"
-                            app:layout_constraintTop_toBottomOf="@id/tv_mak_dipa" />
+                            app:layout_constraintEnd_toEndOf="@+id/tv_text_status"
+                            app:layout_constraintStart_toStartOf="@+id/tv_status"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_status" />
 
                         <TextView
                             android:id="@+id/tv_nilai"
