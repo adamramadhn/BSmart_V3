@@ -248,7 +248,7 @@
                     android:layout_width="35dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/ic_baseline_outstanding_24"
+                    android:background="@drawable/ic_kkp"
                     app:layout_constraintStart_toStartOf="@+id/tv_outstanding"
                     app:layout_constraintTop_toBottomOf="@+id/tv_outstanding" />
 
@@ -376,7 +376,7 @@
                     android:layout_width="35dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/ic_baseline_realisasi_24"
+                    android:background="@drawable/ic_sp2d"
                     app:layout_constraintEnd_toEndOf="@+id/imageView10"
                     app:layout_constraintStart_toStartOf="@+id/imageView10"
                     app:layout_constraintTop_toBottomOf="@+id/imageView10" />
