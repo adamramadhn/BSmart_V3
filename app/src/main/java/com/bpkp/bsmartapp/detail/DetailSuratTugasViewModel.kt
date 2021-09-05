@@ -37,8 +37,8 @@ class DetailSuratTugasViewModel : ViewModel() {
         }
     }
 
-    fun setDetail(user_email: String, idST: Int) {
-        ApiService().getDetailST(user_email, idST)
+    fun setDetail(idST: Int) {
+        ApiService().getDetailST(idST)
             .enqueue(object : Callback<DetailST> {
                 override fun onResponse(
                     call: Call<DetailST>,

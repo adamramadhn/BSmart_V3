@@ -57,7 +57,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             btnSuratPengantar.setOnClickListener(this@DetailSuratTugasActivity)
         }
         try {
-            detailSuratTugasViewModel.setDetail(userName.toString(), idST)
+            detailSuratTugasViewModel.setDetail(idST)
             detailSuratTugasViewModel.getDetail().observe(this, {
                 showDetailTourism(it?.get(0))
                 jmlPtgs = it?.get(1)?.jumlahpetugas!!
@@ -347,7 +347,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 
                 mAlertDialog.setPositiveButton("Ya") { _, _ ->
                     Handler(mainLooper).postDelayed({
-                        detailSuratTugasViewModel.setDetail(userName.toString(), idST)
+                        detailSuratTugasViewModel.setDetail(idST)
                         detailSuratTugasViewModel.getDetail().observe(this, {
                             showDetailTourism(it?.get(0))
                             binding.etNote.setText("")
@@ -379,7 +379,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 mAlertDialog.setIcon(R.drawable.ic_warning)
                 mAlertDialog.setPositiveButton("Ya") { _, _ ->
                     Handler(mainLooper).postDelayed({
-                        detailSuratTugasViewModel.setDetail(userName.toString(), idST)
+                        detailSuratTugasViewModel.setDetail(idST)
                         detailSuratTugasViewModel.getDetail().observe(this, {
                             showDetailTourism(it?.get(0))
                             binding.etNote.setText("")
@@ -410,7 +410,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 mAlertDialog.setIcon(R.drawable.ic_warning)
                 mAlertDialog.setPositiveButton("Ya") { _, _ ->
                     Handler(mainLooper).postDelayed({
-                        detailSuratTugasViewModel.setDetail(userName.toString(), idST)
+                        detailSuratTugasViewModel.setDetail(idST)
                         detailSuratTugasViewModel.getDetail().observe(this, {
                             showDetailTourism(it?.get(0))
                             binding.etNote.setText("")
@@ -444,7 +444,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 //        nik = intent.getStringExtra(NIK_DETAIL)
 
        try {
-           detailSuratTugasViewModel.setDetail(userName.toString(), idST)
+           detailSuratTugasViewModel.setDetail(idST)
            detailSuratTugasViewModel.getDetail().observe(this, {
                showDetailTourism(it?.get(0))
                jmlPtgs = it?.get(1)?.jumlahpetugas!!
@@ -462,7 +462,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 try {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.setDataAndType(
-                        Uri.parse("https://mobsmart.bpkp.go.id/api/surattugas/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                        Uri.parse("https://mobsmart.bpkp.go.id/api/surattugas/pdf?id_st=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
                         "application/pdf"
                     )
                     intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -499,7 +499,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 try {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.setDataAndType(
-                        Uri.parse("http://aplikasistore.org/api/suratpengantar/pdf?idst=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                        Uri.parse("https://mobsmart.bpkp.go.id/api/suratpengantar/pdf?id_st=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
                         "application/pdf"
                     )
                     intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION

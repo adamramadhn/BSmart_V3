@@ -3,7 +3,7 @@ package com.bpkp.bsmartapp.core.data.source.remote.response
 data class AuthUserResponse(
     val id: String,
     val password: String,
-    val id_pegawai: String,
+    val new_id_pegawai: String,
     val nip: String,
     val nama: String,
     val tk2_id: String,

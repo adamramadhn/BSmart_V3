@@ -16,7 +16,23 @@ import java.util.concurrent.TimeUnit
 interface ApiService {
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("api/approval/surattugas")
+    @POST("surattugas")
+    fun getList(
+        @Field("username") username: String,
+        @Query("page") page: Int
+    ): Call<ListSuratTugasResponse>
+
+    @FormUrlEncoded
+    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+    @POST("surattugas/cari")
+    fun getSearch(
+        @Field("username") username: String,
+        @Field("cari") cari: String
+    ): Call<ListSuratTugasResponse>
+
+    @FormUrlEncoded
+    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+    @POST("surattugas/approval")
     fun approvalST(
         @Field("username") username: String,
         @Field("id_st") id_st: Int,
@@ -24,9 +40,26 @@ interface ApiService {
         @Field("catatan") catatan: String,
     ): Call<SuratTugasResponse>
 
+
+    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+    @GET("surattugas/detail")
+    fun getDetailST(
+        @Query("id_st") id_st: Int
+//        @Field("username") username: String,
+//        @Field("idst") id_st: Int,
+    ): Call<DetailST>
+
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("api/approval/suratpengantar")
+    @POST("surattugas/filter")
+    fun getFilter(
+        @Field("username") username: String,
+        @Query("page") page: Int
+    ): Call<ListSuratTugasResponse>
+
+    @FormUrlEncoded
+    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+    @POST("suratpengantar/approval")
     fun approvalSP(
         @Field("username") username: String,
         @Field("id_st") id_sp: Int?,
@@ -36,71 +69,56 @@ interface ApiService {
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("api/tte")
+    @POST("tte")
     fun getTte(
         @Field("id_st") id_st: Int,
         @Field("nik") nik: String,
         @Field("passphrase") passphrase: String,
     ): Call<DetailST>
 
-    @FormUrlEncoded
-    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("api/nikpassphrase")
-    fun loginTte(
-        @Field("username") id_sp: String,
-        @Field("nik") nik: String,
-        @Field("passphrase") passphrase: String,
-    ): Call<DetailST>
+//    @FormUrlEncoded
+//    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+//    @POST("passphrase")
+//    fun loginTte(
+//        @Field("username") id_sp: String,
+//        @Field("nik") nik: String,
+//        @Field("passphrase") passphrase: String,
+//    ): Call<DetailST>
 
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @GET("api/suratpengantar")
+    @GET("suratpengantar")
     fun getSP(
-        @Query("idst") id_st: Int?,
+        @Query("id_st") id_st: Int?,
     ): Call<SpResponse>
 
-    @FormUrlEncoded
-    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("api/surattugas")
-    fun getList(
-        @Field("username") username: String,
-        @Query("page") page: Int
-    ): Call<ListSuratTugasResponse>
 
 //    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
 //    @GET
 //    fun getListST(@Url url: String): Call<ListSuratTugasResponse>
 
-    @FormUrlEncoded
-    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("api/detail")
-    fun getDetailST(
-        @Field("username") username: String,
-        @Field("idst") id_st: Int,
-    ): Call<DetailST>
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("api/filter")
-    fun getFilter(
-        @Field("username") username: String,
-        @Query("page")page:Int
-    ): Call<ListSuratTugasResponse>
-
-    @FormUrlEncoded
-    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("api/cari")
-    fun getSearch(
-        @Field("username") username: String,
-        @Field("cari") cari: String
-    ): Call<ListSuratTugasResponse>
-
-    @FormUrlEncoded
-    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("api/login")
+    @POST("login")
     fun authLogin(
         @Field("username") usernameLogin: String,
         @Field("password") passwordLogin: String
     ): Call<AuthLoginResponse>
+
+    //Pembebanan
+    @FormUrlEncoded
+    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+    @POST("beban")
+    fun getBebanList(
+        @Field("username") usernameLogin: String,
+        @Query("page") page: Int
+    ): Call<AuthLoginResponse> //ganti
+
+    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+    @GET("beban/detail")
+    fun getDetailBeban(
+        @Query("id_beban") id_beban: Int?,
+    ): Call<SpResponse> //ganti
 
 
     companion object {
@@ -112,7 +130,7 @@ interface ApiService {
                 .build()
 
             return Retrofit.Builder()
-                .baseUrl("https://mobsmart.bpkp.go.id/")
+                .baseUrl("https://mobsmart.bpkp.go.id/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()
