@@ -48,8 +48,9 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         showDetailTourism(detailSuratTugas)
         idST = detailSuratTugas!!.id_st
         userEselon = intent.getStringExtra(ESELON_DETAIL)
+        nik = intent.getStringExtra(NIK_DETAIL)
         userName = intent.getStringExtra(USERNAME_DETAIL)
-        with(binding){
+        with(binding) {
             btnBack.setOnClickListener { finish() }
             btnSuratTugas.setOnClickListener(this@DetailSuratTugasActivity)
             btnTte.setOnClickListener(this@DetailSuratTugasActivity)
@@ -63,10 +64,9 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 jmlPtgs = it?.get(1)?.jumlahpetugas!!
                 binding.etNote.setText("")
             })
-        }
-        catch (e:Exception){
+        } catch (e: Exception) {
             Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
-            Log.d("ZZZ","Error: $e")
+            Log.d("ZZZ", "Error: $e")
         }
 
         binding.etNote.setOnKeyListener { _, keyCode, event ->
@@ -93,7 +93,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 val jenisSurat = detailSuratTugas.id_jenis_surat
                 tvStNumber.text = detailSuratTugas.no_st
                 tvDescription.text = detailSuratTugas.perihal
-                val  x = detailSuratTugas.tgl1
+                val x = detailSuratTugas.tgl1
                 val time1 = x?.dropLast(8)
                 tvDateDuration.text = "$time1 s.d."
                 val y = detailSuratTugas.tgl2
@@ -105,11 +105,11 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 var note2 = detailSuratTugas.review_note_es2
                 var note3 = detailSuratTugas.review_note_es3
                 var note4 = detailSuratTugas.review_note_es4
-                when(jenisSurat){
+                when (jenisSurat) {
                     1 -> {
                         btnSuratPengantar.visibility = View.VISIBLE
                     }
-                    2,3,4 -> {
+                    2, 3, 4 -> {
                         btnSuratPengantar.visibility = View.GONE
                     }
                 }
@@ -156,6 +156,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
+                            btnTte.visibility = View.GONE
 //                            btnLihatSp.visibility = View.GONE
                         } else {
                             if (detailSuratTugas.apv_es4 != 2 && detailSuratTugas.approve_id_user_eselon_4 == USERID_DETAIL) {
@@ -178,6 +179,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
+                            btnTte.visibility = View.GONE
 //                            btnLihatSp.visibility = View.GONE
                         } else {
                             if (detailSuratTugas.apv_es3 != 2 && detailSuratTugas.approve_id_user_eselon_3 == USERID_DETAIL) {
@@ -207,7 +209,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 btnCancel.visibility = View.VISIBLE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
-                                if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte != null || detailSuratTugas.tte != 2) {
+                                if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte == null) {
                                     btnTte.visibility = View.VISIBLE
                                 } else {
                                     btnTte.visibility = View.GONE
@@ -216,12 +218,12 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
-//                                btnTte.visibility = View.GONE
+                                btnTte.visibility = View.GONE
                             } else {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.VISIBLE
                                 btnSetuju.visibility = View.VISIBLE
-//                                btnTte.visibility = View.GONE
+                                btnTte.visibility = View.GONE
                             }
                         }
                     }
@@ -237,7 +239,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 btnCancel.visibility = View.VISIBLE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
-                                if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte != null || detailSuratTugas.tte != 2) {
+                                if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte == null) {
                                     btnTte.visibility = View.VISIBLE
                                 } else {
                                     btnTte.visibility = View.GONE
@@ -246,7 +248,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.VISIBLE
                                 btnSetuju.visibility = View.VISIBLE
-//                                btnTte.visibility = View.GONE
+                                btnTte.visibility = View.GONE
                             }
                         }
                     }
@@ -360,6 +362,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             1,
                             binding.etNote.text.toString()
                         )
+                        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
 
                     } catch (e: Exception) {
                         Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show()
@@ -443,16 +446,16 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 //        userEselon = intent.getStringExtra(ESELON_DETAIL)
 //        nik = intent.getStringExtra(NIK_DETAIL)
 
-       try {
-           detailSuratTugasViewModel.setDetail(idST)
-           detailSuratTugasViewModel.getDetail().observe(this, {
-               showDetailTourism(it?.get(0))
-               jmlPtgs = it?.get(1)?.jumlahpetugas!!
-               binding.etNote.setText("")
-           })
-       }catch (e:Exception){
-           Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
-       }
+        try {
+            detailSuratTugasViewModel.setDetail(idST)
+            detailSuratTugasViewModel.getDetail().observe(this, {
+                showDetailTourism(it?.get(0))
+                jmlPtgs = it?.get(1)?.jumlahpetugas!!
+                binding.etNote.setText("")
+            })
+        } catch (e: Exception) {
+            Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
+        }
 
     }
 
@@ -495,7 +498,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
                 }
             }
-            R.id.btn_surat_pengantar ->{
+            R.id.btn_surat_pengantar -> {
                 try {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.setDataAndType(

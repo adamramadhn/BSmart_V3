@@ -14,6 +14,15 @@ import retrofit2.http.*
 import java.util.concurrent.TimeUnit
 
 interface ApiService {
+
+    @FormUrlEncoded
+    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+    @POST("login")
+    fun authLogin(
+        @Field("username") usernameLogin: String,
+        @Field("password") passwordLogin: String
+    ): Call<AuthLoginResponse>
+
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("surattugas")
@@ -72,8 +81,8 @@ interface ApiService {
     @POST("tte")
     fun getTte(
         @Field("id_st") id_st: Int,
-        @Field("nik") nik: String,
         @Field("passphrase") passphrase: String,
+        @Field("nik") nik: String,
     ): Call<DetailST>
 
 //    @FormUrlEncoded
@@ -97,13 +106,7 @@ interface ApiService {
 //    fun getListST(@Url url: String): Call<ListSuratTugasResponse>
 
 
-    @FormUrlEncoded
-    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("login")
-    fun authLogin(
-        @Field("username") usernameLogin: String,
-        @Field("password") passwordLogin: String
-    ): Call<AuthLoginResponse>
+
 
     //Pembebanan
     @FormUrlEncoded
