@@ -54,7 +54,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             btnBack.setOnClickListener { finish() }
             btnSuratTugas.setOnClickListener(this@DetailSuratTugasActivity)
             btnTte.setOnClickListener(this@DetailSuratTugasActivity)
-            btnLihatRkd.setOnClickListener(this@DetailSuratTugasActivity)
+//            btnLihatRkd.setOnClickListener(this@DetailSuratTugasActivity)
             btnSuratPengantar.setOnClickListener(this@DetailSuratTugasActivity)
         }
         try {
@@ -487,17 +487,17 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
                 }
             }
-            R.id.btn_lihat_rkd -> {
-                Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
-//                val intent = Intent(this, RKDActivity::class.java)
-//                intent.putExtra(USERNAME_RKD, userName)
-//                startActivity(intent)
-                try {
-
-                } catch (e: Exception) {
-                    Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
-                }
-            }
+//            R.id.btn_lihat_rkd -> {
+//                Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
+////                val intent = Intent(this, RKDActivity::class.java)
+////                intent.putExtra(USERNAME_RKD, userName)
+////                startActivity(intent)
+//                try {
+//
+//                } catch (e: Exception) {
+//                    Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
+//                }
+//            }
             R.id.btn_surat_pengantar -> {
                 try {
                     val intent = Intent(Intent.ACTION_VIEW)
