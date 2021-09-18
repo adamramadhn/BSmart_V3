@@ -2,6 +2,7 @@ package com.bpkp.bsmartapp.profile
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,15 @@ class ProfileFragment : Fragment()/*, View.OnClickListener*/ {
         var NIK_USER = "NIK_USER"
         var NAMA_RULE_PROFILE = "NAMA_RULE"
         var ID_RULE_PROFILE = "ID_RULE"
+
+        var NAMA_RULE1P = "NAMA_RULE1P"
+        var ID_RULE1P = 0
+        var NAMA_RULE2P = "NAMA_RULE2P"
+        var ID_RULE2P = 0
+        var NAMA_RULE3P = "NAMA_RULE3P"
+        var ID_RULE3P = 0
+        var NAMA_RULE4P = "NAMA_RULE4P"
+        var ID_RULE4P = 0
     }
 
 //    private var nik = ""
@@ -45,6 +55,7 @@ class ProfileFragment : Fragment()/*, View.OnClickListener*/ {
         tv_eselon.text = ESELON_USER
         tv_nip.text = NIP_USER
         prefHelper = PrefHelper(requireContext())
+        Log.d("ZZZ", "$NAMA_RULE1P = $ID_RULE1P\n$NAMA_RULE2P = $ID_RULE2P\n$NAMA_RULE3P = $ID_RULE3P\n$NAMA_RULE4P = $ID_RULE4P")
 
         //
 

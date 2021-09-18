@@ -14,7 +14,15 @@ import com.bpkp.bsmartapp.home.HomeFragment.Companion.NIK_HOME
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.USERID_HOME
 import com.bpkp.bsmartapp.login.PrefHelper
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ESELON_USER
+import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ID_RULE1P
+import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ID_RULE2P
+import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ID_RULE3P
+import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ID_RULE4P
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ID_RULE_PROFILE
+import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE1P
+import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE2P
+import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE3P
+import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE4P
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE_PROFILE
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_USER
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NIK_USER
@@ -26,13 +34,21 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         val USERNAME_MAIN = "USERNAME_MAIN"
-        val NAME_MAIN = "NAME_MAIN"
-        val ESELON_MAIN = "ESELON_MAIN"
-        val NIP_MAIN = "NIP_MAIN"
-        val USERID_MAIN = "USERID_MAIN"
-        val NIK = "NIK"
-        val NAMA_RULE = "NAMA_RULE"
-        val ID_RULE = "ID_RULE"
+        const val NAME_MAIN = "NAME_MAIN"
+        const val ESELON_MAIN = "ESELON_MAIN"
+        const val NIP_MAIN = "NIP_MAIN"
+        const val USERID_MAIN = "USERID_MAIN"
+        const val NIK = "NIK"
+        const val NAMA_RULE = "NAMA_RULE"
+        const val ID_RULE = "ID_RULE"
+        const val NAMA_RULE1 = "NAMA_RULE1"
+        const val ID_RULE1 = "ID_RULE1"
+        const val NAMA_RULE2 = "NAMA_RULE2"
+        const val ID_RULE2 = "ID_RULE2"
+        const val NAMA_RULE3 = "NAMA_RULE3"
+        const val ID_RULE3 = "ID_RULE3"
+        const val NAMA_RULE4 = "NAMA_RULE4"
+        const val ID_RULE4 = "ID_RULE4"
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -50,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         USERID_HOME = intent.getStringExtra(USERID_MAIN).toString()
         USERID_DETAIL = intent.getStringExtra(USERID_MAIN).toString()
 
-        ID_RULE_HOME = intent.getIntExtra(ID_RULE,0)
+        ID_RULE_HOME = intent.getIntExtra(ID_RULE, 0)
 
         //fragment profile
         NIP_USER = intent.getStringExtra(NIP_MAIN).toString()
@@ -58,6 +74,16 @@ class MainActivity : AppCompatActivity() {
         ESELON_USER = intent.getStringExtra(ESELON_MAIN).toString()
         NAMA_RULE_PROFILE = intent.getStringExtra(NAMA_RULE).toString()
         ID_RULE_PROFILE = intent.getStringExtra(ID_RULE).toString()
+
+        //Rule
+        NAMA_RULE1P = intent.getStringExtra(NAMA_RULE1).toString()
+        ID_RULE1P = intent.getIntExtra(ID_RULE1, 0)
+        NAMA_RULE2P = intent.getStringExtra(NAMA_RULE2).toString()
+        ID_RULE2P = intent.getIntExtra(ID_RULE2,0)
+        NAMA_RULE3P = intent.getStringExtra(NAMA_RULE3).toString()
+        ID_RULE3P = intent.getIntExtra(ID_RULE3,0)
+        NAMA_RULE4P = intent.getStringExtra(NAMA_RULE4).toString()
+        ID_RULE4P = intent.getIntExtra(ID_RULE4,0)
 
         NIK_USER = intent.getStringExtra(NIK).toString()
         NIK_HOME = intent.getStringExtra(NIK).toString()

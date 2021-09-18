@@ -11,7 +11,15 @@ import com.bpkp.bsmartapp.MainActivity
 import com.bpkp.bsmartapp.MainActivity.Companion.USERNAME_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.ESELON_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE
+import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE1
+import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE2
+import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE3
+import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE4
 import com.bpkp.bsmartapp.MainActivity.Companion.NAMA_RULE
+import com.bpkp.bsmartapp.MainActivity.Companion.NAMA_RULE1
+import com.bpkp.bsmartapp.MainActivity.Companion.NAMA_RULE2
+import com.bpkp.bsmartapp.MainActivity.Companion.NAMA_RULE3
+import com.bpkp.bsmartapp.MainActivity.Companion.NAMA_RULE4
 import com.bpkp.bsmartapp.MainActivity.Companion.NIP_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.NAME_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.NIK
@@ -81,10 +89,22 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, AuthListener {
             intent.putExtra(NIP_MAIN, it.data_user[0].nip)
             intent.putExtra(USERID_MAIN, it.data_user[0].id)
             intent.putExtra(NIK, it.data_user[0].NIK)
-            //new
-            //Array -> 0 = Admin, 1 = Manager, 2 = Admin Unit, 3 = Pengelola Keuangan Unit, 4 = Pegawai
+
             intent.putExtra(NAMA_RULE,it.data_user[0].namarule)
             intent.putExtra(ID_RULE,it.data_user[0].rule_id)
+            //new
+            //Array -> 0 = Admin, 1 = Manager, 2 = Admin Unit, 3 = Pengelola Keuangan Unit, 4 = Pegawai
+            intent.putExtra(NAMA_RULE1,it.rule[0].namarule)
+            intent.putExtra(ID_RULE1,it.rule[0].new_id_rule)
+
+            intent.putExtra(NAMA_RULE2,it.rule[1].namarule)
+            intent.putExtra(ID_RULE2,it.rule[1].new_id_rule)
+
+            intent.putExtra(NAMA_RULE3,it.rule[2].namarule)
+            intent.putExtra(ID_RULE3,it.rule[2].new_id_rule)
+
+            intent.putExtra(NAMA_RULE4,it.rule[3].namarule)
+            intent.putExtra(ID_RULE4,it.rule[3].new_id_rule)
 
             intent.putExtra(USERNAME_MAIN, prefHelper.getString(Constant.PREF_USERNAME).toString())
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
