@@ -3,6 +3,7 @@ package com.bpkp.bsmartapp.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -19,7 +20,6 @@ import com.bpkp.bsmartapp.databinding.FragmentHomeBinding
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.ESELON_DETAIL
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.NIK_DETAIL
-import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.USERNAME_DETAIL
 import com.bpkp.bsmartapp.login.Constant
 import com.bpkp.bsmartapp.login.PrefHelper
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -37,10 +37,11 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     private var status = 0
 
     companion object {
-        var USERNAME_HOME = "USERNAME_HOME"
+        var USERID_HOME = "USERID_HOME"
         var NAME_HOME = "NAME_HOME"
         var ESELON_HOME = "ESELON_HOME"
         var NIK_HOME = "NIK_HOME"
+        var ID_RULE_HOME = 0
     }
 
     //    private lateinit var homeViewModel: HomeViewModel
@@ -66,12 +67,11 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         binding.tvName.text = NAME_HOME
         binding.tvGrade.text = ESELON_HOME
         if (activity != null) {
-
-
+            Log.d("ZZZ", ID_RULE_HOME.toString())
             suratTugasAdapter.onItemClick = { selectedData ->
                 val intent = Intent(activity, DetailSuratTugasActivity::class.java)
                 intent.putExtra(DetailSuratTugasActivity.EXTRA_DATA, selectedData)
-                intent.putExtra(USERNAME_DETAIL, USERNAME_HOME)
+//                intent.putExtra(USERNAME_DETAIL, USERID_HOME)
                 intent.putExtra(ESELON_DETAIL, ESELON_HOME)
                 intent.putExtra(NIK_DETAIL, NIK_HOME)
                 status = 1
@@ -164,7 +164,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     private fun getListST() {
         isLoading = true
         binding.progressBar.visibility = View.VISIBLE
-        ApiService().getList(USERNAME_HOME, page).enqueue(object :
+        ApiService().getList(USERID_HOME, ID_RULE_HOME, 0).enqueue(object :
             Callback<ListSuratTugasResponse> {
             override fun onResponse(
                 call: Call<ListSuratTugasResponse>,
@@ -201,7 +201,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     private fun getFilter() {
         isLoading = true
         binding.progressBar.visibility = View.VISIBLE
-        ApiService().getFilter(USERNAME_HOME, page)
+        ApiService().getList(USERID_HOME, ID_RULE_HOME, 1)
             .enqueue(object : Callback<ListSuratTugasResponse> {
                 override fun onResponse(
                     call: Call<ListSuratTugasResponse>,
@@ -234,7 +234,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
     }
 
     private fun getSearch(query: String) {
-        ApiService().getSearch(USERNAME_HOME, query)
+        ApiService().getSearch(USERID_HOME, ID_RULE_HOME, query)
             .enqueue(object : Callback<ListSuratTugasResponse> {
                 override fun onFailure(call: Call<ListSuratTugasResponse>, t: Throwable) {
                     Toast.makeText(requireContext(), "Error: $t,", Toast.LENGTH_LONG)

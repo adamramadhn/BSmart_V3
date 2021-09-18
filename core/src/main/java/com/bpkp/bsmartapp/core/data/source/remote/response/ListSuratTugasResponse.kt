@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ListSuratTugasResponse(
 
-    @field:SerializedName("SuratTugas")
+    @field:SerializedName("surat_tugas")
     val places: PagesST,
 
 //    @field:SerializedName("suratTugas")

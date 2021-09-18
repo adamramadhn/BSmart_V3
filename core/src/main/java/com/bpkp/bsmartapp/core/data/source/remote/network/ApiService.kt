@@ -27,18 +27,20 @@ interface ApiService {
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("surattugas")
     fun getList(
-        @Field("username") username: String,
-        @Query("page") page: Int
+        @Field("id_pegawai") username: String,
+        @Field("rule") rule: Int,
+        @Field("approval") approval: Int,
     ): Call<ListSuratTugasResponse>
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("surattugas/cari")
     fun getSearch(
-        @Field("username") username: String,
+        @Field("id_pegawai") username: String,
+        @Field("rule") rule: Int,
         @Field("cari") cari: String
     ): Call<ListSuratTugasResponse>
-
+//================================================
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("surattugas/approval")
@@ -58,13 +60,13 @@ interface ApiService {
 //        @Field("idst") id_st: Int,
     ): Call<DetailST>
 
-    @FormUrlEncoded
-    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-    @POST("surattugas/filter")
-    fun getFilter(
-        @Field("username") username: String,
-        @Query("page") page: Int
-    ): Call<ListSuratTugasResponse>
+//    @FormUrlEncoded
+//    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
+//    @POST("surattugas/filter")
+//    fun getFilter(
+//        @Field("username") username: String,
+//        @Query("page") page: Int
+//    ): Call<ListSuratTugasResponse>
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")

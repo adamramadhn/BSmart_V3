@@ -8,11 +8,14 @@ import androidx.navigation.ui.setupWithNavController
 import com.bpkp.bsmartapp.databinding.ActivityMainBinding
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.USERID_DETAIL
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.ESELON_HOME
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE_HOME
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.NAME_HOME
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.NIK_HOME
-import com.bpkp.bsmartapp.home.HomeFragment.Companion.USERNAME_HOME
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.USERID_HOME
 import com.bpkp.bsmartapp.login.PrefHelper
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ESELON_USER
+import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ID_RULE_PROFILE
+import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE_PROFILE
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_USER
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NIK_USER
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NIP_USER
@@ -28,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         val NIP_MAIN = "NIP_MAIN"
         val USERID_MAIN = "USERID_MAIN"
         val NIK = "NIK"
+        val NAMA_RULE = "NAMA_RULE"
+        val ID_RULE = "ID_RULE"
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -42,13 +47,17 @@ class MainActivity : AppCompatActivity() {
         //fragment ST
         NAME_HOME = intent.getStringExtra(NAME_MAIN).toString()
         ESELON_HOME = intent.getStringExtra(ESELON_MAIN).toString()
-        USERNAME_HOME = intent.getStringExtra(USERNAME_MAIN).toString()
+        USERID_HOME = intent.getStringExtra(USERID_MAIN).toString()
         USERID_DETAIL = intent.getStringExtra(USERID_MAIN).toString()
+
+        ID_RULE_HOME = intent.getIntExtra(ID_RULE,0)
 
         //fragment profile
         NIP_USER = intent.getStringExtra(NIP_MAIN).toString()
         NAMA_USER = intent.getStringExtra(NAME_MAIN).toString()
         ESELON_USER = intent.getStringExtra(ESELON_MAIN).toString()
+        NAMA_RULE_PROFILE = intent.getStringExtra(NAMA_RULE).toString()
+        ID_RULE_PROFILE = intent.getStringExtra(ID_RULE).toString()
 
         NIK_USER = intent.getStringExtra(NIK).toString()
         NIK_HOME = intent.getStringExtra(NIK).toString()

@@ -23,7 +23,6 @@ import com.bpkp.bsmartapp.tte.TteActivity.Companion.NIK_TTE
 class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         const val EXTRA_DATA = "extra_data"
-        const val USERNAME_DETAIL = "USERNAME_DETAIL"
         const val ESELON_DETAIL = "ESELON_DETAIL"
         const val NIK_DETAIL = "NIK_DETAIL"
         var USERID_DETAIL = "USERID_DETAIL"
@@ -49,7 +48,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         idST = detailSuratTugas!!.id_st
         userEselon = intent.getStringExtra(ESELON_DETAIL)
         nik = intent.getStringExtra(NIK_DETAIL)
-        userName = intent.getStringExtra(USERNAME_DETAIL)
+//        userName = intent.getStringExtra(USERNAME_DETAIL)
         with(binding) {
             btnBack.setOnClickListener { finish() }
             btnSuratTugas.setOnClickListener(this@DetailSuratTugasActivity)

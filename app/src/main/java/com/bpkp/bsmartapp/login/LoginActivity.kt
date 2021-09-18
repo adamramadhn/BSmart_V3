@@ -10,12 +10,14 @@ import com.bpkp.bsmartapp.AuthListener
 import com.bpkp.bsmartapp.MainActivity
 import com.bpkp.bsmartapp.MainActivity.Companion.USERNAME_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.ESELON_MAIN
+import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE
+import com.bpkp.bsmartapp.MainActivity.Companion.NAMA_RULE
 import com.bpkp.bsmartapp.MainActivity.Companion.NIP_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.NAME_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.NIK
 import com.bpkp.bsmartapp.MainActivity.Companion.USERID_MAIN
 import com.bpkp.bsmartapp.R
-import com.bpkp.bsmartapp.core.data.source.remote.response.AuthUserResponse
+import com.bpkp.bsmartapp.core.data.source.remote.response.AuthLoginResponse
 import com.bpkp.bsmartapp.databinding.ActivityLoginBinding
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -70,15 +72,20 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, AuthListener {
         }
     }
 
-    override fun onSuccess(loginResponse: LiveData<AuthUserResponse>) {
+    override fun onSuccess(loginResponse: LiveData<AuthLoginResponse>) {
         loginResponse.observe(this, {
             progress_bar.visibility = View.GONE
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra(NAME_MAIN, it.nama)
-            intent.putExtra(ESELON_MAIN, it.eselon)
-            intent.putExtra(NIP_MAIN, it.nip)
-            intent.putExtra(USERID_MAIN, it.id)
-            intent.putExtra(NIK, it.NIK)
+            intent.putExtra(NAME_MAIN, it.data_user[0].nama)
+            intent.putExtra(ESELON_MAIN, it.data_user[0].eselon)
+            intent.putExtra(NIP_MAIN, it.data_user[0].nip)
+            intent.putExtra(USERID_MAIN, it.data_user[0].id)
+            intent.putExtra(NIK, it.data_user[0].NIK)
+            //new
+            //Array -> 0 = Admin, 1 = Manager, 2 = Admin Unit, 3 = Pengelola Keuangan Unit, 4 = Pegawai
+            intent.putExtra(NAMA_RULE,it.rule[4].namarule)
+            intent.putExtra(ID_RULE,it.rule[4].new_id_rule)
+
             intent.putExtra(USERNAME_MAIN, prefHelper.getString(Constant.PREF_USERNAME).toString())
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)

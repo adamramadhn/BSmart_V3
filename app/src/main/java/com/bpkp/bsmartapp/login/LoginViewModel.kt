@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.bpkp.bsmartapp.AuthListener
 import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
 import com.bpkp.bsmartapp.core.data.source.remote.response.AuthLoginResponse
-import com.bpkp.bsmartapp.core.data.source.remote.response.AuthUserResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,8 +25,8 @@ class LoginViewModel: ViewModel() {
     }
 
 
-    fun userLogin(user_email: String, user_password: String): LiveData<AuthUserResponse> {
-        val loginResponse = MutableLiveData<AuthUserResponse>()
+    fun userLogin(user_email: String, user_password: String): LiveData<AuthLoginResponse> {
+        val loginResponse = MutableLiveData<AuthLoginResponse>()
         try {
             ApiService().authLogin(user_email, user_password).enqueue(object :
                 Callback<AuthLoginResponse> {
@@ -36,10 +35,10 @@ class LoginViewModel: ViewModel() {
                     response: Response<AuthLoginResponse>
                 ) {
                     if(response.isSuccessful){
-                        if (response.body()?.dataUser.isNullOrEmpty()){
+                        if (response.body()?.data_user.isNullOrEmpty()){
                             authListener?.onFailure("Invalid username or password!")
                         }else{
-                            loginResponse.value = response.body()?.dataUser?.get(0)
+                            loginResponse.value = response.body()
                         }
                     }else{
                         authListener?.onFailure("Something wrong..${response.errorBody().toString()}")

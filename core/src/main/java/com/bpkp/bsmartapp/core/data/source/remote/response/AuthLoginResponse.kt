@@ -1,7 +1,9 @@
 package com.bpkp.bsmartapp.core.data.source.remote.response
 
 data class AuthLoginResponse(
-    val dataUser: List<AuthUserResponse>,
-    val suratTugas: List<SuratTugas>,
-    val message: String
+    val data_user: List<AuthUserResponse>,
+    val rule: List<RuleResponse>,
+//    val SuratTugas: List<SuratTugas>,
+//    val message: String
+
 )
