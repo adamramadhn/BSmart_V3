@@ -83,8 +83,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, AuthListener {
             intent.putExtra(NIK, it.data_user[0].NIK)
             //new
             //Array -> 0 = Admin, 1 = Manager, 2 = Admin Unit, 3 = Pengelola Keuangan Unit, 4 = Pegawai
-            intent.putExtra(NAMA_RULE,it.rule[4].namarule)
-            intent.putExtra(ID_RULE,it.rule[4].new_id_rule)
+            intent.putExtra(NAMA_RULE,it.data_user[0].namarule)
+            intent.putExtra(ID_RULE,it.data_user[0].rule_id)
 
             intent.putExtra(USERNAME_MAIN, prefHelper.getString(Constant.PREF_USERNAME).toString())
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

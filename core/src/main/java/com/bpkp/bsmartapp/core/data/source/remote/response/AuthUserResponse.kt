@@ -12,4 +12,6 @@ data class AuthUserResponse(
     val eselon_id: String,
     val eselon:String,
     val NIK: String,
+    val rule_id: Int,
+    val namarule: String,
 )
