@@ -100,8 +100,8 @@
                             android:text="ST-811/JF/03/2019-001"
                             android:textColor="@color/blue_secondary"
                             android:textSize="14sp"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_grade"
-                            tools:layout_editor_absoluteX="16dp" />
+                            app:layout_constraintStart_toStartOf="@+id/tv_grade"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_grade" />
 
                         <TextView
                             android:id="@+id/tv_rincian_biaya"
