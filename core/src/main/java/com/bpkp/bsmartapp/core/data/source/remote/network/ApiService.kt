@@ -4,6 +4,7 @@ import com.bpkp.bsmartapp.core.data.source.remote.response.AuthLoginResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.DetailST
 import com.bpkp.bsmartapp.core.data.source.remote.response.ListSuratTugasResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
+import com.bpkp.bsmartapp.core.data.source.remote.response.pembebanan.PembebananResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.sp.SpResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -40,13 +41,15 @@ interface ApiService {
         @Field("rule") rule: Int,
         @Field("cari") cari: String
     ): Call<ListSuratTugasResponse>
-//================================================
+
+    //================================================
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("surattugas/approval")
     fun approvalST(
-        @Field("username") username: String,
+        @Field("id_pegawai") id_pegawai: String,
         @Field("id_st") id_st: Int,
+        @Field("rule") rule: Int,
         @Field("approval") approval: Int,
         @Field("catatan") catatan: String,
     ): Call<SuratTugasResponse>
@@ -108,16 +111,14 @@ interface ApiService {
 //    fun getListST(@Url url: String): Call<ListSuratTugasResponse>
 
 
-
-
     //Pembebanan
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("beban")
     fun getBebanList(
-        @Field("username") usernameLogin: String,
-        @Query("page") page: Int
-    ): Call<AuthLoginResponse> //ganti
+        @Field("id_pegawai") id_pegawai: String,
+        @Field("rule") rule: Int,
+    ): Call<PembebananResponse>
 
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @GET("beban/detail")

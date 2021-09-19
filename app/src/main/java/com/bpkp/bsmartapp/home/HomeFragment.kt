@@ -19,6 +19,8 @@ import com.bpkp.bsmartapp.core.data.source.remote.response.ListSuratTugasRespons
 import com.bpkp.bsmartapp.databinding.FragmentHomeBinding
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.ESELON_DETAIL
+import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.ID_PEGAWAI_DETAIL
+import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.ID_RULE_DETAIL
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.NIK_DETAIL
 import com.bpkp.bsmartapp.login.Constant
 import com.bpkp.bsmartapp.login.PrefHelper
@@ -42,6 +44,7 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         var ESELON_HOME = "ESELON_HOME"
         var NIK_HOME = "NIK_HOME"
         var ID_RULE_HOME = 0
+        var ID_PEGAWAI_HOME = "ID_PEGAWAI_HOME"
     }
 
     //    private lateinit var homeViewModel: HomeViewModel
@@ -74,6 +77,8 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
 //                intent.putExtra(USERNAME_DETAIL, USERID_HOME)
                 intent.putExtra(ESELON_DETAIL, ESELON_HOME)
                 intent.putExtra(NIK_DETAIL, NIK_HOME)
+                intent.putExtra(ID_PEGAWAI_DETAIL, ID_PEGAWAI_HOME)
+                intent.putExtra(ID_RULE_DETAIL, ID_RULE_HOME)
                 status = 1
                 startActivity(intent)
             }

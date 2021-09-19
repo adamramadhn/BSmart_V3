@@ -10,6 +10,7 @@ import com.bpkp.bsmartapp.AuthListener
 import com.bpkp.bsmartapp.MainActivity
 import com.bpkp.bsmartapp.MainActivity.Companion.USERNAME_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.ESELON_MAIN
+import com.bpkp.bsmartapp.MainActivity.Companion.ID_PEGAWAI
 import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE
 import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE1
 import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE2
@@ -90,8 +91,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, AuthListener {
             intent.putExtra(USERID_MAIN, it.data_user[0].id)
             intent.putExtra(NIK, it.data_user[0].NIK)
 
+
             intent.putExtra(NAMA_RULE,it.data_user[0].namarule)
             intent.putExtra(ID_RULE,it.data_user[0].rule_id)
+            intent.putExtra(ID_PEGAWAI,it.data_user[0].id_pegawai)
             //new
             //Array -> 0 = Admin, 1 = Manager, 2 = Admin Unit, 3 = Pengelola Keuangan Unit, 4 = Pegawai
             intent.putExtra(NAMA_RULE1,it.rule[0].namarule)

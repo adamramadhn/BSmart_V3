@@ -8,6 +8,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.bpkp.bsmartapp.databinding.ActivityMainBinding
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.USERID_DETAIL
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.ESELON_HOME
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_PEGAWAI_HOME
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE_HOME
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.NAME_HOME
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.NIK_HOME
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         const val ID_RULE3 = "ID_RULE3"
         const val NAMA_RULE4 = "NAMA_RULE4"
         const val ID_RULE4 = "ID_RULE4"
+        const val ID_PEGAWAI = "ID_PEGAWAI"
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -67,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         USERID_DETAIL = intent.getStringExtra(USERID_MAIN).toString()
 
         ID_RULE_HOME = intent.getIntExtra(ID_RULE, 0)
+        ID_PEGAWAI_HOME = intent.getStringExtra(ID_PEGAWAI).toString()
 
         //fragment profile
         NIP_USER = intent.getStringExtra(NIP_MAIN).toString()

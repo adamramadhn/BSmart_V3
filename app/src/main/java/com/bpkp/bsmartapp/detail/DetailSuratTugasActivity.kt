@@ -26,6 +26,8 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         const val ESELON_DETAIL = "ESELON_DETAIL"
         const val NIK_DETAIL = "NIK_DETAIL"
         var USERID_DETAIL = "USERID_DETAIL"
+        var ID_RULE_DETAIL = "ID_RULE_DETAIL"
+        var ID_PEGAWAI_DETAIL = "ID_PEGAWAI_DETAIL"
     }
 
     private lateinit var binding: ActivityDetailSuratTugasBinding
@@ -37,6 +39,8 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     private var idST: Int = 0
     private var createdBy: String = ""
     private var jmlPtgs: Int = 0
+    private var idPegawai: String? = ""
+    private var idRule: Int? = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +48,8 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
         detailSuratTugasViewModel = DetailSuratTugasViewModel()
         val detailSuratTugas = intent.getParcelableExtra<SuratTugasResponse>(EXTRA_DATA)
+        idPegawai = intent.getStringExtra(ID_PEGAWAI_DETAIL)
+        idRule = intent.getIntExtra(ID_RULE_DETAIL,0)
         showDetailTourism(detailSuratTugas)
         idST = detailSuratTugas!!.id_st
         userEselon = intent.getStringExtra(ESELON_DETAIL)
@@ -60,7 +66,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             detailSuratTugasViewModel.setDetail(idST)
             detailSuratTugasViewModel.getDetail().observe(this, {
                 showDetailTourism(it?.get(0))
-                jmlPtgs = it?.get(1)?.jumlahpetugas!!
+                jmlPtgs = 0/*it?.get(1)?.jumlahpetugas!!*/
                 binding.etNote.setText("")
             })
         } catch (e: Exception) {
@@ -345,6 +351,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 mAlertDialog.setTitle("Perhatian")
                 mAlertDialog.setMessage("Apakah Anda yakin menyetujui surat tugas ini?")
                 mAlertDialog.setIcon(R.drawable.ic_warning)
+                Log.d("ZZZ","IDPEGAWAI: $idPegawai\nIDST: ${detailSuratTugas.id_st}\nRULE: $idRule\nNote: ${binding.etNote.text}")
 
                 mAlertDialog.setPositiveButton("Ya") { _, _ ->
                     Handler(mainLooper).postDelayed({
@@ -356,8 +363,9 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     }, 1000)
                     try {
                         detailSuratTugasViewModel.approvalST(
-                            userName,
+                            idPegawai,
                             detailSuratTugas.id_st,
+                            idRule,
                             1,
                             binding.etNote.text.toString()
                         )
@@ -389,8 +397,9 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     }, 1000)
                     try {
                         detailSuratTugasViewModel.approvalST(
-                            userName,
+                            idPegawai,
                             detailSuratTugas.id_st,
+                            idRule,
                             0,
                             binding.etNote.text.toString()
                         )
@@ -420,8 +429,9 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     }, 1000)
                     try {
                         detailSuratTugasViewModel.approvalST(
-                            userName,
+                            idPegawai,
                             detailSuratTugas.id_st,
+                            idRule,
                             2,
                             ""
                         )
@@ -449,7 +459,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             detailSuratTugasViewModel.setDetail(idST)
             detailSuratTugasViewModel.getDetail().observe(this, {
                 showDetailTourism(it?.get(0))
-                jmlPtgs = it?.get(1)?.jumlahpetugas!!
+                jmlPtgs = 0/*it?.get(1)?.jumlahpetugas!!*/
                 binding.etNote.setText("")
             })
         } catch (e: Exception) {
@@ -477,6 +487,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.btn_tte -> {
+                Log.d("ZZZ","ID_ST: $idST\nNIK : $nik")
                 try {
                     val intent = Intent(this, TteActivity::class.java)
                     intent.putExtra(ID_ST, idST)

@@ -14,4 +14,5 @@ data class AuthUserResponse(
     val NIK: String,
     val rule_id: Int,
     val namarule: String,
+    val id_pegawai: String,
 )

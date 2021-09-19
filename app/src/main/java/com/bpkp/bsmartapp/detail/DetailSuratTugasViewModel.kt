@@ -17,10 +17,10 @@ class DetailSuratTugasViewModel : ViewModel() {
     val detailResponse = MutableLiveData<List<SuratTugasResponse>?>()
     val tteResponse = MutableLiveData<List<SuratTugasResponse>?>()
     fun approvalST(
-        user_email: String?, idST: Int, approval: Int, catatan: String?
+        idPegawai: String?, idST: Int?, rule: Int?, approval: Int, catatan: String?
     ) {
-        if (user_email != null && catatan != null) {
-            ApiService().approvalST(user_email, idST, approval, catatan)
+        if (idPegawai != null && catatan != null && rule !=null && idST != null) {
+            ApiService().approvalST(idPegawai, idST, rule, approval, catatan)
                 .enqueue(object : Callback<SuratTugasResponse> {
                     override fun onResponse(
                         call: Call<SuratTugasResponse>,
