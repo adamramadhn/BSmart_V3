@@ -182,11 +182,13 @@
            android:layout_gravity="center_horizontal"
            android:layout_marginStart="8dp"
            android:layout_marginTop="16dp"
+           android:layout_marginEnd="16dp"
            android:background="@drawable/button_blue"
            android:fontFamily="@font/nunitosans_bold"
            android:text="Admin"
            android:textAllCaps="false"
            android:textColor="@color/white"
+           app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toEndOf="@+id/role_manager_blue"
            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
 
@@ -197,11 +199,13 @@
            android:layout_gravity="center_horizontal"
            android:layout_marginStart="8dp"
            android:layout_marginTop="16dp"
+           android:layout_marginEnd="16dp"
            android:background="@drawable/button_grey"
            android:fontFamily="@font/nunitosans_bold"
            android:text="Admin"
            android:textAllCaps="false"
            android:textColor="@color/white"
+           app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toEndOf="@+id/role_manager_blue"
            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
 
