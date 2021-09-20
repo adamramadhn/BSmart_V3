@@ -1,6 +1,7 @@
 package com.bpkp.bsmartapp.profile
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -15,7 +16,7 @@ import com.bpkp.bsmartapp.login.LoginActivity
 import com.bpkp.bsmartapp.login.PrefHelper
 import kotlinx.android.synthetic.main.fragment_profile.*
 
-class ProfileFragment : Fragment()/*, View.OnClickListener*/ {
+class ProfileFragment : Fragment() {
     lateinit var prefHelper: PrefHelper
 
     companion object {
@@ -59,9 +60,78 @@ class ProfileFragment : Fragment()/*, View.OnClickListener*/ {
 
         //
 
-//        profileBinding.btnSubmit.setOnClickListener(this)
+        //Admin
+        profileBinding.roleAdminGrey.setOnClickListener{
+            with(profileBinding){
+                roleAdminGrey.visibility = View.GONE
+                roleAdminBlue.visibility =View.VISIBLE
+            }
+        }
+        profileBinding.roleAdminBlue.setOnClickListener{
+            with(profileBinding){
+                roleAdminGrey.visibility = View.VISIBLE
+                roleAdminBlue.visibility =View.GONE
+            }
+        }
 
-        profileBinding.btnLogOut.setOnClickListener() {
+        //Pegawai
+        profileBinding.rolePegawaiGrey.setOnClickListener{
+            with(profileBinding){
+                rolePegawaiGrey.visibility = View.GONE
+                rolePegawaiBlue.visibility =View.VISIBLE
+            }
+        }
+        profileBinding.rolePegawaiBlue.setOnClickListener{
+            with(profileBinding){
+                rolePegawaiGrey.visibility = View.VISIBLE
+                rolePegawaiBlue.visibility =View.GONE
+            }
+        }
+
+        //Manager
+        profileBinding.roleManagerGrey.setOnClickListener{
+            with(profileBinding){
+                roleManagerGrey.visibility = View.GONE
+                roleManagerBlue.visibility =View.VISIBLE
+            }
+        }
+        profileBinding.roleManagerBlue.setOnClickListener{
+            with(profileBinding){
+                roleManagerGrey.visibility = View.VISIBLE
+                roleManagerBlue.visibility =View.GONE
+            }
+        }
+
+        //ADMIN UNIT
+        profileBinding.roleAdminUnitGrey.setOnClickListener{
+            with(profileBinding){
+                roleAdminUnitGrey.visibility = View.GONE
+                roleAdminUnitBlue.visibility =View.VISIBLE
+            }
+        }
+        profileBinding.roleAdminUnitBlue.setOnClickListener{
+            with(profileBinding){
+                roleAdminUnitGrey.visibility = View.VISIBLE
+                roleAdminUnitBlue.visibility =View.GONE
+            }
+        }
+
+        //PKU
+        profileBinding.rolePkuGrey.setOnClickListener{
+            with(profileBinding){
+                rolePkuGrey.visibility = View.GONE
+                rolePkuBlue.visibility =View.VISIBLE
+            }
+        }
+        profileBinding.rolePkuBlue.setOnClickListener{
+            with(profileBinding){
+                rolePkuGrey.visibility = View.VISIBLE
+                rolePkuBlue.visibility =View.GONE
+            }
+        }
+
+
+        profileBinding.btnLogOut.setOnClickListener {
             val mAlertDialog = AlertDialog.Builder(requireActivity())
             mAlertDialog.setTitle("Peringatan")
             mAlertDialog.setMessage("Apakah Anda ingin keluar?")
@@ -78,43 +148,7 @@ class ProfileFragment : Fragment()/*, View.OnClickListener*/ {
             }
             mAlertDialog.show()
         }
+
     }
 
-//    override fun onClick(v: View?) {
-//        when (v?.id) {
-//            R.id.btn_submit -> {
-//                nik = profileBinding.inputNIK.text?.trim().toString()
-//                passphrase = profileBinding.inputPASS.text?.trim().toString()
-//                Log.d("ZZZ", "Username: $USERNAME_HOME\nPass: $passphrase")
-//                try {
-//                    ApiService().loginTte(USERNAME_HOME, nik,passphrase).enqueue(object :
-//                        Callback<DetailST> {
-//                        override fun onResponse(
-//                            call: Call<DetailST>,
-//                            response: Response<DetailST>
-//                        ) {
-//                            Toast.makeText(
-//                                requireContext(),
-//                                "${response.body()?.message}",
-//                                Toast.LENGTH_SHORT
-//                            ).show()
-//                            profileBinding.inputNik.visibility = View.GONE
-//                            profileBinding.inputPassphrase.visibility = View.GONE
-//                            profileBinding.tvNik.visibility = View.GONE
-//                            profileBinding.tvPassphrase.visibility = View.GONE
-//                            profileBinding.textViewLoginTte.visibility = View.GONE
-//                            profileBinding.btnSubmit.visibility = View.GONE
-//                        }
-//
-//                        override fun onFailure(call: Call<DetailST>, t: Throwable) {
-//                            Toast.makeText(requireContext(), "Error: $t", Toast.LENGTH_SHORT).show()
-//                        }
-//
-//                    })
-//                } catch (e: Exception) {
-//                    Toast.makeText(requireContext(), "Error: $e", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//        }
-//    }
 }
