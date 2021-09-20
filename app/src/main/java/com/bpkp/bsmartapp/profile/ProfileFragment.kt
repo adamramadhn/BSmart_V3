@@ -63,70 +63,88 @@ class ProfileFragment : Fragment() {
         //Admin
         profileBinding.roleAdminGrey.setOnClickListener{
             with(profileBinding){
-                roleAdminGrey.visibility = View.GONE
                 roleAdminBlue.visibility =View.VISIBLE
-            }
-        }
-        profileBinding.roleAdminBlue.setOnClickListener{
-            with(profileBinding){
-                roleAdminGrey.visibility = View.VISIBLE
-                roleAdminBlue.visibility =View.GONE
+                rolePkuBlue.visibility = View.INVISIBLE
+                roleManagerBlue.visibility = View.INVISIBLE
+                rolePegawaiBlue.visibility = View.INVISIBLE
+                roleAdminUnitBlue.visibility =View.INVISIBLE
+
+                roleAdminUnitGrey.visibility =View.VISIBLE
+                roleAdminGrey.visibility = View.INVISIBLE
+                rolePkuGrey.visibility = View.VISIBLE
+                roleManagerGrey.visibility = View.VISIBLE
+                rolePegawaiGrey.visibility = View.VISIBLE
             }
         }
 
         //Pegawai
         profileBinding.rolePegawaiGrey.setOnClickListener{
             with(profileBinding){
-                rolePegawaiGrey.visibility = View.GONE
-                rolePegawaiBlue.visibility =View.VISIBLE
-            }
-        }
-        profileBinding.rolePegawaiBlue.setOnClickListener{
-            with(profileBinding){
-                rolePegawaiGrey.visibility = View.VISIBLE
-                rolePegawaiBlue.visibility =View.GONE
+                roleAdminBlue.visibility =View.INVISIBLE
+                rolePkuBlue.visibility = View.INVISIBLE
+                roleManagerBlue.visibility = View.INVISIBLE
+                rolePegawaiBlue.visibility = View.VISIBLE
+                roleAdminUnitBlue.visibility =View.INVISIBLE
+
+                roleAdminUnitGrey.visibility =View.VISIBLE
+                roleAdminGrey.visibility = View.VISIBLE
+                rolePkuGrey.visibility = View.VISIBLE
+                roleManagerGrey.visibility = View.VISIBLE
+                rolePegawaiGrey.visibility = View.INVISIBLE
             }
         }
 
         //Manager
         profileBinding.roleManagerGrey.setOnClickListener{
             with(profileBinding){
-                roleManagerGrey.visibility = View.GONE
-                roleManagerBlue.visibility =View.VISIBLE
+                roleAdminBlue.visibility =View.INVISIBLE
+                rolePkuBlue.visibility = View.INVISIBLE
+                roleManagerBlue.visibility = View.VISIBLE
+                rolePegawaiBlue.visibility = View.INVISIBLE
+                roleAdminUnitBlue.visibility =View.INVISIBLE
+
+                roleAdminUnitGrey.visibility =View.VISIBLE
+                roleAdminGrey.visibility = View.VISIBLE
+                rolePkuGrey.visibility = View.VISIBLE
+                roleManagerGrey.visibility = View.INVISIBLE
+                rolePegawaiGrey.visibility = View.VISIBLE
             }
         }
-        profileBinding.roleManagerBlue.setOnClickListener{
-            with(profileBinding){
-                roleManagerGrey.visibility = View.VISIBLE
-                roleManagerBlue.visibility =View.GONE
-            }
-        }
+
 
         //ADMIN UNIT
         profileBinding.roleAdminUnitGrey.setOnClickListener{
             with(profileBinding){
-                roleAdminUnitGrey.visibility = View.GONE
+                roleAdminBlue.visibility =View.INVISIBLE
+                rolePkuBlue.visibility = View.INVISIBLE
+                roleManagerBlue.visibility = View.INVISIBLE
+                rolePegawaiBlue.visibility = View.INVISIBLE
                 roleAdminUnitBlue.visibility =View.VISIBLE
+
+                roleAdminUnitGrey.visibility =View.INVISIBLE
+                roleAdminGrey.visibility = View.VISIBLE
+                rolePkuGrey.visibility = View.VISIBLE
+                roleManagerGrey.visibility = View.VISIBLE
+                rolePegawaiGrey.visibility = View.VISIBLE
+
             }
         }
-        profileBinding.roleAdminUnitBlue.setOnClickListener{
-            with(profileBinding){
-                roleAdminUnitGrey.visibility = View.VISIBLE
-                roleAdminUnitBlue.visibility =View.GONE
-            }
-        }
+
 
         //PKU
         profileBinding.rolePkuGrey.setOnClickListener{
             with(profileBinding){
-                rolePkuGrey.visibility = View.GONE
-                rolePkuBlue.visibility =View.VISIBLE
-            }
-        }
-        profileBinding.rolePkuBlue.setOnClickListener{
-            with(profileBinding){
-                rolePkuGrey.visibility = View.VISIBLE
-                rolePkuBlue.visibility =View.GONE
+                roleAdminBlue.visibility =View.INVISIBLE
+                rolePkuBlue.visibility = View.VISIBLE
+                roleManagerBlue.visibility = View.INVISIBLE
+                rolePegawaiBlue.visibility = View.INVISIBLE
+                roleAdminUnitBlue.visibility =View.INVISIBLE
+
+                roleAdminUnitGrey.visibility =View.VISIBLE
+                roleAdminGrey.visibility = View.VISIBLE
+                rolePkuGrey.visibility = View.INVISIBLE
+                roleManagerGrey.visibility = View.VISIBLE
+                rolePegawaiGrey.visibility = View.VISIBLE
             }
         }
 
