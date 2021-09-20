@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/item_st"
+            android:id="@+id/item_pembebanan"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -176,13 +176,12 @@
 
             <ImageView
                 android:id="@+id/line_yellow_vr"
-                android:layout_width="55dp"
+                android:layout_width="67dp"
                 android:layout_height="4dp"
                 android:background="@drawable/line_yellow"
                 app:layout_constraintBottom_toBottomOf="@+id/vr_grey"
                 app:layout_constraintStart_toStartOf="@+id/vr_grey"
-                app:layout_constraintTop_toTopOf="@+id/vr_grey"
-                app:layout_constraintVertical_bias="0.416" />
+                app:layout_constraintTop_toTopOf="@+id/vr_grey" />
 
             <ImageView
                 android:id="@+id/line_yellow_es6"
