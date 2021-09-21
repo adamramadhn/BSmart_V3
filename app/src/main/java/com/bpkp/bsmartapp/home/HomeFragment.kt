@@ -68,7 +68,24 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         prefHelper = PrefHelper(requireContext())
 
         binding.tvName.text = NAME_HOME
-        binding.tvGrade.text = "ID RULE: $ID_RULE_HOME"
+//        binding.tvGrade.text = "$ID_RULE_HOME"
+        when(ID_RULE_HOME){
+            1 ->{
+                binding.tvGrade.text = "Admin"
+            }
+            2 ->{
+                binding.tvGrade.text = "Admin Unit"
+            }
+            5 ->{
+                binding.tvGrade.text = "PKU"
+            }
+            12 ->{
+                binding.tvGrade.text = "Manager"
+            }
+            24 ->{
+                binding.tvGrade.text = "Pegawai"
+            }
+        }
         if (activity != null) {
             Log.d("ZZZ", "NIK_HOME: $NIK_HOME , $ID_RULE_HOME")
             suratTugasAdapter.onItemClick = { selectedData ->

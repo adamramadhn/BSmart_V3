@@ -56,39 +56,45 @@ class ProfileFragment : Fragment() {
         tv_eselon.text = ESELON_USER
         tv_nip.text = NIP_USER
         prefHelper = PrefHelper(requireContext())
-        Log.d("ZZZ", "$NAMA_RULE1P = $ID_RULE1P\n$NAMA_RULE2P = $ID_RULE2P\n$NAMA_RULE3P = $ID_RULE3P\n$NAMA_RULE4P = $ID_RULE4P")
+        Log.d(
+            "ZZZ",
+            "$NAMA_RULE1P = $ID_RULE1P\n$NAMA_RULE2P = $ID_RULE2P\n$NAMA_RULE3P = $ID_RULE3P\n$NAMA_RULE4P = $ID_RULE4P"
+        )
 
         //
 
         //Admin = 1
-        profileBinding.roleAdminGrey.setOnClickListener{
-            with(profileBinding){
+        profileBinding.roleAdminGrey.setOnClickListener {
+            with(profileBinding) {
                 ID_RULE_HOME = 1
-                roleAdminBlue.visibility =View.VISIBLE
+                roleAdminBlue.visibility = View.VISIBLE
                 rolePkuBlue.visibility = View.INVISIBLE
                 roleManagerBlue.visibility = View.INVISIBLE
                 rolePegawaiBlue.visibility = View.INVISIBLE
-                roleAdminUnitBlue.visibility =View.INVISIBLE
+                roleAdminUnitBlue.visibility = View.INVISIBLE
 
-                roleAdminUnitGrey.visibility =View.VISIBLE
+                roleAdminUnitGrey.visibility = View.VISIBLE
                 roleAdminGrey.visibility = View.INVISIBLE
                 rolePkuGrey.visibility = View.VISIBLE
                 roleManagerGrey.visibility = View.VISIBLE
                 rolePegawaiGrey.visibility = View.VISIBLE
             }
         }
+        if (profileBinding.rolePegawaiBlue.visibility == View.VISIBLE) {
+          ID_RULE_HOME = 24
+        }
 
         //Pegawai = 24
-        profileBinding.rolePegawaiGrey.setOnClickListener{
-            with(profileBinding){
+        profileBinding.rolePegawaiGrey.setOnClickListener {
+            with(profileBinding) {
                 ID_RULE_HOME = 24
-                roleAdminBlue.visibility =View.INVISIBLE
+                roleAdminBlue.visibility = View.INVISIBLE
                 rolePkuBlue.visibility = View.INVISIBLE
                 roleManagerBlue.visibility = View.INVISIBLE
                 rolePegawaiBlue.visibility = View.VISIBLE
-                roleAdminUnitBlue.visibility =View.INVISIBLE
+                roleAdminUnitBlue.visibility = View.INVISIBLE
 
-                roleAdminUnitGrey.visibility =View.VISIBLE
+                roleAdminUnitGrey.visibility = View.VISIBLE
                 roleAdminGrey.visibility = View.VISIBLE
                 rolePkuGrey.visibility = View.VISIBLE
                 roleManagerGrey.visibility = View.VISIBLE
@@ -97,16 +103,16 @@ class ProfileFragment : Fragment() {
         }
 
         //Manager = 12
-        profileBinding.roleManagerGrey.setOnClickListener{
-            with(profileBinding){
+        profileBinding.roleManagerGrey.setOnClickListener {
+            with(profileBinding) {
                 ID_RULE_HOME = 12
-                roleAdminBlue.visibility =View.INVISIBLE
+                roleAdminBlue.visibility = View.INVISIBLE
                 rolePkuBlue.visibility = View.INVISIBLE
                 roleManagerBlue.visibility = View.VISIBLE
                 rolePegawaiBlue.visibility = View.INVISIBLE
-                roleAdminUnitBlue.visibility =View.INVISIBLE
+                roleAdminUnitBlue.visibility = View.INVISIBLE
 
-                roleAdminUnitGrey.visibility =View.VISIBLE
+                roleAdminUnitGrey.visibility = View.VISIBLE
                 roleAdminGrey.visibility = View.VISIBLE
                 rolePkuGrey.visibility = View.VISIBLE
                 roleManagerGrey.visibility = View.INVISIBLE
@@ -116,16 +122,16 @@ class ProfileFragment : Fragment() {
 
 
         //ADMIN UNIT = 2
-        profileBinding.roleAdminUnitGrey.setOnClickListener{
-            with(profileBinding){
+        profileBinding.roleAdminUnitGrey.setOnClickListener {
+            with(profileBinding) {
                 ID_RULE_HOME = 2
-                roleAdminBlue.visibility =View.INVISIBLE
+                roleAdminBlue.visibility = View.INVISIBLE
                 rolePkuBlue.visibility = View.INVISIBLE
                 roleManagerBlue.visibility = View.INVISIBLE
                 rolePegawaiBlue.visibility = View.INVISIBLE
-                roleAdminUnitBlue.visibility =View.VISIBLE
+                roleAdminUnitBlue.visibility = View.VISIBLE
 
-                roleAdminUnitGrey.visibility =View.INVISIBLE
+                roleAdminUnitGrey.visibility = View.INVISIBLE
                 roleAdminGrey.visibility = View.VISIBLE
                 rolePkuGrey.visibility = View.VISIBLE
                 roleManagerGrey.visibility = View.VISIBLE
@@ -136,16 +142,16 @@ class ProfileFragment : Fragment() {
 
 
         //PKU = 5
-        profileBinding.rolePkuGrey.setOnClickListener{
-            with(profileBinding){
+        profileBinding.rolePkuGrey.setOnClickListener {
+            with(profileBinding) {
                 ID_RULE_HOME = 5
-                roleAdminBlue.visibility =View.INVISIBLE
+                roleAdminBlue.visibility = View.INVISIBLE
                 rolePkuBlue.visibility = View.VISIBLE
                 roleManagerBlue.visibility = View.INVISIBLE
                 rolePegawaiBlue.visibility = View.INVISIBLE
-                roleAdminUnitBlue.visibility =View.INVISIBLE
+                roleAdminUnitBlue.visibility = View.INVISIBLE
 
-                roleAdminUnitGrey.visibility =View.VISIBLE
+                roleAdminUnitGrey.visibility = View.VISIBLE
                 roleAdminGrey.visibility = View.VISIBLE
                 rolePkuGrey.visibility = View.INVISIBLE
                 roleManagerGrey.visibility = View.VISIBLE

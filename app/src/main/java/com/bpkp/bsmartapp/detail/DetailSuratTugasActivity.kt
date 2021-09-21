@@ -190,19 +190,20 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 //                tvUserUpdate.text = detailSuratTugas.user_id
                 when (userEselon) {
                     "ESELON IV-A", "ESELON IV-B" -> {
-                        if (detailSuratTugas.apv_es2 != 2 || detailSuratTugas.apv_es1 != 2 || detailSuratTugas.apv_es3 != 2 || detailSuratTugas.tte == 1) {
+                        Log.d("ZZZ", "Role ID : $idRule")
+                        if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0 || detailSuratTugas.apv_es3 == 1 || detailSuratTugas.apv_es3 == 0 || detailSuratTugas.tte == 1) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
                             btnTte.visibility = View.GONE
 //                            btnLihatSp.visibility = View.GONE
                         } else {
-                            if (idRule == 1 || idRule == 5 || idRule == 24) {
+                            if (idRule == 5 || idRule == 24) {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
                                 btnTte.visibility = View.GONE
-                            } else {
+                            } else if (idRule == 1 || idRule == 2 || idRule == 12) {
                                 if (detailSuratTugas.apv_es4 != 2 && detailSuratTugas.approve_id_user_eselon_4 == USERID_DETAIL) {
                                     btnCancel.visibility = View.VISIBLE
                                     btnTolak.visibility = View.GONE
@@ -228,7 +229,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnTte.visibility = View.GONE
 //                            btnLihatSp.visibility = View.GONE
                         } else {
-                            if (idRule == 1 || idRule == 5 || idRule == 24) {
+                            if (idRule == 5 || idRule == 24) {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
@@ -258,7 +259,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnTte.visibility = View.GONE
 //                            btnLihatSp.visibility = View.GONE
                         } else {
-                            if (idRule == 1 || idRule == 5 || idRule == 24) {
+                            if (idRule == 5 || idRule == 24) {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
@@ -296,7 +297,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnTte.visibility = View.GONE
 //                            btnLihatSp.visibility = View.GONE
                         } else {
-                            if (idRule == 1 || idRule == 5 || idRule == 24) {
+                            if (idRule == 5 || idRule == 24) {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
