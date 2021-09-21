@@ -49,7 +49,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
         detailSuratTugasViewModel = DetailSuratTugasViewModel()
         val detailSuratTugas = intent.getParcelableExtra<SuratTugasResponse>(EXTRA_DATA)
         idPegawai = intent.getStringExtra(ID_PEGAWAI_DETAIL)
-        idRule = intent.getIntExtra(ID_RULE_DETAIL,0)
+        idRule = intent.getIntExtra(ID_RULE_DETAIL, 0)
         showDetailTourism(detailSuratTugas)
         idST = detailSuratTugas!!.id_st
         userEselon = intent.getStringExtra(ESELON_DETAIL)
@@ -110,6 +110,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 var note2 = detailSuratTugas.review_note_es2
                 var note3 = detailSuratTugas.review_note_es3
                 var note4 = detailSuratTugas.review_note_es4
+
                 when (jenisSurat) {
                     1 -> {
                         btnSuratPengantar.visibility = View.VISIBLE
@@ -151,32 +152,72 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 }
                 etNote.hint = "$note1$note2$note3$note4"
-
+//                when (idRule) {
+//                    //Admin
+//                    1 -> {
+//
+//                    }
+//                    //Admin Unit
+//                    2 -> {
+//                        btnCancel.visibility = View.GONE
+//                        btnTolak.visibility = View.GONE
+//                        btnSetuju.visibility = View.GONE
+//                        btnTte.visibility = View.GONE
+//                    }
+//                    //PKU
+//                    5 -> {
+//                        btnCancel.visibility = View.GONE
+//                        btnTolak.visibility = View.GONE
+//                        btnSetuju.visibility = View.GONE
+//                        btnTte.visibility = View.GONE
+//                    }
+//                    //Manager
+//                    12 -> {
+//                        //bebas
+//                    }
+//                    //Pegawai
+//                    24 -> {
+//                        //hanya bisa view
+//                        btnCancel.visibility = View.GONE
+//                        btnTolak.visibility = View.GONE
+//                        btnSetuju.visibility = View.GONE
+//                        btnTte.visibility = View.GONE
+//                    }
+//
+//                }
                 tvUserUpdate.text = detailSuratTugas.created_by
                 createdBy = detailSuratTugas.created_by.toString()
 //                tvUserUpdate.text = detailSuratTugas.user_id
                 when (userEselon) {
                     "ESELON IV-A", "ESELON IV-B" -> {
-                        if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0 || detailSuratTugas.apv_es3 == 1 || detailSuratTugas.apv_es3 == 0 || detailSuratTugas.tte == 1) {
+                        if (detailSuratTugas.apv_es2 != 2 || detailSuratTugas.apv_es1 != 2 || detailSuratTugas.apv_es3 != 2 || detailSuratTugas.tte == 1) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
                             btnSetuju.visibility = View.GONE
                             btnTte.visibility = View.GONE
 //                            btnLihatSp.visibility = View.GONE
                         } else {
-                            if (detailSuratTugas.apv_es4 != 2 && detailSuratTugas.approve_id_user_eselon_4 == USERID_DETAIL) {
-                                btnCancel.visibility = View.VISIBLE
-                                btnTolak.visibility = View.GONE
-                                btnSetuju.visibility = View.GONE
-                            } else if (detailSuratTugas.apv_es4 == 1 || detailSuratTugas.apv_es4 == 0) {
+                            if (idRule == 1 || idRule == 5 || idRule == 24) {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
+                                btnTte.visibility = View.GONE
                             } else {
-                                btnCancel.visibility = View.GONE
-                                btnTolak.visibility = View.VISIBLE
-                                btnSetuju.visibility = View.VISIBLE
+                                if (detailSuratTugas.apv_es4 != 2 && detailSuratTugas.approve_id_user_eselon_4 == USERID_DETAIL) {
+                                    btnCancel.visibility = View.VISIBLE
+                                    btnTolak.visibility = View.GONE
+                                    btnSetuju.visibility = View.GONE
+                                } else if (detailSuratTugas.apv_es4 == 1 || detailSuratTugas.apv_es4 == 0) {
+                                    btnCancel.visibility = View.GONE
+                                    btnTolak.visibility = View.GONE
+                                    btnSetuju.visibility = View.GONE
+                                } else {
+                                    btnCancel.visibility = View.GONE
+                                    btnTolak.visibility = View.VISIBLE
+                                    btnSetuju.visibility = View.VISIBLE
+                                }
                             }
+
                         }
                     }
                     "ESELON III-A", "ESELON III-B" -> {
@@ -187,18 +228,25 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnTte.visibility = View.GONE
 //                            btnLihatSp.visibility = View.GONE
                         } else {
-                            if (detailSuratTugas.apv_es3 != 2 && detailSuratTugas.approve_id_user_eselon_3 == USERID_DETAIL) {
-                                btnCancel.visibility = View.VISIBLE
-                                btnTolak.visibility = View.GONE
-                                btnSetuju.visibility = View.GONE
-                            } else if (detailSuratTugas.apv_es3 == 1 || detailSuratTugas.apv_es3 == 0) {
+                            if (idRule == 1 || idRule == 5 || idRule == 24) {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
+                                btnTte.visibility = View.GONE
                             } else {
-                                btnCancel.visibility = View.GONE
-                                btnTolak.visibility = View.VISIBLE
-                                btnSetuju.visibility = View.VISIBLE
+                                if (detailSuratTugas.apv_es3 != 2 && detailSuratTugas.approve_id_user_eselon_3 == USERID_DETAIL) {
+                                    btnCancel.visibility = View.VISIBLE
+                                    btnTolak.visibility = View.GONE
+                                    btnSetuju.visibility = View.GONE
+                                } else if (detailSuratTugas.apv_es3 == 1 || detailSuratTugas.apv_es3 == 0) {
+                                    btnCancel.visibility = View.GONE
+                                    btnTolak.visibility = View.GONE
+                                    btnSetuju.visibility = View.GONE
+                                } else {
+                                    btnCancel.visibility = View.GONE
+                                    btnTolak.visibility = View.VISIBLE
+                                    btnSetuju.visibility = View.VISIBLE
+                                }
                             }
                         }
                     }
@@ -210,26 +258,34 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnTte.visibility = View.GONE
 //                            btnLihatSp.visibility = View.GONE
                         } else {
-                            if (detailSuratTugas.apv_es2 != 2 && detailSuratTugas.approve_id_user_eselon_2 == USERID_DETAIL) {
-                                btnCancel.visibility = View.VISIBLE
-                                btnTolak.visibility = View.GONE
-                                btnSetuju.visibility = View.GONE
-                                if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte == null) {
-                                    btnTte.visibility = View.VISIBLE
-                                } else {
-                                    btnTte.visibility = View.GONE
-                                }
-                            } else if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0) {
+                            if (idRule == 1 || idRule == 5 || idRule == 24) {
                                 btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
                                 btnTte.visibility = View.GONE
                             } else {
-                                btnCancel.visibility = View.GONE
-                                btnTolak.visibility = View.VISIBLE
-                                btnSetuju.visibility = View.VISIBLE
-                                btnTte.visibility = View.GONE
+                                if (detailSuratTugas.apv_es2 != 2 && detailSuratTugas.approve_id_user_eselon_2 == USERID_DETAIL) {
+                                    btnCancel.visibility = View.VISIBLE
+                                    btnTolak.visibility = View.GONE
+                                    btnSetuju.visibility = View.GONE
+                                    if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte == null) {
+                                        btnTte.visibility = View.VISIBLE
+                                    } else {
+                                        btnTte.visibility = View.GONE
+                                    }
+                                } else if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0) {
+                                    btnCancel.visibility = View.GONE
+                                    btnTolak.visibility = View.GONE
+                                    btnSetuju.visibility = View.GONE
+                                    btnTte.visibility = View.GONE
+                                } else {
+                                    btnCancel.visibility = View.GONE
+                                    btnTolak.visibility = View.VISIBLE
+                                    btnSetuju.visibility = View.VISIBLE
+                                    btnTte.visibility = View.GONE
+                                }
                             }
+
                         }
                     }
                     "ESELON I-A", "ESELON I-B" -> {
@@ -240,20 +296,27 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                             btnTte.visibility = View.GONE
 //                            btnLihatSp.visibility = View.GONE
                         } else {
-                            if (detailSuratTugas.apv_es1 != 2 && detailSuratTugas.approve_id_user_eselon_1 == USERID_DETAIL) {
-                                btnCancel.visibility = View.VISIBLE
+                            if (idRule == 1 || idRule == 5 || idRule == 24) {
+                                btnCancel.visibility = View.GONE
                                 btnTolak.visibility = View.GONE
                                 btnSetuju.visibility = View.GONE
-                                if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte == null) {
-                                    btnTte.visibility = View.VISIBLE
+                                btnTte.visibility = View.GONE
+                            } else {
+                                if (detailSuratTugas.apv_es1 != 2 && detailSuratTugas.approve_id_user_eselon_1 == USERID_DETAIL) {
+                                    btnCancel.visibility = View.VISIBLE
+                                    btnTolak.visibility = View.GONE
+                                    btnSetuju.visibility = View.GONE
+                                    if (detailSuratTugas.apv_es2 == 1 && detailSuratTugas.tte == null) {
+                                        btnTte.visibility = View.VISIBLE
+                                    } else {
+                                        btnTte.visibility = View.GONE
+                                    }
                                 } else {
+                                    btnCancel.visibility = View.GONE
+                                    btnTolak.visibility = View.VISIBLE
+                                    btnSetuju.visibility = View.VISIBLE
                                     btnTte.visibility = View.GONE
                                 }
-                            } else {
-                                btnCancel.visibility = View.GONE
-                                btnTolak.visibility = View.VISIBLE
-                                btnSetuju.visibility = View.VISIBLE
-                                btnTte.visibility = View.GONE
                             }
                         }
                     }
@@ -351,7 +414,10 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 mAlertDialog.setTitle("Perhatian")
                 mAlertDialog.setMessage("Apakah Anda yakin menyetujui surat tugas ini?")
                 mAlertDialog.setIcon(R.drawable.ic_warning)
-                Log.d("ZZZ","IDPEGAWAI: $idPegawai\nIDST: ${detailSuratTugas.id_st}\nRULE: $idRule\nNote: ${binding.etNote.text}")
+                Log.d(
+                    "ZZZ",
+                    "IDPEGAWAI: $idPegawai\nIDST: ${detailSuratTugas.id_st}\nRULE: $idRule\nNote: ${binding.etNote.text}"
+                )
 
                 mAlertDialog.setPositiveButton("Ya") { _, _ ->
                     Handler(mainLooper).postDelayed({
@@ -487,7 +553,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.btn_tte -> {
-                Log.d("ZZZ","ID_ST: $idST\nNIK : $nik")
+                Log.d("ZZZ", "ID_ST: $idST\nNIK : $nik")
                 try {
                     val intent = Intent(this, TteActivity::class.java)
                     intent.putExtra(ID_ST, idST)

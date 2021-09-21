@@ -1,7 +1,6 @@
 package com.bpkp.bsmartapp.profile
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.databinding.FragmentProfileBinding
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE_HOME
 import com.bpkp.bsmartapp.login.LoginActivity
 import com.bpkp.bsmartapp.login.PrefHelper
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -60,9 +60,10 @@ class ProfileFragment : Fragment() {
 
         //
 
-        //Admin
+        //Admin = 1
         profileBinding.roleAdminGrey.setOnClickListener{
             with(profileBinding){
+                ID_RULE_HOME = 1
                 roleAdminBlue.visibility =View.VISIBLE
                 rolePkuBlue.visibility = View.INVISIBLE
                 roleManagerBlue.visibility = View.INVISIBLE
@@ -77,9 +78,10 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        //Pegawai
+        //Pegawai = 24
         profileBinding.rolePegawaiGrey.setOnClickListener{
             with(profileBinding){
+                ID_RULE_HOME = 24
                 roleAdminBlue.visibility =View.INVISIBLE
                 rolePkuBlue.visibility = View.INVISIBLE
                 roleManagerBlue.visibility = View.INVISIBLE
@@ -94,9 +96,10 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        //Manager
+        //Manager = 12
         profileBinding.roleManagerGrey.setOnClickListener{
             with(profileBinding){
+                ID_RULE_HOME = 12
                 roleAdminBlue.visibility =View.INVISIBLE
                 rolePkuBlue.visibility = View.INVISIBLE
                 roleManagerBlue.visibility = View.VISIBLE
@@ -112,9 +115,10 @@ class ProfileFragment : Fragment() {
         }
 
 
-        //ADMIN UNIT
+        //ADMIN UNIT = 2
         profileBinding.roleAdminUnitGrey.setOnClickListener{
             with(profileBinding){
+                ID_RULE_HOME = 2
                 roleAdminBlue.visibility =View.INVISIBLE
                 rolePkuBlue.visibility = View.INVISIBLE
                 roleManagerBlue.visibility = View.INVISIBLE
@@ -131,9 +135,10 @@ class ProfileFragment : Fragment() {
         }
 
 
-        //PKU
+        //PKU = 5
         profileBinding.rolePkuGrey.setOnClickListener{
             with(profileBinding){
+                ID_RULE_HOME = 5
                 roleAdminBlue.visibility =View.INVISIBLE
                 rolePkuBlue.visibility = View.VISIBLE
                 roleManagerBlue.visibility = View.INVISIBLE

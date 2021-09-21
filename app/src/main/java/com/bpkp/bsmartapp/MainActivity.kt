@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         const val USERID_MAIN = "USERID_MAIN"
         const val NIK = "NIK"
         const val NAMA_RULE = "NAMA_RULE"
-        const val ID_RULE = "ID_RULE"
+        var ID_RULE = "ID_RULE"
         const val NAMA_RULE1 = "NAMA_RULE1"
         const val ID_RULE1 = "ID_RULE1"
         const val NAMA_RULE2 = "NAMA_RULE2"

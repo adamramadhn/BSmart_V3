@@ -68,9 +68,9 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         prefHelper = PrefHelper(requireContext())
 
         binding.tvName.text = NAME_HOME
-        binding.tvGrade.text = ESELON_HOME
+        binding.tvGrade.text = "ID RULE: $ID_RULE_HOME"
         if (activity != null) {
-            Log.d("ZZZ", ID_RULE_HOME.toString())
+            Log.d("ZZZ", "NIK_HOME: $NIK_HOME , $ID_RULE_HOME")
             suratTugasAdapter.onItemClick = { selectedData ->
                 val intent = Intent(activity, DetailSuratTugasActivity::class.java)
                 intent.putExtra(DetailSuratTugasActivity.EXTRA_DATA, selectedData)

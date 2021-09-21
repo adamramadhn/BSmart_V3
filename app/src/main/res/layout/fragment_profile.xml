@@ -155,6 +155,7 @@
            android:background="@drawable/button_blue"
            android:fontFamily="@font/nunitosans_bold"
            android:text="Manager"
+           android:visibility="invisible"
            android:textAllCaps="false"
            android:textColor="@color/white"
            app:layout_constraintStart_toEndOf="@+id/role_pegawai_blue"
@@ -167,11 +168,13 @@
            android:layout_gravity="center_horizontal"
            android:layout_marginStart="8dp"
            android:layout_marginTop="16dp"
+           android:layout_marginEnd="8dp"
            android:background="@drawable/button_grey"
            android:fontFamily="@font/nunitosans_bold"
            android:text="Manager"
            android:textAllCaps="false"
            android:textColor="@color/white"
+           app:layout_constraintEnd_toStartOf="@+id/role_admin_blue"
            app:layout_constraintStart_toEndOf="@+id/role_pegawai_blue"
            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
 
@@ -187,6 +190,7 @@
            android:fontFamily="@font/nunitosans_bold"
            android:text="Admin"
            android:textAllCaps="false"
+           android:visibility="invisible"
            android:textColor="@color/white"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toEndOf="@+id/role_manager_blue"
@@ -197,7 +201,6 @@
            android:layout_width="118dp"
            android:layout_height="40dp"
            android:layout_gravity="center_horizontal"
-           android:layout_marginStart="8dp"
            android:layout_marginTop="16dp"
            android:layout_marginEnd="16dp"
            android:background="@drawable/button_grey"
@@ -206,7 +209,6 @@
            android:textAllCaps="false"
            android:textColor="@color/white"
            app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toEndOf="@+id/role_manager_blue"
            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
 
        <androidx.appcompat.widget.AppCompatButton
@@ -218,6 +220,7 @@
            android:background="@drawable/button_blue"
            android:fontFamily="@font/nunitosans_bold"
            android:text="Pengelolaan Keuangan Unit"
+           android:visibility="invisible"
            android:textAllCaps="false"
            android:textColor="@color/white"
            app:layout_constraintStart_toStartOf="@+id/role_pegawai_blue"
