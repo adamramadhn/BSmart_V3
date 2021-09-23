@@ -4,296 +4,320 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-   <androidx.constraintlayout.widget.ConstraintLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-       <de.hdodenhof.circleimageview.CircleImageView
-           android:id="@+id/ivProfile"
-           android:layout_width="180dp"
-           android:layout_height="180dp"
-           android:layout_marginTop="16dp"
-           android:src="@drawable/illustration_onboard"
-           app:civ_border_color="@color/blue_primary"
-           app:civ_border_width="1dp"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/illustration_onboard"
+            app:civ_border_color="@color/blue_primary"
+            app:civ_border_width="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-       <TextView
-           android:id="@+id/tv_name"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_marginStart="24dp"
-           android:layout_marginTop="8dp"
-           android:fontFamily="@font/sourcesanspro_regular"
-           android:text="Cendekia Luthfieta"
-           android:textColor="@color/blue_secondary"
-           android:textSize="18sp"
-           app:layout_constraintEnd_toEndOf="@+id/tvName"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/tvName" />
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="Cendekia Luthfieta"
+            android:textColor="@color/blue_secondary"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
-       <TextView
-           android:id="@+id/tv_nip"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="8dp"
-           android:fontFamily="@font/sourcesanspro_regular"
-           android:text="NIP 201831036"
-           android:textColor="@color/blue_secondary"
-           android:textSize="18sp"
-           app:layout_constraintEnd_toEndOf="@+id/tvNip"
-           app:layout_constraintStart_toStartOf="@+id/tvNip"
-           app:layout_constraintTop_toBottomOf="@+id/tvNip" />
+        <TextView
+            android:id="@+id/tv_nip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="NIP 201831036"
+            android:textColor="@color/blue_secondary"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvNip"
+            app:layout_constraintStart_toStartOf="@+id/tvNip"
+            app:layout_constraintTop_toBottomOf="@+id/tvNip" />
 
-       <TextView
-           android:id="@+id/tv_eselon"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:fontFamily="@font/sourcesanspro_regular"
-           android:text="Eselon 2"
-           android:textColor="@color/blue_secondary"
-           android:textSize="18sp"
-           app:layout_constraintEnd_toEndOf="@+id/tvEselon"
-           app:layout_constraintStart_toStartOf="@+id/tvEselon"
-           app:layout_constraintTop_toBottomOf="@+id/tvEselon" />
+        <TextView
+            android:id="@+id/tv_eselon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="Eselon 2"
+            android:textColor="@color/blue_secondary"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvEselon"
+            app:layout_constraintStart_toStartOf="@+id/tvEselon"
+            app:layout_constraintTop_toBottomOf="@+id/tvEselon" />
 
-       <TextView
-           android:id="@+id/tvName"
-           style="@style/contentBlue"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_marginStart="24dp"
-           android:layout_marginTop="24dp"
-           android:layout_marginEnd="24dp"
-           android:text="Name"
-           android:textFontWeight="900"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintHorizontal_bias="1.0"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/contentBlue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="Name"
+            android:textFontWeight="900"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
 
-       <TextView
-           android:id="@+id/tvNip"
-           style="@style/contentBlue"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_marginStart="24dp"
-           android:layout_marginTop="24dp"
-           android:layout_marginEnd="24dp"
-           android:text="NIP"
-           android:textFontWeight="900"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+        <TextView
+            android:id="@+id/tvNip"
+            style="@style/contentBlue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="NIP"
+            android:textFontWeight="900"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
-       <TextView
-           android:id="@+id/tvEselon"
-           style="@style/contentBlue"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_marginStart="24dp"
-           android:layout_marginTop="24dp"
-           android:layout_marginEnd="32dp"
-           android:text="Jabatan"
-           android:textFontWeight="900"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/tv_nip" />
+        <TextView
+            android:id="@+id/tvEselon"
+            style="@style/contentBlue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="Jabatan"
+            android:textFontWeight="900"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nip" />
 
-       <TextView
-           android:id="@+id/tvRole"
-           style="@style/contentBlue"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_marginStart="24dp"
-           android:layout_marginTop="24dp"
-           android:layout_marginEnd="32dp"
-           android:text="Pilih Role"
-           android:textFontWeight="900"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/tv_eselon" />
+        <TextView
+            android:id="@+id/tvRole"
+            style="@style/contentBlue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="Pilih Role"
+            android:textFontWeight="900"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_eselon" />
 
-       <androidx.appcompat.widget.AppCompatButton
-           android:id="@+id/role_pegawai_blue"
-           android:layout_width="118dp"
-           android:layout_height="40dp"
-           android:layout_gravity="center_horizontal"
-           android:layout_marginTop="16dp"
-           android:background="@drawable/button_blue"
-           android:fontFamily="@font/nunitosans_bold"
-           android:text="Pegawai"
-           android:textAllCaps="false"
-           android:textColor="@color/white"
-           app:layout_constraintStart_toStartOf="@+id/tvRole"
-           app:layout_constraintTop_toBottomOf="@+id/tvRole" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/role_pegawai_blue"
+            android:layout_width="118dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_blue"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Pegawai"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/tvRole"
+            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
 
-       <androidx.appcompat.widget.AppCompatButton
-           android:id="@+id/role_pegawai_grey"
-           android:layout_width="118dp"
-           android:layout_height="40dp"
-           android:layout_gravity="center_horizontal"
-           android:layout_marginTop="16dp"
-           android:background="@drawable/button_grey"
-           android:fontFamily="@font/nunitosans_bold"
-           android:visibility="gone"
-           android:text="Pegawai"
-           android:textAllCaps="false"
-           android:textColor="@color/white"
-           app:layout_constraintStart_toStartOf="@+id/tvRole"
-           app:layout_constraintTop_toBottomOf="@+id/tvRole" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/role_pegawai_grey"
+            android:layout_width="118dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_grey"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Pegawai"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/tvRole"
+            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
 
-       <androidx.appcompat.widget.AppCompatButton
-           android:id="@+id/role_manager_blue"
-           android:layout_width="118dp"
-           android:layout_height="40dp"
-           android:layout_gravity="center_horizontal"
-           android:layout_marginStart="8dp"
-           android:layout_marginTop="16dp"
-           android:background="@drawable/button_blue"
-           android:fontFamily="@font/nunitosans_bold"
-           android:text="Manager"
-           android:visibility="invisible"
-           android:textAllCaps="false"
-           android:textColor="@color/white"
-           app:layout_constraintStart_toEndOf="@+id/role_pegawai_blue"
-           app:layout_constraintTop_toBottomOf="@+id/tvRole" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/role_manager_blue"
+            android:layout_width="118dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_blue"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Manager"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/role_pegawai_blue"
+            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
 
-       <androidx.appcompat.widget.AppCompatButton
-           android:id="@+id/role_manager_grey"
-           android:layout_width="118dp"
-           android:layout_height="40dp"
-           android:layout_gravity="center_horizontal"
-           android:layout_marginStart="8dp"
-           android:layout_marginTop="16dp"
-           android:layout_marginEnd="8dp"
-           android:background="@drawable/button_grey"
-           android:fontFamily="@font/nunitosans_bold"
-           android:text="Manager"
-           android:textAllCaps="false"
-           android:textColor="@color/white"
-           app:layout_constraintEnd_toStartOf="@+id/role_admin_blue"
-           app:layout_constraintStart_toEndOf="@+id/role_pegawai_blue"
-           app:layout_constraintTop_toBottomOf="@+id/tvRole" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/role_manager_grey"
+            android:layout_width="118dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_grey"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Manager"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/role_admin_blue"
+            app:layout_constraintStart_toEndOf="@+id/role_pegawai_blue"
+            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
 
-       <androidx.appcompat.widget.AppCompatButton
-           android:id="@+id/role_admin_blue"
-           android:layout_width="118dp"
-           android:layout_height="40dp"
-           android:layout_gravity="center_horizontal"
-           android:layout_marginStart="8dp"
-           android:layout_marginTop="16dp"
-           android:layout_marginEnd="16dp"
-           android:background="@drawable/button_blue"
-           android:fontFamily="@font/nunitosans_bold"
-           android:text="Admin"
-           android:textAllCaps="false"
-           android:visibility="invisible"
-           android:textColor="@color/white"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toEndOf="@+id/role_manager_blue"
-           app:layout_constraintTop_toBottomOf="@+id/tvRole" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/role_admin_blue"
+            android:layout_width="118dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_blue"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Admin"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/role_manager_blue"
+            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
 
-       <androidx.appcompat.widget.AppCompatButton
-           android:id="@+id/role_admin_grey"
-           android:layout_width="118dp"
-           android:layout_height="40dp"
-           android:layout_gravity="center_horizontal"
-           android:layout_marginTop="16dp"
-           android:layout_marginEnd="16dp"
-           android:background="@drawable/button_grey"
-           android:fontFamily="@font/nunitosans_bold"
-           android:text="Admin"
-           android:textAllCaps="false"
-           android:textColor="@color/white"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/tvRole" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/role_admin_grey"
+            android:layout_width="118dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_grey"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Admin"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
 
-       <androidx.appcompat.widget.AppCompatButton
-           android:id="@+id/role_pku_blue"
-           android:layout_width="230dp"
-           android:layout_height="40dp"
-           android:layout_gravity="center_horizontal"
-           android:layout_marginTop="24dp"
-           android:background="@drawable/button_blue"
-           android:fontFamily="@font/nunitosans_bold"
-           android:text="Pengelolaan Keuangan Unit"
-           android:visibility="invisible"
-           android:textAllCaps="false"
-           android:textColor="@color/white"
-           app:layout_constraintStart_toStartOf="@+id/role_pegawai_blue"
-           app:layout_constraintTop_toBottomOf="@+id/role_manager_blue" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/role_pku_blue"
+            android:layout_width="230dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_blue"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Pengelolaan Keuangan Unit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/role_pegawai_blue"
+            app:layout_constraintTop_toBottomOf="@+id/role_manager_blue" />
 
-       <androidx.appcompat.widget.AppCompatButton
-           android:id="@+id/role_pku_grey"
-           android:layout_width="230dp"
-           android:layout_height="40dp"
-           android:layout_gravity="center_horizontal"
-           android:layout_marginTop="24dp"
-           android:background="@drawable/button_grey"
-           android:fontFamily="@font/nunitosans_bold"
-           android:text="Pengelolaan Keuangan Unit"
-           android:textAllCaps="false"
-           android:textColor="@color/white"
-           app:layout_constraintStart_toStartOf="@+id/role_pegawai_blue"
-           app:layout_constraintTop_toBottomOf="@+id/role_pegawai_blue" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/role_pku_grey"
+            android:layout_width="230dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_grey"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Pengelolaan Keuangan Unit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/role_pegawai_blue"
+            app:layout_constraintTop_toBottomOf="@+id/role_pegawai_blue" />
 
-       <androidx.appcompat.widget.AppCompatButton
-           android:id="@+id/role_admin_unit_blue"
-           android:layout_width="118dp"
-           android:layout_height="40dp"
-           android:layout_gravity="center_horizontal"
-           android:layout_marginStart="8dp"
-           android:layout_marginTop="24dp"
-           android:background="@drawable/button_blue"
-           android:fontFamily="@font/nunitosans_bold"
-           android:text="Admin Unit"
-           android:visibility="invisible"
-           android:textAllCaps="false"
-           android:textColor="@color/white"
-           app:layout_constraintEnd_toEndOf="@+id/role_admin_blue"
-           app:layout_constraintStart_toEndOf="@+id/role_manager_blue"
-           app:layout_constraintTop_toBottomOf="@+id/role_manager_blue" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/role_admin_unit_blue"
+            android:layout_width="118dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_blue"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Admin Unit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/role_admin_blue"
+            app:layout_constraintStart_toEndOf="@+id/role_manager_blue"
+            app:layout_constraintTop_toBottomOf="@+id/role_manager_blue" />
 
-       <androidx.appcompat.widget.AppCompatButton
-           android:id="@+id/role_admin_unit_grey"
-           android:layout_width="118dp"
-           android:layout_height="40dp"
-           android:layout_gravity="center_horizontal"
-           android:layout_marginTop="24dp"
-           android:background="@drawable/button_grey"
-           android:fontFamily="@font/nunitosans_bold"
-           android:text="Admin Unit"
-           android:textAllCaps="false"
-           android:textColor="@color/white"
-           app:layout_constraintEnd_toEndOf="@+id/role_admin_blue"
-           app:layout_constraintTop_toBottomOf="@+id/role_manager_blue" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/role_admin_unit_grey"
+            android:layout_width="118dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_grey"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Admin Unit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/role_admin_blue"
+            app:layout_constraintTop_toBottomOf="@+id/role_manager_blue" />
 
-       <ImageView
-           android:id="@+id/btn_log_out"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="16dp"
-           android:layout_marginEnd="32dp"
-           android:background="@drawable/ic_baseline_logout_24"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintHorizontal_bias="1.0"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/btn_log_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/ic_baseline_logout_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-       <TextView
-           android:id="@+id/textView"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:fontFamily="@font/nunitosans_regular"
-           android:text="Keluar"
-           android:textSize="12sp"
-           app:layout_constraintEnd_toEndOf="@+id/btn_log_out"
-           app:layout_constraintHorizontal_bias="1.0"
-           app:layout_constraintStart_toStartOf="@+id/btn_log_out"
-           app:layout_constraintTop_toBottomOf="@+id/btn_log_out" />
-   </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="Keluar"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/btn_log_out"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/btn_log_out"
+            app:layout_constraintTop_toBottomOf="@+id/btn_log_out" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/tvName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivProfile">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="Pegawai" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="Manager" />
+
+        </RadioGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

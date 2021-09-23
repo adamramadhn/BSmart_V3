@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bpkp.bsmartapp.R
@@ -16,7 +17,7 @@ import com.bpkp.bsmartapp.login.LoginActivity
 import com.bpkp.bsmartapp.login.PrefHelper
 import kotlinx.android.synthetic.main.fragment_profile.*
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(), View.OnClickListener {
     lateinit var prefHelper: PrefHelper
 
     companion object {
@@ -63,6 +64,8 @@ class ProfileFragment : Fragment() {
 
         //
 
+        profileBinding.radioButton.setOnClickListener(this)
+        profileBinding.radioButton2.setOnClickListener(this)
         //Admin = 1
         profileBinding.roleAdminGrey.setOnClickListener {
             with(profileBinding) {
@@ -81,7 +84,7 @@ class ProfileFragment : Fragment() {
             }
         }
         if (profileBinding.rolePegawaiBlue.visibility == View.VISIBLE) {
-          ID_RULE_HOME = 24
+            ID_RULE_HOME = 24
         }
 
         //Pegawai = 24
@@ -178,6 +181,18 @@ class ProfileFragment : Fragment() {
             mAlertDialog.show()
         }
 
+
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.radioButton -> {
+                ID_RULE_HOME = 24
+            }
+            R.id.radioButton2 -> {
+                ID_RULE_HOME = 12
+            }
+        }
     }
 
 }
