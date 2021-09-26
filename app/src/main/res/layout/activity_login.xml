@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_secondary">
+    android:background="@color/blue_primary">
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -42,6 +42,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_illustration_login" />
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/contentGrey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Keep your data safe"
+            android:textColor="@color/blue_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_titleapp" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ti_email"
@@ -114,41 +126,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ti_password" />
 
-        <TextView
-            android:id="@+id/txt_forgot_password"
-            style="@style/contentGrey"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:text="Lupa password?"
-            android:textColor="@color/yellow_200"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />
-
-        <ImageView
-            android:layout_width="331dp"
-            android:layout_height="2dp"
-            android:background="@drawable/line_grey"
-            app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_forgot_password" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/appCompatButton"
-            android:layout_width="340dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/button_green"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Buat Akun Baru"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_forgot_password" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -161,25 +138,11 @@
             app:layout_constraintTop_toTopOf="@+id/img_illustration_login"
             android:background="@drawable/logo_bpkp" />
 
-        <TextView
-            android:id="@+id/textView"
-            style="@style/contentGrey"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/blue_secondary"
-            android:text="BPKP Spending Management Information System"
-            app:layout_constraintBottom_toTopOf="@+id/shape_white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp">
 
             <com.airbnb.lottie.LottieAnimationView
