@@ -11,11 +11,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/img_illustration_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/illustration_login"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
             android:contentDescription="@string/illustration_on_login_app"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,19 +24,20 @@
             android:id="@+id/shape_white"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="350dp"
             android:background="@drawable/shape_white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_illustration_login" />
+            app:layout_constraintTop_toBottomOf="@+id/img_illustration_login"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/txt_titleapp"
             style="@style/headerText"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="42dp"
             android:text="@string/login_b_smart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Keep your data safe"
-            android:textColor="@color/blue_secondary"
+            android:textColor="@color/grey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_titleapp" />
@@ -61,7 +61,7 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="18dp"
             android:textColorHint="@color/search"
             app:boxCornerRadiusBottomEnd="58dp"
             app:boxCornerRadiusBottomStart="58dp"
@@ -71,7 +71,7 @@
             app:hintTextColor="@color/blue_secondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_titleapp">
+            app:layout_constraintTop_toBottomOf="@id/textView1">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_email"
@@ -116,10 +116,10 @@
             android:layout_width="340dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/button_blue"
             android:fontFamily="@font/nunitosans_bold"
-            android:text="Masuk"
+            android:text="Login now"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
