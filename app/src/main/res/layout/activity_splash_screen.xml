@@ -4,35 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_primary"
     tools:context=".SplashScreenActivity">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="440dp"
-        android:layout_height="440dp"
-        android:background="@drawable/circle_white"
-        tools:layout_editor_absoluteX="-201dp"
-        tools:layout_editor_absoluteY="-211dp"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView2"
-        style="@style/headerText"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:text="@string/app_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="440dp"
-        android:layout_height="440dp"
-        android:background="@drawable/circle_white"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="157dp" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -42,6 +14,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/iconapp" />
+        tools:srcCompat="@drawable/splashscreen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
