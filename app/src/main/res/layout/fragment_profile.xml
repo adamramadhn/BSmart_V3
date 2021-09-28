@@ -116,160 +116,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_eselon" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/role_pegawai_blue"
-            android:layout_width="118dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/button_blue"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Pegawai"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="@+id/tvRole"
-            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/role_pegawai_grey"
-            android:layout_width="118dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/button_grey"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Pegawai"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/tvRole"
-            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/role_manager_blue"
-            android:layout_width="118dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/button_blue"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Manager"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:visibility="invisible"
-            app:layout_constraintStart_toEndOf="@+id/role_pegawai_blue"
-            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/role_manager_grey"
-            android:layout_width="118dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/button_grey"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Manager"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toStartOf="@+id/role_admin_blue"
-            app:layout_constraintStart_toEndOf="@+id/role_pegawai_blue"
-            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/role_admin_blue"
-            android:layout_width="118dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/button_blue"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Admin"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/role_manager_blue"
-            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/role_admin_grey"
-            android:layout_width="118dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/button_grey"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Admin"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvRole" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/role_pku_blue"
-            android:layout_width="230dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/button_blue"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Pengelolaan Keuangan Unit"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:visibility="invisible"
-            app:layout_constraintStart_toStartOf="@+id/role_pegawai_blue"
-            app:layout_constraintTop_toBottomOf="@+id/role_manager_blue" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/role_pku_grey"
-            android:layout_width="230dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/button_grey"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Pengelolaan Keuangan Unit"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="@+id/role_pegawai_blue"
-            app:layout_constraintTop_toBottomOf="@+id/role_pegawai_blue" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/role_admin_unit_blue"
-            android:layout_width="118dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/button_blue"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Admin Unit"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@+id/role_admin_blue"
-            app:layout_constraintStart_toEndOf="@+id/role_manager_blue"
-            app:layout_constraintTop_toBottomOf="@+id/role_manager_blue" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/role_admin_unit_grey"
-            android:layout_width="118dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/button_grey"
-            android:fontFamily="@font/nunitosans_bold"
-            android:text="Admin Unit"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/role_admin_blue"
-            app:layout_constraintTop_toBottomOf="@+id/role_manager_blue" />
 
         <ImageView
             android:id="@+id/btn_log_out"
@@ -296,26 +142,63 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_log_out" />
 
         <RadioGroup
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/tvName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivProfile">
+            app:layout_constraintStart_toStartOf="@+id/tvRole"
+            app:layout_constraintTop_toBottomOf="@+id/tvRole">
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/role_pegawai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:onClick="onRadioButtonClicked"
-                android:text="Pegawai" />
+                android:text="Pegawai"
+                android:textColor="@color/blue_secondary"
+                android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/role_manager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:onClick="onRadioButtonClicked"
-                android:text="Manager" />
+                android:text="Manager"
+                android:textColor="@color/blue_secondary"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/role_admin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:onClick="onRadioButtonClicked"
+                android:text="Admin"
+                android:textColor="@color/blue_secondary"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/role_pku"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:onClick="onRadioButtonClicked"
+                android:text="Pengelolaan Keuangan Unit"
+                android:textColor="@color/blue_secondary"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/role_admin_unit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:onClick="onRadioButtonClicked"
+                android:text="Admin Unit"
+                android:textColor="@color/blue_secondary"
+                android:textSize="18sp" />
+
 
         </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>

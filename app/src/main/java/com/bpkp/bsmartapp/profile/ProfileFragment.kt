@@ -63,104 +63,104 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         )
 
         //
-
-        profileBinding.radioButton.setOnClickListener(this)
-        profileBinding.radioButton2.setOnClickListener(this)
-        //Admin = 1
-        profileBinding.roleAdminGrey.setOnClickListener {
-            with(profileBinding) {
-                ID_RULE_HOME = 1
-                roleAdminBlue.visibility = View.VISIBLE
-                rolePkuBlue.visibility = View.INVISIBLE
-                roleManagerBlue.visibility = View.INVISIBLE
-                rolePegawaiBlue.visibility = View.INVISIBLE
-                roleAdminUnitBlue.visibility = View.INVISIBLE
-
-                roleAdminUnitGrey.visibility = View.VISIBLE
-                roleAdminGrey.visibility = View.INVISIBLE
-                rolePkuGrey.visibility = View.VISIBLE
-                roleManagerGrey.visibility = View.VISIBLE
-                rolePegawaiGrey.visibility = View.VISIBLE
-            }
-        }
-        if (profileBinding.rolePegawaiBlue.visibility == View.VISIBLE) {
-            ID_RULE_HOME = 24
-        }
-
-        //Pegawai = 24
-        profileBinding.rolePegawaiGrey.setOnClickListener {
-            with(profileBinding) {
-                ID_RULE_HOME = 24
-                roleAdminBlue.visibility = View.INVISIBLE
-                rolePkuBlue.visibility = View.INVISIBLE
-                roleManagerBlue.visibility = View.INVISIBLE
-                rolePegawaiBlue.visibility = View.VISIBLE
-                roleAdminUnitBlue.visibility = View.INVISIBLE
-
-                roleAdminUnitGrey.visibility = View.VISIBLE
-                roleAdminGrey.visibility = View.VISIBLE
-                rolePkuGrey.visibility = View.VISIBLE
-                roleManagerGrey.visibility = View.VISIBLE
-                rolePegawaiGrey.visibility = View.INVISIBLE
-            }
-        }
-
-        //Manager = 12
-        profileBinding.roleManagerGrey.setOnClickListener {
-            with(profileBinding) {
-                ID_RULE_HOME = 12
-                roleAdminBlue.visibility = View.INVISIBLE
-                rolePkuBlue.visibility = View.INVISIBLE
-                roleManagerBlue.visibility = View.VISIBLE
-                rolePegawaiBlue.visibility = View.INVISIBLE
-                roleAdminUnitBlue.visibility = View.INVISIBLE
-
-                roleAdminUnitGrey.visibility = View.VISIBLE
-                roleAdminGrey.visibility = View.VISIBLE
-                rolePkuGrey.visibility = View.VISIBLE
-                roleManagerGrey.visibility = View.INVISIBLE
-                rolePegawaiGrey.visibility = View.VISIBLE
-            }
-        }
-
-
-        //ADMIN UNIT = 2
-        profileBinding.roleAdminUnitGrey.setOnClickListener {
-            with(profileBinding) {
-                ID_RULE_HOME = 2
-                roleAdminBlue.visibility = View.INVISIBLE
-                rolePkuBlue.visibility = View.INVISIBLE
-                roleManagerBlue.visibility = View.INVISIBLE
-                rolePegawaiBlue.visibility = View.INVISIBLE
-                roleAdminUnitBlue.visibility = View.VISIBLE
-
-                roleAdminUnitGrey.visibility = View.INVISIBLE
-                roleAdminGrey.visibility = View.VISIBLE
-                rolePkuGrey.visibility = View.VISIBLE
-                roleManagerGrey.visibility = View.VISIBLE
-                rolePegawaiGrey.visibility = View.VISIBLE
-
-            }
-        }
-
-
-        //PKU = 5
-        profileBinding.rolePkuGrey.setOnClickListener {
-            with(profileBinding) {
-                ID_RULE_HOME = 5
-                roleAdminBlue.visibility = View.INVISIBLE
-                rolePkuBlue.visibility = View.VISIBLE
-                roleManagerBlue.visibility = View.INVISIBLE
-                rolePegawaiBlue.visibility = View.INVISIBLE
-                roleAdminUnitBlue.visibility = View.INVISIBLE
-
-                roleAdminUnitGrey.visibility = View.VISIBLE
-                roleAdminGrey.visibility = View.VISIBLE
-                rolePkuGrey.visibility = View.INVISIBLE
-                roleManagerGrey.visibility = View.VISIBLE
-                rolePegawaiGrey.visibility = View.VISIBLE
-            }
-        }
+//
+//        profileBinding.radioButton.setOnClickListener(this)
+//        profileBinding.radioButton2.setOnClickListener(this)
+//        //Admin = 1
+//        profileBinding.roleAdminGrey.setOnClickListener {
+//            with(profileBinding) {
+//                ID_RULE_HOME = 1
+//                roleAdminBlue.visibility = View.VISIBLE
+//                rolePkuBlue.visibility = View.INVISIBLE
+//                roleManagerBlue.visibility = View.INVISIBLE
+//                rolePegawaiBlue.visibility = View.INVISIBLE
+//                roleAdminUnitBlue.visibility = View.INVISIBLE
+//
+//                roleAdminUnitGrey.visibility = View.VISIBLE
+//                roleAdminGrey.visibility = View.INVISIBLE
+//                rolePkuGrey.visibility = View.VISIBLE
+//                roleManagerGrey.visibility = View.VISIBLE
+//                rolePegawaiGrey.visibility = View.VISIBLE
+//            }
+//        }
+//        if (profileBinding.rolePegawaiBlue.visibility == View.VISIBLE) {
+//            ID_RULE_HOME = 24
+//        }
+//
+//        //Pegawai = 24
+//        profileBinding.rolePegawaiGrey.setOnClickListener {
+//            with(profileBinding) {
+//                ID_RULE_HOME = 24
+//                roleAdminBlue.visibility = View.INVISIBLE
+//                rolePkuBlue.visibility = View.INVISIBLE
+//                roleManagerBlue.visibility = View.INVISIBLE
+//                rolePegawaiBlue.visibility = View.VISIBLE
+//                roleAdminUnitBlue.visibility = View.INVISIBLE
+//
+//                roleAdminUnitGrey.visibility = View.VISIBLE
+//                roleAdminGrey.visibility = View.VISIBLE
+//                rolePkuGrey.visibility = View.VISIBLE
+//                roleManagerGrey.visibility = View.VISIBLE
+//                rolePegawaiGrey.visibility = View.INVISIBLE
+//            }
+//        }
+//
+//        //Manager = 12
+//        profileBinding.roleManagerGrey.setOnClickListener {
+//            with(profileBinding) {
+//                ID_RULE_HOME = 12
+//                roleAdminBlue.visibility = View.INVISIBLE
+//                rolePkuBlue.visibility = View.INVISIBLE
+//                roleManagerBlue.visibility = View.VISIBLE
+//                rolePegawaiBlue.visibility = View.INVISIBLE
+//                roleAdminUnitBlue.visibility = View.INVISIBLE
+//
+//                roleAdminUnitGrey.visibility = View.VISIBLE
+//                roleAdminGrey.visibility = View.VISIBLE
+//                rolePkuGrey.visibility = View.VISIBLE
+//                roleManagerGrey.visibility = View.INVISIBLE
+//                rolePegawaiGrey.visibility = View.VISIBLE
+//            }
+//        }
+//
+//
+//        //ADMIN UNIT = 2
+//        profileBinding.roleAdminUnitGrey.setOnClickListener {
+//            with(profileBinding) {
+//                ID_RULE_HOME = 2
+//                roleAdminBlue.visibility = View.INVISIBLE
+//                rolePkuBlue.visibility = View.INVISIBLE
+//                roleManagerBlue.visibility = View.INVISIBLE
+//                rolePegawaiBlue.visibility = View.INVISIBLE
+//                roleAdminUnitBlue.visibility = View.VISIBLE
+//
+//                roleAdminUnitGrey.visibility = View.INVISIBLE
+//                roleAdminGrey.visibility = View.VISIBLE
+//                rolePkuGrey.visibility = View.VISIBLE
+//                roleManagerGrey.visibility = View.VISIBLE
+//                rolePegawaiGrey.visibility = View.VISIBLE
+//
+//            }
+//        }
+//
+//
+//        //PKU = 5
+//        profileBinding.rolePkuGrey.setOnClickListener {
+//            with(profileBinding) {
+//                ID_RULE_HOME = 5
+//                roleAdminBlue.visibility = View.INVISIBLE
+//                rolePkuBlue.visibility = View.VISIBLE
+//                roleManagerBlue.visibility = View.INVISIBLE
+//                rolePegawaiBlue.visibility = View.INVISIBLE
+//                roleAdminUnitBlue.visibility = View.INVISIBLE
+//
+//                roleAdminUnitGrey.visibility = View.VISIBLE
+//                roleAdminGrey.visibility = View.VISIBLE
+//                rolePkuGrey.visibility = View.INVISIBLE
+//                roleManagerGrey.visibility = View.VISIBLE
+//                rolePegawaiGrey.visibility = View.VISIBLE
+//            }
+//        }
 
 
         profileBinding.btnLogOut.setOnClickListener {
@@ -186,12 +186,12 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.radioButton -> {
-                ID_RULE_HOME = 24
-            }
-            R.id.radioButton2 -> {
-                ID_RULE_HOME = 12
-            }
+//            R.id.radioButton -> {
+//                ID_RULE_HOME = 24
+//            }
+//            R.id.radioButton2 -> {
+//                ID_RULE_HOME = 12
+//            }
         }
     }
 
