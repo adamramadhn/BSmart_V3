@@ -136,7 +136,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/img_illustration_login"
-            android:background="@drawable/logo_bpkp" />
+            android:background="@drawable/logo_login" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,6 +1,5 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,8 +9,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivProfile"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/illustration_onboard"
             app:civ_border_color="@color/blue_primary"
@@ -19,103 +18,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:text="Cendekia Luthfieta"
-            android:textColor="@color/blue_secondary"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/tvName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvName" />
-
-        <TextView
-            android:id="@+id/tv_nip"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:text="NIP 201831036"
-            android:textColor="@color/blue_secondary"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/tvNip"
-            app:layout_constraintStart_toStartOf="@+id/tvNip"
-            app:layout_constraintTop_toBottomOf="@+id/tvNip" />
-
-        <TextView
-            android:id="@+id/tv_eselon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:text="Eselon 2"
-            android:textColor="@color/blue_secondary"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/tvEselon"
-            app:layout_constraintStart_toStartOf="@+id/tvEselon"
-            app:layout_constraintTop_toBottomOf="@+id/tvEselon" />
-
-        <TextView
-            android:id="@+id/tvName"
-            style="@style/contentBlue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:text="Name"
-            android:textFontWeight="900"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
-
-        <TextView
-            android:id="@+id/tvNip"
-            style="@style/contentBlue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:text="NIP"
-            android:textFontWeight="900"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
-
-        <TextView
-            android:id="@+id/tvEselon"
-            style="@style/contentBlue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:text="Jabatan"
-            android:textFontWeight="900"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nip" />
-
-        <TextView
-            android:id="@+id/tvRole"
-            style="@style/contentBlue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:text="Pilih Role"
-            android:textFontWeight="900"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_eselon" />
-
 
         <ImageView
             android:id="@+id/btn_log_out"
@@ -141,65 +43,157 @@
             app:layout_constraintStart_toStartOf="@+id/btn_log_out"
             app:layout_constraintTop_toBottomOf="@+id/btn_log_out" />
 
-        <RadioGroup
-
+        <TextView
+            android:id="@+id/tvProfile"
+            style="@style/contentBlue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="@+id/tvRole"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Profile"
+            android:textFontWeight="900"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="@+id/ivProfile"
+            app:layout_constraintStart_toStartOf="@+id/ivProfile"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+            app:srcCompat="@drawable/card_profile" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Cendekia Luthfieta"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+        <TextView
+            android:id="@+id/tv_nip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="NIP 201831036"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_eselon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Eselon 2"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintStart_toStartOf="@+id/imageView3" />
+
+        <TextView
+            android:id="@+id/tvRole"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Pilih Role"
+            android:textColor="@color/blue_primary"
+            android:textFontWeight="900"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
             app:layout_constraintTop_toBottomOf="@+id/tvRole">
 
             <RadioButton
                 android:id="@+id/role_pegawai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/sourcesanspro_regular"
                 android:onClick="onRadioButtonClicked"
                 android:text="Pegawai"
                 android:textColor="@color/blue_secondary"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <RadioButton
                 android:id="@+id/role_manager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/sourcesanspro_regular"
                 android:onClick="onRadioButtonClicked"
                 android:text="Manager"
                 android:textColor="@color/blue_secondary"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <RadioButton
                 android:id="@+id/role_admin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/sourcesanspro_regular"
                 android:onClick="onRadioButtonClicked"
                 android:text="Admin"
                 android:textColor="@color/blue_secondary"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <RadioButton
                 android:id="@+id/role_pku"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/sourcesanspro_regular"
                 android:onClick="onRadioButtonClicked"
-                android:text="Pengelolaan Keuangan Unit"
+                android:text="PKU"
                 android:textColor="@color/blue_secondary"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup1">
 
             <RadioButton
                 android:id="@+id/role_admin_unit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/sourcesanspro_regular"
                 android:onClick="onRadioButtonClicked"
                 android:text="Admin Unit"
                 android:textColor="@color/blue_secondary"
-                android:textSize="18sp" />
-
-
+                android:textSize="14sp" />
         </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
