@@ -64,8 +64,12 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
         //
 //
-//        profileBinding.radioButton.setOnClickListener(this)
-//        profileBinding.radioButton2.setOnClickListener(this)
+        profileBinding.roleAdmin.setOnClickListener(this)
+        profileBinding.roleAdminUnit.setOnClickListener(this)
+        profileBinding.roleManager.setOnClickListener(this)
+        profileBinding.rolePegawai.setOnClickListener(this)
+        profileBinding.rolePku.setOnClickListener(this)
+
 //        //Admin = 1
 //        profileBinding.roleAdminGrey.setOnClickListener {
 //            with(profileBinding) {
@@ -184,14 +188,42 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     }
 
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            // Is the button now checked?
+            val checked = view.isChecked
+
+            // Check which radio button was clicked
+            when (view.getId()) {
+                R.id.role_admin ->
+                    if (checked) {
+                        // Pirates are the best
+                    }
+                R.id.role_pku ->
+                    if (checked) {
+                        // Ninjas rule
+                    }
+            }
+        }
+    }
+
     override fun onClick(v: View?) {
         when (v?.id) {
-//            R.id.radioButton -> {
-//                ID_RULE_HOME = 24
-//            }
-//            R.id.radioButton2 -> {
-//                ID_RULE_HOME = 12
-//            }
+            R.id.role_admin -> {
+                ID_RULE_HOME = 24
+            }
+            R.id.role_admin_unit -> {
+                ID_RULE_HOME = 12
+            }
+            R.id.role_manager -> {
+                ID_RULE_HOME = 12
+            }
+            R.id.role_pegawai -> {
+                ID_RULE_HOME = 12
+            }
+            R.id.role_pku -> {
+                ID_RULE_HOME = 12
+            }
         }
     }
 
