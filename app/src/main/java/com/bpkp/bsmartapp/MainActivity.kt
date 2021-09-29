@@ -9,7 +9,17 @@ import com.bpkp.bsmartapp.databinding.ActivityMainBinding
 import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity.Companion.USERID_DETAIL
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.ESELON_HOME
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_PEGAWAI_HOME
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE1H
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE2H
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE3H
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE4H
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE5H
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE_HOME
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.NAMA_RULE1H
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.NAMA_RULE2H
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.NAMA_RULE3H
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.NAMA_RULE4H
+import com.bpkp.bsmartapp.home.HomeFragment.Companion.NAMA_RULE5H
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.NAME_HOME
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.NIK_HOME
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.USERID_HOME
@@ -93,6 +103,17 @@ class MainActivity : AppCompatActivity() {
         ID_RULE4P = intent.getIntExtra(ID_RULE4,0)
         NAMA_RULE5P = intent.getStringExtra(NAMA_RULE5).toString()
         ID_RULE5P = intent.getIntExtra(ID_RULE5,0)
+
+        NAMA_RULE1H = intent.getStringExtra(NAMA_RULE1).toString()
+        ID_RULE1H = intent.getIntExtra(ID_RULE1, 0)
+        NAMA_RULE2H = intent.getStringExtra(NAMA_RULE2).toString()
+        ID_RULE2H = intent.getIntExtra(ID_RULE2,0)
+        NAMA_RULE3H = intent.getStringExtra(NAMA_RULE3).toString()
+        ID_RULE3H = intent.getIntExtra(ID_RULE3,0)
+        NAMA_RULE4H = intent.getStringExtra(NAMA_RULE4).toString()
+        ID_RULE4H = intent.getIntExtra(ID_RULE4,0)
+        NAMA_RULE5H = intent.getStringExtra(NAMA_RULE5).toString()
+        ID_RULE5H = intent.getIntExtra(ID_RULE5,0)
 
         NIK_USER = intent.getStringExtra(NIK).toString()
         NIK_HOME = intent.getStringExtra(NIK).toString()

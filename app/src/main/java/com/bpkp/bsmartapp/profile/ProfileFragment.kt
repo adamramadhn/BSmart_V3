@@ -3,12 +3,12 @@ package com.bpkp.bsmartapp.profile
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.databinding.FragmentProfileBinding
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE_HOME
@@ -68,42 +68,23 @@ class ProfileFragment : Fragment(), View.OnClickListener/*, AdapterView.OnItemSe
                     "$NAMA_RULE5P = $ID_RULE5P"
         )
         with(profileBinding) {
-            when {
-                ID_RULE2P == 0 -> {
-                    arr2.visibility = View.GONE
-                }
-                ID_RULE2P != 0 -> {
-                    arr3.text = NAMA_RULE3P
-                }
-
-                ID_RULE3P == 0 -> {
-                    arr3.visibility = View.GONE
-                }
-                ID_RULE3P != 0 -> {
-                    arr3.text = NAMA_RULE3P
-                }
-
-                ID_RULE4P == 0 -> {
-                    arr4.visibility = View.GONE
-                }
-                ID_RULE4P != 0 -> {
-                    arr4.text = NAMA_RULE4P
-                }
-
-
-                ID_RULE5P == 0 -> {
-                    arr5.visibility = View.GONE
-                }
-                ID_RULE5P != 0 -> {
-                    arr5.text = NAMA_RULE5P
-                }
-            }
             arr1.text = NAMA_RULE1P
-
-
+            arr2.text = NAMA_RULE2P
+            arr3.text = NAMA_RULE3P
             arr4.text = NAMA_RULE4P
             arr5.text = NAMA_RULE5P
-
+            if (ID_RULE2P == 0){
+                arr2.visibility = View.GONE
+            }
+            if (ID_RULE3P == 0){
+                arr3.visibility = View.GONE
+            }
+            if (ID_RULE4P == 0){
+                arr4.visibility = View.GONE
+            }
+            if (ID_RULE5P == 0){
+                arr5.visibility = View.GONE
+            }
         }
 
 

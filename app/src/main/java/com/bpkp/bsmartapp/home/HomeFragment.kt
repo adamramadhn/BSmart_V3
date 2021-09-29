@@ -45,6 +45,17 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         var NIK_HOME = "NIK_HOME"
         var ID_RULE_HOME = 0
         var ID_PEGAWAI_HOME = "ID_PEGAWAI_HOME"
+
+        var NAMA_RULE1H = "NAMA_RULE1H"
+        var ID_RULE1H = 0
+        var NAMA_RULE2H = "NAMA_RULE2H"
+        var ID_RULE2H = 0
+        var NAMA_RULE3H = "NAMA_RULE3H"
+        var ID_RULE3H = 0
+        var NAMA_RULE4H = "NAMA_RULE4H"
+        var ID_RULE4H = 0
+        var NAMA_RULE5H = "NAMA_RULE5H"
+        var ID_RULE5H = 0
     }
 
     //    private lateinit var homeViewModel: HomeViewModel
@@ -70,20 +81,20 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         binding.tvName.text = NAME_HOME
 //        binding.tvGrade.text = "$ID_RULE_HOME"
         when(ID_RULE_HOME){
-            1 ->{
-                binding.tvGrade.text = "Admin"
+            ID_RULE1H ->{
+                binding.tvGrade.text = NAMA_RULE1H
             }
-            2 ->{
-                binding.tvGrade.text = "Admin Unit"
+            ID_RULE2H ->{
+                binding.tvGrade.text = NAMA_RULE2H
             }
-            5 ->{
-                binding.tvGrade.text = "PKU"
+            ID_RULE3H ->{
+                binding.tvGrade.text = NAMA_RULE3H
             }
-            12 ->{
-                binding.tvGrade.text = "Manager"
+            ID_RULE4H ->{
+                binding.tvGrade.text = NAMA_RULE4H
             }
-            24 ->{
-                binding.tvGrade.text = "Pegawai"
+            ID_RULE5H ->{
+                binding.tvGrade.text = NAMA_RULE5H
             }
         }
         if (activity != null) {

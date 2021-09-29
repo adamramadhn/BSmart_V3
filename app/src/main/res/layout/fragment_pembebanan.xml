@@ -51,7 +51,9 @@
             android:id="@+id/card1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             app:cardBackgroundColor="@color/blue_primary"
             app:cardCornerRadius="15dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +61,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
+                android:layout_width="366dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="16dp">
@@ -111,10 +113,10 @@
                     android:id="@+id/imageView7"
                     android:layout_width="30dp"
                     android:layout_height="33dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
                     android:background="@drawable/ic_baseline_draft_24"
-                    app:layout_constraintStart_toEndOf="@+id/tv_text_income"
-                    app:layout_constraintTop_toTopOf="@+id/tv_income" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_text_income" />
 
                 <TextView
                     android:id="@+id/tv_draft"
@@ -143,10 +145,10 @@
                     android:id="@+id/imageView8"
                     android:layout_width="30dp"
                     android:layout_height="33dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="64dp"
                     android:background="@drawable/ic_baseline_access_time_24"
-                    app:layout_constraintStart_toEndOf="@+id/tv_text_draft"
-                    app:layout_constraintTop_toTopOf="@+id/tv_draft" />
+                    app:layout_constraintStart_toEndOf="@+id/tv_text_income"
+                    app:layout_constraintTop_toTopOf="@+id/tv_income" />
 
                 <TextView
                     android:id="@+id/tv_waiting"
@@ -175,10 +177,11 @@
                     android:id="@+id/imageView9"
                     android:layout_width="30dp"
                     android:layout_height="33dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="64dp"
+                    android:layout_marginTop="16dp"
                     android:background="@drawable/ic_baseline_approved_24"
-                    app:layout_constraintStart_toEndOf="@+id/tv_text_waiting"
-                    app:layout_constraintTop_toTopOf="@+id/tv_waiting" />
+                    app:layout_constraintStart_toEndOf="@+id/tv_text_income"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_text_waiting" />
 
                 <TextView
                     android:id="@+id/tv_approved"
@@ -196,11 +199,11 @@
                     android:id="@+id/tv_text_approved"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:fontFamily="@font/nunitosans_regular"
                     android:text="Approved"
                     android:textColor="@color/white"
                     android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/tv_approved"
                     app:layout_constraintTop_toBottomOf="@+id/tv_approved" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -217,7 +220,7 @@
             app:layout_constraintTop_toBottomOf="@+id/card1">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="160dp"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="16dp">
@@ -313,7 +316,7 @@
             app:layout_constraintTop_toBottomOf="@+id/card1">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="160dp"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="16dp">
