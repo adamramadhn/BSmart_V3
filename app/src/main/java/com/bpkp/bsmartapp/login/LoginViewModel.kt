@@ -9,7 +9,7 @@ import com.bpkp.bsmartapp.core.data.source.remote.response.AuthLoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
+import kotlin.Exception
 
 class LoginViewModel: ViewModel() {
     var authListener: AuthListener? = null
@@ -41,17 +41,17 @@ class LoginViewModel: ViewModel() {
                             loginResponse.value = response.body()
                         }
                     }else{
-                        authListener?.onFailure("Something wrong..${response.errorBody().toString()}")
+                        authListener?.onFailure("Invalid username or password!")
                     }
                 }
 
                 override fun onFailure(call: Call<AuthLoginResponse>, t: Throwable) {
-                    authListener?.onFailure(t.toString())
+                    authListener?.onFailure("Something wrong..\nPlease check your Connectivity")
                 }
 
             })
         } catch (e: Exception){
-//            Log.d("Login",e.toString())
+            authListener?.onFailure(e.toString())
         }
         return loginResponse
     }
