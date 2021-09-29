@@ -1,5 +1,6 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -74,8 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginTop="36dp"
             android:fontFamily="@font/inter_bold"
             android:text="Cendekia Luthfieta"
             android:textColor="@color/white"
@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="32dp"
             android:fontFamily="@font/inter_bold"
             android:text="Eselon 2"
             android:textColor="@color/white"
@@ -112,8 +112,9 @@
             android:id="@+id/tvRole"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/inter_bold"
             android:text="Pilih Role"
             android:textColor="@color/blue_primary"
@@ -123,13 +124,28 @@
             app:layout_constraintStart_toStartOf="@+id/imageView3"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            style="@style/contentBlue"
+            android:entries="@array/jabatan_array"
+            app:layout_constraintEnd_toEndOf="@+id/tvRole"
+            app:layout_constraintStart_toStartOf="@+id/tvRole"
+            app:layout_constraintTop_toBottomOf="@+id/tvRole"
+            />
+
         <RadioGroup
             android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.578"
             app:layout_constraintStart_toStartOf="@+id/imageView3"
-            app:layout_constraintTop_toBottomOf="@+id/tvRole">
+            tools:layout_editor_absoluteY="556dp">
 
             <RadioButton
                 android:id="@+id/role_pegawai"
@@ -181,6 +197,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/imageView3"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup1">
 

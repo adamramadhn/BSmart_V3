@@ -28,4 +28,21 @@
     <string name="es_2">Es.2</string>
     <string name="es_3">Es.3</string>
     <string name="es_4">Es.4</string>
+
+        <string-array name="jabatan_array">
+            <item>Administrator</item>
+            <item>Admin Unit</item>
+            <item>Bendahara</item>
+            <item>Pengelola Data Unit Kerja</item>
+            <item>Pengelola Keuangan Unit</item>
+            <item>Petugas SP2D</item>
+            <item>Petugas SPM</item>
+            <item>Petugas SPP</item>
+            <item>Verifikatur Pembebanan</item>
+            <item>Verifikatur Realisasi</item>
+            <item>Admin Deputi</item>
+            <item>Manager</item>
+            <item>Sekretaris</item>
+            <item>Pegawai</item>
+        </string-array>
 </resources>

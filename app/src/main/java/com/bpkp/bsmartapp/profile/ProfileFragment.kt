@@ -7,9 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.RadioButton
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.navigation.fragment.findNavController
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.databinding.FragmentProfileBinding
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE_HOME
@@ -36,6 +39,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         var ID_RULE3P = 0
         var NAMA_RULE4P = "NAMA_RULE4P"
         var ID_RULE4P = 0
+
     }
 
 //    private var nik = ""
@@ -49,7 +53,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         profileBinding = FragmentProfileBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
         return profileBinding.root
+
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -69,6 +75,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         profileBinding.roleManager.setOnClickListener(this)
         profileBinding.rolePegawai.setOnClickListener(this)
         profileBinding.rolePku.setOnClickListener(this)
+
 
 //        //Admin = 1
 //        profileBinding.roleAdminGrey.setOnClickListener {
@@ -185,46 +192,58 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             mAlertDialog.show()
         }
 
+        profileBinding.spinner.setOnClickListener {
+            ArrayAdapter.createFromResource(
+                requireContext(),
+                R.array.jabatan_array,
+                android.R.layout.simple_spinner_item
+            ).also { adapter ->
+                // Specify the layout to use when the list of choices appears
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                // Apply the adapter to the spinner
+                spinner.adapter = adapter
+            }
+        }
 
-    }
 
-    fun onRadioButtonClicked(view: View) {
-        if (view is RadioButton) {
-            // Is the button now checked?
-            val checked = view.isChecked
+        fun onRadioButtonClicked(view: View) {
+            if (view is RadioButton) {
+                // Is the button now checked?
+                val checked = view.isChecked
 
-            // Check which radio button was clicked
-            when (view.getId()) {
-                R.id.role_admin ->
-                    if (checked) {
-                        // Pirates are the best
-                    }
-                R.id.role_pku ->
-                    if (checked) {
-                        // Ninjas rule
-                    }
+                // Check which radio button was clicked
+                when (view.getId()) {
+                    R.id.role_admin ->
+                        if (checked) {
+                            // Pirates are the best
+                        }
+                    R.id.role_pku ->
+                        if (checked) {
+                            // Ninjas rule
+                        }
+                }
             }
         }
     }
 
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.role_admin -> {
-                ID_RULE_HOME = 24
-            }
-            R.id.role_admin_unit -> {
-                ID_RULE_HOME = 12
-            }
-            R.id.role_manager -> {
-                ID_RULE_HOME = 12
-            }
-            R.id.role_pegawai -> {
-                ID_RULE_HOME = 12
-            }
-            R.id.role_pku -> {
-                ID_RULE_HOME = 12
+        override fun onClick(v: View?) {
+            when (v?.id) {
+                R.id.role_admin -> {
+                    ID_RULE_HOME = 24
+                }
+                R.id.role_admin_unit -> {
+                    ID_RULE_HOME = 12
+                }
+                R.id.role_manager -> {
+                    ID_RULE_HOME = 12
+                }
+                R.id.role_pegawai -> {
+                    ID_RULE_HOME = 12
+                }
+                R.id.role_pku -> {
+                    ID_RULE_HOME = 12
+                }
             }
         }
     }
 
-}
