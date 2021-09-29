@@ -19,11 +19,13 @@ import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ID_RULE1P
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ID_RULE2P
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ID_RULE3P
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ID_RULE4P
+import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ID_RULE5P
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.ID_RULE_PROFILE
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE1P
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE2P
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE3P
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE4P
+import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE5P
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE_PROFILE
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_USER
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NIK_USER
@@ -50,6 +52,8 @@ class MainActivity : AppCompatActivity() {
         const val ID_RULE3 = "ID_RULE3"
         const val NAMA_RULE4 = "NAMA_RULE4"
         const val ID_RULE4 = "ID_RULE4"
+        const val NAMA_RULE5 = "NAMA_RULE5"
+        const val ID_RULE5 = "ID_RULE5"
         const val ID_PEGAWAI = "ID_PEGAWAI"
     }
 
@@ -87,6 +91,8 @@ class MainActivity : AppCompatActivity() {
         ID_RULE3P = intent.getIntExtra(ID_RULE3,0)
         NAMA_RULE4P = intent.getStringExtra(NAMA_RULE4).toString()
         ID_RULE4P = intent.getIntExtra(ID_RULE4,0)
+        NAMA_RULE5P = intent.getStringExtra(NAMA_RULE5).toString()
+        ID_RULE5P = intent.getIntExtra(ID_RULE5,0)
 
         NIK_USER = intent.getStringExtra(NIK).toString()
         NIK_HOME = intent.getStringExtra(NIK).toString()

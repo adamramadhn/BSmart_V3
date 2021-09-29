@@ -7,12 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.RadioButton
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.navigation.fragment.findNavController
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.databinding.FragmentProfileBinding
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE_HOME
@@ -20,7 +16,7 @@ import com.bpkp.bsmartapp.login.LoginActivity
 import com.bpkp.bsmartapp.login.PrefHelper
 import kotlinx.android.synthetic.main.fragment_profile.*
 
-class ProfileFragment : Fragment(), View.OnClickListener {
+class ProfileFragment : Fragment(), View.OnClickListener/*, AdapterView.OnItemSelectedListener*/ {
     lateinit var prefHelper: PrefHelper
 
     companion object {
@@ -39,6 +35,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         var ID_RULE3P = 0
         var NAMA_RULE4P = "NAMA_RULE4P"
         var ID_RULE4P = 0
+        var NAMA_RULE5P = "NAMA_RULE5P"
+        var ID_RULE5P = 0
 
     }
 
@@ -63,116 +61,57 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         tv_eselon.text = ESELON_USER
         tv_nip.text = NIP_USER
         prefHelper = PrefHelper(requireContext())
+
         Log.d(
             "ZZZ",
-            "$NAMA_RULE1P = $ID_RULE1P\n$NAMA_RULE2P = $ID_RULE2P\n$NAMA_RULE3P = $ID_RULE3P\n$NAMA_RULE4P = $ID_RULE4P"
+            "$NAMA_RULE1P = $ID_RULE1P\n$NAMA_RULE2P = $ID_RULE2P\n$NAMA_RULE3P = $ID_RULE3P\n$NAMA_RULE4P = $ID_RULE4P\n" +
+                    "$NAMA_RULE5P = $ID_RULE5P"
         )
+        with(profileBinding) {
+            when {
+                ID_RULE2P == 0 -> {
+                    arr2.visibility = View.GONE
+                }
+                ID_RULE2P != 0 -> {
+                    arr3.text = NAMA_RULE3P
+                }
 
-        //
-//
-        profileBinding.roleAdmin.setOnClickListener(this)
-        profileBinding.roleAdminUnit.setOnClickListener(this)
-        profileBinding.roleManager.setOnClickListener(this)
-        profileBinding.rolePegawai.setOnClickListener(this)
-        profileBinding.rolePku.setOnClickListener(this)
+                ID_RULE3P == 0 -> {
+                    arr3.visibility = View.GONE
+                }
+                ID_RULE3P != 0 -> {
+                    arr3.text = NAMA_RULE3P
+                }
+
+                ID_RULE4P == 0 -> {
+                    arr4.visibility = View.GONE
+                }
+                ID_RULE4P != 0 -> {
+                    arr4.text = NAMA_RULE4P
+                }
 
 
-//        //Admin = 1
-//        profileBinding.roleAdminGrey.setOnClickListener {
-//            with(profileBinding) {
-//                ID_RULE_HOME = 1
-//                roleAdminBlue.visibility = View.VISIBLE
-//                rolePkuBlue.visibility = View.INVISIBLE
-//                roleManagerBlue.visibility = View.INVISIBLE
-//                rolePegawaiBlue.visibility = View.INVISIBLE
-//                roleAdminUnitBlue.visibility = View.INVISIBLE
-//
-//                roleAdminUnitGrey.visibility = View.VISIBLE
-//                roleAdminGrey.visibility = View.INVISIBLE
-//                rolePkuGrey.visibility = View.VISIBLE
-//                roleManagerGrey.visibility = View.VISIBLE
-//                rolePegawaiGrey.visibility = View.VISIBLE
-//            }
-//        }
-//        if (profileBinding.rolePegawaiBlue.visibility == View.VISIBLE) {
-//            ID_RULE_HOME = 24
-//        }
-//
-//        //Pegawai = 24
-//        profileBinding.rolePegawaiGrey.setOnClickListener {
-//            with(profileBinding) {
-//                ID_RULE_HOME = 24
-//                roleAdminBlue.visibility = View.INVISIBLE
-//                rolePkuBlue.visibility = View.INVISIBLE
-//                roleManagerBlue.visibility = View.INVISIBLE
-//                rolePegawaiBlue.visibility = View.VISIBLE
-//                roleAdminUnitBlue.visibility = View.INVISIBLE
-//
-//                roleAdminUnitGrey.visibility = View.VISIBLE
-//                roleAdminGrey.visibility = View.VISIBLE
-//                rolePkuGrey.visibility = View.VISIBLE
-//                roleManagerGrey.visibility = View.VISIBLE
-//                rolePegawaiGrey.visibility = View.INVISIBLE
-//            }
-//        }
-//
-//        //Manager = 12
-//        profileBinding.roleManagerGrey.setOnClickListener {
-//            with(profileBinding) {
-//                ID_RULE_HOME = 12
-//                roleAdminBlue.visibility = View.INVISIBLE
-//                rolePkuBlue.visibility = View.INVISIBLE
-//                roleManagerBlue.visibility = View.VISIBLE
-//                rolePegawaiBlue.visibility = View.INVISIBLE
-//                roleAdminUnitBlue.visibility = View.INVISIBLE
-//
-//                roleAdminUnitGrey.visibility = View.VISIBLE
-//                roleAdminGrey.visibility = View.VISIBLE
-//                rolePkuGrey.visibility = View.VISIBLE
-//                roleManagerGrey.visibility = View.INVISIBLE
-//                rolePegawaiGrey.visibility = View.VISIBLE
-//            }
-//        }
-//
-//
-//        //ADMIN UNIT = 2
-//        profileBinding.roleAdminUnitGrey.setOnClickListener {
-//            with(profileBinding) {
-//                ID_RULE_HOME = 2
-//                roleAdminBlue.visibility = View.INVISIBLE
-//                rolePkuBlue.visibility = View.INVISIBLE
-//                roleManagerBlue.visibility = View.INVISIBLE
-//                rolePegawaiBlue.visibility = View.INVISIBLE
-//                roleAdminUnitBlue.visibility = View.VISIBLE
-//
-//                roleAdminUnitGrey.visibility = View.INVISIBLE
-//                roleAdminGrey.visibility = View.VISIBLE
-//                rolePkuGrey.visibility = View.VISIBLE
-//                roleManagerGrey.visibility = View.VISIBLE
-//                rolePegawaiGrey.visibility = View.VISIBLE
-//
-//            }
-//        }
-//
-//
-//        //PKU = 5
-//        profileBinding.rolePkuGrey.setOnClickListener {
-//            with(profileBinding) {
-//                ID_RULE_HOME = 5
-//                roleAdminBlue.visibility = View.INVISIBLE
-//                rolePkuBlue.visibility = View.VISIBLE
-//                roleManagerBlue.visibility = View.INVISIBLE
-//                rolePegawaiBlue.visibility = View.INVISIBLE
-//                roleAdminUnitBlue.visibility = View.INVISIBLE
-//
-//                roleAdminUnitGrey.visibility = View.VISIBLE
-//                roleAdminGrey.visibility = View.VISIBLE
-//                rolePkuGrey.visibility = View.INVISIBLE
-//                roleManagerGrey.visibility = View.VISIBLE
-//                rolePegawaiGrey.visibility = View.VISIBLE
-//            }
-//        }
+                ID_RULE5P == 0 -> {
+                    arr5.visibility = View.GONE
+                }
+                ID_RULE5P != 0 -> {
+                    arr5.text = NAMA_RULE5P
+                }
+            }
+            arr1.text = NAMA_RULE1P
 
+
+            arr4.text = NAMA_RULE4P
+            arr5.text = NAMA_RULE5P
+
+        }
+
+
+        profileBinding.arr1.setOnClickListener(this)
+        profileBinding.arr2.setOnClickListener(this)
+        profileBinding.arr3.setOnClickListener(this)
+        profileBinding.arr4.setOnClickListener(this)
+        profileBinding.arr5.setOnClickListener(this)
 
         profileBinding.btnLogOut.setOnClickListener {
             val mAlertDialog = AlertDialog.Builder(requireActivity())
@@ -192,58 +131,26 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             mAlertDialog.show()
         }
 
-        profileBinding.spinner.setOnClickListener {
-            ArrayAdapter.createFromResource(
-                requireContext(),
-                R.array.jabatan_array,
-                android.R.layout.simple_spinner_item
-            ).also { adapter ->
-                // Specify the layout to use when the list of choices appears
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                // Apply the adapter to the spinner
-                spinner.adapter = adapter
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.arr3 -> {
+                ID_RULE_HOME = ID_RULE3P
             }
-        }
-
-
-        fun onRadioButtonClicked(view: View) {
-            if (view is RadioButton) {
-                // Is the button now checked?
-                val checked = view.isChecked
-
-                // Check which radio button was clicked
-                when (view.getId()) {
-                    R.id.role_admin ->
-                        if (checked) {
-                            // Pirates are the best
-                        }
-                    R.id.role_pku ->
-                        if (checked) {
-                            // Ninjas rule
-                        }
-                }
+            R.id.arr5 -> {
+                ID_RULE_HOME = ID_RULE5P
+            }
+            R.id.arr2 -> {
+                ID_RULE_HOME = ID_RULE2P
+            }
+            R.id.arr1 -> {
+                ID_RULE_HOME = ID_RULE1P
+            }
+            R.id.arr4 -> {
+                ID_RULE_HOME = ID_RULE4P
             }
         }
     }
-
-        override fun onClick(v: View?) {
-            when (v?.id) {
-                R.id.role_admin -> {
-                    ID_RULE_HOME = 24
-                }
-                R.id.role_admin_unit -> {
-                    ID_RULE_HOME = 12
-                }
-                R.id.role_manager -> {
-                    ID_RULE_HOME = 12
-                }
-                R.id.role_pegawai -> {
-                    ID_RULE_HOME = 12
-                }
-                R.id.role_pku -> {
-                    ID_RULE_HOME = 12
-                }
-            }
-        }
-    }
+}
 

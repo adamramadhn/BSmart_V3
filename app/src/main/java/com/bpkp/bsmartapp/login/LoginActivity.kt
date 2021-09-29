@@ -16,11 +16,13 @@ import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE1
 import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE2
 import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE3
 import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE4
+import com.bpkp.bsmartapp.MainActivity.Companion.ID_RULE5
 import com.bpkp.bsmartapp.MainActivity.Companion.NAMA_RULE
 import com.bpkp.bsmartapp.MainActivity.Companion.NAMA_RULE1
 import com.bpkp.bsmartapp.MainActivity.Companion.NAMA_RULE2
 import com.bpkp.bsmartapp.MainActivity.Companion.NAMA_RULE3
 import com.bpkp.bsmartapp.MainActivity.Companion.NAMA_RULE4
+import com.bpkp.bsmartapp.MainActivity.Companion.NAMA_RULE5
 import com.bpkp.bsmartapp.MainActivity.Companion.NIP_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.NAME_MAIN
 import com.bpkp.bsmartapp.MainActivity.Companion.NIK
@@ -108,6 +110,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, AuthListener {
 
             intent.putExtra(NAMA_RULE4,it.rule[3].namarule)
             intent.putExtra(ID_RULE4,it.rule[3].new_id_rule)
+
+            intent.putExtra(NAMA_RULE5,it.rule[4].namarule)
+            intent.putExtra(ID_RULE5,it.rule[4].new_id_rule)
 
             intent.putExtra(USERNAME_MAIN, prefHelper.getString(Constant.PREF_USERNAME).toString())
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

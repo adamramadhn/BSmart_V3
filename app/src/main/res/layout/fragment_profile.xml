@@ -65,8 +65,9 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="32dp"
-            app:layout_constraintEnd_toEndOf="@+id/ivProfile"
-            app:layout_constraintStart_toStartOf="@+id/ivProfile"
+            android:paddingHorizontal="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivProfile"
             app:srcCompat="@drawable/card_profile" />
 
@@ -124,31 +125,17 @@
             app:layout_constraintStart_toStartOf="@+id/imageView3"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            style="@style/contentBlue"
-            android:entries="@array/jabatan_array"
-            app:layout_constraintEnd_toEndOf="@+id/tvRole"
-            app:layout_constraintStart_toStartOf="@+id/tvRole"
-            app:layout_constraintTop_toBottomOf="@+id/tvRole"
-            />
 
         <RadioGroup
             android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.578"
-            app:layout_constraintStart_toStartOf="@+id/imageView3"
-            tools:layout_editor_absoluteY="556dp">
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@+id/tvRole"
+            app:layout_constraintTop_toBottomOf="@id/tvRole">
 
             <RadioButton
-                android:id="@+id/role_pegawai"
+                android:id="@+id/arr1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -159,7 +146,7 @@
                 android:textSize="14sp" />
 
             <RadioButton
-                android:id="@+id/role_manager"
+                android:id="@+id/arr2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -170,7 +157,7 @@
                 android:textSize="14sp" />
 
             <RadioButton
-                android:id="@+id/role_admin"
+                android:id="@+id/arr3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -181,7 +168,7 @@
                 android:textSize="14sp" />
 
             <RadioButton
-                android:id="@+id/role_pku"
+                android:id="@+id/arr4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -190,19 +177,9 @@
                 android:text="PKU"
                 android:textColor="@color/blue_secondary"
                 android:textSize="14sp" />
-        </RadioGroup>
-
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/imageView3"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup1">
 
             <RadioButton
-                android:id="@+id/role_admin_unit"
+                android:id="@+id/arr5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
