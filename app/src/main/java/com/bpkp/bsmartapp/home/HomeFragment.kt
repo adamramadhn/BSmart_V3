@@ -96,6 +96,9 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
             ID_RULE5H ->{
                 binding.tvGrade.text = NAMA_RULE5H
             }
+            else -> {
+                binding.tvGrade.text = NAMA_RULE1H
+            }
         }
         if (activity != null) {
             Log.d("ZZZ", "NIK_HOME: $NIK_HOME , $ID_RULE_HOME")
