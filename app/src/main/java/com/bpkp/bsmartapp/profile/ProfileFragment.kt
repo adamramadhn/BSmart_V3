@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.databinding.FragmentProfileBinding
 import com.bpkp.bsmartapp.home.HomeFragment.Companion.ID_RULE_HOME
+import com.bpkp.bsmartapp.login.Constant
 import com.bpkp.bsmartapp.login.LoginActivity
 import com.bpkp.bsmartapp.login.PrefHelper
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -40,16 +41,12 @@ class ProfileFragment : Fragment(), View.OnClickListener/*, AdapterView.OnItemSe
 
     }
 
-//    private var nik = ""
-//    private var passphrase = ""
-
     private lateinit var profileBinding: FragmentProfileBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         profileBinding = FragmentProfileBinding.inflate(inflater, container, false)
-        // Inflate the layout for this fragment
         return profileBinding.root
 
     }
@@ -61,6 +58,13 @@ class ProfileFragment : Fragment(), View.OnClickListener/*, AdapterView.OnItemSe
         tv_eselon.text = ESELON_USER
         tv_nip.text = NIP_USER
         prefHelper = PrefHelper(requireContext())
+        arr1.isChecked = prefHelper.getBoolean(Constant.PREF_ROLE_RADIO1)
+        arr2.isChecked = prefHelper.getBoolean(Constant.PREF_ROLE_RADIO2)
+        arr3.isChecked = prefHelper.getBoolean(Constant.PREF_ROLE_RADIO3)
+        arr4.isChecked = prefHelper.getBoolean(Constant.PREF_ROLE_RADIO4)
+        arr5.isChecked = prefHelper.getBoolean(Constant.PREF_ROLE_RADIO5)
+
+
 
         Log.d(
             "ZZZ",
@@ -73,16 +77,16 @@ class ProfileFragment : Fragment(), View.OnClickListener/*, AdapterView.OnItemSe
             arr3.text = NAMA_RULE3P
             arr4.text = NAMA_RULE4P
             arr5.text = NAMA_RULE5P
-            if (ID_RULE2P == 0){
+            if (ID_RULE2P == 0) {
                 arr2.visibility = View.GONE
             }
-            if (ID_RULE3P == 0){
+            if (ID_RULE3P == 0) {
                 arr3.visibility = View.GONE
             }
-            if (ID_RULE4P == 0){
+            if (ID_RULE4P == 0) {
                 arr4.visibility = View.GONE
             }
-            if (ID_RULE5P == 0){
+            if (ID_RULE5P == 0) {
                 arr5.visibility = View.GONE
             }
         }
@@ -116,20 +120,25 @@ class ProfileFragment : Fragment(), View.OnClickListener/*, AdapterView.OnItemSe
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.arr3 -> {
-                ID_RULE_HOME = ID_RULE3P
-            }
-            R.id.arr5 -> {
-                ID_RULE_HOME = ID_RULE5P
+            R.id.arr1 -> {
+                ID_RULE_HOME = ID_RULE1P
+                prefHelper.put(Constant.PREF_ROLE_RADIO1, arr1.isChecked)
             }
             R.id.arr2 -> {
                 ID_RULE_HOME = ID_RULE2P
+                prefHelper.put(Constant.PREF_ROLE_RADIO2, arr2.isChecked)
             }
-            R.id.arr1 -> {
-                ID_RULE_HOME = ID_RULE1P
+            R.id.arr3 -> {
+                ID_RULE_HOME = ID_RULE3P
+                prefHelper.put(Constant.PREF_ROLE_RADIO3, arr3.isChecked)
             }
             R.id.arr4 -> {
                 ID_RULE_HOME = ID_RULE4P
+                prefHelper.put(Constant.PREF_ROLE_RADIO4, arr4.isChecked)
+            }
+            R.id.arr5 -> {
+                ID_RULE_HOME = ID_RULE5P
+                prefHelper.put(Constant.PREF_ROLE_RADIO5, arr5.isChecked)
             }
         }
     }
