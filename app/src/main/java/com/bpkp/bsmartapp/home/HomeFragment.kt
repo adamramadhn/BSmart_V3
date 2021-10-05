@@ -188,11 +188,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
 
     }
 
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        binding = null
-//    }
-
     override fun setMessage(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
