@@ -13,7 +13,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
-import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.sp.ListSpResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.sp.SpResponse
 import com.bpkp.bsmartapp.databinding.ActivityDetailSuratPengantarBinding

@@ -3,7 +3,7 @@ package com.bpkp.bsmartapp.core.data.source.remote.network
 import com.bpkp.bsmartapp.core.data.source.remote.response.AuthLoginResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.DetailST
 import com.bpkp.bsmartapp.core.data.source.remote.response.ListSuratTugasResponse
-import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
+import com.bpkp.bsmartapp.core.data.source.remote.response.pembebanan.PembebananDetailResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.pembebanan.PembebananResponse
 import com.bpkp.bsmartapp.core.data.source.remote.response.sp.SpResponse
 import okhttp3.OkHttpClient
@@ -52,7 +52,7 @@ interface ApiService {
         @Field("rule") rule: Int,
         @Field("approval") approval: Int,
         @Field("catatan") catatan: String,
-    ): Call<SuratTugasResponse>
+    ): Call<com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse>
 
 
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
@@ -124,7 +124,7 @@ interface ApiService {
     @GET("beban/detail")
     fun getDetailBeban(
         @Query("id_beban") id_beban: Int?,
-    ): Call<SpResponse> //ganti
+    ): Call<PembebananDetailResponse> //ganti
 
 
     companion object {

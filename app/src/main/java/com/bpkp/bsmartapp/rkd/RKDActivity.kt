@@ -11,11 +11,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bpkp.bsmartapp.R
-import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
 import com.bpkp.bsmartapp.databinding.ActivityRkdBinding
 import com.bpkp.bsmartapp.login.Constant
 import com.bpkp.bsmartapp.login.PrefHelper
-import com.bpkp.bsmartapp.pembebanan.RKDDetail
+import com.bpkp.bsmartapp.pembebanan.ActivityPembebananDetail
 
 class RKDActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityRkdBinding
@@ -45,8 +44,8 @@ class RKDActivity : AppCompatActivity(), View.OnClickListener {
 
         val username = intent.getStringExtra(USERNAME_RKD)
         rkdAdapter.onItemClick = {
-            val intent = Intent(this, RKDDetail::class.java)
-            intent.putExtra(RKDDetail.EXTRA_DATA, it)
+            val intent = Intent(this, ActivityPembebananDetail::class.java)
+            intent.putExtra(ActivityPembebananDetail.EXTRA_DATA, it)
             intent.putExtra(USERNAME_RKD, username)
             startActivity(intent)
         }

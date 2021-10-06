@@ -19,7 +19,7 @@ class DetailSuratTugasViewModel : ViewModel() {
     fun approvalST(
         idPegawai: String?, idST: Int?, rule: Int?, approval: Int, catatan: String?
     ) {
-        if (idPegawai != null && catatan != null && rule !=null && idST != null) {
+        if (idPegawai != null && catatan != null && rule != null && idST != null) {
             ApiService().approvalST(idPegawai, idST, rule, approval, catatan)
                 .enqueue(object : Callback<SuratTugasResponse> {
                     override fun onResponse(

@@ -44,7 +44,7 @@
             android:theme="@style/Theme.TourismApp.NoActionBar">
         </activity>
 
-        <activity android:name="com.bpkp.bsmartapp.rkdDetail.RKDDetail"
+        <activity android:name="com.bpkp.bsmartapp.pembebanan.ActivityPembebananDetail"
             android:theme="@style/Theme.TourismApp.NoActionBar">
         </activity>
 

@@ -11,8 +11,7 @@ data class PembebananData(
     @field:SerializedName("st_id")
     val id_st: Int?,
     val no_beban: String?,
-    @field:SerializedName("beban_id")
-    val id_beban: String?,
+    val id_beban: Int?,
     val perihal: String?,
     val arsip: String?,
     val untuk: String?,
