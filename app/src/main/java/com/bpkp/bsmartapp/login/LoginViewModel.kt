@@ -16,7 +16,7 @@ class LoginViewModel: ViewModel() {
 
     fun onLoginButtonClick(user_email: String, user_password: String) {
         authListener?.onStarted()
-        if (user_email.isEmpty() || user_password.isEmpty()) {
+        if (user_email.isEmpty() || user_password.isEmpty() || user_password.length<2) {
             authListener?.onFailure("Invalid email or password")
             return
         }
@@ -25,7 +25,7 @@ class LoginViewModel: ViewModel() {
     }
 
 
-    fun userLogin(user_email: String, user_password: String): LiveData<AuthLoginResponse> {
+    private fun userLogin(user_email: String, user_password: String): LiveData<AuthLoginResponse> {
         val loginResponse = MutableLiveData<AuthLoginResponse>()
         try {
             ApiService().authLogin(user_email, user_password).enqueue(object :
@@ -51,7 +51,7 @@ class LoginViewModel: ViewModel() {
 
             })
         } catch (e: Exception){
-            authListener?.onFailure(e.toString())
+            authListener?.onFailure("Something wrong..")
         }
         return loginResponse
     }
