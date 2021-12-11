@@ -46,7 +46,7 @@ class LoginViewModel: ViewModel() {
                 }
 
                 override fun onFailure(call: Call<AuthLoginResponse>, t: Throwable) {
-                    authListener?.onFailure("Something wrong..\nPlease check your Connectivity")
+                    authListener?.onFailure(t.toString())
                 }
 
             })
