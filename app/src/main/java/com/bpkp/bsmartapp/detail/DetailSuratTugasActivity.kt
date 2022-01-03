@@ -6,7 +6,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -71,7 +70,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
             })
         } catch (e: Exception) {
             Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
-            Log.d("ZZZ", "Error: $e")
         }
 
         binding.etNote.setOnKeyListener { _, keyCode, event ->
@@ -157,7 +155,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 //                tvUserUpdate.text = detailSuratTugas.user_id
                 when (userEselon) {
                     "ESELON IV-A", "ESELON IV-B" -> {
-                        Log.d("ZZZ", "Role ID : $idRule")
                         if (detailSuratTugas.apv_es2 == 1 || detailSuratTugas.apv_es2 == 0 || detailSuratTugas.apv_es1 == 1 || detailSuratTugas.apv_es1 == 0 || detailSuratTugas.apv_es3 == 1 || detailSuratTugas.apv_es3 == 0 || detailSuratTugas.tte == 1) {
                             btnCancel.visibility = View.GONE
                             btnTolak.visibility = View.GONE
@@ -382,10 +379,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 mAlertDialog.setTitle("Perhatian")
                 mAlertDialog.setMessage("Apakah Anda yakin menyetujui surat tugas ini?")
                 mAlertDialog.setIcon(R.drawable.ic_warning)
-                Log.d(
-                    "ZZZ",
-                    "IDPEGAWAI: $idPegawai\nIDST: ${detailSuratTugas.id_st}\nRULE: $idRule\nNote: ${binding.etNote.text}"
-                )
 
                 mAlertDialog.setPositiveButton("Ya") { _, _ ->
                     Handler(mainLooper).postDelayed({
@@ -518,7 +511,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.btn_tte -> {
-                Log.d("ZZZ", "ID_ST: $idST\nNIK : $nik")
                 try {
                     val intent = Intent(this, TteActivity::class.java)
                     intent.putExtra(ID_ST, idST)

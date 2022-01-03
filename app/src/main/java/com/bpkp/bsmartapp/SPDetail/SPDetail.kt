@@ -46,7 +46,6 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
         userEselon = intent.getStringExtra(ESELONSP)
         dibuatOleh = intent.getStringExtra(CREATEDBY).toString()
         idST = intent.getIntExtra(IDST, 0)
-        Log.d("ZZZ", "idST: $idST\nidSP: $idSP")
         SPViewModel = SPViewModel()
 
         binding.btnBack.setOnClickListener(this)
@@ -427,7 +426,6 @@ class SPDetail : AppCompatActivity(), View.OnClickListener {
             override fun onFailure(call: Call<SpResponse>, t: Throwable) {
                 Toast.makeText(this@SPDetail, "Error: $t,", Toast.LENGTH_LONG)
                     .show()
-                Log.d("ZZZ", t.toString())
             }
 
         })

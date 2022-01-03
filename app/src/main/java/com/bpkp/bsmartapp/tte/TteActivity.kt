@@ -11,7 +11,6 @@ import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.network.ApiService
 import com.bpkp.bsmartapp.core.data.source.remote.response.DetailST
 import com.bpkp.bsmartapp.databinding.ActivityTteBinding
-import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -47,7 +46,6 @@ class TteActivity : AppCompatActivity(), View.OnClickListener {
                 var x = ""
 //                var y = "3175020706740008"
                 passphrase = tteBinding.etPasphrase.text?.trim().toString()
-                Log.d("ZZZ", "$idSt ,$nik, $passphrase")
                 ApiService().getTte(idSt, passphrase, nik).enqueue(object : Callback<DetailST> {
                     override fun onResponse(call: Call<DetailST>, response: Response<DetailST>) {
 
@@ -79,17 +77,12 @@ class TteActivity : AppCompatActivity(), View.OnClickListener {
                                 "Maaf passphrase yang anda masukkan salah!",
                                 Toast.LENGTH_SHORT
                             ).show()
-                            Log.d(
-                                "ZZZ",
-                                "Error Code:${response.code()}\n Message: ${response.message()}"
-                            )
                         }
 
                     }
 
                     override fun onFailure(call: Call<DetailST>, t: Throwable) {
                         Toast.makeText(this@TteActivity, "Error: $t", Toast.LENGTH_SHORT).show()
-                        Log.d("ZZZ", "Error: $t")
                     }
 
                 })

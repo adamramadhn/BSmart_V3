@@ -3,7 +3,6 @@ package com.bpkp.bsmartapp.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -97,7 +96,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
             }
         }
         if (activity != null) {
-            Log.d("ZZZ", "NIK_HOME: $NIK_HOME , $ID_RULE_HOME")
             suratTugasAdapter.onItemClick = { selectedData ->
                 val intent = Intent(activity, DetailSuratTugasActivity::class.java)
                 intent.putExtra(DetailSuratTugasActivity.EXTRA_DATA, selectedData)
@@ -140,8 +138,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
                     getListST()
                 }
             }
-
-
         }
 
 

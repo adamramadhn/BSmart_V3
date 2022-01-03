@@ -2,7 +2,6 @@ package com.bpkp.bsmartapp.profile
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -97,13 +96,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             }
         }
 
-
-
-        Log.d(
-            "ZZZ",
-            "$NAMA_RULE1P = $ID_RULE1P\n$NAMA_RULE2P = $ID_RULE2P\n$NAMA_RULE3P = $ID_RULE3P\n$NAMA_RULE4P = $ID_RULE4P\n" +
-                    "$NAMA_RULE5P = $ID_RULE5P"
-        )
         with(profileBinding) {
             arr1.text = NAMA_RULE1P
             arr2.text = NAMA_RULE2P
@@ -192,27 +184,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 prefHelper.put(Constant.PREF_ROLE_RADIO3, false)
                 prefHelper.put(Constant.PREF_ROLE_RADIO4, false)
                 prefHelper.put(Constant.PREF_ROLE_RADIO5, true)
-            }
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        when(ID_RULE_HOME){
-            ID_RULE1P -> {
-                arr1.isChecked = true
-            }
-            ID_RULE2P -> {
-                arr2.isChecked = true
-            }
-            ID_RULE3P -> {
-                arr3.isChecked = true
-            }
-            ID_RULE4P -> {
-                arr4.isChecked = true
-            }
-            ID_RULE5P -> {
-                arr5.isChecked = true
             }
         }
     }

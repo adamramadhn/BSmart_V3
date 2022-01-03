@@ -2,7 +2,6 @@ package com.bpkp.bsmartapp.pembebanan
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +16,7 @@ import com.bpkp.bsmartapp.home.HomeFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-//dipakai
+//dipakai, data pada web (tabel database) belum memenuhi kebutuhan mobile
 class PembebananFragment : Fragment() {
     private lateinit var binding: FragmentPembebananBinding
     private var page = 1

@@ -2,7 +2,6 @@ package com.bpkp.bsmartapp.pembebanan
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -41,7 +40,7 @@ class ActivityPembebananDetail : AppCompatActivity(), View.OnClickListener {
                 showDetailTourism(it?.get(0))
             })
         } catch (e: Exception) {
-            Log.d("ZZZ", e.toString())
+//            Toast.makeText(this, e.toString() , Toast.LENGTH_SHORT).show()
         }
 
     }
