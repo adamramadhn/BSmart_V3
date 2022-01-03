@@ -4,7 +4,7 @@
   - List Surat Tugas
   - Detail Surat Tugas
   - Approval Surat Tugas
-  - Lihat PDF Surat Tugas dan Surat Pembebanan
+  - Lihat PDF Surat Tugas dan Surat Pembebanan (jika tidak bisa dibuka = tdk ada pdf)
   - TTE Surat Tugas
 
 # Fitur Surat Pembebanan
