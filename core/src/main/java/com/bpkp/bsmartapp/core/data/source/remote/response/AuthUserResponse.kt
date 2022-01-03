@@ -1,5 +1,5 @@
 package com.bpkp.bsmartapp.core.data.source.remote.response
-
+//Seluruh file pada CORE diperlukan
 data class AuthUserResponse(
     val id: String,
     val password: String,

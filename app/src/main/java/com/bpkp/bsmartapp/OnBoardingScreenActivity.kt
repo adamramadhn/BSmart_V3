@@ -2,7 +2,7 @@ package com.bpkp.bsmartapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
+//dipakai
 class OnBoardingScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

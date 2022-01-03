@@ -1,5 +1,5 @@
 package com.bpkp.bsmartapp.login
-
+//dipakai
 class Constant {
     companion object{
         val PREF_IS_LOGIN = "PREF_IS_LOGIN"

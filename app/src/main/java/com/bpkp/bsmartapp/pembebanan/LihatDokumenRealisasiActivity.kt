@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.databinding.ActivityBtnLihatRincianBiayaBinding
 import com.bpkp.bsmartapp.databinding.ActivityDetailPembebananBinding
-
+//tidak dipakai
 class LihatDokumenRealisasiActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityBtnLihatRincianBiayaBinding

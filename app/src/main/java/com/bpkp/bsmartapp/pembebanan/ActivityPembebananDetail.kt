@@ -11,7 +11,7 @@ import androidx.lifecycle.observe
 import com.bpkp.bsmartapp.R
 import com.bpkp.bsmartapp.core.data.source.remote.response.pembebanan.PembebananDetail
 import com.bpkp.bsmartapp.databinding.ActivityDetailPembebananBinding
-
+//dipakai
 class ActivityPembebananDetail : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityDetailPembebananBinding

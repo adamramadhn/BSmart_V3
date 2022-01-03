@@ -10,7 +10,7 @@ import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+//dipakai
 class DetailSuratTugasViewModel : ViewModel() {
 
     val approvalResponse = MutableLiveData<SuratTugasResponse?>()

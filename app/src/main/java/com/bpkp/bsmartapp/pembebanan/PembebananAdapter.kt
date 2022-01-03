@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bpkp.bsmartapp.core.data.source.remote.response.pembebanan.PembebananData
 import com.dicoding.tourismapp.core.databinding.ItemListPembebananBinding
 import java.util.ArrayList
-
+//dipakai
 class PembebananAdapter : RecyclerView.Adapter<PembebananAdapter.ListViewHolder>() {
     private var listData = ArrayList<PembebananData>()
     var onItemClick: ((PembebananData) -> Unit)? = null

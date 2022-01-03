@@ -1,7 +1,7 @@
 package com.bpkp.bsmartapp.rkd
 
 import androidx.lifecycle.ViewModel
-
+//belum dipakai
 class RKDViewModel: ViewModel() {
 
 //    var suratTugasListener: SuratTugasListener? = null

@@ -15,7 +15,7 @@ import com.bpkp.bsmartapp.databinding.ActivityRkdBinding
 import com.bpkp.bsmartapp.login.Constant
 import com.bpkp.bsmartapp.login.PrefHelper
 import com.bpkp.bsmartapp.pembebanan.ActivityPembebananDetail
-
+//belum dipakai
 class RKDActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityRkdBinding
     private lateinit var rkdViewModel: RKDViewModel

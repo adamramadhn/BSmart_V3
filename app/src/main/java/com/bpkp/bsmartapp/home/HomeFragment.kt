@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+//dipakai
 class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefreshListener {
     lateinit var prefHelper: PrefHelper
     private var isLoading = false
@@ -58,11 +58,8 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         var ID_RULE5H = 0
     }
 
-    //    private lateinit var homeViewModel: HomeViewModel
     private lateinit var suratTugasAdapter: SuratTugasAdapter
 
-//    private var _binding: FragmentHomeBinding? = null
-//    private val binding get() = _binding!!
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
@@ -79,7 +76,6 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
         prefHelper = PrefHelper(requireContext())
 
         binding.tvName.text = NAME_HOME
-//        binding.tvGrade.text = "$ID_RULE_HOME"
         when(ID_RULE_HOME){
             ID_RULE1H ->{
                 binding.tvGrade.text = NAMA_RULE1H
@@ -133,13 +129,11 @@ class HomeFragment : Fragment(), SuratTugasListener, SwipeRefreshLayout.OnRefres
                     }
                 })
             }
-//            binding.swipeRefresh.setOnRefreshListener(this)
             binding.cbFilter.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
                     prefHelper.put(Constant.PREF_FILTER, true)
                     suratTugasAdapter.clear()
                     getFilter()
-                    //home itu oncreate
                 } else {
                     prefHelper.put(Constant.PREF_FILTER, false)
                     suratTugasAdapter.clear()

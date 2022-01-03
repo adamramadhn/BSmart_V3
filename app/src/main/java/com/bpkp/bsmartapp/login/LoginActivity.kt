@@ -33,7 +33,7 @@ import com.bpkp.bsmartapp.databinding.ActivityLoginBinding
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-
+//dipakai
 class LoginActivity : AppCompatActivity(), View.OnClickListener, AuthListener {
 
     private lateinit var loginBinding: ActivityLoginBinding

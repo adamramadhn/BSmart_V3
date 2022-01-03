@@ -15,7 +15,7 @@ import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+//dipakai
 class TteActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         const val ID_ST = "ID_ST"

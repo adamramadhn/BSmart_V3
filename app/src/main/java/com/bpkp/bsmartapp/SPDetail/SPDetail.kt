@@ -20,7 +20,7 @@ import com.bpkp.bsmartapp.detail.DetailSuratTugasActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+//dipakai
 class SPDetail : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityDetailSuratPengantarBinding
     private lateinit var SPViewModel: SPViewModel

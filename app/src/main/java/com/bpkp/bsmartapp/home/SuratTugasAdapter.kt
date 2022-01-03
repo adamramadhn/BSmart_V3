@@ -7,18 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.dicoding.tourismapp.core.databinding.ItemListSuratTugasBinding
 import java.util.ArrayList
-
+//dipakai
 class SuratTugasAdapter : RecyclerView.Adapter<SuratTugasAdapter.ListViewHolder>() {
     private var listData = ArrayList<SuratTugasResponse>()
     var onItemClick: ((SuratTugasResponse) -> Unit)? = null
-
-//    fun setData(newListData: List<SuratTugasResponse>?) {
-//        if (newListData == null) return
-//        listData.clear()
-//        listData.addAll(newListData)
-//        notifyDataSetChanged()
-//    }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view =

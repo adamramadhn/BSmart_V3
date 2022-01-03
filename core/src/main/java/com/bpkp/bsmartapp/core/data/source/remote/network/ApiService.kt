@@ -13,7 +13,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 import java.util.concurrent.TimeUnit
-
+//dipakai
+//Seluruh file pada CORE diperlukan
 interface ApiService {
 
     @FormUrlEncoded
@@ -23,7 +24,7 @@ interface ApiService {
         @Field("username") usernameLogin: String,
         @Field("password") passwordLogin: String
     ): Call<AuthLoginResponse>
-
+//Surattugas
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("surattugas")
@@ -42,7 +43,6 @@ interface ApiService {
         @Field("cari") cari: String
     ): Call<ListSuratTugasResponse>
 
-    //================================================
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @POST("surattugas/approval")
@@ -59,17 +59,7 @@ interface ApiService {
     @GET("surattugas/detail")
     fun getDetailST(
         @Query("id_st") id_st: Int
-//        @Field("username") username: String,
-//        @Field("idst") id_st: Int,
     ): Call<DetailST>
-
-//    @FormUrlEncoded
-//    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-//    @POST("surattugas/filter")
-//    fun getFilter(
-//        @Field("username") username: String,
-//        @Query("page") page: Int
-//    ): Call<ListSuratTugasResponse>
 
     @FormUrlEncoded
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
@@ -90,26 +80,11 @@ interface ApiService {
         @Field("nik") nik: String,
     ): Call<DetailST>
 
-//    @FormUrlEncoded
-//    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-//    @POST("passphrase")
-//    fun loginTte(
-//        @Field("username") id_sp: String,
-//        @Field("nik") nik: String,
-//        @Field("passphrase") passphrase: String,
-//    ): Call<DetailST>
-
     @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
     @GET("suratpengantar")
     fun getSP(
         @Query("id_st") id_st: Int?,
     ): Call<SpResponse>
-
-
-//    @Headers("Authorization:Bearer 3|nqrPrNiabhSqjVMa57cZT8fb3kzU40X42RsRKKYL")
-//    @GET
-//    fun getListST(@Url url: String): Call<ListSuratTugasResponse>
-
 
     //Pembebanan
     @FormUrlEncoded
@@ -124,7 +99,7 @@ interface ApiService {
     @GET("beban/detail")
     fun getDetailBeban(
         @Query("id_beban") id_beban: Int?,
-    ): Call<PembebananDetailResponse> //ganti
+    ): Call<PembebananDetailResponse>
 
 
     companion object {

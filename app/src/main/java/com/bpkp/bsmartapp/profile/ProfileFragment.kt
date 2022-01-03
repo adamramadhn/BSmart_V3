@@ -16,8 +16,8 @@ import com.bpkp.bsmartapp.login.Constant
 import com.bpkp.bsmartapp.login.LoginActivity
 import com.bpkp.bsmartapp.login.PrefHelper
 import kotlinx.android.synthetic.main.fragment_profile.*
-
-class ProfileFragment : Fragment(), View.OnClickListener/*, AdapterView.OnItemSelectedListener*/ {
+//dipakai
+class ProfileFragment : Fragment(), View.OnClickListener {
     lateinit var prefHelper: PrefHelper
 
     companion object {

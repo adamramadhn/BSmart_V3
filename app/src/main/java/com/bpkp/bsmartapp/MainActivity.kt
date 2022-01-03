@@ -40,7 +40,7 @@ import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_RULE_PROFILE
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NAMA_USER
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NIK_USER
 import com.bpkp.bsmartapp.profile.ProfileFragment.Companion.NIP_USER
-
+//dipakai
 class MainActivity : AppCompatActivity() {
     lateinit var prefHelper: PrefHelper
     private var backPressedTime: Long = 0

@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import com.bpkp.bsmartapp.login.LoginActivity
-
+//dipakai
 class SplashScreenActivity : AppCompatActivity() {
     private var delay = 2000L
     override fun onCreate(savedInstanceState: Bundle?) {

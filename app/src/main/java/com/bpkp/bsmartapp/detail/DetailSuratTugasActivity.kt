@@ -19,7 +19,7 @@ import com.bpkp.bsmartapp.databinding.ActivityDetailSuratTugasBinding
 import com.bpkp.bsmartapp.tte.TteActivity
 import com.bpkp.bsmartapp.tte.TteActivity.Companion.ID_ST
 import com.bpkp.bsmartapp.tte.TteActivity.Companion.NIK_TTE
-
+//dipakai
 class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         const val EXTRA_DATA = "extra_data"
@@ -33,7 +33,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityDetailSuratTugasBinding
     private lateinit var detailSuratTugasViewModel: DetailSuratTugasViewModel
 
-    private var userName: String? = ""
+//    private var userName: String? = ""
     private var userEselon: String? = ""
     private var nik: String? = ""
     private var idST: Int = 0
@@ -152,39 +152,6 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 }
                 etNote.hint = "$note1$note2$note3$note4"
-//                when (idRule) {
-//                    //Admin
-//                    1 -> {
-//
-//                    }
-//                    //Admin Unit
-//                    2 -> {
-//                        btnCancel.visibility = View.GONE
-//                        btnTolak.visibility = View.GONE
-//                        btnSetuju.visibility = View.GONE
-//                        btnTte.visibility = View.GONE
-//                    }
-//                    //PKU
-//                    5 -> {
-//                        btnCancel.visibility = View.GONE
-//                        btnTolak.visibility = View.GONE
-//                        btnSetuju.visibility = View.GONE
-//                        btnTte.visibility = View.GONE
-//                    }
-//                    //Manager
-//                    12 -> {
-//                        //bebas
-//                    }
-//                    //Pegawai
-//                    24 -> {
-//                        //hanya bisa view
-//                        btnCancel.visibility = View.GONE
-//                        btnTolak.visibility = View.GONE
-//                        btnSetuju.visibility = View.GONE
-//                        btnTte.visibility = View.GONE
-//                    }
-//
-//                }
                 tvUserUpdate.text = detailSuratTugas.created_by
                 createdBy = detailSuratTugas.created_by.toString()
 //                tvUserUpdate.text = detailSuratTugas.user_id
@@ -518,14 +485,11 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
     override fun onResume() {
         super.onResume()
 
-//        userName = intent.getStringExtra(USERNAME_DETAIL)
-//        userEselon = intent.getStringExtra(ESELON_DETAIL)
-//        nik = intent.getStringExtra(NIK_DETAIL)
-
         try {
             detailSuratTugasViewModel.setDetail(idST)
             detailSuratTugasViewModel.getDetail().observe(this, {
                 showDetailTourism(it?.get(0))
+                //jumlah petugas tidak ada pada json terkait
                 jmlPtgs = 0/*it?.get(1)?.jumlahpetugas!!*/
                 binding.etNote.setText("")
             })
@@ -541,7 +505,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 try {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.setDataAndType(
-                        Uri.parse("http://aplikasisotre.org/api/surattugas/pdf?id_st=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                        Uri.parse("http://aplikasistore.org/api/surattugas/pdf?id_st=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
                         "application/pdf"
                     )
                     intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -564,6 +528,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                     Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
                 }
             }
+            //untuk button lihat RKD
 //            R.id.btn_lihat_rkd -> {
 //                Toast.makeText(this, "Coming soon..", Toast.LENGTH_SHORT).show()
 ////                val intent = Intent(this, RKDActivity::class.java)
@@ -579,7 +544,7 @@ class DetailSuratTugasActivity : AppCompatActivity(), View.OnClickListener {
                 try {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.setDataAndType(
-                        Uri.parse("https://mobsmart.bpkp.go.id/api/suratpengantar/pdf?id_st=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
+                        Uri.parse("http://aplikasistore.org/api/suratpengantar/pdf?id_st=${idST}&pdf=true&token=b91dc65721c83b94cf5683b1afea84ba8225a7e98d85e2a6e34d8c9868995e41"),
                         "application/pdf"
                     )
                     intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION

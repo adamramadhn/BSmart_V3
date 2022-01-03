@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bpkp.bsmartapp.core.data.source.remote.response.SuratTugasResponse
 import com.dicoding.tourismapp.core.databinding.ItemListSuratTugasBinding
 import java.util.ArrayList
-
+//belum dipakai
 class RKDAdapter : RecyclerView.Adapter<RKDAdapter.ListViewHolder>() {
     private var listData = ArrayList<SuratTugasResponse>()
     var onItemClick: ((SuratTugasResponse) -> Unit)? = null

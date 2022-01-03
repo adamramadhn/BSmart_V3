@@ -1,9 +1,7 @@
 package com.bpkp.bsmartapp.core.data.source.remote.response.pembebanan
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
-
+//Seluruh file pada CORE diperlukan
 data class PembebananDetail(
     @field:SerializedName("tanggal_update")
     val tgl_buat: String?,

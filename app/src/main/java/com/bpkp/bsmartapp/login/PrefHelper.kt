@@ -8,14 +8,11 @@ import android.security.keystore.KeyProperties
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.securepreferences.SecurePreferences
-
+//dipakai
 class PrefHelper(context: Context) {
 
-    //DECLARATION
     private val PREFS_NAME = "sharedpref12345"
 
-    //CONSTRUCTOR
-//    private val sharedPref = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     private var sharedPref =
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val spec = KeyGenParameterSpec.Builder(

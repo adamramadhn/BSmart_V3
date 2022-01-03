@@ -12,7 +12,7 @@ import com.bpkp.bsmartapp.core.data.source.remote.response.pembebanan.Pembebanan
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+//dipakai
 class PembebananDetailViewModel : ViewModel() {
     val detailResponse = MutableLiveData<List<PembebananDetail>?>()
     fun setDetailBeban(idBeban: Int) {
